@@ -1,168 +1,297 @@
 # VALIANT Wrapped
 
-VALIANT Wrapped is a prototype pipeline for turning Scopus publication exports into concise, website-ready summaries of researcher expertise.
+### Scopus CSV → Llama 3.1 → Research Expertise Summaries
 
-Given per-author Scopus CSV exports, the project:
+VALIANT Wrapped is a prototype pipeline for transforming Scopus publication exports into concise, website-ready summaries of researcher expertise.
 
-* Generates **1–2 paragraph expertise blurbs** per author using **Meta-Llama-3.1-8B-Instruct**
-* Optionally outputs **per-author text files** for easy copy/paste
-* Produces a simple **2025–present publication/citation summary** per author (counts + top journal + top cited paper)
+Given per-author Scopus CSV exports, the system:
 
-This is designed to support scalable, automated “faculty/researcher profile” generation for a research center.
+* Generates **1–2 paragraph expertise blurbs** using `meta-llama/Meta-Llama-3.1-8B-Instruct`
+* Outputs structured `.csv` and optional `.txt` summaries
+* Produces optional **2025–present publication metrics**
+* Runs locally on an ACCRE GPU node using `transformers`
 
----
-
-## What’s in this repo
-
-### Key Scripts
-
-**`author_expertise_llama31.py`**
-Reads per-author Scopus CSVs and generates a 120–220 word expertise description per author using a **map-reduce summarization** approach (chunk → theme summaries → final synthesis).
-
-**`author_summary_2025_present.py`**
-Reads per-author Scopus CSVs and calculates simple 2025–present metrics:
-
-* Publication count
-* Total citations
-* Top journal (by publications; tie-breaker by citations)
-* Top paper title + citations (by citations; tie-breaker by year)
+This project supports scalable, automated research profile generation for the VALIANT Discovery Center and similar research environments.
 
 ---
 
-## Expected Folder Structure
+# 📂 Project Structure
 
-```
+```id="merged-structure"
 VALIANT-Wrapped/
-├── author_csvs/                      # Input: per-author Scopus CSVs (usually NOT committed)
-├── author_expertise_llama31.py       # LLM expertise summarizer
-├── author_summary_2025_present.py    # 2025+ metrics summarizer
-├── author_expertise_txt/             # Output: per-author summaries (auto-created)
+│
+├── author_csvs/                      # Per-author Scopus CSV files (not typically committed)
+│     ├── 5719....csv
+│     ├── 5720....csv
+│
+├── author_expertise_llama31.py       # Main LLM summarization script
+├── author_summary_2025_present.py    # Optional 2025+ metrics summary
+│
 ├── author_expertise_summaries.csv    # Output: 1–2 paragraph summaries
-├── author_summary_2025_present.csv   # Output: 2025+ metrics summary
+├── author_expertise_txt/             # Optional per-author text outputs
+├── author_summary_2025_present.csv   # Output: 2025+ metrics
+│
 └── README.md
 ```
 
-> Tip: If `author_csvs/` contains sensitive or large data, add it to `.gitignore`.
+> Recommended: add `author_csvs/` to `.gitignore` if files are large or sensitive.
 
 ---
 
-## Requirements
+# ⚙️ What the LLM Script Does
 
-* Python 3.9+ recommended
-* GPU recommended for Llama 3.1 inference
-* Libraries:
+For each author CSV:
 
-  * `pandas`
-  * `torch`
-  * `transformers`
-  * `accelerate` (recommended when using `device_map="auto"`)
+1. Loads the file
+2. Extracts structured metadata:
+
+   * Title
+   * Abstract
+   * Journal
+   * Year
+   * Citation count
+   * Keywords (if available)
+3. Sorts papers by citation count (most informative first)
+4. Caps extremely large author corpora
+5. Uses a **map → reduce summarization strategy**
+6. Writes:
+
+   * `author_expertise_summaries.csv`
+   * Optional `.txt` summary per author
+
+No year filtering is applied for expertise summaries — the full publication record is used.
 
 ---
 
-## Setup
+# 🧠 Why Map → Reduce?
 
-### 1. Create and Activate a Virtual Environment
+Instead of sending an entire publication corpus into a single prompt (which can cause):
 
-```bash
-python -m venv venv
-source venv/bin/activate        # macOS/Linux
-# venv\Scripts\activate         # Windows
+* Token overflow
+* Hallucination
+* Weak synthesis
+
+The pipeline:
+
+1. **Chunks publications**
+2. **Extracts research themes per chunk (Map step)**
+3. **Synthesizes chunk themes into a final expertise summary (Reduce step)**
+
+This produces:
+
+* More stable outputs
+* Better thematic synthesis
+* Lower hallucination risk
+* Stronger performance for prolific authors
+
+---
+
+# 🧭 Workflow Summary
+
+```
+Scopus Export
+    ↓
+Split by Author
+    ↓
+Per-author CSVs
+    ↓
+author_expertise_llama31.py
+    ↓
+Llama 3.1 (Map → Reduce)
+    ↓
+1–2 Paragraph Expertise Summary
 ```
 
-### 2. Install Dependencies
+---
 
-```bash
-pip install -U pip
-pip install pandas torch transformers accelerate
+# 🧪 Model Used
+
+```
+meta-llama/Meta-Llama-3.1-8B-Instruct
 ```
 
-> On HPC/GPU clusters (e.g., ACCRE), use the environment-specific PyTorch install recommended by the cluster if needed.
+Loaded via:
+
+```python
+AutoTokenizer.from_pretrained(...)
+AutoModelForCausalLM.from_pretrained(...)
+```
+
+The model is loaded once and reused across all authors for efficiency.
 
 ---
 
-## Run the Pipeline
+# 🖥 Running on ACCRE
 
-### A) Generate Expertise Summaries (LLM)
+## 1️⃣ Start an Interactive GPU Session
 
-This script reads all CSVs in `author_csvs/` and outputs:
+```bash
+salloc --gres=gpu:1 --mem=64G --time=04:00:00
+```
 
-* `author_expertise_summaries.csv`
-* `author_expertise_txt/<author_id>.txt` (optional)
+(or your preferred allocation command)
+
+---
+
+## 2️⃣ Activate Your Environment
+
+```bash
+conda activate huggingface
+```
+
+If needed:
+
+```bash
+pip install -U pandas transformers accelerate torch
+```
+
+---
+
+## 3️⃣ (Recommended) Set Hugging Face Cache to Nobackup
+
+To avoid filling your home directory:
+
+```bash
+mkdir -p /nobackup/$USER/hf
+export HF_HOME=/nobackup/$USER/hf
+```
+
+---
+
+## 4️⃣ Run the Script
 
 ```bash
 python author_expertise_llama31.py
 ```
 
-### Key Configuration Settings (Inside Script)
+---
 
-* `INPUT_DIR = "author_csvs"`
-* `OUTPUT_CSV = "author_expertise_summaries.csv"`
-* `OUTPUT_TXT_DIR = "author_expertise_txt"`
-* `MODEL_ID = "meta-llama/Meta-Llama-3.1-8B-Instruct"`
-* `MAX_PAPERS_PER_AUTHOR = 250`
-* `MAX_INPUT_TOKENS = 6000`
+# 🎛 Adjustable Settings (Inside Script)
 
-### Output Format
+You may tune:
 
-* 1–2 paragraphs
-* Professional tone
-* Plain-language
-* Grounded only in publication evidence (no invented facts)
+```python
+MAX_PAPERS_PER_AUTHOR = 250
+MAX_INPUT_TOKENS = 6000
+TEMPERATURE = 0.3
+MAX_NEW_TOKENS_MAP = 220
+MAX_NEW_TOKENS_REDUCE = 220
+```
+
+### If summaries feel:
+
+* Too generic → increase `MAX_NEW_TOKENS_REDUCE`
+* Too verbose → decrease `MAX_NEW_TOKENS_REDUCE`
+* Too creative → lower `TEMPERATURE`
+* Too slow → lower `MAX_PAPERS_PER_AUTHOR`
 
 ---
 
-### B) Generate 2025–Present Metrics Summary
+# 📊 Optional 2025–Present Metrics Script
 
-This script reads all CSVs in `author_csvs/` and outputs:
+The secondary script generates:
 
-* `author_summary_2025_present.csv`
+* Publication count (2025–present)
+* Total citations (2025–present)
+* Top journal (by publications, tie-break by citations)
+* Top paper (by citations, tie-break by year)
+
+Run:
 
 ```bash
 python author_summary_2025_present.py
 ```
 
-### Key Configuration Settings (Inside Script)
+Outputs:
 
-* `INPUT_DIR = "author_csvs"`
-* `YEAR_CUTOFF = 2025`
-* `OUTPUT_SUMMARY = "author_summary_2025_present.csv"`
-
----
-
-## Notes on Data & Privacy
-
-Scopus exports may contain large text fields (abstracts) and/or data you may not want to publish publicly.
-
-Recommended approach:
-
-* Keep raw inputs in `author_csvs/`
-* Add `author_csvs/` and large outputs to `.gitignore`
-* Commit only scripts, documentation, and small example outputs (if permitted)
+```
+author_summary_2025_present.csv
+```
 
 ---
 
-## Roadmap / Next Steps
+# 📤 Output Files
 
-* Add keyword/theme extraction and ranking
-* Add cross-author topic clustering
-* Build a lightweight web interface to browse summaries
-* Add reproducible `requirements.txt`
-* Add a small demo dataset (if permitted)
+## Main Expertise File
+
+```
+author_expertise_summaries.csv
+```
+
+Columns:
+
+* `author_id`
+* `author_file`
+* `summary`
 
 ---
 
-## Credits
+## Optional Text Folder
 
-Built as part of the VALIANT Discovery Center “Wrapped”-style research summary prototype.
+```
+author_expertise_txt/
+```
+
+Contains:
+
+```
+5719....txt
+5720....txt
+...
+```
+
+Each file contains the final 1–2 paragraph expertise summary.
 
 ---
 
-If you’d like, I can also:
+# 🧾 Requirements
 
-* Add a **professional GitHub badge section**
-* Add a short **Architecture Overview diagram**
-* Tighten this into a more “AI product portfolio” style README**
-* Or rewrite it to sound more like a polished research software project**
+* Python 3.9+
+* GPU recommended
+* Libraries:
 
-Just tell me which direction you want this repo to signal professionally.
+  * pandas
+  * torch
+  * transformers
+  * accelerate (recommended)
 
+---
+
+# 🔐 Data & Privacy Notes
+
+Scopus exports may contain large text fields and institutional data.
+
+Recommended practice:
+
+* Keep raw CSVs out of version control
+* Use `.gitignore` for:
+
+  * `author_csvs/`
+  * Large output files
+  * Model cache directories
+
+---
+
+# 🚀 Future Enhancements
+
+* Add structured JSON output for web ingestion
+* Add all-time vs recent summaries
+* Add keyword extraction layer before LLM
+* Cross-author topic clustering
+* Convert to CLI tool with arguments
+* Add batch logging + progress tracking
+* Generate persona visuals using image models (e.g., FLUX)
+* Build lightweight web interface for browsing summaries
+
+---
+
+# 🎯 Project Context
+
+Built as part of the **VALIANT Discovery Center “Wrapped”-style research profile prototype**, demonstrating:
+
+* Research data parsing
+* LLM integration
+* Prompt engineering
+* Map-reduce summarization
+* GPU inference workflow
+* Scalable academic profile automation
