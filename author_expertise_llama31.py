@@ -1,63 +1,61 @@
 #!/usr/bin/env python3
 """
-author_expertise_llama31.py
+makeAuthorSummaries.py
 
-Reads per-author Scopus CSVs and generates a 1–2 paragraph expertise summary per author
-using meta-llama/Meta-Llama-3.1-8B-Instruct (Transformers).
+Similar workflow to the ES3890 MakeLLMOutline tutorial:
+- Load meta-llama/Meta-Llama-3.1-8B-Instruct once
+- Loop over input files
+- Generate text output
 
-Approach: map-reduce summarization
-- Create compact "paper records" from each row (title/journal/citations/keywords/abstract)
-- Chunk records to fit the model context
-- MAP: summarize themes per chunk
-- REDUCE: synthesize chunk themes into final 1–2 paragraphs
+Input:  a folder of per-author Scopus CSVs (same schema)
+Output: author_expertise_summaries.csv (+ optional per-author .txt files)
 
-Outputs:
-- author_expertise_summaries.csv
-- optional per-author text files in OUTPUT_TXT_DIR
+Notes:
+- No year filtering.
+- Uses a map->reduce approach so large author corpora fit reliably.
 """
 
 import os
 import glob
 import re
-from datetime import datetime
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional
 
 import pandas as pd
 
 # ----------------------------
-# USER SETTINGS
+# SETTINGS (edit these)
 # ----------------------------
-INPUT_DIR = "author_csvs"  # folder containing per-author CSVs
+INPUT_DIR = "author_csvs"
 OUTPUT_CSV = "author_expertise_summaries.csv"
-OUTPUT_TXT_DIR = "author_expertise_txt"  # set to None to disable .txt outputs
+OUTPUT_TXT_DIR = "author_expertise_txt"  # set to None to disable
 
 MODEL_ID = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 
-# Generation controls (keep fairly low-temp for factual tone)
-MAX_NEW_TOKENS_MAP = 220
-MAX_NEW_TOKENS_REDUCE = 220
-TEMPERATURE = 0.3
+# Generation behavior (lower temp = less “creative”)
+MAP_MAX_NEW_TOKENS = 220
+REDUCE_MAX_NEW_TOKENS = 240
+TEMPERATURE = 0.25
 TOP_P = 0.9
 REPETITION_PENALTY = 1.1
 
-# Chunking controls
-MAX_INPUT_TOKENS = 6000  # keep prompt sizes manageable
-MAX_PAPERS_PER_AUTHOR = 250  # cap to avoid huge prompts for prolific authors
+# Prompt sizing / cost controls
+MAX_INPUT_TOKENS_PER_CHUNK = 5500
+MAX_ROWS_PER_AUTHOR = 250   # cap to avoid extremely large authors taking forever
+ABSTRACT_CHAR_LIMIT = 700   # truncate long abstracts before tokenization
 
-# Column candidates (Scopus exports can vary)
-YEAR_COLS = ["Year", "Publication Year", "Pub. Year"]
+# Column candidates (Scopus exports vary)
 TITLE_COLS = ["Title", "Document Title", "Article Title"]
 ABSTRACT_COLS = ["Abstract", "Description"]
 JOURNAL_COLS = ["Source title", "Source Title", "Journal"]
 CITES_COLS = ["Cited by", "Citations", "Citation count"]
+YEAR_COLS = ["Year", "Publication Year", "Pub. Year"]
 KEYWORD_COLS = ["Author Keywords", "Indexed Keywords", "Keywords"]
 
-# ----------------------------
-# Helpers
-# ----------------------------
 
-
-def pick_existing_col(cols, candidates) -> Optional[str]:
+# ----------------------------
+# Utility helpers
+# ----------------------------
+def pick_col(cols, candidates) -> Optional[str]:
     for c in candidates:
         if c in cols:
             return c
@@ -68,15 +66,15 @@ def safe_int_series(s: pd.Series) -> pd.Series:
     return pd.to_numeric(s, errors="coerce").fillna(0).astype(int)
 
 
-def clean_text(x: str) -> str:
+def clean_text(x) -> str:
     x = "" if x is None else str(x)
     x = re.sub(r"\s+", " ", x).strip()
     return x
 
 
-def truncate(x: str, max_chars: int) -> str:
-    x = clean_text(x)
-    return x if len(x) <= max_chars else (x[:max_chars] + "...")
+def truncate(s: str, n: int) -> str:
+    s = clean_text(s)
+    return s if len(s) <= n else s[:n] + "..."
 
 
 def load_csv(path: str) -> pd.DataFrame:
@@ -86,48 +84,36 @@ def load_csv(path: str) -> pd.DataFrame:
         return pd.read_csv(path, dtype=str, encoding="latin-1", low_memory=False)
 
 
-def build_paper_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, str]]:
+def build_records(df: pd.DataFrame) -> pd.DataFrame:
     cols = df.columns
-    year_col = pick_existing_col(cols, YEAR_COLS)
-    title_col = pick_existing_col(cols, TITLE_COLS)
-    abstract_col = pick_existing_col(cols, ABSTRACT_COLS)
-    journal_col = pick_existing_col(cols, JOURNAL_COLS)
-    cites_col = pick_existing_col(cols, CITES_COLS)
-    kw_col = pick_existing_col(cols, KEYWORD_COLS)
+    title_col = pick_col(cols, TITLE_COLS)
+    abs_col = pick_col(cols, ABSTRACT_COLS)
+    jour_col = pick_col(cols, JOURNAL_COLS)
+    cites_col = pick_col(cols, CITES_COLS)
+    year_col = pick_col(cols, YEAR_COLS)
+    kw_col = pick_col(cols, KEYWORD_COLS)
 
     out = df.copy()
-
-    # These are optional; we do NOT filter by year, but year helps summarize time evolution
-    out["_year"] = safe_int_series(out[year_col]) if year_col else -1
     out["_title"] = out[title_col].fillna("") if title_col else ""
-    out["_abstract"] = out[abstract_col].fillna("") if abstract_col else ""
-    out["_journal"] = out[journal_col].fillna("") if journal_col else ""
+    out["_abstract"] = out[abs_col].fillna("") if abs_col else ""
+    out["_journal"] = out[jour_col].fillna("") if jour_col else ""
     out["_cites"] = safe_int_series(out[cites_col]) if cites_col else 0
+    out["_year"] = safe_int_series(out[year_col]) if year_col else -1
     out["_keywords"] = out[kw_col].fillna("") if kw_col else ""
 
-    colmap = {
-        "year_col": year_col or "",
-        "title_col": title_col or "",
-        "abstract_col": abstract_col or "",
-        "journal_col": journal_col or "",
-        "cites_col": cites_col or "",
-        "kw_col": kw_col or "",
-    }
-    return out, colmap
+    return out
 
 
-def format_record(row: pd.Series) -> str:
-    # Compact but informative per-paper record
-    year = int(row["_year"]) if row["_year"] is not None else -1
-    cites = int(row["_cites"]) if row["_cites"] is not None else 0
-
-    title = truncate(row["_title"], 180)
-    journal = truncate(row["_journal"], 90)
-    abstract = truncate(row["_abstract"], 650)
-    keywords = truncate(row["_keywords"], 180)
+def format_row_as_record(r: pd.Series) -> str:
+    title = truncate(r["_title"], 200)
+    journal = truncate(r["_journal"], 110)
+    abstract = truncate(r["_abstract"], ABSTRACT_CHAR_LIMIT)
+    keywords = truncate(r["_keywords"], 220)
+    year = int(r["_year"]) if r["_year"] != -1 else None
+    cites = int(r["_cites"])
 
     parts = []
-    if year != -1:
+    if year is not None:
         parts.append(f"Year: {year}")
     parts.append(f"Citations: {cites}")
     parts.append(f"Journal: {journal}" if journal else "Journal: (missing)")
@@ -139,61 +125,61 @@ def format_record(row: pd.Series) -> str:
     return "\n".join(parts)
 
 
-def chunk_records(records: List[str], tokenizer, max_input_tokens: int) -> List[List[str]]:
+def chunk_records(records: List[str], tokenizer, max_tokens: int) -> List[List[str]]:
     chunks: List[List[str]] = []
-    current: List[str] = []
-    current_tokens = 0
+    cur: List[str] = []
+    cur_tokens = 0
 
     for rec in records:
-        rec_tokens = len(tokenizer.encode(rec, add_special_tokens=False)) + 10
-
-        # If a single record is huge, hard truncate by characters
-        if rec_tokens > max_input_tokens:
+        rec_tokens = len(tokenizer.encode(rec, add_special_tokens=False)) + 8
+        if rec_tokens > max_tokens:
+            # hard truncate if needed
             rec = truncate(rec, 1500)
             rec_tokens = len(tokenizer.encode(
-                rec, add_special_tokens=False)) + 10
+                rec, add_special_tokens=False)) + 8
 
-        if current and (current_tokens + rec_tokens > max_input_tokens):
-            chunks.append(current)
-            current = [rec]
-            current_tokens = rec_tokens
+        if cur and (cur_tokens + rec_tokens > max_tokens):
+            chunks.append(cur)
+            cur = [rec]
+            cur_tokens = rec_tokens
         else:
-            current.append(rec)
-            current_tokens += rec_tokens
+            cur.append(rec)
+            cur_tokens += rec_tokens
 
-    if current:
-        chunks.append(current)
-
+    if cur:
+        chunks.append(cur)
     return chunks
 
 
-def make_map_messages(author_id: str, chunk_text: str) -> List[Dict[str, str]]:
-    sys = (
-        "You are a careful research analyst. Summarize research themes from publication metadata.\n"
+# ----------------------------
+# Prompt builders
+# ----------------------------
+def map_messages(author_id: str, chunk_text: str) -> List[Dict[str, str]]:
+    system = (
+        "You are a careful research analyst. Infer research themes from publication metadata.\n"
         "Rules:\n"
         "- Use ONLY the provided evidence.\n"
-        "- Do NOT invent methods, grants, affiliations, institutions, or claims not supported.\n"
-        "- Prefer recurring themes, application areas, and methods at a high level.\n"
-        "- Output: 4–8 bullet themes + 1–2 sentences describing the overall focus.\n"
+        "- Do NOT invent affiliations, grants, or specific claims not supported.\n"
+        "- Output 4–8 bullet themes plus 1–2 sentences summarizing overall focus.\n"
     )
     user = (
         f"Researcher ID: {author_id}\n\n"
         "Publication records:\n"
         f"{chunk_text}\n\n"
-        "Task: Extract the main recurring research themes and problem areas."
+        "Task: Extract the main recurring research themes, methods, and application areas."
     )
-    return [{"role": "system", "content": sys}, {"role": "user", "content": user}]
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
-def make_reduce_messages(author_id: str, map_summaries: str) -> List[Dict[str, str]]:
-    sys = (
-        "You write concise expertise blurbs for a research center website.\n"
+def reduce_messages(author_id: str, map_summaries: str) -> List[Dict[str, str]]:
+    system = (
+        "Write a concise expertise blurb for a research center website.\n"
         "Rules:\n"
         "- Use ONLY the evidence in the chunk summaries.\n"
         "- Do NOT invent facts.\n"
-        "- Write 1–2 paragraphs (about 120–220 words total).\n"
-        "- Emphasize the author's main research expertise and recurring themes.\n"
-        "- Keep tone professional and plain-language.\n"
+        "- Write 1–2 paragraphs (~120–220 words total).\n"
+        "- Emphasize the author’s main research expertise and recurring themes.\n"
+        "- Plain language, professional tone.\n"
     )
     user = (
         f"Researcher ID: {author_id}\n\n"
@@ -201,10 +187,13 @@ def make_reduce_messages(author_id: str, map_summaries: str) -> List[Dict[str, s
         f"{map_summaries}\n\n"
         "Now synthesize into a 1–2 paragraph description of overall research expertise."
     )
-    return [{"role": "system", "content": sys}, {"role": "user", "content": user}]
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
-def generate_chat(model, tokenizer, messages: List[Dict[str, str]], max_new_tokens: int) -> str:
+# ----------------------------
+# Generation
+# ----------------------------
+def generate(model, tokenizer, messages: List[Dict[str, str]], max_new_tokens: int) -> str:
     import torch
 
     prompt = tokenizer.apply_chat_template(
@@ -212,7 +201,7 @@ def generate_chat(model, tokenizer, messages: List[Dict[str, str]], max_new_toke
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
     with torch.no_grad():
-        out = model.generate(
+        output = model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
             do_sample=True,
@@ -222,28 +211,21 @@ def generate_chat(model, tokenizer, messages: List[Dict[str, str]], max_new_toke
             eos_token_id=tokenizer.eos_token_id,
         )
 
-    text = tokenizer.decode(out[0], skip_special_tokens=True)
-
-    # Some setups echo the prompt; remove if detected
+    text = tokenizer.decode(output[0], skip_special_tokens=True)
     if text.startswith(prompt):
         text = text[len(prompt):].strip()
-
     return text.strip()
-
-# ----------------------------
-# Main
-# ----------------------------
 
 
 def main():
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
 
-    print(f"Loading tokenizer/model: {MODEL_ID}")
+    # Similar to the tutorial: load once, then run your loop
+    print(f"Loading model: {MODEL_ID}")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, use_fast=True)
 
     if torch.cuda.is_available():
-        # bfloat16 works well on A100/H100; float16 otherwise
         major = torch.cuda.get_device_capability(0)[0]
         dtype = torch.bfloat16 if major >= 8 else torch.float16
     else:
@@ -257,7 +239,7 @@ def main():
 
     paths = sorted(glob.glob(os.path.join(INPUT_DIR, "*.csv")))
     if not paths:
-        raise FileNotFoundError(f"No CSV files found in: {INPUT_DIR}")
+        raise FileNotFoundError(f"No CSV files found in {INPUT_DIR}")
 
     if OUTPUT_TXT_DIR:
         os.makedirs(OUTPUT_TXT_DIR, exist_ok=True)
@@ -267,7 +249,7 @@ def main():
     for path in paths:
         fname = os.path.basename(path)
         author_id = os.path.splitext(fname)[0]
-        print(f"\n--- Processing {author_id} ({fname}) ---")
+        print(f"\n--- {author_id} ---")
 
         df = load_csv(path)
         if df.empty:
@@ -279,30 +261,30 @@ def main():
                     f.write(summary + "\n")
             continue
 
-        df2, _ = build_paper_frame(df)
+        df2 = build_records(df)
 
-        # Sort so we keep the most informative rows first when capping
-        # Priority: citations desc, then year desc (if available)
+        # Keep the “most informative” rows first, then cap
         df2 = df2.sort_values(["_cites", "_year"], ascending=[
-                              False, False]).head(MAX_PAPERS_PER_AUTHOR)
+                              False, False]).head(MAX_ROWS_PER_AUTHOR)
 
-        record_strings = [format_record(r) for _, r in df2.iterrows()]
-        chunks = chunk_records(record_strings, tokenizer, MAX_INPUT_TOKENS)
+        record_strings = [format_row_as_record(r) for _, r in df2.iterrows()]
+        chunks = chunk_records(record_strings, tokenizer,
+                               MAX_INPUT_TOKENS_PER_CHUNK)
 
-        # MAP
-        map_outputs = []
+        # MAP step
+        map_out = []
         for i, chunk in enumerate(chunks, start=1):
             chunk_text = "\n\n---\n\n".join(chunk)
-            messages = make_map_messages(author_id, chunk_text)
-            chunk_summary = generate_chat(
-                model, tokenizer, messages, max_new_tokens=MAX_NEW_TOKENS_MAP)
-            map_outputs.append(f"Chunk {i} summary:\n{chunk_summary}")
+            msg = map_messages(author_id, chunk_text)
+            chunk_summary = generate(
+                model, tokenizer, msg, max_new_tokens=MAP_MAX_NEW_TOKENS)
+            map_out.append(f"Chunk {i}:\n{chunk_summary}")
 
-        # REDUCE
-        map_summaries_text = "\n\n".join(map_outputs)
-        reduce_messages = make_reduce_messages(author_id, map_summaries_text)
-        final_summary = generate_chat(
-            model, tokenizer, reduce_messages, max_new_tokens=MAX_NEW_TOKENS_REDUCE)
+        # REDUCE step
+        combined = "\n\n".join(map_out)
+        msg = reduce_messages(author_id, combined)
+        final_summary = generate(
+            model, tokenizer, msg, max_new_tokens=REDUCE_MAX_NEW_TOKENS)
 
         results.append(
             {"author_id": author_id, "author_file": fname, "summary": final_summary})
@@ -313,9 +295,9 @@ def main():
 
     out_df = pd.DataFrame(results)
     out_df.to_csv(OUTPUT_CSV, index=False, encoding="utf-8")
-    print(f"\n✅ Wrote summaries CSV: {OUTPUT_CSV}")
+    print(f"\n✅ Wrote: {OUTPUT_CSV}")
     if OUTPUT_TXT_DIR:
-        print(f"✅ Wrote per-author txt summaries to: {OUTPUT_TXT_DIR}/")
+        print(f"✅ Wrote per-author .txt files to: {OUTPUT_TXT_DIR}/")
 
 
 if __name__ == "__main__":
