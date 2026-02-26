@@ -166,32 +166,34 @@ python author_expertise_llama31.py
 
 ---
 
-# 🧪 Gradio Runner (Local, Blocking Run)
+# 🧪 Local GUI Run Notes
 
-For a simple web UI that waits for the LLM run to finish and streams logs:
+If you have a local GUI script in your working directory (for example `gui_app.py`), run:
 
 ```bash
 python -m venv .venv
 . .venv/bin/activate
 python -m pip install -U pip
-python -m pip install pandas torch transformers accelerate gradio
-python gradio_wait_gui.py
+python -m pip install pandas torch transformers accelerate
+python gui_app.py
 ```
 
-Open:
+Typical local URL:
 
 ```text
-http://127.0.0.1:7860
+http://127.0.0.1:8501
 ```
 
-Recommended first test settings in the UI:
+Recommended first test run (small workload):
 
-* `Model ID`: `Qwen/Qwen2.5-7B-Instruct`
-* `MAX_AUTHORS`: `1`
-* `MAX_ROWS_PER_AUTHOR`: `80`
-* `MAX_INPUT_TOKENS_PER_CHUNK`: `2500`
-* `MAP_MAX_NEW_TOKENS`: `96`
-* `REDUCE_MAX_NEW_TOKENS`: `128`
+```bash
+export MODEL_ID="Qwen/Qwen2.5-7B-Instruct"
+export MAX_AUTHORS=1
+export MAX_ROWS_PER_AUTHOR=80
+export MAX_INPUT_TOKENS_PER_CHUNK=2500
+export MAP_MAX_NEW_TOKENS=96
+export REDUCE_MAX_NEW_TOKENS=128
+```
 
 ---
 
