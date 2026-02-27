@@ -166,6 +166,62 @@ python author_expertise_llama31.py
 
 ---
 
+# 🧪 Local GUI Run Notes
+
+If you have a local GUI script in your working directory (for example `gui_app.py`), run:
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -U pip
+python -m pip install pandas torch transformers accelerate
+python gui_app.py
+```
+
+Typical local URL:
+
+```text
+http://127.0.0.1:8501
+```
+
+Recommended first test run (small workload):
+
+```bash
+export MODEL_ID="Qwen/Qwen2.5-7B-Instruct"
+export MAX_AUTHORS=1
+export MAX_ROWS_PER_AUTHOR=80
+export MAX_INPUT_TOKENS_PER_CHUNK=2500
+export MAP_MAX_NEW_TOKENS=96
+export REDUCE_MAX_NEW_TOKENS=128
+```
+
+---
+
+# 🛠 Debug Notes (Hugging Face + GPU)
+
+If model loading fails, check these common cases:
+
+* `403 Forbidden` / `gated repo`:
+  Use an approved token for Meta Llama or switch to an open model (for example `Qwen/Qwen2.5-7B-Instruct`).
+* `Temporary failure in name resolution`:
+  DNS/network issue to `huggingface.co`; retry after connectivity is restored.
+* `CUDA out of memory`:
+  Lower `MAX_*` settings and set:
+
+```bash
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+```
+
+Useful terminal checks:
+
+```bash
+hf auth login
+python -c "import torch; print(torch.cuda.is_available())"
+nvidia-smi
+```
+
+---
+
 # 🎛 Adjustable Settings (Inside Script)
 
 You may tune:
