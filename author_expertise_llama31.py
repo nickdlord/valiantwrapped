@@ -3,7 +3,7 @@
 makeAuthorSummaries.py
 
 Similar workflow to the ES3890 MakeLLMOutline tutorial:
-- Load meta-llama/Meta-Llama-3.1-8B-Instruct once
+- Load a chat LLM once
 - Loop over input files
 - Generate text output
 
@@ -13,6 +13,13 @@ Output: author_expertise_summaries.csv (+ optional per-author .txt files)
 Notes:
 - No year filtering.
 - Uses a map->reduce approach so large author corpora fit reliably.
+
+PATCH ADDED:
+- MODEL_ID is now read from env (MODEL_ID) with a default fallback
+- Gated-model auth support:
+    - USE_HF_TOKEN=1 enables token=True for from_pretrained()
+    - HF_TOKEN / HUGGINGFACE_HUB_TOKEN can be provided via environment
+- Helpful debug prints to confirm which mode you’re in
 """
 
 import os
@@ -29,7 +36,12 @@ INPUT_DIR = "author_csvs"
 OUTPUT_CSV = "author_expertise_summaries.csv"
 OUTPUT_TXT_DIR = "author_expertise_txt"  # set to None to disable
 
-MODEL_ID = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+# NEW: model comes from environment if provided
+MODEL_ID = os.getenv(
+    "MODEL_ID", "meta-llama/Meta-Llama-3.1-8B-Instruct").strip()
+
+# NEW: gated-model auth toggle (set by your GUI/subprocess env)
+USE_HF_TOKEN = os.getenv("USE_HF_TOKEN", "0") == "1"
 
 # Generation behavior (lower temp = less “creative”)
 MAP_MAX_NEW_TOKENS = 220
@@ -218,24 +230,41 @@ def generate(model, tokenizer, messages: List[Dict[str, str]], max_new_tokens: i
 
 
 def main():
+    import sys
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
 
-    # Similar to the tutorial: load once, then run your loop
+    # --- NEW: gated repo auth + env-driven model id ---
+    print(f"Python: {sys.executable}")
     print(f"Loading model: {MODEL_ID}")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, use_fast=True)
+    print(f"USE_HF_TOKEN={int(USE_HF_TOKEN)}")
+
+    # If USE_HF_TOKEN=1, Transformers will use HF_TOKEN/HUGGINGFACE_HUB_TOKEN from env.
+    # Passing token=True is important for gated repos.
+    token_arg = True if USE_HF_TOKEN else None
+
+    tokenizer = AutoTokenizer.from_pretrained(
+        MODEL_ID,
+        use_fast=True,
+        token=token_arg,
+    )
 
     if torch.cuda.is_available():
         major = torch.cuda.get_device_capability(0)[0]
         dtype = torch.bfloat16 if major >= 8 else torch.float16
+        device_map = "auto"
     else:
         dtype = torch.float32
+        device_map = None  # safer on CPU / Windows
 
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_ID,
         torch_dtype=dtype,
-        device_map="auto",
+        device_map=device_map,
+        token=token_arg,
     )
+    model.eval()
+    # --- END NEW ---
 
     paths = sorted(glob.glob(os.path.join(INPUT_DIR, "*.csv")))
     if not paths:
