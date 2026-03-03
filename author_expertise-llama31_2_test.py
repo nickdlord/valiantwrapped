@@ -14,7 +14,7 @@ Key changes vs your original:
 - Input records are lighter (shorter abstracts) to save tokens
 
 Run:
-  python author_expertise_llama31_2.py --input-dir author_csvs
+  python author_expertise_llama31_2.py --input-dir author_csvs_test
 """
 
 import argparse
@@ -282,7 +282,7 @@ def generate_chat(
 # ----------------------------
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--input-dir", default="author_csvs",
+    ap.add_argument("--input-dir", default="author_csvs_test",
                     help="Folder containing per-author CSV files")
     ap.add_argument(
         "--output-csv", default="author_expertise_summaries.csv", help="Output CSV path")
