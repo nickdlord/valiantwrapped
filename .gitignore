@@ -36,3 +36,12 @@ __pycache__/
 *.bin
 
 *.safetensors
+
+.venv*/
+
+venv*/
+
+__pycache__/
+
+*.pyc
+
