@@ -133,15 +133,23 @@ persona_by_label = {row["author_label"]: row for _,
 PAGE_STYLE = """
 <style>
 :root{
-  --bg1:#050816;
-  --bg2:#0b1229;
-  --card:#121b33;
-  --card2:#182445;
-  --muted:#a9b6d3;
-  --text:#ffffff;
-  --accent:#38bdf8;
-  --accent2:#a78bfa;
-  --good:#34d399;
+  --bg1:#f6f8ff;
+  --bg2:#eef3ff;
+
+  --card:#ffffff;
+  --card2:#f3f6ff;
+
+  --text:#1e293b;
+  --muted:#64748b;
+
+  --accent:#c5b358;      /* Vanderbilt gold */
+  --accent2:#6366f1;     /* spring purple */
+
+  --good:#22c55e;
+
+  --shadow:0 10px 25px rgba(0,0,0,.08);
+  --radius:18px;
+}
   --shadow: 0 16px 40px rgba(0,0,0,.35);
   --radius: 18px;
 }
@@ -152,9 +160,11 @@ body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   margin:0;
   color:var(--text);
-  background: radial-gradient(900px 600px at 10% 10%, rgba(56,189,248,.20), transparent 60%),
-              radial-gradient(900px 600px at 90% 20%, rgba(167,139,250,.18), transparent 60%),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
+
+  background:
+    radial-gradient(900px 600px at 10% 10%, rgba(99,102,241,.10), transparent 60%),
+    radial-gradient(900px 600px at 90% 20%, rgba(197,179,88,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
 .container{
@@ -164,13 +174,11 @@ body{
 }
 
 .hero{
-  padding: 26px 28px;
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, rgba(56,189,248,.16), rgba(167,139,250,.14));
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
+  padding:28px;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg, #ffffff, #f4f7ff);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:var(--shadow);
 }
 
 .hero::after{
@@ -206,12 +214,12 @@ h1{
 }
 
 .section{
-  margin-top: 22px;
-  padding: 22px 22px;
-  border-radius: var(--radius);
-  background: rgba(18,27,51,.82);
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: var(--shadow);
+  margin-top:22px;
+  padding:22px;
+  border-radius:var(--radius);
+  background:var(--card);
+  border:1px solid rgba(0,0,0,.05);
+  box-shadow:var(--shadow);
 }
 
 .section h2{
@@ -227,11 +235,21 @@ h1{
   gap: 14px;
 }
 
+/* Make Top Journal / Top Paper main text white */
+.card .small b { 
+  color: var(--text);
+}
+
+/* Keep the rest of the small text muted (optional) */
+.card .small { 
+  color: var(--muted);
+}
+
 .card{
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 16px;
-  padding: 16px;
+  background:var(--card2);
+  border:1px solid rgba(0,0,0,.05);
+  border-radius:16px;
+  padding:16px;
 }
 
 .card .label{
@@ -248,10 +266,9 @@ h1{
   font-weight: 800;
 }
 
-.card .small{
-  margin-top: 8px;
-  color: var(--muted);
-  line-height: 1.35;
+.card .small b{
+  color:var(--text);
+  font-weight:700;
 }
 
 .pill{
