@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from pathlib import Path
+import html as html_lib  # NEW: for escaping text safely
 
 # ----------------------------
 # INPUT FILES
@@ -58,7 +59,8 @@ def format_tracklist(tracklist):
     else:
         tracks = [tracklist]
 
-    items = "\n".join(f"<li>{t}</li>" for t in tracks)
+    # Escape tracks so HTML doesn't break
+    items = "\n".join(f"<li>{html_lib.escape(t)}</li>" for t in tracks)
     return f"<ol>\n{items}\n</ol>"
 
 
@@ -133,7 +135,6 @@ def generate_author_page(author_label: str):
     # ----------------------------
     # GET SUMMARY
     # ----------------------------
-    # NOTE: your summary CSV header says: author_file, author_id, ...
     summary_row = summary_df[summary_df["author_file"] == author_label]
 
     if summary_row.empty:
@@ -178,6 +179,10 @@ def generate_author_page(author_label: str):
         expertise_text = "Expertise summary not found."
         build_report.append((author_label, "missing_expertise_txt"))
 
+    # ✅ FIX: do the newline replacement outside the f-string
+    # Also escape HTML to avoid breaking the page if text contains <, &, etc.
+    expertise_html = html_lib.escape(expertise_text).replace("\n", "<br>")
+
     # ----------------------------
     # GET PERSONA
     # ----------------------------
@@ -194,9 +199,10 @@ def generate_author_page(author_label: str):
         if status_val and status_val.lower() != "ok":
             build_report.append((author_label, f"persona_status:{status_val}"))
 
-        artist_name = p.get("artist_name", "")
-        persona_bio = p.get("persona_bio", "")
-        album_title = p.get("album_title", "")
+        artist_name = html_lib.escape(str(p.get("artist_name", "") or ""))
+        persona_bio = html_lib.escape(
+            str(p.get("persona_bio", "") or "")).replace("\n", "<br>")
+        album_title = html_lib.escape(str(p.get("album_title", "") or ""))
         tracklist = p.get("tracklist", "")
 
         tracklist_html = format_tracklist(tracklist)
@@ -212,7 +218,6 @@ def generate_author_page(author_label: str):
     # ----------------------------
     # BUILD PAGE
     # ----------------------------
-    # Include UTF-8 meta tag so browsers render special characters correctly
     html = f"""
 <!doctype html>
 <html lang="en">
@@ -241,7 +246,7 @@ def generate_author_page(author_label: str):
 
 <div class="section">
 <h2>Research Expertise</h2>
-<p>{expertise_text.replace("\n", "<br>")}</p>
+<p>{expertise_html}</p>
 </div>
 
 <div class="section">
@@ -275,7 +280,6 @@ another incredible year of innovation and collaboration.
 """
 
     output_path = os.path.join(AUTHOR_DIR, author_label + ".html")
-    # IMPORTANT: Write HTML as UTF-8 on Windows
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
 
@@ -284,7 +288,6 @@ another incredible year of innovation and collaboration.
 # ----------------------------
 
 
-# Build author list primarily from summary file; later we can expand to union-of-sources if you want
 authors = summary_df["author_file"].dropna().astype(str).unique()
 
 for author in authors:
@@ -331,7 +334,6 @@ with open(os.path.join(SITE_DIR, "index.html"), "w", encoding="utf-8") as f:
 report_df = pd.DataFrame(build_report, columns=["author_label", "issue"])
 report_path = os.path.join(SITE_DIR, "build_report.csv")
 
-# IMPORTANT: Write CSV as UTF-8
 report_df.to_csv(report_path, index=False, encoding="utf-8")
 
 print("Site generation complete.")
