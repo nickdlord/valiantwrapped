@@ -1,0 +1,29 @@
+# Core runtime for Python 3.11 author-summary pipeline
+
+# --- HF / LLM stack ---
+accelerate>=0.30,<2
+transformers>=4.45,<6
+tokenizers>=0.19,<1
+safetensors>=0.4,<1
+huggingface_hub>=0.23,<1
+hf-xet>=1,<2
+
+# Torch: do NOT hard-pin here unless you control the CUDA wheel source.
+# Install torch separately (see note below), then leave it out OR keep a loose bound:
+torch>=2.2,<3
+
+# --- Data handling ---
+pandas>=2.2,<3
+numpy>=1.26,<3
+python-dateutil>=2.9
+pytz>=2024.1
+tzdata>=2024.1 ; platform_system=="Windows"
+
+# --- Utilities ---
+tqdm>=4.66
+regex>=2024.5
+filelock>=3.13
+fsspec>=2024.6
+packaging>=23.2
+psutil>=5.9
+PyYAML>=6.0
