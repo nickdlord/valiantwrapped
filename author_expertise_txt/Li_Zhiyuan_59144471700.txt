@@ -1,18 +1,18 @@
 THEMES:
-- **Diffusion MRI and Image Analysis**:
+- **Diffusion MRI and its applications**:
 - Development of methods for imputing missing regions in diffusion MRI data
-- Application of deep generative models for diffusion MRI data analysis
 - Investigation of white matter microstructure using diffusion MRI
-- Free water estimation and mitigation of biases in diffusion MRI data
-- **Neurodegenerative Diseases and Cognitive Impairment**:
-- Association between white matter abnormalities and cognitive performance/decline in aging and Alzheimer's disease
-- Effect of Alzheimer's disease genetic factors on limbic white matter microstructure
-- Brain age identification from diffusion MRI and its prediction of neurodegenerative diseases
-- **Medical Imaging Data Processing and Quality Control**:
-- Scalable and reproducible processing of large-scale medical imaging datasets
-- Quality control methods for medical imaging datasets
+- Application of diffusion MRI in estimating brain age and predicting neurodegenerative diseases
+- Enhancement of diffusion MRI analysis using deep learning and other techniques
+- Use of diffusion MRI in studying white matter abnormalities and cognition in aging and Alzheimer's disease
+- **Machine learning and artificial intelligence in medical imaging**:
+- Application of deep learning in medical image synthesis and imputation
+- Use of machine learning for data-driven harmonization of imaging cohorts
+- Development of methods for robust containerization of pipelines for high angular resolution functional imaging
+- Utilization of transformers and recurrent neural networks in diffusion MRI analysis
+- **Medical imaging informatics and data management**:
 
 SUMMARY:
-Dr. Zhiyuan Li is a researcher with a strong background in developing innovative methods for analyzing diffusion MRI data. His work has primarily focused on addressing challenges in diffusion MRI image analysis, including imputation of missing regions, application of deep generative models, investigation of white matter microstructure, free water estimation, and bias mitigation.
+Dr. Zhiyuan Li is a researcher with a strong background in developing innovative methods for medical imaging analysis. Over the course of their career, Dr. Li has shifted their focus from investigating white matter microstructure using diffusion MRI to exploring various applications of diffusion MRI, including estimating brain age and predicting neurodegenerative diseases. They have also expanded their scope to encompass machine learning and artificial intelligence in medical imaging, particularly in the use of deep learning for medical image synthesis and imputation.
 
-Over time, Dr. Li's research interests have expanded to encompass broader applications in neurodegenerative diseases and cognitive impairment. He has explored associations between white matter abnormalities and cognitive decline in aging and Alzheimer's disease, as well as the impact of Alzheimer's disease genetic factors on brain structure. Additionally, his work has involved the development of scalable and reproducible processing techniques for large-scale medical imaging datasets, quality control methods for medical imaging data, and harmonization of multi-site analyses.
+As an expert in both diffusion MRI and machine learning, Dr. Li's primary areas of expertise lie at the intersection of these two fields. Their work involves enhancing diffusion MRI analysis through deep learning and other techniques, as well as utilizing machine learning for data-driven harmonization of imaging cohorts. Additionally, they are skilled in developing scalable and reproducible methods for processing large-scale medical imaging datasets, ensuring that their research contributes to the advancement of medical imaging informatics and data management.
