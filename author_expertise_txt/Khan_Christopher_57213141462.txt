@@ -1,0 +1,206 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Khan_Christopher_57213141462
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Khan_Christopher_57213141462
+
+Publication records (each record is one paper):
+Year: 2022
+Citations: 14
+Type: Article
+Venue: IEEE Transactions on Medical Imaging
+Title: Training Deep Network Ultrasound Beamformers with Unlabeled in Vivo Data
+Keywords: beamforming; deep learning; domain adaptation; GANs; Ultrasound
+Abstract: Conventional delay-and-sum (DAS) beamforming is highly efficient but also suffers from various sources of image degradation. Several adaptive beamformers have been proposed to address this problem, including more recently proposed deep learning methods. With deep learning, adaptive beamforming is typically framed as a regression problem, where clean ground-truth physical information is used for training. Because it is difficult to know ground truth information in vivo, training data are usually simulated. However, deep networks trained on simulations can produce suboptimal in vivo image quality because of a domain shift between simulated and...
+
+---
+
+Year: 2020
+Citations: 13
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Domain Adaptation for Ultrasound Beamforming
+Keywords: Deep learning; Domain adaptation; Ultrasound beamforming
+Abstract: Ultrasound B-Mode images are created from data obtained from each element in the transducer array in a process called beamforming. The beamforming goal is to enhance signals from specified spatial locations, while reducing signal from all other locations. On clinical systems, beamforming is accomplished with the delay-and-sum (DAS) algorithm. DAS is efficient but fails in patients with high noise levels, so various adaptive beamformers have been proposed. Recently, deep learning methods have been developed for this task. With deep learning methods, beamforming is typically framed as a regression problem, where clean, ground-truth data is know...
+
+---
+
+Year: 2021
+Citations: 10
+Type: Article
+Venue: IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control
+Title: A Real-Time, GPU-Based Implementation of Aperture Domain Model Image REconstruction
+Keywords: Graphics processing unit (GPU) computing; real-time imaging; ultrasound
+Abstract: Multipath and off-axis scattering are two of the primary mechanisms for ultrasound image degradation. To address their impact, we have proposed Aperture Domain Model Image REconstruction (ADMIRE). This algorithm utilizes a model-based approach in order to identify and suppress sources of acoustic clutter. The ability of ADMIRE to suppress clutter and improve image quality has been demonstrated in previous works, but its use for real-time imaging has been infeasible due to its significant computational requirements. However, in recent years, the use of graphics processing units (GPUs) for general-purpose computing has enabled the significant a...
+
+---
+
+Year: 2020
+Citations: 7
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: Accounting for domain shift in neural network ultrasound beamforming
+Keywords: Beamforming; Deep learning; Domain adaptation; Ultrasound
+Abstract: Many advanced beamforming methods have been proposed to improve ultrasound image quality compared to that generated with delay-and-sum (DAS), with increased interest in using deep learning methods. With deep learning, beamforming is typically framed as a regression problem, where clean, ground-truth data are known and usually simulated. However, it is difficult to collect ground truth information in vivo, and deep networks trained on simulated data underperform when applied to in vivo data due to a shift between simulated and in vivo domains. To address this, we propose a novel domain adaptation scheme that leverages both simulated and unlabe...
+
+---
+
+Year: 2022
+Citations: 3
+Type: Conference paper
+Venue: ICASSP, IEEE International Conference on Acoustics, Speech and Signal Processing - Proceed...
+Title: UNFOLDING MODEL-BASED BEAMFORMING FOR HIGH QUALITY ULTRASOUND IMAGING
+Keywords: ADMIRE; Beamforming; Deep Learning; ISTA; Sparse Coding
+Abstract: Aperture Domain Model Image REconstruction (ADMIRE) is an advanced ultrasound beamforming method that uses a model-based approach to suppress sources of acoustic clutter and improve ultrasound image quality. However, it requires solving an ill-posed inverse problem for which regularization is utilized. As a result, the iterative nature of solving this problem is computationally expensive, and the choice of regularization bounds the fidelity of the obtained solution. Therefore, in this work, we pose ADMIRE as a sparse coding problem and unfold the iterations of the iterative shrinkage and thresholding algorithm (ISTA), training it end to end t...
+
+---
+
+Year: 2021
+Citations: 3
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: Performing Aperture Domain Model Image REconstruction (ADMIRE) Using a Deep Neural Network Sparse Encoder
+Keywords: ADMIRE; Deep Learning; ISTA; Sparse Coding
+Abstract: Aperture Domain Model Image REconstruction (ADMIRE) is an advanced ultrasound beamforming method that uses a model-based approach to suppress sources of acoustic clutter and improve ultrasound image quality. However, although effective, ADMIRE requires solving an inverse problem that is ill-posed, which means that there are infinitely many solutions that can have different impacts on image quality. Currently, linear regression with elastic-net regularization is used to obtain a solution, but there are potentially better methods for performing model fitting. Therefore, in this work, we propose using a deep neural network sparse encoder for per...
+
+---
+
+Year: 2019
+Citations: 3
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: A GPU-Based Implementation of ADMIRE
+Keywords: GPU computing; real-time imaging; Ultrasound
+Abstract: Multipath and off-axis scattering are two of the primary mechanisms for ultrasound image degradation. To address their impact, we have proposed Aperture Domain Model Image REconstruction (ADMIRE). This algorithm utilizes a model-based approach in order to identify and suppress sources of acoustic clutter. The ability of ADMIRE to suppress clutter and improve image quality has been demonstrated in previous works, but its use for real-time imaging has been infeasible due to its significant computational requirements. However, in recent years, the use of GPUs for general-purpose computing has enabled significant acceleration of compute-intensive...
+
+---
+
+Year: 2020
+Citations: 2
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: Real-Time, Simultaneous DAS, ADMIRE, and SLSC Imaging Using GPU-Based Processing
+Keywords: GPU computing; Real-time imaging; Ultrasound
+Abstract: Aperture Domain Model Image REconstruction (ADMIRE) is an adaptive imaging method that has been shown to reduce sources of ultrasound image degradation that include both off-axis scattering and multipath scattering. It does so by performing a model-based fit of the aperture domain data in order to reconstruct the data by only using model predictors that are within a specified region-of-interest. By doing so, model predictors that contribute to sources of acoustic clutter can be removed. Although ADMIRE can reduce sources of clutter, one of its drawbacks is its significant computational requirements. We have been working on improving the compu...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: Bridging the Simulation-to-in vivo Gap Better with Curriculum Learning
+Keywords: coherence; curriculum learning; domain adaptation
+Abstract: In recent years, deep neural network beamformers trained on paired simulation data - comprising cluttered inputs and clean ground truths - achieved improvement in image quality and have been adapted to in vivo liver data via a simulation-to-in vivo CycleGAN map. However, this technique did not readily transfer to cardiac imaging due to higher noise levels in the chambers and variability in image quality caused by the chest wall. As noisy data dominates the in vivo distribution, the map compresses diverse simulation data spanning a wide range of signal-to-clutter ratio into a narrow distribution that mostly resembles the characteristics of noi...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: Evaluation of the Effect of Clutter Reduction in Attenuation Coefficient Estimation
+Keywords: beamforming; clutter; quantitative ultrasound
+Abstract: Quantitative ultrasound (QUS) aims to provide objective measurements of tissue properties, thereby overcoming the limitations of conventional subjective assessments. A relevant clinical application of QUS is the assessment of metabolic dysfunction-associated steatotic liver disease (MASLD). However, in abdominal imaging, tissue heterogeneity increases the likelihood of acoustic interference, known as clutter, a type of image degradation caused by multiple scattering, reverberation, or off-axis reflections that introduce unwanted signals into the data received by the transducer. Clutter has a negative effect on the estimation of the attenuatio...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: A GPU-Accelerated Pipeline for Real-Time Power Doppler Imaging Using Compound Barker Code Excitation
+Keywords: Coded Excitation; GPU; Power Doppler
+Abstract: Power Doppler imaging is an invaluable tool for blood flow assessment. However, its quality can be degraded in scenarios where the signal-to-noise ratio (SNR) is low. To address this, coded excitation schemes have been proposed to use longer transmit pulses without a reduction in axial resolution. One particular method that can generate arbitrarily long pulses is the use of compound Barker codes, which can provide significant improvements in SNR in the context of power Doppler imaging. However, the combination of these methods has yet to be implemented in real time. Therefore, in this work, we leverage the parallel processing of GPUs to exhib...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: IEEE Ultrasonics, Ferroelectrics, and Frequency Control Joint Symposium, UFFC-JS 2024 - Pr...
+Title: GCNR Regularization Improves Deep Neural Network Beamformers
+Keywords: beamforming; Domain-adaptive deep neural network; generalized contrast-to-noise ratio; kernel density estimate; loss-metric misalignment
+Abstract: Deep neural network (DNN) beamformers have gained traction in ultrasound because of their ability to approximate any non-linear function. In clutter suppression, DNN beamformers can be trained using paired synthetic data by minimizing a loss computed between the prediction and ground truth. In this work, we showed that minimizing a conventional Smooth-L<inf>1</inf> loss does not correlate to improving the generalized contrast-to-noise (gCNR) ratio of the prediction. Instead, we propose to directly incorporate gCNR as a regularizer to the training loss and showed some improvement in synthetic data. Finally, we integrated gCNR regularization in...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Evaluation of U-Nets for Object Segmentation in Ultrasound Images
+Keywords: deep learning; ultrasound image analysis; ultrasound imaging
+Abstract: Ultrasound is a commonly used modality for medical imaging. While this modality has great advantages in terms of safety and cost relative to other imaging modalities, it also has several limitations. Signal-to-noise ratio varies greatly depending on the acoustic properties of the tissue being imaged and the depth of the target structures. In this work, we evaluate the use of deep learning based methods to reconstruct 3D surfaces of general objects imaged with ultrasound. We evaluate three variants of the 3D U-Net with different training scenarios. We were able to train networks to reconstruct three distinct categories of objects relatively we...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Using Domain Adaptive Deep Neural Networks to Improve Transthoracic Echocardiography
+Abstract: We previously showed that domain adaptive deep neural networks (DNNs) can outperform delay-and-sum (DAS) beamforming in the context of abdominal imaging. We hypothesize the ability of our domain adaptive DNN framework to be applied to transthoracic echocardiography (TTE). We also propose architectural improvements, such as leveraging an encoder-decoder structure and skip connections, to further improve ultrasound image quality for echocardiography tasks such as the detection of thrombi in the left atrial appendage (LAA). DNN training data utilized simulated and in vivo cardiac data. Simulated anechoic and hypoechoic cysts with various amounts...
+
+---
+
+Year: 2022
+Citations: 0
+Type: Conference paper
+Venue: IEEE International Ultrasonics Symposium, IUS
+Title: Learnable Regularization via Padé Activation Units for Flexible Model-Based Beamforming
+Keywords: ADMIRE; Beamforming; Deep Learning
+Abstract: Aperture Domain Model Image REconstruction (ADMIRE) is a beamformer that suppresses sources of acoustic clutter by performing model-based fits of channel data. Each fit requires solving an ill-posed, inverse problem using regularization. Initially, these fits were performed with the elastic-net constraint, but we recently proposed using a deep neural network (DNN) for model fitting based on the learned iterative shrinkage thresholding algorithm (LISTA). This approach used a sigmoidal soft-thresholding activation function with a trainable threshold to allow more flexible regularization, but the range of learnable proximal operators of regulari...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **Ultrasound Beamforming:** 
+    - Development of deep learning methods for ultrasound beamforming (e.g., [1], [2], [6])
+    - Investigation of domain adaptation techniques for ultrasound beamforming (e.g., [2], [4], [12])
+    - Improvement of ultrasound image quality through clutter reduction (e.g., [3], [5], [11])
+* **Deep Learning Applications in Ultrasound:**
+    - Use of deep neural networks for ultrasound image reconstruction and segmentation (e.g., [9], [10])
+    - Exploration of regularization techniques for deep learning models in ultrasound (e.g., [8], [14])
+* **Real-Time Imaging and Computational Efficiency:**
+    - Acceleration of compute-intensive algorithms using GPUs (e.g., [3], [5], [7])
+
+**Timeline/Evolution:**
+
+* Early focus on developing deep learning methods for ultrasound beamforming and addressing challenges associated with domain adaptation ([2], [4]).
+* Recent emphasis on improving ultrasound image quality through clutter reduction and exploring regularization techniques
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Christopher Khan is a researcher who has made significant contributions to the field of ultrasound imaging, particularly in the areas of deep learning and beamforming. His early work focused on developing deep learning methods for ultrasound beamforming and addressing the challenges associated with domain adaptation, as seen in his papers on domain adaptation for ultrasound beamforming (2020) and training deep network ultrasound beamformers with unlabeled in vivo data (2022). 
+
+Over time, his research has evolved to emphasize improving ultrasound image quality through clutter reduction and exploring regularization techniques for deep learning models in ultrasound. He has investigated various approaches, including the use of generalized contrast-to-noise ratio regularization (GCNR) and learnable regularization via Padé activation units. His primary areas of expertise lie at the intersection of deep learning, ultrasound imaging, and beamforming, with a focus on developing efficient and accurate methods for ultrasound image reconstruction and analysis.

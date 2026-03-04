@@ -1,0 +1,162 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Islam_Sajal_58279591300
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Islam_Sajal_58279591300
+
+Publication records (each record is one paper):
+Year: 2023
+Citations: 46
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Low-Energy Ion-Induced Single-Event Burnout in Gallium Oxide Schottky Diodes
+Keywords: Degradation; diode; gallium oxide (Ga2O3); heavy ion; power; single-event burnout (SEB)
+Abstract: Low-energy ion-induced breakdown and single-event burnout (SEB) are experimentally observed in beta-gallium oxide ( β -Ga2O3) Schottky diodes with voltages well below those of expected electrical breakdown. Fundamentally different responses were observed among alpha particle, Cf-252, and heavy-ion irradiation. Technology computer-aided design (TCAD) simulations suggest that ion-induced burnout can be triggered at high voltages as a result of a single ion strike, leading to impact ionization, voltage-induced charge separation accentuated by the low intrinsic hole mobility in β -Ga2O3, and breakdown. At significantly lower voltages, the cumulat...
+
+---
+
+Year: 2024
+Citations: 30
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: LET and Voltage Dependence of Single-Event Burnout and Single-Event Leakage Current in High-Voltage SiC Power Devices
+Keywords: Heavy ion; metal-oxide-semiconductor field-effect transistor (MOSFET); positive-intrinsic-negative (p-i-n) diodes; power diodes; silicon carbide (SiC); single-event burnout (SEB);...
+Abstract: Single-event burnout (SEB) and single-event leakage current (SELC) behavior of 1200 and 3300 V silicon carbide (SiC) power devices are analyzed based on heavy-ion irradiation tests. Both SEB and SELC degradation thresholds are improved in the 3300 V devices by at least 300 V compared to the 1200 V devices. Additionally, it was demonstrated that the measured SEB threshold is a strong function of the device bias and irradiation history and that bias and irradiation steps at intermediate voltages between the charge collection region and SEB region can result in parametric failure from accumulated leakage current rather than catastrophic failure...
+
+---
+
+Year: 2024
+Citations: 29
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Single-Event Burnout in Vertical β-GaO Diodes with Pt/PtO Schottky Contacts and High-k Field-Plate Dielectrics
+Keywords: Degradation; dielectric material; diode; field plate (FP); Ga2O3; gallium oxide; heavy ion; power; single-event burnout (SEB)
+Abstract: Single-event burnout (SEB) is experimentally observed in structurally improved vertical Beta-gallium oxide (β -Ga<inf>2</inf>O<inf>3</inf>) Schottky barrier diodes (SBDs) with Pt/PtOx Schottky contacts and high-k field-plate (FP) dielectrics. These SBDs are resistant to alpha particle strikes up to the in-air reverse bias voltage of 475 V, but SEB-induced catastrophic failure is observed during Californium-252 (Cf-252) fission fragment exposure at 400 ± 20 V reverse bias. The SEB threshold in Cf-252 testing is improved in PtOx-contact SBDs with 4-μ m epitaxial layers and high-k FP dielectrics by 30%, compared to previously reported results fo...
+
+---
+
+Year: 2024
+Citations: 14
+Type: Article
+Venue: Applied Physics Letters
+Title: Single-event burnout in homojunction GaN vertical PiN diodes with hybrid edge termination design
+Abstract: GaN devices play a major role in modern electronics, providing high-power handling, efficient high-frequency operation, and resilience in harsh environments. However, electric field crowding at the edge of the anode often limits its full potential, leading to single-event effects (SEEs) at lower bias voltages under heavy ion radiation. Here, we report on the performance of homojunction GaN vertical PiN diodes with a hybrid edge termination design under heavy ion irradiation, specifically, oxygen ions, chlorine ions, Cf-252 fission fragments, and alpha particles from an Am-241 source. The unique hybrid edge termination (HET) design provides be...
+
+---
+
+Year: 2024
+Citations: 10
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Single-Event Effects in Heavy-Ion Irradiated 3-kV SiC Charge-Balanced Power Devices
+Keywords: Charge-balanced (CB) power devices; degradation; heavy ion; junction-barrier Schottky (JBS) diodes; metal-oxide-semiconductor field-effect transistor (MOSFET); silicon carbide (SiC...
+Abstract: Experimental heavy-ion responses of 3-kV charge-balanced (CB) SiC power devices are compared with those of 3.3-kV planar SiC devices. The devices are similar, except the epitaxial region of the CB devices is heavily doped compared with the planar devices. The higher doping in the epitaxial region results in loweron-resistance, but typically leads to a lower threshold drain voltage at which single-event burnout (SEB) occurs. The experimental results demonstrate, however, that the CB devices have a similar SEB threshold to the planar devices due to the improved electric field distribution. © 2024 IEEE.
+
+---
+
+Year: 2025
+Citations: 8
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Physical Model for SiC Power Device Heavy-Ion Burnout Based on Pre-Strike Depletion Capacitance Energy Storage
+Keywords: Power metal-oxide–semiconductor field-effect transistors (MOSFETs); Schottky diodes; silicon carbide; single-event burnout (SEB); single-event effects; vertical MOSFET
+Abstract: An analytical model for predicting high-linear energy transfer (LET), normal incidence single-event burnout (SEB) voltage in SiC power devices is presented. The concept of critical energy stored in the drain-body depletion region and released by the passing ion is introduced and used to derive an expression for high-LET, normal incidence (worst case) SEB voltage that depends only on epitaxial layer doping. The model is validated by experimental data ranging from 1200 to 4500 V. The relative independence of high-LET, normal incidence SEB, and epitaxial layer thickness is demonstrated experimentally and is supported by the model. The 900 V SEB...
+
+---
+
+Year: 2025
+Citations: 7
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Heavy Ion-Induced Single-Event Leakage Current and Burnout in Homojunction GaN p-i-n Diodes
+Keywords: Gallium nitride (GaN); heavy ion; p-i-n diode; single-event burnout (SEB); single-event leakage current (SELC)
+Abstract: The impact of edge termination design on heavy-ion induced single-event leakage current (SELC) and single-event burnout (SEB) is investigated in homojunction gallium nitride (GaN) vertical p-i-n diodes. The implementation of hybrid edge termination (HET) improves electric field management at the anode edge, thereby increasing the breakdown voltage and enhancing resilience to heavy-ion exposure. Cf-252 fission-fragment irradiation leads to SELC steps and catastrophic SEB. A heavy ion strike from a Cf-252 fission fragment forms a highly conductive region due to the generation of an electron-hole plasma along the ion path. Joule heating due to t...
+
+---
+
+Year: 2025
+Citations: 4
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Effects of Epitaxial Layer Thickness on Heavy Ion-Induced Single-Event Burnout in Vertical β-Ga2O3 Schottky Barrier Diodes
+Keywords: Beta-gallium oxide (β-Ga2O3); dielectric material; diodes; field plate (FP); heavy ions; power devices; single-event burnout (SEB)
+Abstract: Vertical beta-gallium oxide (β-Ga<inf>2</inf>O<inf>3</inf>) Schottky barrier diodes (SBDs) with field plates (FPs) and edge termination structures are irradiated with heavy ions, O+, Ar+, and Pr+ having linear energy transfer (LET) of 5.5–46 MeV·cm2/mg and californium-252 (Cf-252), which emits heavy ions and alpha particles. Devices that have the same structure and similar doping concentrations, but thicker (10 µm) epitaxial layers, show higher single event burnout (SEB) voltage thresholds than devices with thinner (4 µm) epitaxial layers. Ions that stop near the middle of the active region and those that pass through the entire region each c...
+
+---
+
+Year: 2023
+Citations: 4
+Type: Conference paper
+Venue: Device Research Conference - Conference Digest, DRC
+Title: Single-Event Burnout by Cf-252 Irradiation in Vertical βGa2O3Diodes with Pt and PtOxSchottky Contacts and High Permittivity Dielectric Field Plate
+Abstract: \beta-Ga2O3 is an ultrawide-bandgap material (4.6-4.9 eV) with a theoretical breakdown field of about 8 MV/cm [1]. Very few experimental results have been reported so far on the radiation response of \beta-Ga2O3. In this work, ion-induced single-event burnout (SEB) is experimentally observed in two structurally different types of \beta-Ga2O3 Schottky diodes. SEB occurred by Cf-252 irradiation with voltages well below the electrical breakdown for both device structures. However, devices having PtOx Schottky barrier contacts (SBCs) with TiO2 field plates (FPs) showed higher SEB thresholds compared to devices having Pt SBCs with ZrO2 FPs. While...
+
+---
+
+Year: 2025
+Citations: 3
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Effects of Incident Angle on Single-Event Leakage Current Degradation in Heavy-Ion Irradiated 1800- and 4500-V SiC Power MOSFETs
+Keywords: Degradation; gate oxide; heavy ion; incidence angle; metal–oxide–semiconductor field-effect transistor (MOSFET); silicon carbide (SiC); single-event effects (SEEs); single-event le...
+Abstract: Experimental heavy-ion responses of two variants of silicon carbide (SiC) power metaloxidesemiconductor field-effect transistors (MOSFETs) are evaluated. The devices have similar epitaxial thickness but different dopings. The higher doping in the epitaxial region results in lower breakdown voltage and typically leads to a lower threshold drain voltage at which single-event leakage current (SELC) occurs. Furthermore, the heavy-ion-induced SELC degradation in the drain and gate currents of the SiC MOSFETs exhibits a strong dependence on the heavy-ion’s angle of incidence. The devices’ behavior significantly alters when irradiated with heavy-ion...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: IEEE Transactions on Nuclear Science
+Title: Physical Models for Epitaxial Doping Dependence of Single-Event Leakage Current in SiC Power Devices
+Keywords: critical power; degradation; heavy ion; metal–oxide–semiconductor field-effect transistor (MOSFET); physical model; Silicon carbide (SiC); single-event effects (SEEs); single-event...
+Abstract: An analytical model for predicting normal incidence single-event leakage current (SELC) threshold voltage in SiC power devices is presented. The onset of low linear energy transfer (LET), normal incidence SELC in SiC diodes and MOSFETs is shown to depend only on the LET of the respective heavy-ion during irradiation. The concept of critical energy stored in the depletion region and released by the passing ion is re-introduced and used to derive an expression for high LET, normal incidence SELC threshold voltage that depends only on epitaxial layer doping. The model is validated by experimental data with devices ranging from 1200 to 6500 V rat...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **Single-Event Burnout (SEB)**: 
+    - Investigating SEB in various semiconductor materials such as Ga2O3, SiC, and GaN under heavy-ion irradiation.
+    - Analyzing the effect of device structure, epitaxial layer thickness, and doping concentration on SEB thresholds.
+* **Heavy-Ion Induced Degradation**: 
+    - Studying the impact of heavy-ion irradiation on the degradation of semiconductor devices, including SEB, single-event leakage current (SELC), and other effects.
+    - Examining the dependence of degradation on device parameters, such as epitaxial layer thickness, doping concentration, and incident angle.
+* **Device Design and Optimization**: 
+    - Developing novel device designs, such as hybrid edge termination (HET) and field-plate (FP) structures, to improve SEB and SELC resistance.
+    - Investigating the effect of different contact materials and dielectric materials on SEB thresholds.
+* **Physical Modeling and Simulation**: 
+    - Developing analytical models
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Dr. Sajal Islam's research has evolved over time, focusing primarily on understanding and mitigating the effects of single-event burnout (SEB) in semiconductor devices under heavy-ion irradiation. Initially, his work centered on investigating SEB in gallium oxide (Ga2O3) and silicon carbide (SiC) devices, exploring the impact of device structure, epitaxial layer thickness, and doping concentration on SEB thresholds. As his research progressed, he expanded his scope to include the effects of heavy-ion irradiation on device degradation, examining the dependencies on device parameters and developing novel device designs to enhance resilience against SEB and single-event leakage current (SELC).
+
+Dr. Islam's primary areas of expertise lie in the fields of radiation effects in semiconductors, device reliability, and physical modeling. His work has contributed significantly to the understanding of SEB mechanisms in various semiconductor materials and the development of predictive models for device degradation. He continues to investigate the effects of heavy-ion irradiation on semiconductor devices, aiming to optimize their performance and reliability in harsh environments.

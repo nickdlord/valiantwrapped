@@ -1,0 +1,433 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Kanakaraj_Praitayini_57217029207
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Kanakaraj_Praitayini_57217029207
+
+Publication records (each record is one paper):
+Year: 2020
+Citations: 82
+Type: Article
+Venue: PLoS ONE
+Title: Distortion correction of diffusion weighted MRI without reverse phase-encoding scans or field-maps
+Abstract: Diffusion magnetic resonance images may suffer from geometric distortions due to susceptibility induced off resonance fields, which cause geometric mismatch with anatomical images and ultimately affect subsequent quantification of microstructural or connectivity indices. State-of-the art diffusion distortion correction methods typically require data acquired with reverse phase encoding directions, resulting in varying magnitudes and orientations of distortion, which allow estimation of an undistorted volume. Alternatively, additional field maps acquisitions can be used along with sequence information to determine warping fields. However, not...
+
+---
+
+Year: 2021
+Citations: 29
+Type: Article
+Venue: Magnetic Resonance in Medicine
+Title: MASiVar: Multisite, multiscanner, and multisubject acquisitions for studying variability in diffusion weighted MRI
+Keywords: bundle segmentation; connectome; DTI; NODDI; reproducibility; variability
+Abstract: Purpose: Diffusion-weighted imaging allows investigators to identify structural, microstructural, and connectivity-based differences between subjects, but variability due to session and scanner biases is a challenge. Methods: To investigate DWI variability, we present MASiVar, a multisite data set consisting of 319 diffusion scans acquired at 3 T from b = 1000 to 3000 s/mm2 across 14 healthy adults, 83 healthy children (5 to 8 years), three sites, and four scanners as a publicly available, preprocessed, and de-identified data set. With the adult data, we demonstrate the capacity of MASiVar to simultaneously quantify the intrasession, interses...
+
+---
+
+Year: 2020
+Citations: 12
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Automatic Brain Organ Segmentation with 3D Fully Convolutional Neural Network for Radiation Therapy Treatment Planning
+Keywords: Biomedical Image Analysis; Brain Segmentation; Deep Learning; Fully Connected Convolutional Neural Network; Radiation Therapy
+Abstract: 3D organ contouring is an essential step in radiation therapy treatment planning for organ dose estimation as well as for optimizing plans to reduce organs-at-risk doses. Manual contouring is time-consuming and its inter-clinician variability adversely affects the outcomes study. Such organs also vary dramatically on sizes - up to two orders of magnitude difference in volumes. In this paper, we present BrainSegNet, a novel 3D fully convolutional neural network (FCNN) based approach for automatic segmentation of brain organs. Brain-SegN et takes a multiple resolution paths approach and uses a weighted loss function to solve the major challenge...
+
+---
+
+Year: 2023
+Citations: 9
+Type: Article
+Venue: NeuroImage
+Title: Tractography passes the test: Results from the diffusion-simulated connectivity (disco) challenge
+Keywords: Challenge; Connectivity; Diffusion MRI; Microstructure; Monte carlo simulation; Numerical substrates; Tractography
+Abstract: Estimating structural connectivity from diffusion-weighted magnetic resonance imaging is a challenging task, partly due to the presence of false-positive connections and the misestimation of connection weights. Building on previous efforts, the MICCAI-CDMRI Diffusion-Simulated Connectivity (DiSCo) challenge was carried out to evaluate state-of-the-art connectivity methods using novel large-scale numerical phantoms. The diffusion signal for the phantoms was obtained from Monte Carlo simulations. The results of the challenge suggest that methods selected by the 14 teams participating in the challenge can provide high correlations between estima...
+
+---
+
+Year: 2024
+Citations: 8
+Type: Article
+Venue: Neuroinformatics
+Title: DeepN4: Learning N4ITK Bias Field Correction for T1-weighted Images
+Keywords: 3D U-Net; Bias field correction; Inhomogeneity; N4ITK; T1-weighted images
+Abstract: T1-weighted (T1w) MRI has low frequency intensity artifacts due to magnetic field inhomogeneities. Removal of these biases in T1w MRI images is a critical preprocessing step to ensure spatially consistent image interpretation. N4ITK bias field correction, the current state-of-the-art, is implemented in such a way that makes it difficult to port between different pipelines and workflows, thus making it hard to reimplement and reproduce results across local, cloud, and edge platforms. Moreover, N4ITK is opaque to optimization before and after its application, meaning that methodological development must work around the inhomogeneity correction...
+
+---
+
+Year: 2022
+Citations: 8
+Type: Article
+Venue: Journal of Digital Imaging
+Title: Workflow Integration of Research AI Tools into a Hospital Radiology Rapid Prototyping Environment
+Keywords: AI-based image analysis; Containers; Healthcare centers; HIPAA; Picture archiving and communication system; Radiology workflow
+Abstract: The field of artificial intelligence (AI) in medical imaging is undergoing explosive growth, and Radiology is a prime target for innovation. The American College of Radiology Data Science Institute has identified more than 240 specific use cases where AI could be used to improve clinical practice. In this context, thousands of potential methods are developed by research labs and industry innovators. Deploying AI tools within a clinical enterprise, even on limited retrospective evaluation, is complicated by security and privacy concerns. Thus, innovation must be weighed against the substantive resources required for local clinical evaluation....
+
+---
+
+Year: 2025
+Citations: 6
+Type: Article
+Venue: JAMA Neurology
+Title: White Matter Abnormalities and Cognition in Aging and Alzheimer Disease
+Abstract: IMPORTANCE There has yet to be a large-scale study quantifying the association between white matter microstructure and cognitive performance and decline in aging and Alzheimer disease (AD). OBJECTIVE To investigate the associations between tract-specific white matter microstructure and cognitive performance and decline in aging and AD-related cognitive impairment. DESIGN, SETTING, AND PARTICIPANTS This prognostic study of aging and AD, a secondary data analysis of multisite cohort studies, acquired data from 9 cohorts between September 2002 and November 2022. Participants were eligible if they had diffusion-weighted magnetic resonance imaging...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Field-of-view extension for brain diffusion MRI via deep generative models
+Keywords: diffusion MRI; generative model; imputation; medical image synthesis
+Abstract: Purpose: In brain diffusion magnetic resonance imaging (dMRI), the volumetric and bundle analyses of whole-brain tissue microstructure and connectivity can be severely impeded by an incomplete field of view (FOV). We aim to develop a method for imputing the missing slices directly from existing dMRI scans with an incomplete FOV. We hypothesize that the imputed image with a complete FOV can improve whole-brain tractography for corrupted data with an incomplete FOV. Therefore, our approach provides a desirable alternative to discarding the valuable brain dMRI data, enabling subsequent tractography analyses that would otherwise be challenging or...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Inter-vendor harmonization of CT reconstruction kernels using unpaired image translation
+Keywords: computed tomography; Deep learning; generative adversarial networks; harmonization; image translation
+Abstract: The reconstruction kernel in computed tomography (CT) generation determines the texture of the image. Consistency in reconstruction kernels is important as the underlying CT texture can impact measurements during quantitative image analysis. Harmonization (i.e., kernel conversion) minimizes differences in measurements due to inconsistent reconstruction kernels. Existing methods investigate harmonization of CT scans in single or multiple manufacturers. However, these methods require paired scans of hard and soft reconstruction kernels that are spatially and anatomically aligned. Additionally, a large number of models need to be trained across...
+
+---
+
+Year: 2023
+Citations: 4
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: Convolutional-recurrent neural networks approximate diffusion tractography from T1-weighted MRI and associated anatomical context
+Keywords: bundles; connectomics; convolutional-recurrent neural networks; diffusion MRI; T1-weighted MRI; tractography; white matter
+Abstract: Diffusion MRI (dMRI) streamline tractography is the gold-standard for in vivo estimation of white matter (WM) pathways in the brain. However, the high angular resolution dMRI acquisitions capable of fitting the microstructural models needed for tractography are often time-consuming and not routinely collected clinically, restricting the scope of tractography analyses. To address this limitation, we build on recent advances in deep learning which have demonstrated that streamline propagation can be learned from dMRI directly without traditional model fitting. Specifically, we propose learning the streamline propagator from T1w MRI to facilitat...
+
+---
+
+Year: 2023
+Citations: 4
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: A Unified Learning Model for Estimating Fiber Orientation Distribution Functions on Heterogeneous Multi-shell Diffusion-Weighted MRI
+Keywords: DW-MRI; multi-shell Deep learning
+Abstract: Diffusion-weighted (DW) MRI measures the direction and scale of the local diffusion process in every voxel through its spectrum in q-space, typically acquired in one or more shells. Recent developments in micro-structure imaging and multi-tissue decomposition have sparked renewed attention to the radial b-value dependence of the signal. Applications in tissue classification and micro-architecture estimation, therefore, require a signal representation that extends over the radial as well as angular domain. Multiple approaches have been proposed that can model the non-linear relationship between the DW-MRI signal and biological microstructure....
+
+---
+
+Year: 2023
+Citations: 3
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Mapping the impact of nonlinear gradient fields with noise on diffusion MRI
+Keywords: Diffusion preprocessing; Diffusion tensor imaging; Gradient nonlinearity; Magnetic resonance distortion; Signal-to-noise; Tensor simulation
+Abstract: In diffusion MRI, gradient nonlinearities cause spatial variations in the magnitude and direction of diffusion gradients. Studies have shown artifacts from these distortions can results in biased diffusion tensor information and tractography. Here, we investigate the impact of gradient nonlinearity correction in the presence of noise. We introduced empirically derived gradient nonlinear fields at different signal-to-noise ratio (SNR) levels in two experiments: tensor field simulation and simulation of the brain. For each experiment, this work compares two techniques empirically: voxel-wise gradient table correction and approximate correction...
+
+---
+
+Year: 2025
+Citations: 2
+Type: Article
+Venue: PLOS ONE
+Title: Scalable quality control on processing of large diffusion-weighted and structural magnetic resonance imaging datasets
+Abstract: Thorough quality control (QC) can be time consuming when working with large-scale medical imaging datasets, yet necessary, as poor-quality data can lead to erroneous conclusions or poorly trained machine learning models. Most efforts to reduce data QC time rely on quantitative outlier detection, which cannot capture every instance of algorithm failure. Thus, there is a need to visually inspect every output of data processing pipelines in a scalable manner. We design a QC pipeline that allows for low time cost and effort across a team setting for a large database of diffusion-weighted and structural magnetic resonance images. Our proposed meth...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Predicting Age from White Matter Diffusivity with Residual Learning
+Keywords: brain age; convolutional neural networks; deep learning; DTI
+Abstract: Imaging findings inconsistent with those expected at specific chronological age ranges may serve as early indicators of neurological disorders and increased mortality risk. Estimation of chronological age, and deviations from expected results, from structural magnetic resonance imaging (MRI) data has become an important proxy task for developing biomarkers that are sensitive to such deviations. Complementary to structural analysis, diffusion tensor imaging (DTI) has proven effective in identifying age-related microstructural changes within the brain white matter, thereby presenting itself as a promising additional modality for brain age predi...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Evaluation of Mean Shift, ComBat, and CycleGAN for Harmonizing Brain Connectivity Matrices Across Sites
+Keywords: ComBat; Connectivity matrix; connectome; CycleGAN; dMRI; graph measure; harmonization; mean shift
+Abstract: Connectivity matrices derived from diffusion MRI (dMRI) provide an interpretable and generalizable way of understanding the human brain connectome. However, dMRI suffers from inter-site and between-scanner variation, which impedes analysis across datasets to improve robustness and reproducibility of results. To evaluate different harmonization approaches on connectivity matrices, we compared graph measures derived from these matrices before and after applying three harmonization techniques: mean shift, ComBat, and CycleGAN. The sample comprises 168 age-matched, sex-matched normal subjects from two studies: the Vanderbilt Memory and Aging Proj...
+
+---
+
+Year: 2022
+Citations: 2
+Type: Article
+Venue: Journal of Digital Imaging
+Title: Integrating the BIDS Neuroimaging Data Format and Workflow Optimization for Large-Scale Medical Image Analysis
+Keywords: BIDS format; Large-scale processing; Workflow engine
+Abstract: A robust medical image computing infrastructure must host massive multimodal archives, perform extensive analysis pipelines, and execute scalable job management. An emerging data format standard, the Brain Imaging Data Structure (BIDS), introduces complexities for interfacing with XNAT archives. Moreover, workflow integration is combinatorically problematic when matching large amount of processing to large datasets. Historically, workflow engines have been focused on refining workflows themselves instead of actual job generation. However, such an approach is incompatible with data centric architecture that hosts heterogeneous medical image co...
+
+---
+
+Year: 2022
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Mapping the Impact of Non-Linear Gradient Fields on Diffusion MRI Tensor Estimations
+Keywords: gradient non-linearity; Magnetic resonance distortion; tensor simulation
+Abstract: Non-linear gradients impact diffusion weighted (DW) MRI by corrupting the experimental setup and lead to problems during image encoding including the effects in-plane distortion, in-plane shifts, intensity modulations and phase errors. Recent studies have been shown this may present significant complication in the interpretation of results and conclusion while studying tractography and tissue microstructure in data. To interpret the degree in consequences of gradient non-linearities between the desired and achieved gradients, we introduced empirically derived gradient nonlinear fields at different orientations and different tensor properties....
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Imaging Neuroscience
+Title: Brain age identification from diffusion MRI synergistically predicts neurodegenerative disease
+Keywords: Alzheimer’s disease; brain age; deep learning; diffusion MRI; mild cognitive impairment
+Abstract: Estimated brain age from magnetic resonance image (MRI) and its deviation from chronological age can provide early insights into potential neurodegenerative diseases, supporting early detection and implementation of prevention strategies to slow disease progression and onset. Diffusion MRI (dMRI), a widely used modality for brain age estimation, presents an opportunity to build an earlier biomarker for neurodegenerative disease prediction because it captures subtle microstructural changes that precede more perceptible macrostructural changes. However, the coexistence of macro- and micro-structural information in dMRI raises the question of wh...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Deep learning-based free-water correction for single-shell diffusion MRI
+Keywords: Deep learning; Diffusion MRI; Free water elimination; Reproducibility
+Abstract: Free-water elimination (FWE) modeling in diffusion magnetic resonance imaging (dMRI) is crucial for accurate estimation of diffusion properties by mitigating the partial volume effects caused by free water, particularly at the interface between white matter and cerebrospinal fluid. The presence of free water partial volume effects leads to biases in estimating diffusion properties. Additionally, the existing mathematical FWE model is a two-compartment model, which can be well posed for multi-shell data. However, single-shell acquisitions are more common in clinical cohorts due to time constraints. To overcome these problems, we proposed a dee...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: The effect of Alzheimer's disease genetic factors on limbic white matter microstructure
+Keywords: Alzheimer's disease; diffusion MRI; free water; genetic risk variants; polygenic risk; white matter microstructure
+Abstract: INTRODUCTION: White matter (WM) microstructure is essential for brain function but deteriorates with age and in neurodegenerative conditions such as Alzheimer's disease (AD). Diffusion MRI, enhanced by advanced bi-tensor models accounting for free water (FW), enables in vivo quantification of WM microstructural differences. METHODS: To evaluate how AD genetic risk factors affect limbic WM microstructure – crucial for memory and early impacted in disease – we conducted linear regression analyses in a cohort of 2,614 non-Hispanic White aging adults (aged 50.12 to 100.85 years). The study evaluated 36 AD risk variants across 26 genes, the associ...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Scalable, reproducible, and cost-effective processing of large-scale medical imaging datasets
+Keywords: AI Ready; Batch Processing; Informatics; MRI
+Abstract: Curating, processing, and combining large-scale medical imaging datasets from national studies is a non-trivial task due to the intense computation and data throughput required, variability of acquired data, and associated financial overhead. Existing platforms or tools for large-scale data curation, processing, and storage have difficulty achieving a viable cost-to-scale ratio of computation speed for research purposes, either being too slow or too expensive. Additionally, management and consistency of processing large data in a team-driven manner is a non-trivial task. We design a BIDS-compliant method for an efficient and robust data proce...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: MidRISH: Unbiased harmonization of rotationally invariant harmonics of the diffusion signal
+Keywords: Diffusion imaging; Diffusion tensor imaging; Harmonization; Spherical harmonics
+Abstract: Data harmonization is necessary for removing confounding effects in multi-site diffusion image analysis. One such harmonization method, LinearRISH, scales rotationally invariant spherical harmonic (RISH) features from one site (“target”) to the second (“reference”) to reduce confounding scanner effects. However, reference and target site designations are not arbitrary and resultant diffusion metrics (fractional anisotropy, mean diffusivity) are biased by this choice. In this work we propose MidRISH: rather than scaling reference RISH features to target RISH features, we project both sites to a mid-space. We validate MidRISH with the following...
+
+---
+
+Year: 2023
+Citations: 1
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Efficient approximate signal reconstruction for correction of gradient nonlinearities in diffusion-weighted imaging
+Keywords: Diffusion preprocessing; Gradient nonlinearity; Magnetic resonance distortion; NODDI; Spherical harmonics
+Abstract: In diffusion weighted MRI (DW-MRI), hardware nonlinearities lead to spatial variations in the orientation and magnitude of diffusion weighting. While the correction of these spatial distortions has been well established for analyses of DW-MRI, the existing voxel-wise empirical correction for gradient nonlinearities requires reimplementation of existing models, as the resultant gradients vary by voxel. Herein, we propose a two-step signal approximation after voxel-wise correction of gradient nonlinearity effects in DW-MRI. The proposed technique (1) scales the diffusion signal and (2) resamples the gradient orientations. This results in unifor...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Multi-modality conditioned variational U-net for field-of-view extension in brain diffusion MRI
+Keywords: Diffusion MRI; Generative model; Imputation; Medical image synthesis
+Abstract: An incomplete field-of-view (FOV) in diffusion magnetic resonance imaging (dMRI) can severely hinder the volumetric and bundle analyses of whole-brain white matter connectivity. Although existing works have investigated imputing the missing regions using deep generative models, it remains unclear how to specifically utilize additional information from paired multi-modality data and whether this can enhance the imputation quality and be useful for downstream tractography. To fill this gap, we propose a novel framework for imputing dMRI scans in the incomplete part of the FOV by integrating the learned diffusion features in the acquired part of...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Harmonizing 10,000 connectomes: site-invariant representation learning for multi-site analysis of network connectivity and cognitive impairment
+Keywords: brain networks; connectomics; diffusion imaging; machine learning; multi-site
+Abstract: Purpose: Data-driven harmonization can mitigate systematic confounding signals across imaging cohorts caused by variance in scanners and acquisition protocols. As diffusion magnetic resonance imaging data are often acquired with different hardware and software, harmonization is essential for integrating these scattered datasets into a cohesive analysis for improved statistical power. Large-scale, multi-site studies for Alzheimer’s disease (AD), a neurodegenerative condition characterized by high data variability and complex pathology, pose the challenge of both site-based and biological variation. Approach: We learn lower-dimensional represen...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Learning disentangled representations to harmonize connectome network measures
+Keywords: brain networks; connectome; diffusion-weighted imaging; harmonization; magnetic resonance imaging
+Abstract: Purpose: Connectome network metrics are commonly regarded as fundamental properties of the brain, and their alterations have been implicated in the development of Alzheimer's disease, multiple sclerosis, and traumatic brain injury. However, these metrics are actually estimated properties through a multistage propagation from local voxel diffusion estimations, regional tractography, and region of interest mapping. These estimation processes are significantly influenced by choices specific to imaging protocols and software, producing site-wise effects. Approach: Recent advances in disentanglement techniques offer opportunities to learn represen...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Polyhedra Encoding Transformers: Enhancing Diffusion MRI Analysis Beyond Voxel and Volumetric Embedding
+Keywords: Deep learning; Diffusion MRI; Estimation; Transformer
+Abstract: Diffusion-weighted Magnetic Resonance Imaging (dMRI) is an essential tool in neuroimaging. It is arguably the sole noninvasive technique for examining the microstructural properties and structural connectivity of the brain. Recent years have seen the emergence of machine learning and data-driven approaches that enhance the speed, accuracy, and consistency of dMRI data analysis. However, traditional deep learning models often fell short, as they typically utilize pixel-level or volumetric patch-level embeddings similar to those used in structural MRI, and do not account for the unique distribution of various gradient encodings. In this paper,...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Approximate diffusion tractography from FLAIR MRI and anatomical context using recurrent neural networks
+Keywords: diffusion MRI; FLAIR MRI; recurrent neural networks; Tractography; white matter bundles
+Abstract: Diffusion MRI (dMRI) tractography methods provide a valuable method for in-vivo estimation of whole-brain white matter pathways that are commonly assumed to rely on microstructure models derived from dMRI. However, recent pioneering works have demonstrated that the accuracy of white-matter measurements computed from T1-weighted (T1w) MRI tractography is on a similar level to scan-rescan variability in dMRI tractography. This revelation raises new questions about understanding tractography: Is it primarily a dMRI microstructural phenomenon, and how different can it be when estimated from other imaging modalities? In this study, we propose a fr...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science
+Title: Introducing QuantConn: Overcoming Challenging Diffusion Acquisitions with Harmonization
+Keywords: connectome; Diffusion MRI; harmonization; image processing; macrostructure; microstructure; tractography
+Abstract: White matter alterations are increasingly implicated in neurological diseases and their progression. Diffusion-weighted magnetic resonance imaging (DW-MRI) has been included in many international-scale studies to identify alterations in white matter microstructure and connectivity. Yet, quantitative investigation of DW-MRI data is hindered by a lack of consistency due to variations in acquisition protocols, sites, and scanners. Specifically, there is a need to harmonize the preprocessing of DW-MRI datasets to ensure that compatible and reproducible quantitative metrics are derived from each site, including (1) bundle-wise microstructure measu...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science
+Title: Ts-FWE: Token-Aware Single-Shell Free Water Estimation for Brain Diffusion MRI
+Keywords: Diffusion MRI; Free water elimination; Vision transformer
+Abstract: Recent advances in deep learning opened a new window for achieving precise free water estimation (FWE) through single-shell diffusion-weighted imaging (DWI) data. Compared with traditional approaches, those methods mitigated biases from free water contamination without relying on multi-shell data. However, current single-shell-based FWE methods still suffer from the “case-by-case” deep learning design, struggling to generalize across the diverse acquisition schemes in a more clinically useful plug-and-play fashion. In this paper, we propose a novel token-aware single-shell FWE (Ts-FWE) method towards a “one-for-all” design, so that a single m...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Characterizing patterns of diffusion tensor imaging variance in aging brains
+Keywords: aging; brain; DTI; motion; variance
+Abstract: Purpose: As large analyses merge data across sites, a deeper understanding of variance in statistical assessment across the sources of data becomes critical for valid analyses. Diffusion tensor imaging (DTI) exhibits spatially varying and correlated noise, so care must be taken with distributional assumptions. Here, we characterize the role of physiology, subject compliance, and the interaction of the subject with the scanner in the understanding of DTI variability, as modeled in the spatial variance of derived metrics in homogeneous regions. Approach: We analyze DTI data from 1035 subjects in the Baltimore Longitudinal Study of Aging, with a...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+*   **Diffusion MRI**: The majority of the papers focus on diffusion MRI, exploring various aspects such as distortion correction, tractography, and harmonization.
+*   **Deep learning and machine learning**: Many papers employ deep learning and machine learning techniques for tasks like image analysis, segmentation, and harmonization.
+*   **Harmonization and standardization**: Several papers discuss the importance of harmonization and standardization in diffusion MRI data, proposing methods to remove confounding effects and ensure compatibility across different sites and scanners.
+*   **Brain connectivity and network analysis**: Some papers explore brain connectivity and network analysis, including the estimation of fiber orientation distribution functions and the creation of harmonized connectome network measures.
+*   **Image processing and analysis**: Papers cover various image processing and analysis techniques, such as signal reconstruction, free-water correction, and tractography.
+
+**Evolution over time:**
+
+*   **Early focus on diffusion MRI distortion correction** (2020): The first paper focuses on correcting diffusion MRI distortions without requiring reverse phase-encoding scans or field-m
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Kanakaraj_Praitayini_57217029207
+
+Publication records (each record is one paper):
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Nonlinear Gradient Field Estimation in Diffusion MRI Tensor Simulation
+Abstract: Gradient nonlinearities not only induce spatial distortion in magnetic resonance imaging (MRI), but also introduce discrepancies between intended and acquired diffusion sensitization in diffusion weighted (DW) MRI. Advances in scanner performance have increased the importance of correcting gradient nonlinearities. The most common approaches for gradient nonlinear field estimations rely on phantom calibration field maps which are not always feasible, especially on retrospective data. Here, we derive a quadratic minimization problem for the complete gradient nonlinear field (L(r)). This approach starts with corrupt diffusion signal and estimate...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Learning-based Free-Water Correction using Single-shell Diffusion MRI
+Keywords: Deep learning; Diffusion MRI; Free water elimination; Reproducibility
+Abstract: Diffusion magnetic resonance imaging (dMRI) offers the ability to assess subvoxel brain microstructure through the extraction of biomarkers like fractional anisotropy, as well as to unveil brain connectivity by reconstructing white matter fiber trajectories. However, accurate analysis becomes challenging at the interface between cerebrospinal fluid and white matter, where the MRI signal originates from both the cerebrospinal fluid and the white matter partial volume. The presence of free water partial volume effects introduces a substantial bias in estimating diffusion properties, thereby limiting the clinical utility of DWI. Moreover, curren...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Book chapter
+Venue: EAI/Springer Innovations in Communication and Computing
+Title: Covid-19 Diagnosis, Prognosis, and Rehabilitation: Latest Perceptions, Challenges, and Future Directions
+Keywords: Challenges; Covid-19 diagnosis; Prognosis; Rehabilitation
+Abstract: Corona virus is a pandemic that posed a universal threat and is still predicted to reach new heights as the situation demands. We investigate the methods used for diagnosis, prognosis, and rehabilitation of Covid-19-affected persons in depth. Based on the procedures used, the methods were given a thorough examination and analysis was presented. All the potential methods were discussed in detail and common challenges among them were also elaborated. Finally, we’ve suggested some challenges and potential future routes that researchers and healthcare professionals should take in order to deal with any outbreaks of similar nature. © 2023, The Aut...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Mapping the Impact of Approximate Gradient Nonlinearity Fields Correction on Tractography
+Keywords: gradient nonlinearity; Magnetic resonance distortion; session variability; tractography
+Abstract: Nonlinear gradients impact diffusion weighted MRI by introducing spatial variation in estimated diffusion tensors. Recent studies have shown that increasing signal-to-noise ratios and the use of ultra-strong gradients may lead to clinically significant impacts on analyses due to these nonlinear gradients in microstructural measures. These effects can potentially bias tractography results and cause misinterpretation of data. Herein, we characterize the impact of an “approximate” gradient nonlinearity correction technique in tractography using empirically derived gradient nonlinear fields. This technique scales the diffusion signal by the chang...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+Based on the provided publication records, here are the extracted information:
+
+**Recurring Research Themes:**
+
+* **Diffusion MRI**: 
+    - Nonlinear gradient field estimation (Nonlinear Gradient Field Estimation in Diffusion MRI Tensor Simulation)
+    - Free-water correction using single-shell diffusion MRI (Learning-based Free-Water Correction using Single-shell Diffusion MRI)
+    - Impact of gradient nonlinearity on diffusion tensor estimation (Mapping the Impact of Approximate Gradient Nonlinearity Fields Correction on Tractography)
+* **Image Analysis and Processing**: 
+    - Quadratic minimization problem for gradient nonlinear field estimation (Nonlinear Gradient Field Estimation in Diffusion MRI Tensor Simulation)
+    - Deep learning-based methods for image processing (Learning-based Free-Water Correction using Single-shell Diffusion MRI)
+* **Medical Imaging Applications**: 
+    - Brain microstructure assessment (Nonlinear Gradient Field Estimation in Diffusion MRI Tensor Simulation)
+    - White matter fiber tracking (Learning-based Free-Water Correction using Single-shell Diffusion MRI)
+    - COVID-19 diagnosis, prognosis, and rehabilitation (Covid
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Dr. Kanakaraj Praitayini's research trajectory demonstrates a strong focus on advancing diffusion MRI techniques, with an emphasis on addressing challenges related to image distortion, harmonization, and standardization. Initially, her work centered on correcting diffusion MRI distortions without requiring reverse phase-encoding scans or field-maps (2020). Subsequently, she explored various applications of diffusion MRI, including tractography, free-water correction, and harmonization. Her recent contributions highlight the importance of accurately modeling and correcting gradient nonlinearities in diffusion MRI, which can significantly impact tractography results and microstructural measures.
+
+Throughout her research, Dr. Praitayini has demonstrated expertise in several key areas, including diffusion MRI, image analysis and processing, and medical imaging applications. Her work has spanned the development of novel methods for image processing and analysis, such as quadratic minimization problems for gradient nonlinear field estimation and deep learning-based free-water correction. Additionally, she has applied these techniques to various medical imaging applications, including brain microstructure assessment, white matter fiber tracking, and COVID-19 diagnosis, prognosis, and rehabilitation.

@@ -1,0 +1,385 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Bonomi_Luca_55522738500
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Bonomi_Luca_55522738500
+
+Publication records (each record is one paper):
+Year: 2020
+Citations: 226
+Type: Review
+Venue: Nature Genetics
+Title: Privacy challenges and research opportunities for genomic data sharing
+Abstract: The sharing of genomic data holds great promise in advancing precision medicine and providing personalized treatments and other types of interventions. However, these opportunities come with privacy concerns, and data misuse could potentially lead to privacy infringement for individuals and their blood relatives. With the rapid growth and increased availability of genomic datasets, understanding the current genome privacy landscape and identifying the challenges in developing effective privacy-protecting solutions are imperative. In this work, we provide an overview of major privacy threats identified by the research community and examine the...
+
+---
+
+Year: 2013
+Citations: 72
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: A two-phase algorithm for mining sequential patterns with differential privacy
+Keywords: Differential privacy; Frequent patterns; Sequential data
+Abstract: Frequent sequential pattern mining is a central task in many fields such as biology and finance. However, release of these patterns is raising increasing concerns on individual privacy. In this paper, we study the sequential pattern mining problem under the differential privacy framework which provides formal and provable guarantees of privacy. Due to the nature of the differential privacy mechanism which perturbs the frequency results with noise, and the high dimensionality of the pattern space, this mining problem is particularly challenging. In this work, we propose a novel two-phase algorithm for mining both prefixes and substring pattern...
+
+---
+
+Year: 2017
+Citations: 66
+Type: Article
+Venue: Annals of the New York Academy of Sciences
+Title: Genome privacy: challenges, technical approaches to mitigate risk, and ethical considerations in the United States
+Keywords: ethics; genome privacy and confidentiality; privacy law; record linkage
+Abstract: Accessing and integrating human genomic data with phenotypes are important for biomedical research. Making genomic data accessible for research purposes, however, must be handled carefully to avoid leakage of sensitive individual information to unauthorized parties and improper use of data. In this article, we focus on data sharing within the scope of data accessibility for research. Current common practices to gain biomedical data access are strictly rule based, without a clear and quantitative measurement of the risk of privacy breaches. In addition, several types of studies require privacy-preserving linkage of genotype and phenotype infor...
+
+---
+
+Year: 2014
+Citations: 51
+Type: Conference paper
+Venue: WWW 2014 - Proceedings of the 23rd International Conference on World Wide Web
+Title: Monitoring web browsing behavior with differential privacy
+Keywords: Differential Privacy; Web Mining; Web Monitoring
+Abstract: Monitoring web browsing behavior has benefited many data mining applications, such as top-K discovery and anomaly detection. However, releasing private user data to the greater public would concern web users about their privacy, especially after the incident of AOL search log release where anonymization was not correctly done. In this paper, we adopt differential privacy, a strong, provable privacy definition, and show that differentially private aggregates of web browsing activities can be released in real-time while preserving the utility of shared data. Our proposed algorithms utilize the rich correlation of the time series of aggregated d...
+
+---
+
+Year: 2021
+Citations: 48
+Type: Article
+Venue: American Journal of Ophthalmology
+Title: Predictive Analytics for Glaucoma Using Data From the All of Us Research Program
+Abstract: Purpose: To (1) use All of Us (AoU) data to validate a previously published single-center model predicting the need for surgery among individuals with glaucoma, (2) train new models using AoU data, and (3) share insights regarding this novel data source for ophthalmic research. Design: Development and evaluation of machine learning models. Methods: Electronic health record data were extracted from AoU for 1,231 adults diagnosed with primary open-angle glaucoma. The single-center model was applied to AoU data for external validation. AoU data were then used to train new models for predicting the need for glaucoma surgery using multivariable lo...
+
+---
+
+Year: 2012
+Citations: 33
+Type: Conference paper
+Venue: ACM International Conference Proceeding Series
+Title: Frequent grams based embedding for privacy preserving record linkage
+Keywords: differential privacy; privacy; record linkage; security
+Abstract: In this paper, we study the problem of privacy preserving record linkage which aims to perform record linkage without revealing anything about the non-linked records. We propose a new secure embedding strategy based on frequent variable length grams which allows record linkage on the embedded space. The frequent grams used for constructing the embedding base are mined from the original database under the framework of differential privacy. Compared with the state-of-the-art secure matching schema [15], our approach provides formal, provable privacy guarantees and achieves better scalability while providing comparable utility. © 2012 ACM.
+
+---
+
+Year: 2020
+Citations: 30
+Type: Article
+Venue: IEEE Transactions on Big Data
+Title: Big Data Privacy in Biomedical Research
+Keywords: bioethics; Biomedical research; data privacy; data security; genome analysis
+Abstract: Biomedical research often involves studying patient data that contain personal information. Inappropriate use of these data might lead to leakage of sensitive information, which can put patient privacy at risk. The problem of preserving patient privacy has received increasing attentions in the era of big data. Many privacy methods have been developed to protect against various attack models. This paper reviews relevant topics in the context of biomedical research. We discuss privacy preserving technologies related to (1) record linkage, (2) synthetic data generation, and (3) genomic data privacy. We also discuss the ethical implications of bi...
+
+---
+
+Year: 2013
+Citations: 22
+Type: Article
+Venue: Proceedings of the VLDB Endowment
+Title: Mining frequent patterns with differential privacy
+Abstract: The mining of frequent patterns is a fundamental component in many data mining tasks. A considerable amount of research on this problem has led to a wide series of efficient and scalable algorithms for mining frequent patterns. However, releasing these patterns is posing concerns on the privacy of the users participating in the data. Indeed the information from the patterns can be linked with a large amount of data available from other sources creating opportunities for adversaries to break the individual privacy of the users and disclose sensitive information. In this proposal, we study the mining of frequent patterns in a privacy preserving...
+
+---
+
+Year: 2020
+Citations: 21
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Protecting patient privacy in survival analyses
+Keywords: actuarial; data privacy; data sharing; Kaplan-Meier; survival analysis
+Abstract: Objective: Survival analysis is the cornerstone of many healthcare applications in which the "survival" probability (eg, time free from a certain disease, time to death) of a group of patients is computed to guide clinical decisions. It is widely used in biomedical research and healthcare applications. However, frequent sharing of exact survival curves may reveal information about the individual patients, as an adversary may infer the presence of a person of interest as a participant of a study or of a particular group. Therefore, it is imperative to develop methods to protect patient privacy in survival analysis. Materials and Methods: We de...
+
+---
+
+Year: 2021
+Citations: 15
+Type: Article
+Venue: Scientific Reports
+Title: Hypertension prevalence in the All of Us Research Program among groups traditionally underrepresented in medical research
+Abstract: The All of Us Research Program was designed to enable broad-based precision medicine research in a cohort of unprecedented scale and diversity. Hypertension (HTN) is a major public health concern. The validity of HTN data and definition of hypertension cases in the All of Us (AoU) Research Program for use in rule-based algorithms is unknown. In this cross-sectional, population-based study, we compare HTN prevalence in the AoU Research Program to HTN prevalence in the 2015–2016 National Health and Nutrition Examination Survey (NHANES). We used AoU baseline data from patient (age ≥ 18) measurements (PM), surveys, and electronic health record (E...
+
+---
+
+Year: 2016
+Citations: 15
+Type: Conference paper
+Venue: WSDM 2016 - Proceedings of the 9th ACM International Conference on Web Search and Data Min...
+Title: An information-theoretic approach to individual sequential data sanitization
+Keywords: Data sanitization; Mutual information; Sequential patterns
+Abstract: Fine-grained, personal data has been largely, continuously generated nowadays, such as location check-ins, web histories, physical activities, etc. Those data sequences are typically shared with untrusted parties for data analysis and promotional services. However, the individually-generated sequential data contains behavior patterns and may disclose sensitive information if not properly sanitized. Furthermore, the utility of the released sequence can be adversely affected by sanitization techniques. In this paper, we study the problem of individual sequence data sanitization with minimum utility loss, given user-specified sensitive patterns....
+
+---
+
+Year: 2022
+Citations: 14
+Type: Article
+Venue: IEEE Transactions on Knowledge and Data Engineering
+Title: VERTICOX: Vertically Distributed Cox Proportional Hazards Model Using the Alternating Direction Method of Multipliers
+Keywords: alternating direction method of multipliers; cox proportional hazards model; Federated survival analysis; privacy protection; vertically partitioned data
+Abstract: The Cox proportional hazards model is a popular semi-parametric model for survival analysis. In this paper, we aim at developing a federated algorithm for the Cox proportional hazards model over vertically partitioned data (i.e., data from the same patient are stored at different institutions). We propose a novel algorithm, namely VERTICOX, to obtain the global model parameters in a distributed fashion based on the Alternating Direction Method of Multipliers (ADMM) framework. The proposed model computes intermediary statistics and exchanges them to calculate the global model without collecting individual patient-level data. We demonstrate tha...
+
+---
+
+Year: 2016
+Citations: 10
+Type: Article
+Venue: Transactions on Data Privacy
+Title: On differentially private longest increasing subsequence computation in data stream
+Abstract: Many important applications require a continuous computation of statistics over data streams. Activities monitoring, surveillance and fraud detections are some settings where it is crucial for the monitoring applications to protect user’s sensitive information in addition to efficiently compute the required statistics. In the last two decades, a broad range of techniques for time-series and stream data monitoring has been developed to provide provable privacy guarantees employing the formal notion of differential privacy. Although these solutions are well established, they are mostly limited to count based statistics (e.g. number of distinct...
+
+---
+
+Year: 2013
+Citations: 10
+Type: Conference paper
+Venue: Proceedings of the ACM SIGMOD International Conference on Management of Data
+Title: LinkIT: Privacy preserving record linkage and integration via transformations
+Keywords: Privacy; Record Linkage; Security
+Abstract: We propose to demonstrate an open-source tool, LinkIT, for privacy preserving record Linkage and Integration via data Transformations. LinkIT implements novel algorithms that support data transformations for linking sensitive attributes, and is designed to work with our previously developed tool, FRIL (Fine-grained Record Integration and Linkage), to provide a complete record linkage solution. LinkIT can be also used as a stand-alone secure transformation tool to link string records. The system uses a novel embedding technique based on frequent variable length grams mined from original records with differential privacy, and utilizes a persona...
+
+---
+
+Year: 2018
+Citations: 9
+Type: Article
+Venue: GeoInformatica
+Title: Optimal group route query: Finding itinerary for group of users in spatial databases
+Keywords: Optimization; Route planning; Social trip
+Abstract: The increasing popularity of location-based applications creates new opportunities for users to travel together. In this paper, we study a novel spatio-social optimization problem, i.e., Optimal Group Route, for multi-user itinerary planning. With our problem formulation, users can individually specify sources and destinations, preferences on the Point-of-interest (POI) categories, as well as the distance constraints. The goal is to find a itinerary that can be traversed by all the users while maximizing the group’s preference of POI categories in the itinerary. Our work advances existing group trip planning studies by maximizing the group’s...
+
+---
+
+Year: 2018
+Citations: 9
+Type: Article
+Venue: Journal of Biomedical Informatics
+Title: Patient ranking with temporally annotated data
+Keywords: Data mining; EHR data; Sequential patterns; Temporal data
+Abstract: Modern medical information systems enable the collection of massive temporal health data. Albeit these data have great potentials for advancing medical research, the data exploration and extraction of useful knowledge present significant challenges. In this work, we develop a new pattern matching technique which aims to facilitate the discovery of clinically useful knowledge from large temporal datasets. Our approach receives in input a set of temporal patterns modeling specific events of interest (e.g., doctor's knowledge, symptoms of diseases) and it returns data instances matching these patterns (e.g., patients exhibiting the specified sym...
+
+---
+
+Year: 2017
+Citations: 9
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Multi-user itinerary planning for optimal group preference
+Abstract: The increasing popularity of location-based applications creates new opportunities for users to travel together. In this paper, we study a novel spatio-social optimization problem, i.e., Optimal Group Route, for multi-user itinerary planning. With our problem formulation, users can individually specify sources and destinations, preferences on the Point-of-interest (POI) categories, as well as the distance constraints. The goal is to find a itinerary that can be traversed by all the users while maximizing the group’s preference of POI categories in the itinerary. Our work advances existing group trip planning studies by maximizing the group’s...
+
+---
+
+Year: 2018
+Citations: 8
+Type: Conference paper
+Venue: Proceedings - 2018 IEEE International Congress on Big Data, BigData Congress 2018 - Part o...
+Title: Time Series Sanitization with Metric-Based Privacy
+Keywords: Differential Privacy; Sampling; Time Series
+Abstract: The increasing popularity of connected devices has given rise to the vast generation of time series data. Due to consumer privacy concerns, the data collected from individual devices must be sanitized before sharing with untrusted third-parties. However, existing time series privacy solutions do not provide provable guarantees for individual time series and may not extend to data from a wide range of application domains. In this paper, we adopt a generalized privacy notion based on differential privacy for individual time series sanitization and Discrete Cosine Transform to model the characteristics of time series data. We extend previously r...
+
+---
+
+Year: 2023
+Citations: 6
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Enabling Health Data Sharing with Fine-Grained Privacy
+Keywords: Data Privacy; Data Sharing; Health Data
+Abstract: Sharing health data is vital in advancing medical research and transforming knowledge into clinical practice. Meanwhile, protecting the privacy of data contributors is of paramount importance. To that end, several privacy approaches have been proposed to protect individual data contributors in data sharing, including data anonymization and data synthesis techniques. These approaches have shown promising results in providing privacy protection at the dataset level. In this work, we study the privacy challenges in enabling fine-grained privacy in health data sharing. Our work is motivated by recent research findings, in which patients and healt...
+
+---
+
+Year: 2022
+Citations: 5
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Sharing personal ECG time-series data privately
+Keywords: data privacy; data sharing; ECG data; predictive analytics; time-series
+Abstract: Objective: Emerging technologies (eg, wearable devices) have made it possible to collect data directly from individuals (eg, time-series), providing new insights on the health and well-being of individual patients. Broadening the access to these data would facilitate the integration with existing data sources (eg, clinical and genomic data) and advance medical research. Compared to traditional health data, these data are collected directly from individuals, are highly unique and provide fine-grained information, posing new privacy challenges. In this work, we study the applicability of a novel privacy model to enable individual-level time-ser...
+
+---
+
+Year: 2021
+Citations: 5
+Type: Article
+Venue: Journal of Biomedical Informatics
+Title: Noise-tolerant similarity search in temporal medical data
+Keywords: EHR data; Pattern search; Similarity search; Temporal medical data
+Abstract: Temporal medical data are increasingly integrated into the development of data-driven methods to deliver better healthcare. Searching such data for patterns can improve the detection of disease cases and facilitate the design of preemptive interventions. For example, specific temporal patterns could be used to recognize low-prevalence diseases, which are often under-diagnosed. However, searching these patterns in temporal medical data is challenging, as the data are often noisy, complex, and large in scale. In this work, we propose an effective and efficient solution to search for patients who exhibit conditions that resemble the input query....
+
+---
+
+Year: 2017
+Citations: 5
+Type: Conference paper
+Venue: Proceedings - International Conference on Data Engineering
+Title: A mortality study for ICU patients using bursty medical events
+Abstract: The study of patients in Intensive Care Units (ICUs) is a crucial task in critical care research which has significant implications both in identifying clinical risk factors and defining institutional guidances. The mortality study of ICU patients is of particular interest because it provides useful indications to healthcare institutions for improving patients experience, internal policies, and procedures (e.g. allocation of resources). To this end, many research works have been focused on the length of stay (LOS) for ICU patients as a feature for studying the mortality. In this work, we propose a novel mortality study based on the notion of...
+
+---
+
+Year: 2022
+Citations: 4
+Type: Conference paper
+Venue: Proceedings - 2022 IEEE 10th International Conference on Healthcare Informatics, ICHI 2022
+Title: Sharing Time-to-Event Data with Privacy Protection
+Keywords: Provable Privacy; Survival Analysis; Time-to-event Data
+Abstract: Sharing time-to-event data is beneficial for enabling collaborative research efforts (e.g., survival studies), facilitating the design of effective interventions, and advancing patient care (e.g., early diagnosis). Despite numerous privacy solutions for sharing time-to-event data, recent research studies have shown that external information may become available (e.g., self-disclosure of study participation on social media) to an adversary, posing new privacy concerns. In this work, we formulate a cohort inference attack for time-to-event data sharing, in which an informed adversary aims at inferring the membership of a target individual in a...
+
+---
+
+Year: 2018
+Citations: 4
+Type: Article
+Venue: Statistical Methods in Medical Research
+Title: Linking temporal medical records using non-protected health information data
+Keywords: data mining; EHR data; Record linkage; sequential patterns; temporal data
+Abstract: Modern medical research relies on multi-institutional collaborations which enhance the knowledge discovery and data reuse. While these collaborations allow researchers to perform analytics otherwise impossible on individual datasets, they often pose significant challenges in the data integration process. Due to the lack of a unique identifier, data integration solutions often have to rely on patient’s protected health information (PHI). In many situations, such information cannot leave the institutions or must be strictly protected. Furthermore, the presence of noisy values for these attributes may result in poor overall utility. While much r...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Conference paper
+Venue: Proceedings - 2023 IEEE 11th International Conference on Healthcare Informatics, ICHI 2023
+Title: Mitigating Membership Inference in Deep Survival Analyses with Differential Privacy
+Keywords: Data Privacy; Deep Learning; Membership Inference; Survival Analysis
+Abstract: Deep neural networks have been increasingly integrated in healthcare applications to enable accurate predicative analyses. Sharing trained deep models not only facilitates knowledge integration in collaborative research efforts but also enables equitable access to computational intelligence. However, recent studies have shown that an adversary may leverage a shared model to learn the participation of a target individual in the training set. In this work, we investigate privacy-protecting model sharing for survival studies. Specifically, we pose three research questions. (1) Do deep survival models leak membership information? (2) How effectiv...
+
+---
+
+Year: 2015
+Citations: 3
+Type: Book chapter
+Venue: Medical Data Privacy Handbook
+Title: A review of privacy preserving mechanisms for record linkage
+Abstract: Record linkage represents the process of identifying records that refer to the same real-world entity across multiple sources. In the recent past, the large explosion of data from organizations and individuals has created critical challenges in record linkage process, leading the scientific community to develop a rich series of techniques. Among these recent developments, the design of record linkage solutions for medical data is a cornerstone for health-care systems, as personal identifying information, such as name and date of birth, is often used for linkage. In this setting, record linkage solutions are expected to preserve individual pat...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Proceedings - 2024 IEEE 12th International Conference on Healthcare Informatics, ICHI 2024
+Title: Evaluating Generative Models in Medical Imaging
+Keywords: data syn-thesis; generative models; Medical imaging
+Abstract: Data synthesis can address important data availability challenges in biomedical informatics. Quantitative evaluation of generative models may help understand their applications to synthesizing biomedical data. This poster paper examines state-of-the-art generative models used in medical imaging, such as StyleGAN and DDPM models, and evaluates their performance in learning data manifolds and in the visible features of generated samples. Results show that existing generative models have much to improve based on the studied measures. © 2024 IEEE.
+
+---
+
+Year: 2023
+Citations: 2
+Type: Conference paper
+Venue: Proceedings - 2023 IEEE International Conference on Big Data, BigData 2023
+Title: Private Continuous Survival Analysis with Distributed Multi-Site Data
+Keywords: Data Privacy; Distributed Data; Survival Analysis
+Abstract: Effective disease surveillance systems require large-scale epidemiological data to improve health outcomes and quality of care for the general population. As data may be limited within a single site, multi-site data (e.g., from a number of local/regional health systems) need to be considered. Leveraging distributed data across multiple sites for epidemiological analysis poses significant challenges. Due to the sensitive nature of epidemiological data, it is imperative to design distributed solutions that provide strong privacy protections. Current privacy solutions often assume a central site, which is responsible for aggregating the distribu...
+
+---
+
+Year: 2018
+Citations: 2
+Type: Conference paper
+Venue: Proceedings - 2018 IEEE International Conference on Healthcare Informatics, ICHI 2018
+Title: Pattern similarity in time interval sequences
+Keywords: Data Mining; EHR Data; Similarity Measure; Temporal Pattern
+Abstract: The extraction of temporal patterns from biomedical data is central in facilitating clinical decision support and enabling proactive interventions. Despite several approaches have been proposed for efficiently mining temporal patterns, most of the current solutions offer limited flexibility in addressing the noise in the data. To this end, we propose a similarity measure for temporal patterns in time interval sequences, we develop two mining approaches and conduct a preliminary evaluation on a real world dataset. © 2018 IEEE.
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Clinical chemistry
+Title: Genomic Data and Privacy
+Abstract: [No abstract available]
+
+---
+
+Year: 2022
+Citations: 1
+Type: Conference paper
+Venue: Proceedings - 2022 IEEE 10th International Conference on Healthcare Informatics, ICHI 2022
+Title: Mitigating Membership Inference in Deep Learning Applications with High Dimensional Genomic Data
+Keywords: Deep Learning; Genomic Data; Privacy
+Abstract: The use of deep learning techniques in medical applications holds great promises for advancing health care. However, there are growing privacy concerns regarding what information about individual data contributors (i.e., patients in the training set) these deep models may reveal when shared with external users. In this work, we first investigate the membership privacy risks in sharing deep learning models for cancer genomics tasks, and then study the applicability of privacy-protecting strategies for mitigating these privacy risks. © 2022 IEEE.
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of the International Joint Conference on Neural Networks
+Title: Quality and Robustness of Generative Watermarking on Biomedical Data
+Keywords: Biomedical data; generative models; robustness; watermarking
+Abstract: Sharing biomedical data for research can advance methodology development and improve patient care. However, data ownership, integrity, and authenticity are among the key concerns for broad biomedical data sharing. Data watermarking, a technique that embeds a message in the data, has been applied in medical imaging to address those concerns. Specifically, the majority of medical image watermarking methods embed watermarks in the frequency domains to achieve minimal data distortions. However, such methods exhibit low robustness, where perturbing the watermarked data may challenge watermark detection. In this work, we study the state-of-the-art...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Conference paper
+Venue: GIS: Proceedings of the ACM International Symposium on Advances in Geographic Information...
+Title: Hide Your Distance: Privacy Risks and Protection in Spatial Accessibility Analysis
+Keywords: health informatics; privacy; spatial accessibility
+Abstract: Measuring spatial accessibility to healthcare resources and facilities has long been an important problem in public health. For example, during disease outbreaks, sharing spatial accessibility data such as individual travel distances to health facilities is vital to policy making and designing effective interventions. However, sharing these data may raise privacy concerns, as information about individual data contributors (e.g., health status and residential address) may be disclosed. In this work, we investigate those unintended information leakage in spatial accessibility analysis. Specifically, we are interested in understanding whether sh...
+
+---
+
+Year: 2015
+Citations: 0
+Type: Conference paper
+Venue: CEUR Workshop Proceedings
+Title: Private computation of the longest increasing subsequence in data streams
+Abstract: In this paper, we study the problem of privately computing ordered statistics with the goal of monitoring sequential data streams. Despite the broad series of techniques for time-series monitoring, only few works provide provable privacy guarantees employing the formal notion of differential privacy. While these solutions are well established, their focus is mostly limited to count based statistics (e.g. number of distinct elements, heavy hitters). In this paper, we consider a more general problem of privately computing the length of the longest increasing subsequence (LIS) in the data stream model. This important statistic can be used to det...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Differential Privacy**: 
+    *   Frequent appearances in papers: 2013, 2014, 2016, 2017, 2020, 2022, 2023
+    *   Application areas: genomic data sharing, web browsing behavior, frequent patterns, record linkage, survival analysis, time series data, and spatial accessibility analysis
+*   **Record Linkage and Integration**: 
+    *   Frequent appearances in papers: 2012, 2013, 2018
+    *   Application areas: medical data, genomic data, and EHR data
+*   **Time Series and Streaming Data**: 
+    *   Frequent appearances in papers: 2016, 2018, 2022
+    *   Application areas: web browsing behavior, time series data, and streaming data
+*   **Survival Analysis and Time-to-Event Data**: 
+    *   Frequent appearances in papers: 2017, 2018, 2022
+    *   Application
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Luca Bonomi is a researcher whose work has evolved significantly since his early focus on differential privacy and its applications in various domains, including genomic data sharing, web browsing behavior, and record linkage. His research trajectory shifted towards exploring the intersection of differential privacy and time series/streaming data, evident in his contributions to time series sanitization, survival analysis, and spatial accessibility analysis.
+
+Bonomi's primary areas of expertise lie at the confluence of data privacy, machine learning, and healthcare informatics. He has extensively researched differential privacy, developing novel algorithms and techniques for ensuring the confidentiality of sensitive data. Additionally, his work encompasses the analysis of time series and streaming data, focusing on applications in healthcare, including survival analysis, time-to-event data, and spatial accessibility analysis.

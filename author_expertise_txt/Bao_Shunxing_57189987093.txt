@@ -1,0 +1,1337 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Bao_Shunxing_57189987093
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Bao_Shunxing_57189987093
+
+Publication records (each record is one paper):
+Year: 2019
+Citations: 251
+Type: Article
+Venue: IEEE Transactions on Medical Imaging
+Title: SynSeg-Net: Synthetic Segmentation Without Target Modality Ground Truth
+Keywords: adversarial; convolutional; DCNN; GAN; segmentation; splenomegaly; Synthesis; synthetic segmentation; TICV
+Abstract: A key limitation of deep convolutional neural network (DCNN)-based image segmentation methods is the lack of generalizability. Manually traced training images are typically required when segmenting organs in a new imaging modality or from distinct disease cohort. The manual efforts can be alleviated if the manually traced images in one imaging modality (e.g., MRI) are able to train a segmentation network for another imaging modality (e.g., CT). In this paper, we propose an end-to-end synthetic segmentation network (SynSeg-Net) to train a segmentation network for a target imaging modality without having manual labels. SynSeg-Net is trained by...
+
+---
+
+Year: 2019
+Citations: 239
+Type: Article
+Venue: NeuroImage
+Title: 3D whole brain segmentation using spatially localized atlas network tiles
+Keywords: Brain segmentation; Deep learning; Label fusion; Multi-atlas; Network tiles
+Abstract: Detailed whole brain segmentation is an essential quantitative technique in medical image analysis, which provides a non-invasive way of measuring brain regions from a clinical acquired structural magnetic resonance imaging (MRI). Recently, deep convolution neural network (CNN) has been applied to whole brain segmentation. However, restricted by current GPU memory, 2D based methods, downsampling based 3D CNN methods, and patch-based high-resolution 3D CNN methods have been the de facto standard solutions. 3D patch-based high resolution methods typically yield superior performance among CNN approaches on detailed whole brain segmentation (>100...
+
+---
+
+Year: 2018
+Citations: 123
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Adversarial synthesis learning enables segmentation without target modality ground truth
+Abstract: A lack of generalizability is one key limitation of deep learning based segmentation. Typically, one manually labels new training images when segmenting organs in different imaging modalities or segmenting abnormal organs from distinct disease cohorts. The manual efforts can be alleviated if one is able to reuse manual labels from one modality (e.g., MRI) to train a segmentation network for a new modality (e.g., CT). Previously, two stage methods have been proposed to use cycle generative adversarial networks (CycleGAN) to synthesize training images for a target modality. Then, these efforts trained a segmentation network independently using...
+
+---
+
+Year: 2023
+Citations: 71
+Type: Article
+Venue: Medical Image Analysis
+Title: UNesT: Local spatial representation learning with hierarchical transformer for efficient medical segmentation
+Keywords: Hierarchical transformer; Renal substructure segmentation; Whole brain segmentation
+Abstract: Transformer-based models, capable of learning better global dependencies, have recently demonstrated exceptional representation learning capabilities in computer vision and medical image analysis. Transformer reformats the image into separate patches and realizes global communication via the self-attention mechanism. However, positional information between patches is hard to preserve in such 1D sequences, and loss of it can lead to sub-optimal performance when dealing with large amounts of heterogeneous tissues of various sizes in 3D medical image segmentation. Additionally, current methods are not robust and efficient for heavy-duty medical...
+
+---
+
+Year: 2023
+Citations: 71
+Type: Conference paper
+Venue: 11th International Conference on Learning Representations, ICLR 2023
+Title: 3D UX-NET: A LARGE KERNEL VOLUMETRIC CONVNET MODERNIZING HIERARCHICAL TRANSFORMER FOR MEDICAL IMAGE SEGMENTATION
+Abstract: The recent 3D medical ViTs (e.g., SwinUNETR) achieve the state-of-the-art performances on several 3D volumetric data benchmarks, including 3D medical image segmentation. Hierarchical transformers (e.g., Swin Transformers) reintroduced several ConvNet priors and further enhanced the practical viability of adapting volumetric segmentation in 3D medical datasets. The effectiveness of hybrid approaches is largely credited to the large receptive field for non-local self-attention and the large number of model parameters. We hypothesize that volumetric ConvNets can simulate the large receptive field behavior of these learning approaches with fewer...
+
+---
+
+Year: 2018
+Citations: 64
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Fully convolutional neural networks improve abdominal organ segmentation
+Abstract: Abdominal image segmentation is a challenging, yet important clinical problem. Variations in body size, position, and relative organ positions greatly complicate the segmentation process. Historically, multi-atlas methods have achieved leading results across imaging modalities and anatomical targets. However, deep learning is rapidly overtaking classical approaches for image segmentation. Recently, Zhou et al. showed that fully convolutional networks produce excellent results in abdominal organ segmentation of computed tomography (CT) scans. Yet, deep learning approaches have not been applied to whole abdomen magnetic resonance imaging (MRI)...
+
+---
+
+Year: 2024
+Citations: 55
+Type: Article
+Venue: Medical Image Analysis
+Title: Cross-scale multi-instance learning for pathological image diagnosis
+Keywords: Attention mechanism; Multi-instance learning; Multi-scale; Pathology
+Abstract: Analyzing high resolution whole slide images (WSIs) with regard to information across multiple scales poses a significant challenge in digital pathology. Multi-instance learning (MIL) is a common solution for working with high resolution images by classifying bags of objects (i.e. sets of smaller image patches). However, such processing is typically performed at a single scale (e.g., 20× magnification) of WSIs, disregarding the vital inter-scale information that is key to diagnoses by human pathologists. In this study, we propose a novel cross-scale MIL algorithm to explicitly aggregate inter-scale relationships into a single MIL network for...
+
+---
+
+Year: 2021
+Citations: 55
+Type: Article
+Venue: Medical Image Analysis
+Title: High-resolution 3D abdominal segmentation with random patch network fusion
+Keywords: 3D CT; Abdominal organ segmentation; Coarse to fine; High resolution; Network fusion
+Abstract: Deep learning for three dimensional (3D) abdominal organ segmentation on high-resolution computed tomography (CT) is a challenging topic, in part due to the limited memory provide by graphics processing units (GPU) and large number of parameters and in 3D fully convolutional networks (FCN). Two prevalent strategies, lower resolution with wider field of view and higher resolution with limited field of view, have been explored but have been presented with varying degrees of success. In this paper, we propose a novel patch-based network with random spatial initialization and statistical fusion on overlapping regions of interest (ROIs). We evalua...
+
+---
+
+Year: 2019
+Citations: 50
+Type: Article
+Venue: IEEE Transactions on Medical Imaging
+Title: Splenomegaly segmentation on multi-modal MRI using deep convolutional networks
+Keywords: deep convolutional neural network; MRI; multi-contrast; Spleen segmentation; splenomegaly
+Abstract: The findings of splenomegaly, abnormal enlargement of the spleen, is a non-invasive clinical biomarker for liver and spleen diseases. Automated segmentation methods are essential to efficiently quantify splenomegaly from clinically acquired abdominal magnetic resonance imaging (MRI) scans. However, the task is challenging due to: 1) large anatomical and spatial variations of splenomegaly; 2) large inter- A nd intra-scan intensity variations on multi-modal MRI; and 3) limited numbers of labeled splenomegaly scans. In this paper, we propose the Splenomegaly Segmentation Network (SS-Net) to introduce the deep convolutional neural network (DCNN)...
+
+---
+
+Year: 2018
+Citations: 40
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Splenomegaly segmentation using global convolutional kernels and conditional generative adversarial networks
+Abstract: Spleen volume estimation using automated image segmentation technique may be used to detect splenomegaly (abnormally enlarged spleen) on Magnetic Resonance Imaging (MRI) scans. In recent years, Deep Convolutional Neural Networks (DCNN) segmentation methods have demonstrated advantages for abdominal organ segmentation. However, variations in both size and shape of the spleen on MRI images may result in large false positive and false negative labeling when deploying DCNN based methods. In this paper, we propose the Splenomegaly Segmentation Network (SSNet) to address spatial variations when segmenting extraordinarily large spleens. SSNet was de...
+
+---
+
+Year: 2021
+Citations: 38
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Compound Figure Separation of Biomedical Images with Side Loss
+Keywords: Biomedical data; Compound figures; Deep learning; Separation
+Abstract: Unsupervised learning algorithms (e.g., self-supervised learning, auto-encoder, contrastive learning) allow deep learning models to learn effective image representations from large-scale unlabeled data. In medical image analysis, even unannotated data can be difficult to obtain for individual labs. Fortunately, national-level efforts have been made to provide efficient access to obtain biomedical image data from previous scientific publications. For instance, NIH has launched the Open-i® search engine that provides a large-scale image database with free access. However, the images in scientific publications consist of a considerable amount of...
+
+---
+
+Year: 2019
+Citations: 35
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Distanced LSTM: Time-Distanced Gates in Long Short-Term Memory Models for Lung Cancer Detection
+Keywords: Longitudinal; LSTM; Lung cancer; TEM; Time distance
+Abstract: The field of lung nodule detection and cancer prediction has been rapidly developing with the support of large public data archives. Previous studies have largely focused cross-sectional (single) CT data. Herein, we consider longitudinal data. The Long Short-Term Memory (LSTM) model addresses learning with regularly spaced time points (i.e., equal temporal intervals). However, clinical imaging follows patient needs with often heterogeneous, irregular acquisitions. To model both regular and irregular longitudinal samples, we generalize the LSTM model with the Distanced LSTM (DLSTM) for temporally varied acquisitions. The DLSTM includes a Tempo...
+
+---
+
+Year: 2020
+Citations: 33
+Type: Article
+Venue: Medical Image Analysis
+Title: Time-distanced gates in long short-term memory networks
+Keywords: Distanced LSTM; Longitudinal; Lung cancer diagnosis; Temporal Emphasis Model
+Abstract: The Long Short-Term Memory (LSTM) network is widely used in modeling sequential observations in fields ranging from natural language processing to medical imaging. The LSTM has shown promise for interpreting computed tomography (CT) in lung screening protocols. Yet, traditional image-based LSTM models ignore interval differences, while recently proposed interval-modeled LSTM variants are limited in their ability to interpret temporal proximity. Meanwhile, clinical imaging acquisition may be irregularly sampled, and such sampling patterns may be commingled with clinical usages. In this paper, we propose the Distanced LSTM (DLSTM) by introducin...
+
+---
+
+Year: 2018
+Citations: 31
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Spatially localized atlas network tiles enables 3d whole brain segmentation from limited data
+Abstract: Whole brain segmentation on a structural magnetic resonance imaging (MRI) is essential in non-invasive investigation for neuroanatomy. Historically, multi-atlas segmentation (MAS) has been regarded as the de facto standard method for whole brain segmentation. Recently, deep neural network approaches have been applied to whole brain segmentation by learning random patches or 2D slices. Yet, few previous efforts have been made on detailed whole brain segmentation using 3D networks due to the following challenges: (1) fitting entire whole brain volume into 3D networks is restricted by the current GPU memory, and (2) the large number of targeting...
+
+---
+
+Year: 2019
+Citations: 28
+Type: Conference paper
+Venue: Proceedings of the 2019 USENIX Conference on Operational Machine Learning, OpML 2019
+Title: Stratum: A serverless framework for the lifecycle management of machine learning-based data analytics tasks
+Abstract: With the proliferation of machine learning (ML) libraries and frameworks, and the programming languages that they use, along with operations of data loading, transformation, preparation and mining, ML model development is becoming a daunting task. Furthermore, with a plethora of cloud-based ML model development platforms, heterogeneity in hardware, increased focus on exploiting edge computing resources for low-latency prediction serving and often a lack of a complete understanding of resources required to execute ML workflows efficiently, ML model deployment demands expertise for managing the lifecycle of ML workflows efficiently and with min...
+
+---
+
+Year: 2018
+Citations: 26
+Type: Review
+Venue: Journal of Digital Imaging
+Title: Towards Portable Large-Scale Image Processing with High-Performance Computing
+Keywords: Containerized; DAX; Large-scale; Portable; VUIIS; XNAT
+Abstract: High-throughput, large-scale medical image computing demands tight integration of high-performance computing (HPC) infrastructure for data storage, job distribution, and image processing. The Vanderbilt University Institute for Imaging Science (VUIIS) Center for Computational Imaging (CCI) has constructed a large-scale image storage and processing infrastructure that is composed of (1) a large-scale image database using the eXtensible Neuroimaging Archive Toolkit (XNAT), (2) a content-aware job scheduling platform using the Distributed Automation for XNAT pipeline automation tool (DAX), and (3) a wide variety of encapsulated image processing...
+
+---
+
+Year: 2024
+Citations: 24
+Type: Article
+Venue: Nature Communications
+Title: Identification and multimodal characterization of a specialized epithelial cell type associated with Crohn’s disease
+Abstract: Crohn’s disease (CD) is a complex chronic inflammatory disorder with both gastrointestinal and extra-intestinal manifestations associated immune dysregulation. Analyzing 202,359 cells from 170 specimens across 83 patients, we identify a distinct epithelial cell type in both terminal ileum and ascending colon (hereon as ‘LND’) with high expression of LCN2, NOS2, and DUOX2 and genes related to antimicrobial response and immunoregulation. LND cells, confirmed by in-situ RNA and protein imaging, are rare in non-IBD controls but expand in active CD, and actively interact with immune cells and specifically express IBD/CD susceptibility genes, sugge...
+
+---
+
+Year: 2024
+Citations: 22
+Type: Conference paper
+Venue: Journal of Physics: Conference Series
+Title: All-in-SAM: From Weak Annotation to Pixel-wise Nuclei Segmentation with Prompt-based Finetuning
+Abstract: The Segment Anything Model (SAM) is a recently proposed prompt-based segmentation model in a generic zero-shot segmentation approach. With the zero-shot segmentation capacity, SAM achieved impressive flexibility and precision on various segmentation tasks. However, the current pipeline requires manual prompts during the inference stage, which is still resource intensive for biomedical image segmentation. In this paper, instead of using prompts during the inference stage, we introduce a pipeline that utilizes the SAM, called all-in-SAM, through the entire AI development workflow (from annotation generation to model finetuning) without requirin...
+
+---
+
+Year: 2021
+Citations: 22
+Type: Article
+Venue: IEEE Transactions on Medical Imaging
+Title: Body Part Regression with Self-Supervision
+Keywords: Body part regression; multi-organ segmentation; organ navigation; robust regression; self-supervised learning
+Abstract: Body part regression is a promising new technique that enables content navigation through self-supervised learning. Using this technique, the global quantitative spatial location for each axial view slice is obtained from computed tomography (CT). However, it is challenging to define a unified global coordinate system for body CT scans due to the large variabilities in image resolution, contrasts, sequences, and patient anatomy. Therefore, the widely used supervised learning approach cannot be easily deployed. To address these concerns, we propose an annotation-free method named blind-unsupervised-supervision network (BUSN). The contributions...
+
+---
+
+Year: 2019
+Citations: 22
+Type: Conference paper
+Venue: Proceedings - 2019 IEEE International Conference on Big Data, Big Data 2019
+Title: STRATUM: A BigData-as-a-Service for Lifecycle Management of IoT Analytics Applications
+Keywords: AI/ML platform; Automation; Big Data Analytics; Cloud/Edge Resource Management; Deployment; Domain-Specific Modeling; IoT
+Abstract: Smart Internet of Things (IoT) applications require real-time and robust predictive analytics, which are based on Machine Learning (ML) models. Building ML models from Big Data is not only time-consuming, but developers often lack the needed expertise for feature engineering, parameter tuning, and model selection. The proliferation of ML libraries and frameworks, data ingestion tools, stream and batch processing engines, visualization techniques, and the range of available hardware platforms further exacerbates the system design, rapid development, and deployment problems. Finally, resource constraints of IoT require that the execution of the...
+
+---
+
+Year: 2019
+Citations: 22
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Cortical Surface Parcellation Using Spherical Convolutional Neural Networks
+Keywords: Cortical surface parcellation; Spherical deformation; Spherical U-Net; Surface registration
+Abstract: We present cortical surface parcellation using spherical deep convolutional neural networks. Traditional multi-atlas cortical surface parcellation requires inter-subject surface registration using geometric features with slow processing speed on a single subject (2–3 h). Moreover, even optimal surface registration does not necessarily produce optimal cortical parcellation as parcel boundaries are not fully matched to the geometric features. In this context, a choice of training features is important for accurate cortical parcellation. To utilize the networks efficiently, we propose cortical parcellation-specific input data from an irregular a...
+
+---
+
+Year: 2019
+Citations: 21
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Stochastic tissue window normalization of deep learning on computed tomography
+Keywords: computed tomography; deep learning; segmentation; tissue window
+Abstract: Tissue window filtering has been widely used in deep learning for computed tomography (CT) image analyses to improve training performance (e.g., soft tissue windows for abdominal CT). However, the effectiveness of tissue window normalization is questionable since the generalizability of the trained model might be further harmed, especially when such models are applied to new cohorts with different CT reconstruction kernels, contrast mechanisms, dynamic variations in the acquisition, and physiological changes. We evaluate the effectiveness of both with and without using soft tissue window normalization on multisite CT cohorts. Moreover, we pro...
+
+---
+
+Year: 2020
+Citations: 20
+Type: Conference paper
+Venue: HotEdge 2020 - 3rd USENIX Workshop on Hot Topics in Edge Computing
+Title: Cost-effective hardware accelerator recommendation for edge computing
+Abstract: Hardware accelerator devices have emerged as an alternative to traditional CPUs since they not only help perform computations faster but also consume much less energy than a traditional CPU thereby helping to lower both capex (i.e., procurement costs) and opex (i.e., energy usage). However, since different accelerator technologies can illustrate different traits for different application types that run at the edge, there is a critical need for effective mechanisms that can help developers select the right technology (or a mix of) to use in their context, which is currently lacking. To address this critical need, we propose a recommender syste...
+
+---
+
+Year: 2019
+Citations: 19
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Lung cancer detection using co-learning from chest CT images and clinical demographics
+Abstract: Early detection of lung cancer is essential in reducing mortality. Recent studies have demonstrated the clinical utility of low-dose computed tomography (CT) to detect lung cancer among individuals selected based on very limited clinical information. However, this strategy yields high false positive rates, which can lead to unnecessary and potentially harmful procedures. To address such challenges, we established a pipeline that co-learns from detailed clinical demographics and 3D CT images. Toward this end, we leveraged data from the Consortium for Molecular and Cellular Characterization of Screen-Detected Lesions (MCL), which focuses on ear...
+
+---
+
+Year: 2021
+Citations: 18
+Type: Article
+Venue: NeuroImage
+Title: Labeling lateral prefrontal sulci using spherical data augmentation and context-aware training
+Keywords: Context encoder; Cortical surface; Frontal cortex; Spherical data augmentation; Sulcal labeling
+Abstract: The inference of cortical sulcal labels often focuses on deep (primary and secondary) sulcal regions, whereas shallow (tertiary) sulcal regions are largely overlooked in the literature due to the scarcity of manual/well-defined annotations and their large neuroanatomical variability. In this paper, we present an automated framework for regional labeling of both primary/secondary and tertiary sulci of the dorsal portion of lateral prefrontal cortex (LPFC) using spherical convolutional neural networks. We propose two core components that enhance the inference of sulcal labels to overcome such large neuroanatomical variability: (1) surface data...
+
+---
+
+Year: 2025
+Citations: 14
+Type: Conference paper
+Venue: IS and T International Symposium on Electronic Imaging Science and Technology
+Title: Segment Anything Model (SAM) for Digital Pathology: Assess Zero-shot Segmentation on Whole Slide Imaging
+Abstract: The segment anything model (SAM) was released as a foundation model for image segmentation. The promptable segmentation model was trained by over 1 billion masks on 11M licensed and privacy-respecting images. The model supports zero-shot image segmentation with various segmentation prompts (e.g., points, boxes, masks). It makes the SAM attractive for medical image analysis, especially for digital pathology where the training data are rare. In this study, we evaluate the zero-shot segmentation performance of SAM model on representative segmentation tasks on whole slide imaging (WSI), including (1) tumor segmentation, (2) non-tumor tissue segme...
+
+---
+
+Year: 2021
+Citations: 14
+Type: Conference paper
+Venue: Proceedings - 2021 IEEE International Conference on Autonomic Computing and Self-Organizin...
+Title: A Self-Adaptive Load Balancing Approach for Software-Defined Networks in IoT
+Keywords: Internet of Things (IoT); Load Balancing; Queuing Model; Resource management; Software-Defined Networking (SDN); Switch Migration Problem (SMP)
+Abstract: The Internet of Things (IoT) is gaining popularity as it offers to connect billions of devices and exchange data over the internet. However, the large-scale and heterogeneous IoT network environment brings serious challenges to assuring the quality of service of IoT-based services. In this context, Software-Defined Networking (SDN) shows promise in improving the performance of IoT services by decoupling the control plane from the data plane. However, existing SDN-based distributed architectures are able to address the scalability and management issues in static IoT scenarios only. In this paper, we utilize multiple M/M/1 queues to model and o...
+
+---
+
+Year: 2019
+Citations: 14
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Coronary calcium detection using 3D attention identical dual deep network based on weakly supervised learning
+Keywords: 3D grad-cam; AID-Net; attention; CAC; coronary artery calcium
+Abstract: Coronary artery calcium (CAC) is biomarker of advanced subclinical coronary artery disease and predicts myocardial infarction and death prior to age 60 years. The slice-wise manual delineation has been regarded as the gold standard of coronary calcium detection. However, manual efforts are time and resource consuming and even impracticable to be applied on large-scale cohorts. In this paper, we propose the attention identical dual network (AID-Net) to perform CAC detection using scan-rescan longitudinal non-contrast CT scans with weakly supervised attention by only using per scan level labels. To leverage the performance, 3D attention mechani...
+
+---
+
+Year: 2020
+Citations: 13
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Prediction of Type II Diabetes Onset with Computed Tomography and Electronic Medical Records
+Keywords: Computed tomography; Disease onset prediction; Electronic medical records; Metabolic syndrome; Type II diabetes
+Abstract: Type II diabetes mellitus (T2DM) is a significant public health concern with multiple known risk factors (e.g., body mass index (BMI), body fat distribution, glucose levels). Improved prediction or prognosis would enable earlier intervention before possibly irreversible damage has occurred. Meanwhile, abdominal computed tomography (CT) is a relatively common imaging technique. Herein, we explore secondary use of the CT imaging data to refine the risk profile of future diagnosis of T2DM. In this work, we delineate quantitative information and imaging slices of patient history to predict onset T2DM retrieved from ICD-9 codes at least one year i...
+
+---
+
+Year: 2019
+Citations: 13
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Registration-based image enhancement improves multi-atlas segmentation of the thalamic nuclei and hippocampal subfields
+Keywords: Big data; Deep brain structure; Non-rigid registration
+Abstract: Magnetic resonance imaging (MRI) is an important tool for analysis of deep brain grey matter structures. However, analysis of these structures is limited due to low intensity contrast typically found in whole brain imaging protocols. Herein, we propose a big data registration-enhancement (BDRE) technique to augment the contrast of deep brain structures using an efficient large-scale non-rigid registration strategy. Direct validation is problematic given a lack of ground truth data. Rather, we validate the usefulness and impact of BDRE for multi-atlas (MA) segmentation on two sets of structures of clinical interest: the thalamic nuclei and hip...
+
+---
+
+Year: 2022
+Citations: 11
+Type: Article
+Venue: Medical Physics
+Title: Learning white matter subject-specific segmentation from structural MRI
+Keywords: learning methods and patch-wise deep neural network; T1 weight MRI; tractography algorithms; white matter
+Abstract: Purpose: Mapping brain white matter (WM) is essential for building an understanding of brain anatomy and function. Tractography-based methods derived from diffusion-weighted MRI (dMRI) are the principal tools for investigating WM. These procedures rely on time-consuming dMRI acquisitions that may not always be available, especially for legacy or time-constrained studies. To address this problem, we aim to generate WM tracts from structural magnetic resonance imaging (MRI) image by deep learning. Methods: Following recently proposed innovations in structural anatomical segmentation, we evaluate the feasibility of training multiply spatial loca...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Medical Image Segmentation**: This theme appears in most papers, focusing on developing new methods for segmenting various organs and tissues in medical images, such as the spleen, lungs, brain, and abdominal organs.
+*   **Deep Learning Techniques**: Many papers employ deep learning methods, including convolutional neural networks (CNNs), generative adversarial networks (GANs), and transformers, to improve image segmentation accuracy and efficiency.
+*   **Multi-Modality and Transfer Learning**: Several papers investigate the use of transfer learning to adapt models trained on one imaging modality (e.g., MRI) to another (e.g., CT) without requiring manual annotations for the target modality.
+*   **Efficient and Robust Methods**: Researchers aim to develop more efficient and robust methods for image segmentation, including those that can handle large images, variable image quality, and limited annotated data.
+*   **Application to Real-World Problems**: Papers often apply the developed methods to real-world problems, such as detecting diseases like lung cancer, predicting disease onset,
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Bao_Shunxing_57189987093
+
+Publication records (each record is one paper):
+Year: 2021
+Citations: 11
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Renal cortex, medulla and pelvicaliceal system segmentation on arterial phase CT images with random patch-based networks
+Keywords: Computed tomography; Cortex; Deep convolutional neural networks; Kidney; Medulla; Pelvicalyceal system; Renal segmentation
+Abstract: Renal segmentation on contrast-enhanced computed tomography (CT) provides distinct spatial context and morphology. Current studies for renal segmentations are highly dependent on manual efforts, which are time-consuming and tedious. Hence, developing an automatic framework for the segmentation of renal cortex, medulla and pelvicalyceal system is an important quantitative assessment of renal morphometry. Recent innovations in deep methods have driven performance toward levels for which clinical translation is appealing. However, the segmentation of renal structures can be challenging due to the limited field-of-view (FOV) and variability among...
+
+---
+
+Year: 2021
+Citations: 11
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: A cross-platform informatics system for the Gut Cell Atlas: Integrating clinical, anatomical and histological data
+Abstract: The Gut Cell Atlas (GCA), an initiative funded by the Helmsley Charitable Trust, seeks to create a reference platform to understand the human gut, with a specific focus on Crohn's disease. Although a primary focus of the GCA is on focusing on single-cell profiling, we seek to provide a framework to integrate other analyses on multimodality data such as electronic health record data, radiological images, and histology tissues/images. Herein, we use the research electronic data capture (REDCap) system as the central tool for a secure web application that supports protected health information (PHI) restricted access. Our innovations focus on add...
+
+---
+
+Year: 2023
+Citations: 10
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Scaling up 3D Kernels with Bayesian Frequency Re-parameterization for Medical Image Segmentation
+Keywords: Bayesian Frequency Re-parameterization; Large Kernel Convolution; Medical Image Segmentation
+Abstract: With the inspiration of vision transformers, the concept of depth-wise convolution revisits to provide a large Effective Receptive Field (ERF) using Large Kernel (LK) sizes for medical image segmentation. However, the segmentation performance might be saturated and even degraded as the kernel sizes scaled up (e.g., $$21\times 21\times 21$$ ) in a Convolutional Neural Network (CNN). We hypothesize that convolution with LK sizes is limited to maintain an optimal convergence for locality learning. While Structural Re-parameterization (SR) enhances the local convergence with small kernels in parallel, optimal small kernel branches may hinder the...
+
+---
+
+Year: 2022
+Citations: 10
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Label efficient segmentation of single slice thigh CT with two-stage pseudo labels
+Keywords: CT image; pseudo labels; thigh segmentation; transfer learning
+Abstract: Purpose: Muscle, bone, and fat segmentation from thigh images is essential for quantifying body composition. Voxelwise image segmentation enables quantification of tissue properties including area, intensity, and texture. Deep learning approaches have had substantial success in medical image segmentation, but they typically require a significant amount of data. Due to the high cost of manual annotation, training deep learning models with limited human label data is desirable, but it is a challenging problem. Approach: Inspired by transfer learning, we proposed a two-stage deep learning pipeline to address the thigh and lower leg segmentation...
+
+---
+
+Year: 2022
+Citations: 10
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Cross-Scale Attention Guided Multi-instance Learning for Crohn’s Disease Diagnosis with Pathological Images
+Keywords: Attention mechanism; Multi-instance Learning; Multi-scale; Pathology
+Abstract: Multi-instance learning (MIL) is widely used in the computer-aided interpretation of pathological Whole Slide Images (WSIs) to solve the lack of pixel-wise or patch-wise annotations. Often, this approach directly applies “natural image driven” MIL algorithms which overlook the multi-scale (i.e. pyramidal) nature of WSIs. Off-the-shelf MIL algorithms are typically deployed on a single-scale of WSIs (e.g., 20 × magnification), while human pathologists usually aggregate the global and local patterns in a multi-scale manner (e.g., by zooming in and out between different magnifications). In this study, we propose a novel cross-scale attention mech...
+
+---
+
+Year: 2021
+Citations: 10
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Validation and estimation of spleen volume via computer-assisted segmentation on clinically acquired CT scans
+Keywords: computed tomography; deep learning; image segmentation; spleen; splenomegaly
+Abstract: Purpose: Deep learning is a promising technique for spleen segmentation. Our study aims to validate the reproducibility of deep learning-based spleen volume estimation by performing spleen segmentation on clinically acquired computed tomography (CT) scans from patients with myeloproliferative neoplasms. Approach: As approved by the institutional review board, we obtained 138 de-identified abdominal CT scans. A sum of voxel volume on an expert annotator's segmentations establishes the ground truth (estimation 1). We used our deep convolutional neural network (estimation 2) alongside traditional linear estimations (estimation 3 and 4) to estima...
+
+---
+
+Year: 2020
+Citations: 10
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Automatic Labeling of Cortical Sulci Using Spherical Convolutional Neural Networks in a Developmental Cohort
+Keywords: data augmentation; Prefrontal cortex labeling; spherical U-Net
+Abstract: In this paper, we present the automatic labeling framework for sulci in the human lateral prefrontal cortex (PFC). We adapt an existing spherical U -Net architecture with our recent surface data augmentation technique to improve the sulcal labeling accuracy in a developmental cohort. Specifically, our framework consists of the following key components: (1) augmented geometrical features being generated during cortical surface registration, (2) spherical U -Net architecture to efficiently fit the augmented features, and (3) post-refinement of sulcal labeling by optimizing spatial coherence via a graph cut technique. We validate our method on 3...
+
+---
+
+Year: 2024
+Citations: 9
+Type: Article
+Venue: Journal of Medical Internet Research
+Title: A 3D and Explainable Artificial Intelligence Model for Evaluation of Chronic Otitis Media Based on Temporal Bone Computed Tomography: Model Development, Validation, and Clinical Ap...
+Keywords: artificial intelligence; cholesteatoma; convolutional neural networks; deep learning; machine learning; mastoidectomy; otitis media; temporal bone; tomography, x-ray computed
+Abstract: Background: Temporal bone computed tomography (CT) helps diagnose chronic otitis media (COM). However, its interpretation requires training and expertise. Artificial intelligence (AI) can help clinicians evaluate COM through CT scans, but existing models lack transparency and may not fully leverage multidimensional diagnostic information. Objective: We aimed to develop an explainable AI system based on 3D convolutional neural networks (CNNs) for automatic CT-based evaluation of COM. Methods: Temporal bone CT scans were retrospectively obtained from patients operated for COM between December 2015 and July 2021 at 2 independent institutes. A re...
+
+---
+
+Year: 2020
+Citations: 9
+Type: Article
+Venue: Neurocomputing
+Title: Multi-path x-D recurrent neural networks for collaborative image classification
+Keywords: Category-irrelevant attributes; Longitudinal; RNN; Unordered image
+Abstract: With the rapid development of image acquisition and storage, multiple images per class are commonly available for computer vision tasks (e.g., face recognition, object detection, medical imaging, etc.). Recently, the recurrent neural network (RNN) has been widely integrated with convolutional neural networks (CNN) to perform image classification on ordered (sequential) data. In this paper, by permutating multiple images as multiple dummy orders, we generalize the ordered “RNN+CNN” design (longitudinal) to a novel unordered fashion, called Multi-path x-D Recurrent Neural Network (MxDRNN) for image classification. To the best of our knowledge,...
+
+---
+
+Year: 2024
+Citations: 8
+Type: Article
+Venue: Imaging Neuroscience
+Title: Variability of multidimensional diffusion–relaxation MRI estimates in the human brain
+Keywords: diffusion; human brain; microstructure; multidimensional MRI; relaxation; reproducibility
+Abstract: Diffusion–relaxation correlation multidimensional MRI (MD-MRI) replaces voxel-averaged diffusion tensor quantities and (Formula presented.) and (Formula presented.) relaxation rates with their multidimensional distributions, enabling the selective extraction and mapping of specific diffusion–relaxation spectral ranges that correspond to different cellular features. This approach has the potential of achieving high sensitivity and specificity in detecting subtle changes that would otherwise be averaged out. Here, the whole brain characterization of MD-MRI distributions and derived parameters is presented and the intrascanner test–retest reliab...
+
+---
+
+Year: 2022
+Citations: 8
+Type: Article
+Venue: Journal of Digital Imaging
+Title: Workflow Integration of Research AI Tools into a Hospital Radiology Rapid Prototyping Environment
+Keywords: AI-based image analysis; Containers; Healthcare centers; HIPAA; Picture archiving and communication system; Radiology workflow
+Abstract: The field of artificial intelligence (AI) in medical imaging is undergoing explosive growth, and Radiology is a prime target for innovation. The American College of Radiology Data Science Institute has identified more than 240 specific use cases where AI could be used to improve clinical practice. In this context, thousands of potential methods are developed by research labs and industry innovators. Deploying AI tools within a clinical enterprise, even on limited retrospective evaluation, is complicated by security and privacy concerns. Thus, innovation must be weighed against the substantive resources required for local clinical evaluation....
+
+---
+
+Year: 2021
+Citations: 8
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Pancreas CT Segmentation by Predictive Phenotyping
+Keywords: Pancreas segmentation; Patient phenotype; Predictive clustering
+Abstract: Pancreas CT segmentation offers promise at understanding the structural manifestation of metabolic conditions. To date, the medical primary record of conditions that impact the pancreas is in the electronic health record (EHR) in terms of diagnostic phenotype data (e.g., ICD-10 codes). We posit that similar structural phenotypes could be revealed by studying subjects with similar medical outcomes. Segmentation is mainly driven by imaging data, but this direct approach may not consider differing canonical appearances with different underlying conditions (e.g., pancreatic atrophy versus pancreatic cysts). To this end, we exploit clinical featur...
+
+---
+
+Year: 2023
+Citations: 7
+Type: Article
+Venue: IEEE Journal of Biomedical and Health Informatics
+Title: Semantic-Aware Contrastive Learning for Multi-Object Medical Image Segmentation
+Keywords: attention map; contrastive learning; Medical image segmentation; query patches
+Abstract: Medical image segmentation, or computing voxel-wise semantic masks, is a fundamental yet challenging task in medical imaging domain. To increase the ability of encoder-decoder neural networks to perform this task across large clinical cohorts, contrastive learning provides an opportunity to stabilize model initialization and enhances downstream tasks performance without ground-truth voxel-wise labels. However, multiple target objects with different semantic meanings and contrast level may exist in a single image, which poses a problem for adapting traditional contrastive learning methods from prevalent 'image-level classification' to 'pixel-l...
+
+---
+
+Year: 2022
+Citations: 7
+Type: Conference paper
+Venue: Proceedings - 2022 IEEE International Conference on Autonomic Computing and Self-Organizin...
+Title: FedACA: An Adaptive Communication-Efficient Asynchronous Framework for Federated Learning
+Keywords: Communication Efficiency; Contrastive Learning; Federated Learning; Self-adaptation; Straggler Mitigation
+Abstract: Federated Learning (FL) is a type of distributed machine learning, which avoids sharing privacy and sensitive data with a central server. Despite the advances in FL, current approaches cannot provide satisfactory performance when dealing with heterogeneity in data and unpredictability of system devices. First, straggler devices can adversely impact convergence speed of the global model training. Second, for model aggregation in traditional FL, edge devices communicate frequently with a central server using their local updates. However, this process may encounter communication bottleneck caused by substantial bandwidth usage. To address these...
+
+---
+
+Year: 2022
+Citations: 7
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Quantification of muscle, bones and fat on single slice thigh CT
+Keywords: fine-tune; intensity segmentation; pseudo label; thigh slice
+Abstract: Muscle, bone, and fat segmentation of CT thigh slice is essential for body composition research. Voxel-wise image segmentation enables quantification of tissue properties including area, intensity and texture. Deep learning approaches have had substantial success in medical image segmentation, but they typically require substantial data. Due to high cost of manual annotation, training deep learning models with limited human labelled data is desirable but also a challenging problem. Inspired by transfer learning, we proposed a two-stage deep learning pipeline to address this issue in thigh segmentation. We study 2836 slices from Baltimore Long...
+
+---
+
+Year: 2021
+Citations: 7
+Type: Article
+Venue: Medical Physics
+Title: Phase identification for dynamic CT enhancements with generative adversarial network
+Keywords: classification; computed tomography; contrast enhancement; disentangled representation; GAN
+Abstract: Purpose: Dynamic contrast-enhanced computed tomography (CT) is widely used to provide dynamic tissue contrast for diagnostic investigation and vascular identification. However, the phase information of contrast injection is typically recorded manually by technicians, which introduces missing or mislabeling. Hence, imaging-based contrast phase identification is appealing, but challenging, due to large variations among different contrast protocols, vascular dynamics, and metabolism, especially for clinically acquired CT scans. The purpose of this study is to perform imaging-based phase identification for dynamic abdominal CT using a proposed ad...
+
+---
+
+Year: 2019
+Citations: 7
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Montage based 3D medical image retrieval from traumatic brain injury cohort using deep convolutional neural network
+Keywords: computed tomography; CT; deep learning; image retrieval; TBI; traumatic brain injury
+Abstract: Brain imaging analysis on clinically acquired computed tomography (CT) is essential for the diagnosis, risk prediction of progression, and treatment of the structural phenotypes of traumatic brain injury (TBI). However, in real clinical imaging scenarios, entire body CT images (e.g., neck, abdomen, chest, pelvis) are typically captured along with whole brain CT scans. For instance, in a typical sample of clinical TBI imaging cohort, only ∼15% of CT scans actually contain whole brain CT images suitable for volumetric brain analyses; the remaining are partial brain or non-brain images. Therefore, a manual image retrieval process is typically re...
+
+---
+
+Year: 2018
+Citations: 7
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Improved stability of whole brain surface parcellation with multi-atlas segmentation
+Abstract: Whole brain segmentation and cortical surface parcellation are essential in understanding the brain's anatomicalfunctional relationships. Multi-atlas segmentation has been regarded as one of the leading segmentation methods for the whole brain segmentation. In our recent work, the multi-atlas technique has been adapted to surface reconstruction using a method called Multi-atlas CRUISE (MaCRUISE). The MaCRUISE method not only performed consistent volumesurface analyses but also showed advantages on robustness compared with the FreeSurfer method. However, a detailed surface parcellation was not provided by MaCRUISE, which hindered the region of...
+
+---
+
+Year: 2017
+Citations: 7
+Type: Conference paper
+Venue: Proceedings - 2017 IEEE International Conference on Cloud Engineering, IC2E 2017
+Title: Cloud engineering principles and technology enablers for medical image processing-as-a-service
+Keywords: Grid computing; Hadoop; HBase; Medical imaging
+Abstract: Traditional in-house, laboratory-based medical imaging studies use hierarchical data structures (e.g., NFS file stores) or databases (e.g., COINS, XNAT) for storage and retrieval. The resulting performance from these approaches is, however, impeded by standard network switches since they can saturate network bandwidth during transfer from storage to processing nodes for even moderate-sized studies. To that end, a cloud-based'medical image processing-as-a-service' offers promise in utilizing the ecosystem of Apache Hadoop, which is a flexible framework providing distributed, scalable, fault tolerant storage and parallel computational modules,...
+
+---
+
+Year: 2022
+Citations: 6
+Type: Article
+Venue: Computers in Biology and Medicine
+Title: Multi-contrast computed tomography healthy kidney atlas
+Keywords: Deep learning; Kidney atlas; Medical image registration; Multi-contrast computed tomography; Retroperitoneal atlas
+Abstract: The construction of three-dimensional multi-modal tissue maps provides an opportunity to spur interdisciplinary innovations across temporal and spatial scales through information integration. While the preponderance of effort is allocated to the cellular level and explore the changes in cell interactions and organizations, contextualizing findings within organs and systems is essential to visualize and interpret higher resolution linkage across scales. There is a substantial normal variation of kidney morphometry and appearance across body size, sex, and imaging protocols in abdominal computed tomography (CT). A volumetric atlas framework is...
+
+---
+
+Year: 2021
+Citations: 6
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Rap-net: Coarse-to-fine multi-organ segmentation with single random anatomical prior
+Keywords: Abdominal Multi-Organ Segmentation; Computed Tomography; Random Anatomical Prior; Single Multi-Organ Patch Model
+Abstract: Performing coarse-to-fine abdominal multi-organ segmentation facilitates extraction of high-resolution segmentation minimizing the loss of spatial contextual information. However, current coarse-to-refine approaches require a significant number of models to perform single organ segmentation. We propose a coarse-to-fine pipeline RAP-Net, which starts from the extraction of the global prior context of multiple organs from 3D volumes using a low-resolution coarse network, followed by a fine phase that uses a single refined model to segment all abdominal organs instead of multiple organ corresponding models. We combine the anatomical prior with c...
+
+---
+
+Year: 2017
+Citations: 6
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Theoretical and empirical comparison of big data image processing with Apache Hadoop and Sun Grid Engine
+Keywords: Apache Hadoop; Sun Grid Engine; Verification
+Abstract: The field of big data is generally concerned with the scale of processing at which traditional computational paradigms break down. In medical imaging, traditional large scale processing uses a cluster computer that combines a group of workstation nodes into a functional unit that is controlled by a job scheduler. Typically, a shared-storage network file system (NFS) is used to host imaging data. However, data transfer from storage to processing nodes can saturate network bandwidth when data is frequently uploaded/retrieved from the NFS, e.g., "short" processing times and/or "large" datasets. Recently, an alternative approach using Hadoop and...
+
+---
+
+Year: 2016
+Citations: 6
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Performance management of high performance computing for medical image processing in Amazon Web Services
+Keywords: Amazon Web Service; Cloud deployment; High performance computing; NITRC-CE
+Abstract: Adopting high performance cloud computing for medical image processing is a popular trend given the pressing needs of large studies. Amazon Web Services (AWS) provide reliable, on-demand, and inexpensive cloud computing services. Our research objective is to implement an affordable, scalable and easy-to-use AWS framework for the Java Image Science Toolkit (JIST). JIST is a plugin for Medical- Image Processing, Analysis, and Visualization (MIPAV) that provides a graphical pipeline implementation allowing users to quickly test and develop pipelines. JIST is DRMAA-compliant allowing it to run on portable batch system grids. However, as new proce...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: Alleviating tiling effect by random walk sliding window in high-resolution histological whole slide image synthesis
+Keywords: spatial constraints; tiling effect; Unpaired synthesis
+Abstract: Multiplex immunofluorescence (MxIF) is an advanced molecular imaging technique that can simultaneously provide biologists with multiple (i.e., more than 20) molecular markers on a single histological tissue section. Unfortunately, due to imaging restrictions, the more routinely used hematoxylin and eosin (H&E) stain is typically unavailable with MxIF on the same tissue section. As biological H&E staining is not feasible, previous efforts have been made to obtain H&E whole slide image (WSI) from MxIF via deep learning empowered virtual staining. However, the tiling effect is a long-lasting problem in high-resolution WSI-wise synthesis. The MxI...
+
+---
+
+Year: 2022
+Citations: 5
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Accelerating 2D Abdominal Organ Segmentation with Active Learning
+Keywords: 2D slices; Active learning; Annotation; Multi-organ segmentation
+Abstract: Abdominal computed tomography CT imaging enables assessment of body habitus and organ health. Quantification of these health factors necessitates semantic segmentation of key structures. Deep learning efforts have shown remarkable success in automating segmentation of abdominal CT, but these methods largely rely on 3D volumes. Current approaches are not applicable when single slice imaging is used to minimize radiation dose. For 2D abdominal organ segmentation, lack of 3D context and variety in acquired image levels are major challenges. Deep learning approaches for 2D abdominal organ segmentation benefit by adding more images with manual ann...
+
+---
+
+Year: 2019
+Citations: 5
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Using deep learning for a diffusion-based segmentation of the dentate nucleus and its benefits over atlas-based methods
+Keywords: automatic image segmentation; deep learning; dentate nucleus; magnetic resonance imaging; multisequence Imaging
+Abstract: The dentate nucleus (DN) is a gray matter structure deep in the cerebellum involved in motor coordination, sensory input integration, executive planning, language, and visuospatial function. The DN is an emerging biomarker of disease, informing studies that advance pathophysiologic understanding of neurodegenerative and related disorders. The main challenge in defining the DN radiologically is that, like many deep gray matter structures, it has poor contrast in T1-weighted magnetic resonance (MR) images and therefore requires specialized MR acquisitions for visualization. Manual tracing of the DN across multiple acquisitions is resource-inten...
+
+---
+
+Year: 2016
+Citations: 5
+Type: Conference paper
+Venue: Proceedings - International Computer Software and Applications Conference
+Title: Reasoning for CPS Education Using Surrogate Simulation Models
+Keywords: Cyber physical system; Domain-specific modeling; Graph Rewriting and Transformation; Robocode; The Generic Modeling Environment
+Abstract: With developing an affordable, easily accessible and scalable online CPS laboratory to promote CPS education system, we are faced with and focused on a number of cyber-physical challenges including the model design and simulation strategies. The authors provide a complete process to simulate a behavior of a user-design CPS conveyor system. The user-design model is sent to the background, treated offline, and extracted the simulation result and finally feedback to user as an animation. The solution approach has two main parts, as the aspect of the modeling work, complex domain-specific conveyor design are defined in the Generic Modeling Enviro...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Field-of-view extension for brain diffusion MRI via deep generative models
+Keywords: diffusion MRI; generative model; imputation; medical image synthesis
+Abstract: Purpose: In brain diffusion magnetic resonance imaging (dMRI), the volumetric and bundle analyses of whole-brain tissue microstructure and connectivity can be severely impeded by an incomplete field of view (FOV). We aim to develop a method for imputing the missing slices directly from existing dMRI scans with an incomplete FOV. We hypothesize that the imputed image with a complete FOV can improve whole-brain tractography for corrupted data with an incomplete FOV. Therefore, our approach provides a desirable alternative to discarding the valuable brain dMRI data, enabling subsequent tractography analyses that would otherwise be challenging or...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Inter-vendor harmonization of CT reconstruction kernels using unpaired image translation
+Keywords: computed tomography; Deep learning; generative adversarial networks; harmonization; image translation
+Abstract: The reconstruction kernel in computed tomography (CT) generation determines the texture of the image. Consistency in reconstruction kernels is important as the underlying CT texture can impact measurements during quantitative image analysis. Harmonization (i.e., kernel conversion) minimizes differences in measurements due to inconsistent reconstruction kernels. Existing methods investigate harmonization of CT scans in single or multiple manufacturers. However, these methods require paired scans of hard and soft reconstruction kernels that are spatially and anatomically aligned. Additionally, a large number of models need to be trained across...
+
+---
+
+Year: 2022
+Citations: 4
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Reducing Positional Variance in Cross-sectional Abdominal CT Slices with Deep Conditional Generative Models
+Keywords: Abdominal slice generation; Body composition; Longitudinal data harmonization
+Abstract: 2D low-dose single-slice abdominal computed tomography (CT) slice enables direct measurements of body composition, which are critical to quantitatively characterizing health relationships on aging. However, longitudinal analysis of body composition changes using 2D abdominal slices is challenging due to positional variance between longitudinal slices acquired in different years. To reduce the positional variance, we extend the conditional generative models to our C-SliceGen that takes an arbitrary axial slice in the abdominal region as the condition and generates a defined vertebral level slice by estimating the structural changes in the late...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Medical Image Segmentation**: 
+    *   Techniques: Deep learning, Convolutional Neural Networks (CNNs), Transfer learning, Contrastive learning, Generative Adversarial Networks (GANs)
+    *   Application areas: Kidney, Thigh, Abdominal organs, Brain, Temporal bone, Pancreas, Dentate nucleus
+*   **Image Analysis and Synthesis**
+    *   Techniques: Deep learning, Generative models, Unpaired image translation, Conditional generative models
+    *   Application areas: Histological whole slide image synthesis, Brain diffusion MRI, Computed Tomography (CT) image synthesis
+*   **Computer Vision and Pattern Recognition**
+    *   Techniques: Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM), Graph Rewriting and Transformation
+    *   Application areas: Image classification, Object detection, Medical imaging
+*   **Data Augmentation and Processing**
+    *   Techniques: Data augmentation, Surface data augmentation, Active learning
+    *   Application
+
+Chunk 3:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Bao_Shunxing_57189987093
+
+Publication records (each record is one paper):
+Year: 2022
+Citations: 4
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Multi-modal learning with missing data for cancer diagnosis using histopathological and genomic data
+Keywords: Deep learning; Missing data; Multi-modal learning
+Abstract: Multi-modal learning (e.g., integrating pathological images with genomic features) tends to improve the accuracy of cancer diagnosis and prognosis as compared to learning with a single modality. However, missing data is a common problem in clinical practice, i.e., not every patient has all modalities available. Most of the previous works directly discarded samples with missing modalities, which might lose information in these data and increase the likelihood of overfitting. In this work, we generalize the multi-modal learning in cancer diagnosis with the capacity of dealing with missing data using histological images and genomic data. Our int...
+
+---
+
+Year: 2021
+Citations: 4
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: Random Multi-Channel Image Synthesis for Multiplexed Immunofluorescence Imaging
+Keywords: GAN; Multi-channel; Multi-modality; MxIF
+Abstract: Multiplex immunofluorescence (MxIF) is an emerging imaging technique that produces the high sensitivity and specificity of single-cell mapping. With a tenet of “seeing is believing”, MxIF enables iterative staining and imaging extensive antibodies, which provides comprehensive biomarkers to segment and group different cells on a single tissue section. However, considerable depletion of the scarce tissue is inevitable from extensive rounds of staining and bleaching (“missing tissue”). Moreover, the immunofluorescence (IF) imaging can globally fail for particular rounds (“missing stain”). In this work, we focus on the “missing stain” issue. It...
+
+---
+
+Year: 2019
+Citations: 4
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Multi-modal imaging with specialized sequences improves accuracy of the automated subcortical grey matter segmentation
+Keywords: Multi-atlas; Multi-modal; Segmentation; Subcortical grey matter
+Abstract: The basal ganglia and limbic system, particularly the thalamus, putamen, internal and external globus pallidus, substantia nigra, and sub-thalamic nucleus, comprise a clinically relevant signal network for Parkinson's disease. In order to manually trace these structures, a combination of high-resolution and specialized sequences at 7 T are used, but it is not feasible to routinely scan clinical patients in those scanners. Targeted imaging sequences at 3 T have been presented to enhance contrast in a select group of these structures. In this work, we show that a series of atlases generated at 7 T can be used to accurately segment these structu...
+
+---
+
+Year: 2018
+Citations: 4
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: A data colocation grid framework for big data medical image processing: Backend design
+Abstract: When processing large medical imaging studies, adopting high performance grid computing resources rapidly becomes important. We recently presented a "medical image processing-As-A-service" grid framework that offers promise in utilizing the Apache Hadoop ecosystem and HBase for data colocation by moving computation close to medical image storage. However, the framework has not yet proven to be easy to use in a heterogeneous hardware environment. Furthermore, the system has not yet validated when considering variety of multi-level analysis in medical imaging. Our target design criteria are (1) improving the framework's performance in a heterog...
+
+---
+
+Year: 2017
+Citations: 4
+Type: Conference paper
+Venue: Proceedings - 2017 IEEE International Conference on Cloud Engineering, IC2E 2017
+Title: Algorithmic enhancements to big data computing frameworks for medical image processing
+Keywords: Grid computing; Hadoop; HBase; Medical imaging
+Abstract: Large-scale medical imaging studies to date have predominantly leveraged in-house, laboratory-based or traditional grid computing resources for their computing needs, where the applications often use hierarchical data structures (e.g., NFS file stores) or databases (e.g., COINS, XNAT) for storage and retrieval. The resulting performance for laboratory-base approaches reveal that performance is impeded by standard network switches since they can saturate network bandwidth during transfer from storage to processing nodes for even moderate-sized studies. On the other hand, the grid may be costly to use due to the dedicated resources used to exec...
+
+---
+
+Year: 2025
+Citations: 3
+Type: Article
+Venue: Health Data Science
+Title: Evaluating Sex and Age Biases in Multimodal Large Language Models for Skin Disease Identification from Dermatoscopic Images
+Abstract: Background: Multimodal large language models (LLMs) have shown potential in various health-related fields. However, many healthcare studies have raised concerns about the reliability and biases of LLMs in healthcare applications. Methods: To explore the practical application of multimodal LLMs in skin disease identification, and to evaluate sex and age biases, we tested the performance of 2 popular multimodal LLMs, ChatGPT-4 and LLaVA-1.6, across diverse sex and age groups using a subset of a large dermatoscopic dataset containing around 10,000 images and 3 skin diseases (melanoma, melanocytic nevi, and benign keratosis-like lesions). Results...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: HATs: Hierarchical Adaptive Taxonomy Segmentation for Panoramic Pathology Image Analysis
+Abstract: Panoramic image segmentation in computational pathology presents a remarkable challenge due to the morphologically complex and variably scaled anatomy. For instance, the intricate organization in kidney pathology spans multiple layers, from regions like the cortex and medulla to functional units such as glomeruli, tubules, and vessels, down to various cell types. In this paper, we propose a novel Hierarchical Adaptive Taxonomy Segmentation (HATs) method, which is designed to thoroughly segment panoramic views of kidney structures by leveraging detailed anatomical insights. Our approach entails (1) the innovative HATs technique which translate...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Multi-scale Multi-site Renal Microvascular Structures Segmentation for Whole Slide Imaging in Renal Pathology
+Keywords: Deep learning; Image segmentatio; Microvascular; Multi-scale; Multi-site
+Abstract: Segmentation of microvascular structures, such as arterioles, venules, and capillaries, from human kidney whole slide images (WSI) has become a focal point in renal pathology. Current manual segmentation techniques are time-consuming and not feasible for large-scale digital pathology images. While deep learning-based methods offer a solution for automatic segmentation, most suffer from a limitation: they are designed for and restricted to training on single-site, single-scale data. In this paper, we present Omni-Seg, a novel single dynamic network method that capitalizes on multi-site, multi-scale training data. Unique to our approach, we uti...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Leverage Weakly Annotation to Pixel-wise Annotation via Zero-shot Segment Anything Model for Molecular-empowered Learning
+Keywords: Deep learning; Image annotation; Molecular-empowered learning; Pathology
+Abstract: Precise identification of multiple cell classes in high-resolution Giga-pixel whole slide imaging (WSI) is critical for various clinical scenarios. Building an AI model for this purpose typically requires pixel-level annotations, which are often unscalable and must be done by skilled domain experts (e.g., pathologists). However, these annotations can be prone to errors, especially when distinguishing between intricate cell types (e.g., podocytes and mesangial cells) using only visual inspection. Interestingly, a recent study showed that lay annotators, when using extra immunofluorescence (IF) images for reference (referred to as molecular-emp...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Predicting Crohn's disease severity in the colon using mixed cell nucleus density from pseudo labels
+Keywords: Cell Nucleus Density; Cell Nucleus Segmentation; Classification; Crohn's Disease; H&E; Machine Learning; Pseudo Labels
+Abstract: Crohn's disease (CD) is a debilitating inflammatory bowel disease with no known cure. Computational analysis of hematoxylin and eosin (H&E) stained colon biopsy whole slide images (WSIs) from CD patients provides the opportunity to discover unknown and complex relationships between tissue cellular features and disease severity. While there have been works using cell nuclei-derived features for predicting slide-level traits, this has not been performed on CD H&E WSIs for classifying normal tissue from CD patients vs active CD and assessing slide label-predictive performance while using both separate and combined information from pseudo-segment...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Longitudinal Variability Analysis on Low-dose Abdominal CT with Deep Learning-based Segmentation
+Keywords: Body composition; Coefficient of variation; Intraclass correlation; Longitudinal variability; Low dose single slice Computed Tomography
+Abstract: Metabolic health is increasingly implicated as a risk factor across conditions from cardiology to neurology, and efficiency assessment of body composition is critical to quantitatively characterizing these relationships. 2D low dose single slice computed tomography (CT) provides a high resolution, quantitative tissue map, albeit with a limited field of view. Although numerous potential analyses have been proposed in quantifying image context, there has been no comprehensive study for low-dose single slice CT longitudinal variability with automated segmentation. We studied a total of 1816 slices from 1469 subjects of Baltimore Longitudinal Stu...
+
+---
+
+Year: 2022
+Citations: 3
+Type: Conference paper
+Venue: Proceedings - 2022 IEEE International Conference on Cloud Engineering, IC2E 2022
+Title: Guarding Against Universal Adversarial Perturbations in Data-driven Cloud/Edge Services
+Keywords: Adversarial machine learning; edge computing; hardware acceleration; quantization; universal perturbation
+Abstract: Although machine learning (ML)-based models are increasingly being used by cloud-based data-driven services, two key problems exist when used at the edge. First, the size and complexity of these models hampers their deployment at the edge, where heterogeneity of resource types and constraints on resources is the norm. Second, ML models are known to be vulnerable to adversarial perturbations. To address the edge deployment issue, model compression techniques, especially model quantization, have shown significant promise. However, the adversarial robustness of such quantized models remains mostly an open problem. To address this challenge, this...
+
+---
+
+Year: 2022
+Citations: 3
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: MxIF Q-score: Biology-Informed Quality Assurance for Multiplexed Immunofluorescence Imaging
+Keywords: Data curation; MxIF; Quality assurance; scRNA-seq
+Abstract: Medical image processing and analysis on whole slide imaging (WSI) are notoriously difficult due to its giga-pixel high-resolution nature. Multiplex immunofluorescence (MxIF), a spatial single-cell level iterative imaging technique that collects dozens of WSIs on the same histological tissue, makes the data analysis an order of magnitude more complicated. The rigor of downstream single-cell analyses (e.g., cell type annotation) depends on the quality of the image processing (e.g., multi-WSI alignment and cell segmentation). Unfortunately, the high-resolutional and high-dimensional nature of MxIF data prevent the researchers from performing co...
+
+---
+
+Year: 2021
+Citations: 3
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Automated, open-source segmentation of the Hippocampus and amygdala with the open Vanderbilt archive of the temporal lobe
+Keywords: Amygdala; Hippocampus; Multi-atlas segmentation; Temporal lobe
+Abstract: Examining volumetric differences of the amygdala and anterior-posterior regions of the hippocampus is important for understanding cognition and clinical disorders. However, the gold standard manual segmentation of these structures is time and labor-intensive. Automated, accurate, and reproducible techniques to segment the hippocampus and amygdala are desirable. Here, we present a hierarchical approach to multi-atlas segmentation of the hippocampus head, body and tail and the amygdala based on atlases from 195 individuals. The Open Vanderbilt Archive of the temporal Lobe (OVAL) segmentation technique outperforms the commonly used FreeSurfer, F...
+
+---
+
+Year: 2025
+Citations: 2
+Type: Article
+Venue: PLOS ONE
+Title: Scalable quality control on processing of large diffusion-weighted and structural magnetic resonance imaging datasets
+Abstract: Thorough quality control (QC) can be time consuming when working with large-scale medical imaging datasets, yet necessary, as poor-quality data can lead to erroneous conclusions or poorly trained machine learning models. Most efforts to reduce data QC time rely on quantitative outlier detection, which cannot capture every instance of algorithm failure. Thus, there is a need to visually inspect every output of data processing pipelines in a scalable manner. We design a QC pipeline that allows for low time cost and effort across a team setting for a large database of diffusion-weighted and structural magnetic resonance images. Our proposed meth...
+
+---
+
+Year: 2025
+Citations: 2
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Influence of early through late fusion on pancreas segmentation from imperfectly registered multimodal magnetic resonance imaging
+Keywords: fusion; magnetic resonance imaging; multimodal; nnUNet; pancreas segmentation; registration; UNet
+Abstract: Purpose: Combining different types of medical imaging data, through multimodal fusion, promises better segmentation of anatomical structures, such as the pancreas. Strategic implementation of multimodal fusion could improve our ability to study diseases such as diabetes. However, where to perform fusion in deep learning models is still an open question. It is unclear if there is a single best location to fuse information when analyzing pairs of imperfectly aligned images or if the optimal fusion location depends on the specific model being used. Two main challenges when using multiple imaging modalities to study the pancreas are (1) the pancr...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Deep conditional generative model for longitudinal single-slice abdominal computed tomography harmonization
+Keywords: abdominal slice generation; body composition; longitudinal data harmonization
+Abstract: Purpose: Two-dimensional single-slice abdominal computed tomography (CT) provides a detailed tissue map with high resolution allowing quantitative characterization of relationships between health conditions and aging. However, longitudinal analysis of body composition changes using these scans is difficult due to positional variation between slices acquired in different years, which leads to different organs/ tissues being captured. Approach: To address this issue, we propose C-SliceGen, which takes an arbitrary axial slice in the abdominal region as a condition and generates a pre-defined vertebral level slice by estimating structural change...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Nucleus subtype classification using inter-modality learning
+Keywords: annotation; classification; H&E; MxIF; nuclei classification; style transfer; virtual H&E; whole slide imaging
+Abstract: Understanding the way cells communicate, co-locate, and interrelate is essential to understanding human physiology. Hematoxylin and eosin (H&E) staining is ubiquitously available both for clinical studies and research. The Colon Nucleus Identification and Classification (CoNIC) Challenge has recently innovated on robust artificial intelligence labeling of six cell types on H&E stains of the colon. However, this is a very small fraction of the number of potential cell classification types. Specifically, the CoNIC Challenge is unable to classify epithelial subtypes (progenitor, endocrine, goblet), lymphocyte subtypes (B, helper T, cytotoxic T),...
+
+---
+
+Year: 2023
+Citations: 2
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Single slice thigh CT muscle group segmentation with domain adaptation and self-training
+Keywords: computed tomography; domain adaptation; magnetic resonance; self-training; single slice; thigh muscle segmentation
+Abstract: Purpose: Thigh muscle group segmentation is important for assessing muscle anatomy, metabolic disease, and aging. Many efforts have been put into quantifying muscle tissues with magnetic resonance (MR) imaging, including manual annotation of individual muscles. However, leveraging publicly available annotations in MR images to achieve muscle group segmentation on single-slice computed tomography (CT) thigh images is challenging. Approach: We propose an unsupervised domain adaptation pipeline with selftraining to transfer labels from three-dimensional MR to single CT slices. First, we transform the image appearance from MR to CT with CycleGAN...
+
+---
+
+Year: 2023
+Citations: 2
+Type: Article
+Venue: Computers in Biology and Medicine
+Title: Hierarchical particle optimization for cortical shape correspondence in temporal lobe resection
+Keywords: Hierarchical particle optimization; Shape correspondence; Temporal lobe resection
+Abstract: Background: Anterior temporal lobe resection is an effective treatment for temporal lobe epilepsy. The post-surgical structural changes could influence the follow-up treatment. Capturing post-surgical changes necessitates a well-established cortical shape correspondence between pre- and post-surgical surfaces. Yet, most cortical surface registration methods are designed for normal neuroanatomy. Surgical changes can introduce wide ranging artifacts in correspondence, for which conventional surface registration methods may not work as intended. Methods: In this paper, we propose a novel particle method for one-to-one dense shape correspondence...
+
+---
+
+Year: 2022
+Citations: 2
+Type: Article
+Venue: Journal of Digital Imaging
+Title: Integrating the BIDS Neuroimaging Data Format and Workflow Optimization for Large-Scale Medical Image Analysis
+Keywords: BIDS format; Large-scale processing; Workflow engine
+Abstract: A robust medical image computing infrastructure must host massive multimodal archives, perform extensive analysis pipelines, and execute scalable job management. An emerging data format standard, the Brain Imaging Data Structure (BIDS), introduces complexities for interfacing with XNAT archives. Moreover, workflow integration is combinatorically problematic when matching large amount of processing to large datasets. Historically, workflow engines have been focused on refining workflows themselves instead of actual job generation. However, such an approach is incompatible with data centric architecture that hosts heterogeneous medical image co...
+
+---
+
+Year: 2021
+Citations: 2
+Type: Conference paper
+Venue: IoTDI 2021 - Proceedings of the 2021 International Conference on Internet-of-Things Design...
+Title: Configuration Tuning for Distributed IoT Message Systems Using Deep Reinforcement Learning: Poster Abstract
+Keywords: Policy-based RL Algorithm; Publish/Subscribe Middleware; System Configuration
+Abstract: Distributed messaging systems (DMSs) are often equipped with a large number of configurable parameters that enable users to define application run-time behaviors and information dissemination rules. However, the resulting high-dimensional configuration space makes it difficult for users to determine the best configuration that can maximize application QoS under a variety of operational conditions. This poster introduces a novel, automatic knob tuning framework called DMSConfig. DMSConfig explores the configuration space by interacting with a data-driven environment prediction model(a DMS simulator), which eliminates the prohibitive cost of co...
+
+---
+
+Year: 2021
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Construction of a multi-phase contrast computed tomography kidney atlas
+Keywords: Abdomen Atlas; Affine Registration; Computed Tomography; Kidney Atlas; Non-Rigid Registration
+Abstract: The Human BioMolecular Atlas Program (HuBMAP) seeks to create a molecular atlas at the cellular level of the human body to spur interdisciplinary innovations across spatial and temporal scales. While the preponderance of effort is allocated towards cellular and molecular scale mapping, differentiating and contextualizing findings within tissues, organs and systems are essential for the HuBMAP efforts. The kidney is an initial organ target of HuBMAP, and constructing a framework (or atlas) for integrating information across scales is needed for visualizing and integrating information. However, there is no abdominal atlas currently available in...
+
+---
+
+Year: 2020
+Citations: 2
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Learning from dispersed manual annotations with an optimized data weighting policy
+Keywords: abdominal organ segmentation; computed tomography; data weighting; reinforcement learning
+Abstract: Purpose: Deep learning methods have become essential tools for quantitative interpretation of medical imaging data, but training these approaches is highly sensitive to biases and class imbalance in the available data. There is an opportunity to increase the available training data by combining across different data sources (e.g., distinct public projects); however, data collected under different scopes tend to have differences in class balance, label availability, and subject demographics. Recent work has shown that importance sampling can be used to guide training selection. To date, these approaches have not considered imbalanced data sour...
+
+---
+
+Year: 2018
+Citations: 2
+Type: Conference paper
+Venue: Proceedings - 2018 IEEE International Conference on Big Data, Big Data 2018
+Title: Technology Enablers for Big Data, Multi-Stage Analysis in Medical Image Processing
+Keywords: Big data multistage analysis; Hadoop; Medical image processing; Simulator
+Abstract: Big data medical image processing applications involving multi-stage analysis often exhibit significant variability in processing times ranging from a few seconds to several days. Moreover, due to the sequential nature of executing the analysis stages enforced by traditional software technologies and platforms, any errors in the pipeline are only detected at the later stages despite the sources of errors predominantly being the highly compute-intensive first stage. This wastes precious computing resources and incurs prohibitively higher costs for re-executing the application. The medical image processing community to date remains largely unaw...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Imaging Neuroscience
+Title: Brain age identification from diffusion MRI synergistically predicts neurodegenerative disease
+Keywords: Alzheimer’s disease; brain age; deep learning; diffusion MRI; mild cognitive impairment
+Abstract: Estimated brain age from magnetic resonance image (MRI) and its deviation from chronological age can provide early insights into potential neurodegenerative diseases, supporting early detection and implementation of prevention strategies to slow disease progression and onset. Diffusion MRI (dMRI), a widely used modality for brain age estimation, presents an opportunity to build an earlier biomarker for neurodegenerative disease prediction because it captures subtle microstructural changes that precede more perceptible macrostructural changes. However, the coexistence of macro- and micro-structural information in dMRI raises the question of wh...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Deep learning-based free-water correction for single-shell diffusion MRI
+Keywords: Deep learning; Diffusion MRI; Free water elimination; Reproducibility
+Abstract: Free-water elimination (FWE) modeling in diffusion magnetic resonance imaging (dMRI) is crucial for accurate estimation of diffusion properties by mitigating the partial volume effects caused by free water, particularly at the interface between white matter and cerebrospinal fluid. The presence of free water partial volume effects leads to biases in estimating diffusion properties. Additionally, the existing mathematical FWE model is a two-compartment model, which can be well posed for multi-shell data. However, single-shell acquisitions are more common in clinical cohorts due to time constraints. To overcome these problems, we proposed a dee...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Multi-contrast computed tomography atlas of healthy pancreas with dense displacement sampling registration
+Keywords: computed tomography; pancreas; registration
+Abstract: Purpose: Diverse population demographics can lead to substantial variation in the human anatomy. Therefore, standard anatomical atlases are needed for interpreting organ-specific analyses. Among abdominal organs, the pancreas exhibits notable variability in volumetric morphology, shape, and appearance, complicating the generalization of population-wide features. Understanding the common features of a healthy pancreas is crucial for identifying biomarkers and diagnosing pancreatic diseases. Approach: We propose a high-resolution CT atlas framework optimized for the healthy pancreas. We introduce a deep-learning-based preprocessing technique to...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: JMIR Formative Research
+Title: Enhancing Clinical Data Management Through Barcode Integration and Research Electronic Data Capture: Scalable and Adaptable Implementation Study
+Keywords: barcode technology; clinical data management; data granularity; Docker containerization; REDCap; system throughput optimization
+Abstract: Background: Effective data management is crucial in clinical studies for precise tracking, secure storage, and reliable analysis of samples. Traditional systems often encounter challenges like barcode recognition errors, inadequate data details, and diminished performance under heavy workloads. Objective: This paper aims to enhance clinical data management by improving barcode robustness, increasing data granularity, and boosting system throughput. These improvements address key challenges in barcode informatics systems, as highlighted in previous studies, to better support real clinical applications. In addition, we aim to validate the desig...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Scalable, reproducible, and cost-effective processing of large-scale medical imaging datasets
+Keywords: AI Ready; Batch Processing; Informatics; MRI
+Abstract: Curating, processing, and combining large-scale medical imaging datasets from national studies is a non-trivial task due to the intense computation and data throughput required, variability of acquired data, and associated financial overhead. Existing platforms or tools for large-scale data curation, processing, and storage have difficulty achieving a viable cost-to-scale ratio of computation speed for research purposes, either being too slow or too expensive. Additionally, management and consistency of processing large data in a team-driven manner is a non-trivial task. We design a BIDS-compliant method for an efficient and robust data proce...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Medical Image Analysis**: The author focuses on developing algorithms and techniques for analyzing medical images, including segmentation, registration, and feature extraction.
+*   **Deep Learning**: The author frequently employs deep learning methods, such as convolutional neural networks (CNNs) and generative adversarial networks (GANs), to analyze medical images.
+*   **Multi-Modal Learning**: The author investigates the use of multi-modal learning, which involves combining data from different sources, such as images and genomic data, to improve diagnostic accuracy.
+*   **Big Data and Cloud Computing**: The author explores the use of big data and cloud computing to process and analyze large-scale medical imaging datasets.
+*   **Quality Control and Validation**: The author emphasizes the importance of quality control and validation in medical image analysis, including the development of methods for detecting and correcting errors.
+
+**Evolution Over Time:**
+
+*   **Early Work (2017-2019)**: The author's early work focused on developing algorithms for medical image analysis, including segmentation and registration. They also explored the
+
+Chunk 4:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Bao_Shunxing_57189987093
+
+Publication records (each record is one paper):
+Year: 2024
+Citations: 1
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Data-driven nucleus subclassification on colon hematoxylin and eosin using style-transferred digital pathology
+Keywords: cell classification; domain shift; hematoxylin and eosin; multiplexed immunofluorescence; virtual hematoxylin and eosin; virtual staining
+Abstract: Purpose: Cells are building blocks for human physiology; consequently, understanding the way cells communicate, co-locate, and interrelate is essential to furthering our understanding of how the body functions in both health and disease. Hematoxylin and eosin (H&E) is the standard stain used in histological analysis of tissues in both clinical and research settings. Although H&E is ubiquitous and reveals tissue microanatomy, the classification and mapping of cell subtypes often require the use of specialized stains. The recent CoNIC Challenge focused on artificial intelligence classification of six types of cells on colon H&E but was unable t...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Evaluation Kidney Layer Segmentation on Whole Slide Imaging using Convolutional Neural Networks and Transformers
+Keywords: CNNs; Deep learning; Kidney mice cortex; Segmentation; Transformer models
+Abstract: The segmentation of kidney layer structures, including cortex, outer stripe, inner stripe, and inner medulla within human kidney whole slide images (WSI) plays an essential role in automated image analysis in renal pathology. However, the current manual segmentation process proves labor-intensive and infeasible for handling the extensive digital pathology images encountered at a large scale. In response, the realm of digital renal pathology has seen the emergence of deep learning-based methodologies. However, very few, if any, deep learning based approaches have been applied to kidney layer structure segmentation. Addressing this gap, this pa...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Cell Spatial Analysis in Crohn’s Disease: Unveiling Local Cell Arrangement Pattern with Graph-based Signatures
+Keywords: Cell spatial analysis; Crohn’s disease; Pattern recognition
+Abstract: Crohn’s disease (CD) is a chronic and relapsing inflammatory condition that affects segments of the gastrointestinal tract. CD activity is determined by histological findings, particularly the density of neutrophils observed on Hematoxylin and Eosin stains (H&E) imaging. However, understanding the broader morphometry and local cell arrangement beyond cell counting and tissue morphology remains challenging. To address this, we characterize six distinct cell types from H&E images and develop a novel approach for the local spatial signature of each cell. Specifically, we create a 10-cell neighborhood matrix, representing neighboring cell arrange...
+
+---
+
+Year: 2023
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Topological-Preserving Membrane Skeleton Segmentation in Multiplex Immunofluorescence Imaging
+Keywords: 2D; Membrane Segmentation; MxIF; Skeleton; Topological-Preserving
+Abstract: Multiplex immunofluorescence (MxIF) is an emerging imaging technology whose downstream molecular analytics highly rely upon the effectiveness of cell segmentation. In practice, multiple membrane markers (e.g., NaKATPase, PanCK and β-catenin) are employed to stain membranes for different cell types, so as to achieve a more comprehensive cell segmentation since no single marker fits all cell types. However, prevalent watershed-based image processing might yield inferior capability for modeling complicated relationships between markers. For example, some markers can be misleading due to questionable stain quality. In this paper, we propose a dee...
+
+---
+
+Year: 2023
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Unsupervised Registration Refinement for Generating Unbiased Eye Atlas
+Keywords: Computed Tomography; Eye Atlas; Medical Image Registration; Unbiased Template
+Abstract: With the confounding effects of demographics across large-scale imaging surveys, substantial variation is demonstrated with the volumetric structure of orbit and eye anthropometry. Such variability increases the level of difficulty to localize the anatomical features of the eye organs for populational analysis. To adapt the variability of eye organs with stable registration transfer, we propose an unbiased eye atlas template followed by a hierarchical coarse-to-fine approach to provide generalized eye organ context across populations. Furthermore, we retrieved volumetric scans from 1842 healthy patients for generating an eye atlas template wi...
+
+---
+
+Year: 2022
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Inpainting missing tissue in multiplexed immunofluorescence imaging
+Keywords: inpainting; multi-channel; MxIF; reproducibility
+Abstract: Multiplex immunofluorescence (MxIF) is an emerging technique that allows for staining multiple cellular and histological markers to stain simultaneously on a single tissue section. However, with multiple rounds of staining and bleaching, it is inevitable that the scarce tissue may be physically depleted. Thus, a digital way of synthesizing such missing tissue would be appealing since it would increase the useable areas for the downstream single-cell analysis. In this work, we investigate the feasibility of employing generative adversarial network (GAN) approaches to synthesize missing tissues using 11 MxIF structural molecular markers (i.e.,...
+
+---
+
+Year: 2022
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Supervised Deep Generation of High-Resolution Arterial Phase Computed Tomography Kidney Substructure Atlas
+Keywords: Abdomen Atlas; Computed Tomography; Kidney Substructure Atlas; Medical Image Registration
+Abstract: The Human BioMolecular Atlas Program (HuBMAP) provides an opportunity to contextualize findings across cellular to organ systems levels. Constructing an atlas target is the primary endpoint for generalizing anatomical information across scales and populations. An initial target of HuBMAP is the kidney organ and arterial phase contrast-enhanced computed tomography (CT) provides distinctive appearance and anatomical context on the internal substructure of kidney organs such as renal context, medulla, and pelvicalyceal system. With the confounding effects of demographics and morphological characteristics of the kidney across large-scale imaging...
+
+---
+
+Year: 2019
+Citations: 1
+Type: Book chapter
+Venue: Lecture Notes in Computational Vision and Biomechanics
+Title: Harmonization of white and gray matter features in diffusion microarchitecture for cross-sectional studies
+Keywords: Brain microstructure; Gray matter surface-based analysis; Harmonization; NODDI
+Abstract: Understanding of the specific processes involved in the development of brain microarchitecture and how these are altered by genetic, cognitive, or environmental factors is a key to more effective and efficient interventions. With the increasing number of publicly available neuroimaging databases, there is an opportunity to combine large-scale imaging studies to increase the power of statistical analyses to test common biological hypotheses. However, cross-study, cross-sectional analyses are confounded by inter-scanner variability that can cause both spatially and anatomically dependent signal aberrations. In particular, scanner-related differ...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Multi-modality conditioned variational U-net for field-of-view extension in brain diffusion MRI
+Keywords: Diffusion MRI; Generative model; Imputation; Medical image synthesis
+Abstract: An incomplete field-of-view (FOV) in diffusion magnetic resonance imaging (dMRI) can severely hinder the volumetric and bundle analyses of whole-brain white matter connectivity. Although existing works have investigated imputing the missing regions using deep generative models, it remains unclear how to specifically utilize additional information from paired multi-modality data and whether this can enhance the imputation quality and be useful for downstream tractography. To fill this gap, we propose a novel framework for imputing dMRI scans in the incomplete part of the FOV by integrating the learned diffusion features in the acquired part of...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Clinical Anatomy
+Title: Lifespan Pancreas Morphology for Control Versus Type 2 Diabetes Using AI on Largescale Clinical Imaging
+Keywords: aging; CT; MRI; multimodal; pancreas; shape; volume
+Abstract: Understanding how pancreas size and shape change with normal aging is critical for establishing a baseline to detect deviations in type 2 diabetes and other pancreatic disease. We measure pancreas size and shape using morphological measurements from early development through aging (ages 0–90). Our goals are to (1) identify reliable clinical imaging modalities for artificial intelligence (AI) based pancreas measurement, (2) establish normative morphological aging trends, and (3) detect potential deviations in type 2 diabetes. We analyzed a clinically acquired dataset of 2533 patients imaged with abdominal computed tomography (CT) or magnetic r...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Data-driven abdominal phenotypes of type 2 diabetes in lean, overweight, and obese cohorts from computed tomography
+Keywords: abdomen; body composition; computed tomography; explainable artificial intelligence; pattern discovery; phenotype; type 2 diabetes
+Abstract: Purpose: Although elevated body mass index (BMI) is a well-known risk factor for type 2 diabetes, the disease’s presence in some lean adults and absence in others with obesity suggests that more detailed measurements of body composition may uncover abdominal phenotypes of type 2 diabetes. With artificial intelligence (AI) and computed tomography (CT), we can now leverage robust image segmentation to extract detailed measurements of size, shape, and tissue composition from abdominal organs, abdominal muscle, and abdominal fat depots in 3D clinical imaging at scale. This creates an opportunity to empirically define body composition signatures l...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Medical Physics
+Title: Multipath cycleGAN for harmonization of paired and unpaired low-dose lung computed tomography reconstruction kernels
+Keywords: multipath cycleGAN; percent emphysema; reconstruction kernel; shared latent space
+Abstract: Background: Reconstruction kernels in computed tomography (CT) introduce variability in spatial resolution and noise distribution, creating systematic differences in quantitative imaging measurements, that icl, emphysema characterization in lung imaging. While harmonization across images reconstructed using different kernels from the same manufacturer is feasible, this can be challenging in multi-centre or longitudinal studies where images are acquired using kernels from different manufacturers. This variability results in heterogeneous quantitative measurements that are difficult to compare. Therefore, it is necessary to standardize all imag...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Biomedical Informatics
+Title: Secondary use of radiological imaging data: Vanderbilt's ImageVU approach
+Keywords: Biomedical imaging informatics; De-identification; DICOM; Protected health information; Radiomics; Research data warehouse; Research imaging infrastructure; Secondary use of radiol...
+Abstract: Objective: To develop ImageVU, a scalable research imaging infrastructure that integrates clinical imaging data with metadata-driven cohort discovery, enabling secure, efficient, and regulatory-compliant access to imaging for secondary and opportunistic research use. This manuscript presents a detailed description of ImageVU's key components and lessons learned to assist other institutions in developing similar research imaging services and infrastructure. Methods: ImageVU was designed to support the secondary use of radiological imaging data through a dedicated research imaging store. The system comprises four interconnected components: a Re...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Fine-grained multiclass nuclei segmentation with molecular empowered all-in-SAM model
+Keywords: cell segmentation; deep learning; foundation model; image annotation; molecular empowered learning
+Abstract: Purpose: Recent developments in computational pathology have been driven by advances in vision foundation models (VFMs), particularly the Segment Anything Model (SAM). This model facilitates nuclei segmentation through two primary methods: prompt-based zero-shot segmentation and the use of cell-specific SAM models for direct segmentation. These approaches enable effective segmentation across a range of nuclei and cells. However, general VFMs often face challenges with fine-grained semantic segmentation, such as identifying specific nuclei subtypes or particular cells. Approach: In this paper, we propose the molecular empowered all-in-SAM mode...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Enhanced Feature-based Image Stitching for Endoscopic Videos in Pediatric Eosinophilic Esophagitis
+Keywords: Endoscopy; Eosinophilic esophagitis; Image stitching
+Abstract: Video endoscopy represents a major advance in the investigation of gastrointestinal diseases. Reviewing endoscopy videos often involves frequent adjustments and reorientations to reconstruct a comprehensive view of the examined area, a process that is not only time-consuming but also prone to errors. Image stitching techniques offer a solution by enabling a continuous and complete visualization of the examined area. However, endoscopic images, particularly those of the esophagus, present unique challenges. The smooth surface, lack of distinct feature points, and non-horizontal orientation complicate the stitching process, rendering traditiona...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Identifying Cellular Neighborhood Phenotypes Differentiating Normal and Quiescent Crohn's Disease via MxIF
+Keywords: Cell neighborhood analysis; Crohn's Disease; Multiplexed Immunofluorescence (MxIF)
+Abstract: Crohn's disease (CD) is a chronic inflammatory condition of the gastrointestinal tract characterized by alternating periods of activity and remission. This study investigates whether the cellular environments of quiescent (inactive disease) and normal tissues show similarities or differences, exploring potential residual effects from disease and tissue recovery patterns. While active CD can typically be characterized by high neutrophil density, whereas quiescent tissues present less pronounced inflammatory markers. This study leverages multiplexed immunofluorescence (MxIF) data to examine the distributions and patterns of various nuclei subty...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Quantitative Analysis of Colonic Epithelial Cell Aging in a Cell-cycle like Model: Changes in Nucleus and Cytoplasm Along the Crypt Axis
+Abstract: Understanding epithelial cell aging in bowel tissue can provide critical insights into gastrointestinal (GI) health, potentially leading to improved diagnosis, treatment, and prevention strategies for various GI conditions. Despite the significance of cellular aging in the GI tract, previous studies have not quantified epithelial cell maturity development along the base-to-surface axis of colon crypts due to the labor-intensive nature of manual quantification and the lack of a clear definition of cellular age. Moreover, the process faces tremendous challenges when tissue is cut in 2D and examines results solely from one or a few biopsy cuts w...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: An Informatics System for Breath-by-Breath Analysis of Large-Scale Multi-Modal Time-Series Data in Sleep Research
+Keywords: deep learning; informatics system; Multi-modal data; sleep medicine; time-series signals
+Abstract: Sleep medicine involves handling large volumes of multi-modal time-series data that capture diverse biological signals. Analyzing these signals on a breath-by-breath basis is crucial for understanding intricate respiratory patterns, which yield valuable scientific insights and inform clinical decision-making. However, manual analysis of such data is labor-intensive and prone to error, and there's a shortage of easy-to-use analytical tool for processing data at scale. To address these challenges, we have developed a comprehensive informatics system that automates breathing cycle segmentation, feature engineering, recognition of specific respir...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Beyond the Lungs: Extending the Field of View in Chest CT with Latent Diffusion Models
+Keywords: CT; Image synthesis; Latent diffusion; Lung
+Abstract: The interconnection between the human lungs and other organs, such as the liver and kidneys, is crucial for understanding the underlying risks and effects of lung diseases and improving patient care. However, most research chest CT imaging is focused solely on the lungs due to considerations of cost and radiation dose. This restricted field of view (FOV) in the acquired images poses challenges to comprehensive analysis and hinders the ability to gain insights into the impact of lung diseases on other organs. To address this, we propose SCOPE (Spatial Coverage Optimization with Prior Encoding), a novel approach to capture the inter-organ relat...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Robust Body Composition Analysis by Generating 3D CT Volumes from Limited 2D Slices
+Keywords: Body composition; CT; Image synthesis; Imputation; Latent diffusion
+Abstract: Body composition analysis provides valuable insights into aging, disease progression, and overall health conditions. Due to concerns of radiation exposure, two-dimensional (2D) single-slice computed tomography (CT) imaging has been used repeatedly for body composition analysis. However, this approach introduces significant spatial variability that can impact the accuracy and robustness of the analysis. To mitigate this issue and facilitate body composition analysis, this paper presents a novel method to generate 3D CT volumes from limited number of 2D slices using a latent diffusion model (LDM). Our approach first maps 2D slices into a latent...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Persistence Image from 3D Medical Image: Superpixel and Optimized Gaussian Coefficient
+Keywords: 3D Medical Images; Persistence Image; Persistent Homology; Topology Data Analysis
+Abstract: Topological data analysis (TDA) uncovers crucial properties of objects in medical imaging. Methods based on persistent homology have demonstrated their advantages in capturing topological features that traditional deep learning methods cannot detect in both radiology and pathology. However, previous research primarily focused on 2D image analysis, neglecting the comprehensive 3D context. In this paper, we propose an innovative 3D TDA approach that incorporates the concept of superpixels to transform 3D medical image features into point cloud data. By Utilizing Optimized Gaussian Coefficient, the proposed 3D TDA method, for the first time, eff...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science
+Title: Ts-FWE: Token-Aware Single-Shell Free Water Estimation for Brain Diffusion MRI
+Keywords: Diffusion MRI; Free water elimination; Vision transformer
+Abstract: Recent advances in deep learning opened a new window for achieving precise free water estimation (FWE) through single-shell diffusion-weighted imaging (DWI) data. Compared with traditional approaches, those methods mitigated biases from free water contamination without relying on multi-shell data. However, current single-shell-based FWE methods still suffer from the “case-by-case” deep learning design, struggling to generalize across the diverse acquisition schemes in a more clinically useful plug-and-play fashion. In this paper, we propose a novel token-aware single-shell FWE (Ts-FWE) method towards a “one-for-all” design, so that a single m...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: IS and T International Symposium on Electronic Imaging Science and Technology
+Title: Scale-up Unlearnable Examples Learning with High-Performance Computing
+Abstract: Recent advancements in AI models, like ChatGPT, are structured to retain user interactions, which could inadvertently include sensitive healthcare data. In the healthcare field, particularly when radiologists use AI-driven diagnostic tools hosted on online platforms, there is a risk that medical imaging data may be repurposed for future AI training without explicit consent, spotlighting critical privacy and intellectual property concerns around healthcare data usage. Addressing these privacy challenges, a novel approach known as Unlearnable Examples (UEs) has been introduced, aiming to make data unlearnable to deep learning models. A prominen...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Super-resolution multi-contrast unbiased eye atlases with deep probabilistic refinement
+Keywords: deep learning; medical image registration; multi-contrast imaging; super-resolution; unbiased eye atlas
+Abstract: Purpose: Eye morphology varies significantly across the population, especially for the orbit and optic nerve. These variations limit the feasibility and robustness of generalizing population-wise features of eye organs to an unbiased spatial reference. Approach: To tackle these limitations, we propose a process for creating high-resolution unbiased eye atlases. First, to restore spatial details from scans with a low through-plane resolution compared with a high in-plane resolution, we apply a deep learning-based super-resolution algorithm. Then, we generate an initial unbiased reference with an iterative metric-based registration using a smal...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Mitigating Over-Saturated Fluorescence Images Through a Semi-Supervised Generative Adversarial Network
+Keywords: color saturation; Fluorescence; GAN
+Abstract: Multiplex immunofluorescence (MxIF) imaging is a critical tool in biomedical research, offering detailed insights into cell composition and spatial context. As an example, DAPI staining identifies cell nuclei, while CD20 staining helps segment cell membranes in MxIF. However, a persistent challenge in MxIF is saturation artifacts, which hinder single-cell level analysis in areas with over-saturated pixels. Traditional gamma correction methods for fixing saturation are limited, often incorrectly assuming uniform distribution of saturation, which is rarely the case in practice. This paper introduces a novel approach to correct saturation artifa...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Learning-based Free-Water Correction using Single-shell Diffusion MRI
+Keywords: Deep learning; Diffusion MRI; Free water elimination; Reproducibility
+Abstract: Diffusion magnetic resonance imaging (dMRI) offers the ability to assess subvoxel brain microstructure through the extraction of biomarkers like fractional anisotropy, as well as to unveil brain connectivity by reconstructing white matter fiber trajectories. However, accurate analysis becomes challenging at the interface between cerebrospinal fluid and white matter, where the MRI signal originates from both the cerebrospinal fluid and the white matter partial volume. The presence of free water partial volume effects introduces a substantial bias in estimating diffusion properties, thereby limiting the clinical utility of DWI. Moreover, curren...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: High-performance Data Management for Whole Slide Image Analysis in Digital Pathology
+Keywords: ADIOS2; NVIDIA GDS
+Abstract: When dealing with giga-pixel digital pathology in whole-slide imaging, a notable proportion of data records holds relevance during each analysis operation. For instance, when deploying an image analysis algorithm on whole-slide images (WSI), the computational bottleneck often lies in the input-output (I/O) system. This is particularly notable as patch-level processing introduces a considerable I/O load onto the computer system. However, this data management process could be further paralleled, given the typical independence of patch-level image processes across different patches. This paper details our endeavors in tackling this data access c...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Feasibility of Universal Anomaly Detection Without Knowing the Abnormality in Medical Images
+Keywords: Anomaly detection; ensemble learning; medical images
+Abstract: Many anomaly detection approaches, especially deep learning methods, have been recently developed to identify abnormal image morphology by only employing normal images during training. Unfortunately, many prior anomaly detection methods were optimized for a specific “known” abnormality (e.g., brain tumor, bone fraction, cell types). Moreover, even though only the normal images were used in the training process, the abnormal images were often employed during the validation process (e.g., epoch selection, hyper-parameter tuning), which might leak the supposed “unknown” abnormality unintentionally. In this study, we investigated these two essent...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Deep whole brain segmentation of 7T structural MRI
+Keywords: 7T MRI; Convoluted Neural Network; Deep learning; T1-weighted; Transfer Learning; Whole brain segmentation
+Abstract: 7T magnetic resonance imaging (MRI) has the potential to drive our understanding of human brain function through new contrast and enhanced resolution. Whole brain segmentation is a key neuroimaging technique that allows for region-by-region analysis of the brain. Segmentation is also an important preliminary step that provides spatial and volumetric information for running other neuroimaging pipelines. Spatially localized atlas network tiles (SLANT) is a popular 3D convolutional neural network (CNN) tool that breaks the whole brain segmentation task into localized sub-tasks. Each sub-task involves a specific spatial location handled by an ind...
+
+---
+
+Year: 2021
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: CaCL: Class-Aware Codebook Learning for Weakly Supervised Segmentation on Diffuse Image Patterns
+Keywords: AutoEncoder; Segmentation; Weakly supervised learning
+Abstract: Weakly supervised learning has been rapidly advanced in biomedical image analysis to achieve pixel-wise labels (segmentation) from image-wise annotations (classification), as biomedical images naturally contain image-wise labels in many scenarios. The current weakly supervised learning algorithms from the computer vision community are largely designed for focal objects (e.g., dogs and cats). However, such algorithms are not optimized for diffuse patterns in biomedical imaging (e.g., stains and fluorescence in microscopy imaging). In this paper, we propose a novel class-aware codebook learning (CaCL) algorithm to perform weakly supervised lear...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+* **Medical image analysis**: 
+    * Techniques for analyzing medical images, including segmentation, registration, and feature extraction (e.g., [1], [2], [3])
+    * Applications in various fields, such as pathology ([4], [5]), ophthalmology ([6], [7]), and neurology ([8], [9])
+* **Deep learning and machine learning**: 
+    * Development and application of deep learning models for medical image analysis tasks (e.g., [10], [11], [12])
+    * Investigation of new architectures and techniques, such as transformers ([13]) and generative models ([14])
+* **Image synthesis and enhancement**: 
+    * Methods for generating synthetic images or correcting artifacts in real-world images (e.g., [15], [16], [17])
+    * Applications in fields such as pathology ([18], [19]) and radiology ([20])
+* **Data management and informatics**: 
+    * Development of systems and frameworks for managing and analyzing large medical image datasets (e.g., [21
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Dr. Shunxing Bao's research journey has evolved significantly over the years, shifting from an early focus on medical image segmentation and registration to a broader scope encompassing deep learning, machine learning, and data management. Initially, his work centered on developing algorithms for segmenting organs and tissues in medical images, with a strong emphasis on applying deep learning techniques to improve accuracy and efficiency. As his research progressed, he expanded his focus to include image synthesis and enhancement, exploring methods for generating synthetic images and correcting artifacts in real-world images.
+
+Currently, Dr. Bao's primary areas of expertise lie at the intersection of medical image analysis, deep learning, and data management. His work continues to push the boundaries of what is possible in medical image analysis, with a particular emphasis on developing novel architectures and techniques for tasks such as segmentation, registration, and feature extraction. He has also made significant contributions to the field of data management, designing systems and frameworks for efficiently managing and analyzing large medical image datasets. Throughout his career, Dr. Bao has consistently demonstrated a commitment to advancing the field of medical imaging and improving patient outcomes through the development of innovative algorithms and techniques.

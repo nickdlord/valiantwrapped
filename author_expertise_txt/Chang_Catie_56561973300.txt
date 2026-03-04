@@ -1,0 +1,1464 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Chang_Catie_56561973300
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Chang_Catie_56561973300
+
+Publication records (each record is one paper):
+Year: 2013
+Citations: 2387
+Type: Article
+Venue: NeuroImage
+Title: Dynamic functional connectivity: Promise, issues, and interpretations
+Keywords: Dynamics; Fluctuations; Functional connectivity; Functional MRI (fMRI); Resting state; Spontaneous activity
+Abstract: The brain must dynamically integrate, coordinate, and respond to internal and external stimuli across multiple time scales. Non-invasive measurements of brain activity with fMRI have greatly advanced our understanding of the large-scale functional organization supporting these fundamental features of brain function. Conclusions from previous resting-state fMRI investigations were based upon static descriptions of functional connectivity (FC), and only recently studies have begun to capitalize on the wealth of information contained within the temporal features of spontaneous BOLD FC. Emerging evidence suggests that dynamic FC metrics may index...
+
+---
+
+Year: 2010
+Citations: 1566
+Type: Article
+Venue: NeuroImage
+Title: Time-frequency dynamics of resting-state brain connectivity measured with fMRI
+Keywords: Default mode network; Dynamics; Functional connectivity; Functional magnetic resonance imaging; Negative correlations; Networks; Nonstationarity; Resting state; Spontaneous activit...
+Abstract: Most studies of resting-state functional connectivity using fMRI employ methods that assume temporal stationarity, such as correlation and data-driven decompositions computed across the duration of the scan. However, evidence from both task-based fMRI studies and animal electrophysiology suggests that functional connectivity may exhibit dynamic changes within time scales of seconds to minutes. In the present study, we investigated the dynamic behavior of resting-state connectivity across the course of a single scan, performing a time-frequency coherence analysis based on the wavelet transform. We focused on the connectivity of the posterior c...
+
+---
+
+Year: 2011
+Citations: 683
+Type: Article
+Venue: Biological Psychiatry
+Title: Default-mode and task-positive network activity in major depressive disorder: Implications for adaptive and maladaptive rumination
+Keywords: Default-mode network; depression; fronto-insular cortex; rumination; self-reflection; task-positive network
+Abstract: Background Major depressive disorder (MDD) has been associated reliably with ruminative responding; this kind of responding is composed of both maladaptive and adaptive components. Levels of activity in the default-mode network (DMN) relative to the task-positive network (TPN), as well as activity in structures that influence DMN and TPN functioning, may represent important neural substrates of maladaptive and adaptive rumination in MDD. Methods We used a unique metric to estimate DMN dominance over TPN from blood oxygenation level-dependent data collected during eyes-closed rest in 17 currently depressed and 17 never-disordered adults. We ca...
+
+---
+
+Year: 2009
+Citations: 561
+Type: Article
+Venue: NeuroImage
+Title: Influence of heart rate on the BOLD signal: The cardiac response function
+Keywords: BOLD signal; Cardiovascular; Deconvolution; fMRI; Gaussian process; Heart rate; Hemodynamic response; Physiological noise; Respiration
+Abstract: It has previously been shown that low-frequency fluctuations in both respiratory volume and cardiac rate can induce changes in the blood-oxygen level dependent (BOLD) signal. Such physiological noise can obscure the detection of neural activation using fMRI, and it is therefore important to model and remove the effects of this noise. While a hemodynamic response function relating respiratory variation (RV) and the BOLD signal has been described [Birn, R.M., Smith, M.A., Jones, T.B., Bandettini, P.A., 2008b. The respiration response function: The temporal dynamics of fMRI signal fluctuations related to changes in respiration. Neuroimage 40, 64...
+
+---
+
+Year: 2015
+Citations: 489
+Type: Article
+Venue: Science
+Title: Correlated gene expression supports synchronous activity in brain networks
+Abstract: During rest, brain activity is synchronized between different regions widely distributed throughout the brain, forming functional networks. However, the molecular mechanisms supporting functional connectivity remain undefined. We show that functional brain networks defined with resting-state functional magnetic resonance imaging can be recapitulated by using measures of correlated gene expression in a post mortem brain tissue data set. The set of 136 genes we identify is significantly enriched for ion channels. Polymorphisms in this set of genes significantly affect resting-state functional connectivity in a large sample of healthy adolescent...
+
+---
+
+Year: 2013
+Citations: 484
+Type: Article
+Venue: Proceedings of the National Academy of Sciences of the United States of America
+Title: Causal interactions between fronto-parietal central executive and default-mode networks in humans
+Keywords: FMRI; Neuromodulation; Task negative network; Task positive network
+Abstract: Information processing during human cognitive and emotional operations is thought to involve the dynamic interplay of several large-scale neural networks, including the fronto-parietal central executive network (CEN), cingulo-opercular salience network (SN), and the medial prefrontal-medial parietal default mode networks (DMN). It has been theorized that there is a causal neural mechanism by which the CEN/SN negatively regulate the DMN. Support for this idea has come from correlational neuroimaging studies; however, direct evidence for this neural mechanism is lacking. Here we undertook a direct test of this mechanism by combining transcrania...
+
+---
+
+Year: 2009
+Citations: 429
+Type: Article
+Venue: NeuroImage
+Title: Effects of model-based physiological noise correction on default mode network anti-correlations and correlations
+Keywords: Default mode network; fMRI; Functional connectivity; Negative correlations; Networks; Physiological noise; Resting-state
+Abstract: Previous studies have reported that the spontaneous, resting-state time course of the default-mode network is negatively correlated with that of the "task-positive network", a collection of regions commonly recruited in demanding cognitive tasks. However, all studies of negative correlations between the default-mode and task-positive networks have employed some form of normalization or regression of the whole-brain average signal ("global signal"); these processing steps alter the time series of voxels in an uninterpretable manner as well as introduce spurious negative correlations. Thus, the extent of negative correlations with the default m...
+
+---
+
+Year: 2013
+Citations: 296
+Type: Article
+Venue: NeuroImage
+Title: EEG correlates of time-varying BOLD functional connectivity
+Abstract: Recent resting-state fMRI studies have shown that the apparent functional connectivity (FC) between brain regions may undergo changes on time-scales of seconds to minutes, the basis and importance of which are largely unknown. Here, we examine the electrophysiological correlates of within-scan FC variations during a condition of eyes-closed rest. A sliding window analysis of simultaneous EEG-fMRI data was performed to examine whether temporal variations in coupling between three major networks (default mode; DMN, dorsal attention; DAN, and salience network; SN) are associated with temporal variations in mental state, as assessed from the ampl...
+
+---
+
+Year: 2013
+Citations: 294
+Type: Article
+Venue: NeuroImage
+Title: Association between heart rate variability and fluctuations in resting-state functional connectivity
+Keywords: Autonomic nervous system; Functional connectivity; Heart rate variability; Resting state fMRI; Spontaneous activity; Vigilance
+Abstract: Functional connectivity has been observed to fluctuate across the course of a resting state scan, though the origins and functional relevance of this phenomenon remain to be shown. The present study explores the link between endogenous dynamics of functional connectivity and autonomic state in an eyes-closed resting condition. Using a sliding window analysis on resting state fMRI data from 35 young, healthy male subjects, we examined how heart rate variability (HRV) covaries with temporal changes in whole-brain functional connectivity with seed regions previously described to mediate effects of vigilance and arousal (amygdala and dorsal anter...
+
+---
+
+Year: 2009
+Citations: 265
+Type: Article
+Venue: NeuroImage
+Title: Relationship between respiration, end-tidal CO2, and BOLD signals in resting-state fMRI
+Keywords: BOLD signal; End-tidal CO2; End-tidal O2; fMRI; Hemodynamic latency; Physiological noise; Respiration; Resting state
+Abstract: A significant component of BOLD fMRI physiological noise is caused by variations in the depth and rate of respiration. It has previously been demonstrated that a breath-to-breath metric of respiratory variation (respiratory volume per time; RVT), computed from pneumatic belt measurements of chest expansion, has a strong linear relationship with resting-state BOLD signals across the brain. RVT is believed to capture breathing-induced changes in arterial CO<inf>2</inf>, which is a cerebral vasodilator; indeed, separate studies have found that spontaneous fluctuations in end-tidal CO<inf>2</inf> (PETCO<inf>2</inf>) are correlated with BOLD signa...
+
+---
+
+Year: 2016
+Citations: 242
+Type: Article
+Venue: Proceedings of the National Academy of Sciences of the United States of America
+Title: Tracking brain arousal fluctuations with fMRI
+Keywords: Arousal; Electrophysiology; Resting-state fMRI; Spontaneous fluctuations
+Abstract: Changes in brain activity accompanying shifts in vigilance and arousal can interfere with the study of other intrinsic and task-evoked characteristics of brain function. However, the difficulty of tracking and modeling the arousal state during functional MRI (fMRI) typically precludes the assessment of arousal-dependent influences on fMRI signals. Here we combine fMRI, electrophysiology, and the monitoring of eyelid behavior to demonstrate an approach for tracking continuous variations in arousal level from fMRI data. We first characterize the spatial distribution of fMRI signal fluctuations that track a measure of behavioral arousal; taking...
+
+---
+
+Year: 2018
+Citations: 173
+Type: Article
+Venue: Nature Communications
+Title: Subcortical evidence for a contribution of arousal to fMRI studies of brain activity
+Abstract: Cortical activity during periods of rest is punctuated by widespread, synchronous events in both electrophysiological and hemodynamic signals, but their behavioral relevance remains unclear. Here we report that these events correspond to momentary drops in cortical arousal and are associated with activity changes in the basal forebrain and thalamus. Combining fMRI and electrophysiology in macaques, we first establish that fMRI transients co-occur with spectral shifts in local field potentials (LFPs) toward low frequencies. Applying this knowledge to fMRI data from the human connectome project, we find that the fMRI transients are strongest in...
+
+---
+
+Year: 2018
+Citations: 172
+Type: Article
+Venue: Neuron
+Title: The Basal Forebrain Regulates Global Resting-State fMRI Fluctuations
+Keywords: arousal; basal forebrain; cerebral cortex; fMRI; functional connectivity; global signal; macaque; nucleus basalis; ongoing activity; resting-state networks
+Abstract: Patterns of spontaneous brain activity, typically measured in humans at rest with fMRI, are used routinely to assess the brain's functional organization. The mechanisms that generate and coordinate the underlying neural fluctuations are largely unknown. Here we investigate the hypothesis that the nucleus basalis of Meynert (NBM), the principal source of widespread cholinergic and GABAergic projections to the cortex, contributes critically to such activity. We reversibly inactivated two distinct sites of the NBM in macaques while measuring fMRI activity across the brain. We found that inactivation led to strong, regionalized suppression of sha...
+
+---
+
+Year: 2018
+Citations: 166
+Type: Review
+Venue: NeuroImage
+Title: Co-activation patterns in resting-state fMRI signals
+Keywords: Co-activation brain patterns; Dynamic brain connectivity; Resting-state fMRI
+Abstract: The brain is a complex system that integrates and processes information across multiple time scales by dynamically coordinating activities over brain regions and circuits. Correlations in resting-state functional magnetic resonance imaging (rsfMRI) signals have been widely used to infer functional connectivity of the brain, providing a metric of functional associations that reflects a temporal average over an entire scan (typically several minutes or longer). Not until recently was the study of dynamic brain interactions at much shorter time scales (seconds to minutes) considered for inference of functional connectivity. One method proposed f...
+
+---
+
+Year: 2013
+Citations: 162
+Type: Article
+Venue: Frontiers in Systems Neuroscience
+Title: Decomposition of spontaneous brain activity into distinct fMRI co-activation patterns
+Keywords: Clustering; Dynamic connectivity; Network dynamics; Non-stationary connectivity; Resting-state network
+Abstract: Recent fMRI studies have shown that analysis of the human brain's spontaneous activity may provide a powerful approach to reveal its functional organization. Dedicated methods have been proposed to investigate co-variation of signals from different brain regions, with the goal of revealing neuronal networks (NNs) that may serve specialized functions. However, these analysis methods generally do not take into account a potential non-stationary (variable) interaction between brain regions, and as a result have limited effectiveness. To address this, we propose a novel analysis method that uses clustering analysis to sort and selectively average...
+
+---
+
+Year: 2014
+Citations: 146
+Type: Article
+Venue: Biological Psychology
+Title: Increased insula coactivation with salience networks in insomnia
+Keywords: EEG; FMRI; Insomnia; Insula; Resting state; Salience networks
+Abstract: Insomnia is among the most prevalent and costly of all sleep-related disorders. To characterize the neural mechanisms underlying subjective dysfunction in insomnia, we examined brain activity in 17 female insomniacs and 17 female healthy controls using simultaneous functional magnetic resonance imaging (fMRI) and electroencephalography (EEG) while they were resting and while they were trying to fall asleep. In examining the dynamic regional activity within intrinsic brain networks, we found that, compared with controls, insomniacs had greater involvement of the anterior insula with salience networks, as well as insula BOLD correlation with EE...
+
+---
+
+Year: 2011
+Citations: 141
+Type: Article
+Venue: NeuroImage
+Title: Resting-state fMRI can reliably map neural networks in children
+Abstract: Resting-state MRI (rs-fMRI) is a powerful procedure for studying whole-brain neural connectivity. In this study we provide the first empirical evidence of the longitudinal reliability of rs-fMRI in children. We compared rest-retest measurements across spatial, temporal and frequency domains for each of six cognitive and sensorimotor intrinsic connectivity networks (ICNs) both within and between scan sessions. Using Kendall's. W, concordance of spatial maps ranged from.60 to.86 across networks, for various derived measures. The Pearson correlation coefficient for temporal coherence between networks across all Time 1-Time 2 (T1/T2) z-converte...
+
+---
+
+Year: 2015
+Citations: 134
+Type: Article
+Venue: NeuroImage
+Title: Introducing co-activation pattern metrics to quantify spontaneous brain network dynamics
+Keywords: Brain dynamics; Co-activation patterns; Point process analysis; Resting state networks; Working memory
+Abstract: Recently, fMRI researchers have begun to realize that the brain's intrinsic network patterns may undergo substantial changes during a single resting state (RS) scan. However, despite the growing interest in brain dynamics, metrics that can quantify the variability of network patterns are still quite limited. Here, we first introduce various quantification metrics based on the extension of co-activation pattern (CAP) analysis, a recently proposed point-process analysis that tracks state alternations at each individual time frame and relies on very few assumptions; then apply these proposed metrics to quantify changes of brain dynamics during a...
+
+---
+
+Year: 2011
+Citations: 122
+Type: Article
+Venue: Proceedings of the National Academy of Sciences of the United States of America
+Title: Differential electrophysiological response during rest, self-referential, and non-self-referential tasks in human posteromedial cortex
+Keywords: Electrocorticography; Oscillations; Posterior cingulate; Precuneus
+Abstract: The electrophysiological basis for higher brain activity during rest and internally directed cognition within the human default mode network (DMN) remains largely unknown. Here we use intracranial recordings in the human posteromedial cortex (PMC), a core node within the DMN, during conditions of cued rest, autobiographical judgments, and arithmetic processing. We found a heterogeneous profile of PMC responses in functional, spatial, and temporal domains. Although the majority of PMC sites showed increased broad gamma band activity (30-180 Hz) during rest, some PMC sites, proximal to the retrosplenial cortex, responded selectively to autobiog...
+
+---
+
+Year: 2020
+Citations: 116
+Type: Article
+Venue: NeuroImage
+Title: Resting-state “physiological networks”
+Keywords: fMRI; Global signal regression; Heart rate; Respiratory variation; Resting state functional connectivity
+Abstract: Slow changes in systemic brain physiology can elicit large fluctuations in fMRI time series, which manifest as structured spatial patterns of temporal correlations between distant brain regions. Here, we investigated whether such “physiological networks”—sets of segregated brain regions that exhibit similar responses following slow changes in systemic physiology—resemble patterns associated with large-scale networks typically attributed to remotely synchronized neuronal activity. By analyzing a large group of subjects from the 3T Human Connectome Project (HCP) database, we demonstrate brain-wide and noticeably heterogenous dynamics tightly co...
+
+---
+
+Year: 2014
+Citations: 116
+Type: Article
+Venue: NeuroImage
+Title: Connectivity trajectory across lifespan differentiates the precuneus from the default network
+Keywords: Default network; Functional connectome; GRAICAR; Independent component analysis; Lifespan trajectory; Precuneus
+Abstract: The default network of the human brain has drawn much attention due to its relevance to various brain disorders, cognition, and behavior. However, its functional components and boundaries have not been precisely defined. There is no consensus as to whether the precuneus, a hub in the functional connectome, acts as part of the default network. This discrepancy is more critical for brain development and aging studies: it is not clear whether age has a stronger impact on the default network or precuneus, or both. We used Generalized Ranking and Averaging Independent Component Analysis by Reproducibility (gRAICAR) to investigate the lifespan traj...
+
+---
+
+Year: 2008
+Citations: 107
+Type: Article
+Venue: NeuroImage
+Title: Mapping and correction of vascular hemodynamic latency in the BOLD signal
+Keywords: BOLD contrast; Breath holding; fMRI; Functional connectivity; Hemodynamic response; Latency
+Abstract: Correlation and causality metrics can be applied to blood-oxygen level-dependent (BOLD) signal time series in order to infer neural synchrony and directions of information flow from fMRI data. However, the BOLD signal reflects both the underlying neural activity and the vascular response, the latter of which is governed by local vasomotor physiology. The presence of potential vascular latency differences thus poses a confound in the detection of neural synchrony as well as inferences about the causality of neural processes. In the present study, we investigate the use of a breath holding (BH) task for characterizing and correcting for voxel-w...
+
+---
+
+Year: 2022
+Citations: 101
+Type: Article
+Venue: Nature Neuroscience
+Title: A parsimonious description of global functional brain organization in three spatiotemporal patterns
+Abstract: Resting-state functional magnetic resonance imaging (MRI) has yielded seemingly disparate insights into large-scale organization of the human brain. The brain’s large-scale organization can be divided into two broad categories: zero-lag representations of functional connectivity structure and time-lag representations of traveling wave or propagation structure. In this study, we sought to unify observed phenomena across these two categories in the form of three low-frequency spatiotemporal patterns composed of a mixture of standing and traveling wave dynamics. We showed that a range of empirical phenomena, including functional connectivity gra...
+
+---
+
+Year: 2015
+Citations: 101
+Type: Article
+Venue: NeuroImage
+Title: Mapping the end-tidal CO2 response function in the resting-state BOLD fMRI signal: Spatial specificity, test-retest reliability and effect of fMRI sampling rate
+Keywords: Carbon dioxide; Cardiac variability; Heart rate variability; Multi-slice fMRI; Multiband fMRI; Physiological noise; Respiratory volume; Resting-state fMRI
+Abstract: The blood oxygenation level dependent (BOLD) signal measures brain function indirectly through physiological processes and hence is susceptible to global physiological changes. Specifically, fluctuations in end-tidal CO<inf>2</inf> (PETCO<inf>2</inf>), in addition to cardiac rate variation (CRV), and respiratory volume per time (RVT) variations, have been known to confound the resting-state fMRI (rs-fMRI) signal. Previous studies addressed the resting-state fMRI response function to CRV and RVT, but no attempt has been made to directly estimate the voxel-wise response function to PETCO<inf>2</inf>. Moreover, the potential interactions among P...
+
+---
+
+Year: 2011
+Citations: 92
+Type: Article
+Venue: Archives of General Psychiatry
+Title: Neuroanatomical differences in toddler boys with fragile X syndrome and idiopathic autism
+Abstract: Context: Autism is an etiologically heterogeneous neurodevelopmental disorder for which there is no known unifying etiology or pathogenesis. Many conditions of atypical development can lead to autism, including fragile X syndrome (FXS), which is presently the most common known single-gene cause of autism. Objective: To examine whole-brain morphometric patterns that discriminate young boys with FXS from those with idiopathic autism (iAUT) as well as control participants. Design: Cross-sectional, in vivo neuroimaging study. Setting: Academic medical centers. Patients: Young boys (n=165; aged 1.57-4.15 years) diagnosed as having FXS or iAUT as w...
+
+---
+
+Year: 2019
+Citations: 86
+Type: Article
+Venue: Communications Biology
+Title: Sympathetic activity contributes to the fMRI signal
+Abstract: The interpretation of functional magnetic resonance imaging (fMRI) studies of brain activity is often hampered by the presence of brain-wide signal variations that may arise from a variety of neuronal and non-neuronal sources. Recent work suggests a contribution from the sympathetic vascular innervation, which may affect the fMRI signal through its putative and poorly understood role in cerebral blood flow (CBF) regulation. By analyzing fMRI and (electro-) physiological signals concurrently acquired during sleep, we found that widespread fMRI signal changes often co-occur with electroencephalography (EEG) K-complexes, signatures of sub-cortic...
+
+---
+
+Year: 2016
+Citations: 83
+Type: Article
+Venue: Psychiatry Research - Neuroimaging
+Title: Effects of salience-network-node neurofeedback training on affective biases in major depressive disorder
+Keywords: Functional magnetic resonance imaging; Information processing biases; Major depressive disorder; Neurofeedback; Salience network
+Abstract: Neural models of major depressive disorder (MDD) posit that over-response of components of the brain's salience network (SN) to negative stimuli plays a crucial role in the pathophysiology of MDD. In the present proof-of-concept study, we tested this formulation directly by examining the affective consequences of training depressed persons to down-regulate response of SN nodes to negative material. Ten participants in the real neurofeedback group saw, and attempted to learn to down-regulate, activity from an empirically identified node of the SN. Ten other participants engaged in an equivalent procedure with the exception that they saw SN-nod...
+
+---
+
+Year: 2020
+Citations: 78
+Type: Review
+Venue: Epilepsia
+Title: Impaired vigilance networks in temporal lobe epilepsy: Mechanisms and clinical implications
+Keywords: activating; arousal; consciousness; seizure; subcortical
+Abstract: Mesial temporal lobe epilepsy (mTLE) is a neurological disorder in which patients suffer from frequent consciousness-impairing seizures, broad neurocognitive deficits, and diminished quality of life. Although seizures in mTLE originate focally in the hippocampus or amygdala, mTLE patients demonstrate cognitive deficits that extend beyond temporal lobe function—such as decline in executive function, cognitive processing speed, and attention—as well as diffuse decreases in neocortical metabolism and functional connectivity. Given prior observations that mTLE patients exhibit impairments in vigilance, and that seizures may disrupt the activity a...
+
+---
+
+Year: 2021
+Citations: 67
+Type: Article
+Venue: Cerebral Cortex
+Title: Brain Dynamics Underlying Cognitive Flexibility across the Lifespan
+Keywords: aging; central executive network; default mode network; executive function; salience network
+Abstract: The neural mechanisms contributing to flexible cognition and behavior and how they change with development and aging are incompletely understood. The current study explored intrinsic brain dynamics across the lifespan using resting-state fMRI data (n = 601, 6-85 years) and examined the interactions between age and brain dynamics among three neurocognitive networks (midcingulo-insular network, M-CIN; medial frontoparietal network, M-FPN; and lateral frontoparietal network, L-FPN) in relation to behavioral measures of cognitive flexibility. Hierarchical multiple regression analysis revealed brain dynamics among a brain state characterized by co...
+
+---
+
+Year: 2013
+Citations: 62
+Type: Article
+Venue: NeuroImage
+Title: The impact of "physiological correction" on functional connectivity analysis of pharmacological resting state fMRI
+Keywords: Drug research; Dual regression; Functional connectivity; Heart rate; Physiological noise; Respiration; Resting-state fMRI
+Abstract: Growing interest in pharmacological resting state fMRI (RSfMRI) necessitates developing standardized and robust analytical approaches that are insensitive to spurious correlated physiological signals. However, in pharmacological experiments physiological variations constitute an important aspect of the pharmacodynamic/pharmacokinetic profile of drug action; therefore retrospective corrective methods that discard physiological signals as noise may not be suitable. Previously, we have shown that template-based dual regression analysis is a sensitive method for model-free and objective detection of drug-specific effects on functional brain conne...
+
+---
+
+Year: 2018
+Citations: 61
+Type: Article
+Venue: NeuroImage
+Title: Template-based prediction of vigilance fluctuations in resting-state fMRI
+Keywords: Caffeine; Eyes-closed; Eyes-open; Global signal; Resting state fMRI; Simultaneous EEG-fMRI; Vigilance
+Abstract: Changes in vigilance or alertness during a typical resting state fMRI scan are inevitable and have been found to affect measures of functional brain connectivity. Since it is not often feasible to monitor vigilance with EEG during fMRI scans, it would be of great value to have methods for estimating vigilance levels from fMRI data alone. A recent study, conducted in macaque monkeys, proposed a template-based approach for fMRI-based estimation of vigilance fluctuations. Here, we use simultaneously acquired EEG/fMRI data to investigate whether the same template-based approach can be employed to estimate vigilance fluctuations of awake humans ac...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Functional Connectivity Analysis**: Studies on functional connectivity in the brain, including dynamic functional connectivity, resting-state connectivity, and the effects of physiological noise on connectivity analysis.
+*   **Physiological Noise Correction**: Investigations into the impact of physiological noise, such as heart rate, respiration, and end-tidal CO2, on fMRI signals and methods for correcting for these effects.
+*   **Brain Dynamics and Network Analysis**: Research on the dynamic nature of brain activity, including the identification of co-activation patterns, network analysis, and the study of brain states and transitions.
+*   **Resting-State fMRI and Its Applications**: Studies on resting-state fMRI, including its applications in understanding brain function, identifying neural networks, and investigating neurological and psychiatric disorders.
+*   **Neurological and Psychiatric Disorders**: Investigations into the neural mechanisms underlying various neurological and psychiatric disorders, such as depression, autism, and epilepsy.
+
+**Timeline/Evolution:**
+
+*   Early work (2008-2011): Focus on functional connectivity analysis, physiological noise correction,
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Chang_Catie_56561973300
+
+Publication records (each record is one paper):
+Year: 2009
+Citations: 58
+Type: Review
+Venue: Frontiers in Human Neuroscience
+Title: Applications of multivariate pattern classification analyses in developmental neuroimaging of healthy and clinical populations
+Keywords: Clinical; Development; FMRI; MRI; Multivariate pattern classification
+Abstract: Analyses of functional and structural imaging data typically involve testing hypotheses at each voxel in the brain. However, it is often the case that distributed spatial patterns may be a more appropriate metric for discriminating between conditions or groups. Multivariate pattern analysis has been gaining traction in neuroimaging of adult healthy and clinical populations; studies have shown that information present in neuroimaging data can be used to decode intentions and perceptual states, as well as discriminate between healthy and diseased brains. While few studies to date have applied these methods in pediatric populations, in this revi...
+
+---
+
+Year: 2018
+Citations: 53
+Type: Article
+Venue: NeuroImage
+Title: Contribution of systemic vascular effects to fMRI activity in white matter
+Abstract: To investigate a potential contribution of systemic physiology to recently reported BOLD fMRI signals in white matter, we compared photo-plethysmography (PPG) and whole-brain fMRI signals recorded simultaneously during long resting-state scans from an overnight sleep study. We found that intermittent drops in the amplitude of the PPG signal exhibited strong and widespread correlations with the fMRI signal, both in white matter (WM) and in gray matter (GM). The WM signal pattern resembled that seen in previous resting-state fMRI studies and closely tracked the location of medullary veins. Its temporal cross-correlation with the PPG amplitude w...
+
+---
+
+Year: 2015
+Citations: 50
+Type: Article
+Venue: NeuroImage
+Title: Arousal transitions in sleep, wakefulness, and anesthesia are characterized by an orderly sequence of cortical events
+Keywords: Alpha inhibitory gating; Consciousness; Feedback process; Propofol anesthesia; Resting-state global signal; Sleep
+Abstract: Many aspects of brain function are influenced by modulatory processes, including arousal. The most abrupt changes in arousal occur at the wake-sleep transition and at the induction of anesthetic conditions. They are accompanied by major electrophysiological changes, including an emergence of low-frequency (sleep-like) activity and a loss of mid-frequency (wake-like) activity that has been linked to feedback processes of the brain. Nevertheless, the causal relationship between these two types of electrophysiological changes, as well as the cortical mechanisms underlying changes in arousal and consciousness, remain poorly understood. To address...
+
+---
+
+Year: 2021
+Citations: 49
+Type: Article
+Venue: NeuroImage
+Title: Evidence for modulation of EEG microstate sequence by vigilance level
+Keywords: EEG microstates; Global signal; Vigilance
+Abstract: The momentary global functional state of the brain is reflected in its electric field configuration and cluster analytical approaches have consistently shown four configurations, referred to as EEG microstate classes A to D. Changes in microstate parameters are associated with a number of neuropsychiatric disorders, task performance, and mental state establishing their relevance for cognition. However, the common practice to use eye-closed resting state data to assess the temporal dynamics of microstate parameters might induce systematic confounds related to vigilance levels. Here, we studied the dynamics of microstate parameters in two indep...
+
+---
+
+Year: 2023
+Citations: 46
+Type: Article
+Venue: Cognitive, Affective and Behavioral Neuroscience
+Title: Increasing coordination and responsivity of emotion-related brain regions with a heart rate variability biofeedback randomized trial
+Keywords: Breathing; Emotion regulation; Functional connectivity; Heart rate oscillations; Heart rate variability biofeedback; Resting state
+Abstract: Heart rate variability is a robust biomarker of emotional well-being, consistent with the shared brain networks regulating emotion regulation and heart rate. While high heart rate oscillatory activity clearly indicates healthy regulatory brain systems, can increasing this oscillatory activity also enhance brain function? To test this possibility, we randomly assigned 106 young adult participants to one of two 5-week interventions involving daily biofeedback that either increased heart rate oscillations (Osc+ condition) or had little effect on heart rate oscillations (Osc− condition) and examined effects on brain activity during rest and durin...
+
+---
+
+Year: 2017
+Citations: 45
+Type: Article
+Venue: Human Brain Mapping
+Title: Dissociated patterns of anti-correlations with dorsal and ventral default-mode networks at rest
+Keywords: anti-correlation; DMN; resting state; seed-dependence
+Abstract: Previous studies of resting state functional connectivity have demonstrated that the default-mode network (DMN) is negatively correlated with a set of brain regions commonly activated during goal-directed tasks. However, the location and extent of anti-correlations are inconsistent across different studies, which has been posited to result largely from differences in whether or not global signal regression (GSR) was applied as a pre-processing step. Notably, coordinates of seed regions-of-interest defined within the posterior cingulate cortex (PCC)/precuneus, an area often employed to study functional connectivity of the DMN, have been incons...
+
+---
+
+Year: 2020
+Citations: 44
+Type: Article
+Venue: European Archives of Psychiatry and Clinical Neuroscience
+Title: Default mode network connectivity change corresponds to ketamine’s delayed glutamatergic effects
+Keywords: Dorsal posterior cingulate cortex; Functional connectivity; Glutamate; Ketamine; Magnetic resonance spectroscopy; Resting state fMRI
+Abstract: Ketamine exerts rapid antidepressant effects peaking 24 h after a single infusion, which have been suggested to be reflected by both reduced functional connectivity (FC) within default mode network (DMN) and altered glutamatergic levels in the perigenual anterior cingulate cortex (pgACC) at 24 h. Understanding the interrelation and time point specificity of ketamine-induced changes of brain circuitry and metabolism is thus key to future therapeutic developments. We investigated the correlation of late glutamatergic changes with FC changes seeded from the posterior cingulate cortex (PCC) and tested the prediction of the latter by acute fractio...
+
+---
+
+Year: 2021
+Citations: 41
+Type: Article
+Venue: Cerebral Cortex
+Title: Whole-Brain Functional Dynamics Track Depressive Symptom Severity
+Keywords: brain network dynamics; coactivation pattern analysis; depressive symptoms; medial frontoparietal network; resting state fMRI
+Abstract: Depressive symptoms are reported by 20% of the population and are related to altered functional integrity of large-scale brain networks. The link between moment-to-moment brain function and depressive symptomatology, and the implications of these relationships for clinical and community populations alike, remain understudied. The present study examined relationships between functional brain dynamics and subclinical-to-mild depressive symptomatology in a large community sample of adults with and without psychiatric diagnoses. This study used data made available through the Enhanced Nathan Kline Institute-Rockland Sample; 445 participants betwe...
+
+---
+
+Year: 2021
+Citations: 39
+Type: Article
+Venue: eLife
+Title: Fmri-based detection of alertness predicts behavioral response variability
+Abstract: Levels of alertness are closely linked with human behavior and cognition. However, while functional magnetic resonance imaging (fMRI) allows for investigating whole-brain dynamics during behavior and task engagement, concurrent measures of alertness (such as EEG or pupillometry) are often unavailable. Here, we extract a continuous, time-resolved marker of alertness from fMRI data alone. We demonstrate that this fMRI alertness marker, calculated in a short pre-stimulus interval, captures trial-to-trial behavioral responses to incoming sensory stimuli. In addition, we find that the prediction of both EEG and behavioral responses during the task...
+
+---
+
+Year: 2017
+Citations: 39
+Type: Review
+Venue: Neuroimaging Clinics of North America
+Title: Methods and Considerations for Dynamic Analysis of Functional MR Imaging Data
+Keywords: Dynamics; Functional connectivity; Functional magnetic resonance imaging; Networks; Resting state
+Abstract: Functional MR imaging (fMR imaging) studies have recently begun to examine spontaneous changes in interregional interactions (functional connectivity) over seconds to minutes, and their relation to natural shifts in cognitive and physiologic states. This practice opens the potential for uncovering structured, transient configurations of coordinated brain activity whose features may provide novel cognitive and clinical biomarkers. However, analysis of these time-varying phenomena requires careful differentiation between neural and nonneural contributions to the fMR imaging signal and thorough validation and statistical testing. In this article...
+
+---
+
+Year: 2021
+Citations: 38
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Compound Figure Separation of Biomedical Images with Side Loss
+Keywords: Biomedical data; Compound figures; Deep learning; Separation
+Abstract: Unsupervised learning algorithms (e.g., self-supervised learning, auto-encoder, contrastive learning) allow deep learning models to learn effective image representations from large-scale unlabeled data. In medical image analysis, even unannotated data can be difficult to obtain for individual labs. Fortunately, national-level efforts have been made to provide efficient access to obtain biomedical image data from previous scientific publications. For instance, NIH has launched the Open-i® search engine that provides a large-scale image database with free access. However, the images in scientific publications consist of a considerable amount of...
+
+---
+
+Year: 2022
+Citations: 34
+Type: Article
+Venue: Journal of Neuroscience
+Title: Emotion Downregulation Targets Interoceptive Brain Regions While Emotion Upregulation Targets Other Affective Brain Regions
+Keywords: arousal; downregulation; emotion; fMRI; interoception; upregulation
+Abstract: Researchers generally agree that when upregulating and downregulating emotion, control regions in the prefrontal cortex turn up or down activity in affect-generating brain areas. However, the “affective dial hypothesis” that turning up and down emotions produces opposite effects in the same affect-generating regions is untested. We tested this hypothesis by examining the overlap between the regions activated during upregulation and those deactivated during downregulation in 54 male and 51 female humans. We found that upregulation and downregulation both recruit regulatory regions, such as the inferior frontal gyrus and dorsal anterior cingula...
+
+---
+
+Year: 2016
+Citations: 34
+Type: Review
+Venue: Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering...
+Title: Brain-heart interactions: Challenges and opportunities with functional magnetic resonance imaging at ultra-high field
+Keywords: Brain-heart; Functional magnetic resonance imaging; High resolution; High-field imaging
+Abstract: Magnetic resonance imaging (MRI) at ultra-high field (UHF) strengths (7 T and above) offers unique opportunities for studying the human brain with increased spatial resolution, contrast and sensitivity. However, its reliability can be compromised by factors such as head motion, image distortion and non-neural fluctuations of the functional MRI signal. The objective of this review is to provide a critical discussion of the advantages and tradeoffs associated with UHF imaging, focusing on the application to studying brain-heart interactions. We describe how UHF MRI may provide contrast and resolution benefits for measuring neural activity of re...
+
+---
+
+Year: 2020
+Citations: 32
+Type: Article
+Venue: NeuroImage: Clinical
+Title: Temporal lobe epilepsy alters spatio-temporal dynamics of the hippocampal functional network
+Keywords: Dynamics; Epilepsy; Fmri; Functional connectivity
+Abstract: Mesial temporal lobe epilepsy (TLE) is characterized by transient abnormal electrical activity originating in the hippocampus. The objective of this study was to characterize dynamic spatio-temporal fluctuations in hippocampal network connectivity in mTLE using functional connectivity (FC) mapping in 41 unilateral mTLE patients (28 right, 13 left) and 56 healthy control participants using 3T MRI. Dynamic FC was computed across the scan using sliding 60-s windows. This was compared to static FC computed using the whole 10-min functional MRI scan, and to the variance in the hippocampal functional MRI signal. Four states of healthy hippocampal d...
+
+---
+
+Year: 2021
+Citations: 31
+Type: Review
+Venue: Current Opinion in Biomedical Engineering
+Title: Multimodal EEG-fMRI: Advancing insight into large-scale human brain dynamics
+Keywords: Brain networks; EEG-fMRI; Functional neuroimaging; Hemodynamics; State changes
+Abstract: Advances in the acquisition and analysis of functional magnetic resonance imaging (fMRI) data are revealing increasingly rich spatiotemporal structure across the human brain. Nonetheless, uncertainty surrounding the origins of fMRI hemodynamic signals, and in the link between large-scale fMRI patterns and ongoing functional states, presently limits the neurobiological conclusions one can draw from fMRI alone. Electroencephalography (EEG) provides complementary information about neural electrical activity and state change, and simultaneously acquiring EEG together with fMRI presents unique opportunities for studying large-scale brain activity...
+
+---
+
+Year: 2020
+Citations: 30
+Type: Article
+Venue: NeuroImage
+Title: Analysis of stimulus-induced brain dynamics during naturalistic paradigms
+Abstract: Naturalistic stimuli offer promising avenues for investigating brain function across the rich, realistic spectrum of human experiences. Functional magnetic resonance imaging (fMRI) studies of brain activity during naturalistic paradigms have provided new information about dynamic neural processing in ecologically valid contexts. Yet, the complex, uncontrolled nature of such stimuli -- and the resulting mixture of neuronal and physiological responses embedded within the fMRI signals -- present challenges with respect to data analysis and interpretation. In this brief commentary, we discuss methods and open challenges in naturalistic fMRI inves...
+
+---
+
+Year: 2020
+Citations: 28
+Type: Review
+Venue: Current Opinion in Behavioral Sciences
+Title: Physiological changes in sleep that affect fMRI inference
+Abstract: fMRI relies on a localized cerebral blood flow (CBF) response to changes in cortical neuronal activity. An underappreciated aspect however is its sensitivity to contributions from autonomic physiology that may affect CBF through changes in vascular resistance and blood pressure. As is reviewed here, this is crucial to consider in fMRI studies of sleep, given the close linkage between the regulation of arousal state and autonomic physiology. Typical methods for separating these effects are based on the use of reference signals that may include physiological parameters such as heart rate and respiration; however, the use of time-invariant model...
+
+---
+
+Year: 2020
+Citations: 28
+Type: Article
+Venue: Network Neuroscience
+Title: Coactivation pattern analysis reveals altered salience network dynamics in children with autism spectrum disorder
+Keywords: Anterior insula; Dynamic coactivation patterns; Functional connectivity; Lateral fronto-parietal network; Medial fronto-parietal network; Midcingulo-insular network
+Abstract: Brain connectivity studies of autism spectrum disorder (ASD) have historically relied on static measures of functional connectivity. Recent work has focused on identifying transient configurations of brain activity, yet several open questions remain regarding the nature of specific brain network dynamics in ASD. We used a dynamic coactivation pattern (CAP) approach to investigate the salience/midcingulo-insular (M-CIN) network, a locus of dysfunction in ASD, in a large multisite resting-state fMRI dataset collected from 172 children (ages 6–13 years; n = 75 ASD; n = 138 male). Following brain parcellation by using independent component analys...
+
+---
+
+Year: 2022
+Citations: 26
+Type: Article
+Venue: Brain Communications
+Title: Presurgical temporal lobe epilepsy connectome fingerprint for seizure outcome prediction
+Keywords: magnetic resonance imaging; network; outcome; seizures; surgery
+Abstract: Temporal lobe epilepsy presents a unique situation where confident clinical localization of the seizure focus does not always result in a seizure-free or favourable outcome after mesial temporal surgery. In this work, magnetic resonance imaging derived functional and structural whole-brain connectivity was used to compute a network fingerprint that captures the connectivity profile characteristics that are common across a group of nine of these patients with seizure-free outcome. The connectivity profile was then computed for 38 left-out patients with the hypothesis that similarity to the fingerprint indicates seizure-free surgical outcome. P...
+
+---
+
+Year: 2019
+Citations: 26
+Type: Article
+Venue: Journal of Neuroscience Methods
+Title: All-night functional magnetic resonance imaging sleep studies
+Keywords: Design; Functional magnetic resonance imaging (fMRI); Method; Neural circuits; Procedure; Sleep
+Abstract: Background: Previous functional magnetic resonance imaging (fMRI) sleep studies have been hampered by the difficulty of obtaining extended amounts of sleep in the sleep-adverse environment of the scanner and often have resorted to manipulations such as sleep depriving subjects before scanning. These manipulations limit the generalizability of the results. New method: The current study is a methodological validation of procedures aimed at obtaining all-night fMRI data in sleeping subjects with minimal exposure to experimentally induced sleep deprivation. Specifically, subjects slept in the scanner on two consecutive nights, allowing the first...
+
+---
+
+Year: 2021
+Citations: 25
+Type: Article
+Venue: Neurology
+Title: Role of the Nucleus Basalis as a Key Network Node in Temporal Lobe Epilepsy
+Abstract: ObjectiveTo determine whether the nucleus basalis of Meynert (NBM) may be a key network structure of altered functional connectivity in temporal lobe epilepsy (TLE), we examined fMRI with network-based analyses.MethodsWe acquired resting-state fMRI in 40 adults with TLE and 40 matched healthy control participants. We calculated functional connectivity of NBM and used multiple complementary network-based analyses to explore the importance of NBM in TLE networks without biasing our results by our approach. We compared patients to controls and examined associations of network properties with disease metrics and neurocognitive testing.ResultsWe o...
+
+---
+
+Year: 2022
+Citations: 24
+Type: Article
+Venue: Frontiers in Human Neuroscience
+Title: Greater Social Competence Is Associated With Higher Interpersonal Neural Synchrony in Adolescents With Autism
+Keywords: autism; EEG; hyperscanning; sex differences; social; synchrony
+Abstract: Difficulty engaging in reciprocal social interactions is a core characteristic of autism spectrum disorder. The mechanisms supporting effective dynamic real-time social exchanges are not yet well understood. This proof-of-concept hyperscanning electroencephalography study examined neural synchrony as the mechanism supporting interpersonal social interaction in 34 adolescents with autism spectrum disorder (50% female), age 10–16 years, paired with neurotypical confederates of similar age. The degree of brain-to-brain neural synchrony was quantified at temporo-parietal scalp locations as the circular correlation of oscillatory amplitudes in the...
+
+---
+
+Year: 2022
+Citations: 23
+Type: Article
+Venue: International Journal of Psychophysiology
+Title: Heart rate variability (HRV) changes and cortical volume changes in a randomized trial of five weeks of daily HRV biofeedback in younger and older adults
+Keywords: Biofeedback; Cortical volume; Heart rate variability; Orbitofrontal cortex
+Abstract: Previous studies indicate that the structure and function of medial prefrontal cortex (PFC) and lateral orbitofrontal cortex (OFC) are associated with heart rate variability (HRV). Typically, this association is assumed to reflect the PFC's role in controlling HRV and emotion regulation, with better prefrontal structural integrity supporting greater HRV and better emotion regulation. However, as a control system, the PFC must monitor and respond to heart rate oscillatory activity. Thus, engaging in regulatory feedback during heart rate oscillatory activity may over time help shape PFC structure, as relevant circuits and connections are modifi...
+
+---
+
+Year: 2022
+Citations: 23
+Type: Article
+Venue: NeuroImage
+Title: Moving beyond the ‘CAP’ of the Iceberg: Intrinsic connectivity networks in fMRI are continuously engaging and overlapping
+Keywords: Activation spatial map (ASM); Co-activation patterns (CAPs); Event absent time points (EATs); Event present time points (EPTs); Functional connectivity (FC); Independent component...
+Abstract: Resting-state functional magnetic resonance imaging is currently the mainstay of functional neuroimaging and has allowed researchers to identify intrinsic connectivity networks (aka functional networks) at different spatial scales. However, little is known about the temporal profiles of these networks and whether it is best to model them as continuous phenomena in both space and time or, rather, as a set of temporally discrete events. Both categories have been supported by series of studies with promising findings. However, a critical question is whether focusing only on time points presumed to contain isolated neural events and disregarding...
+
+---
+
+Year: 2021
+Citations: 23
+Type: Article
+Venue: NeuroImage
+Title: State-related neural influences on fMRI connectivity estimation
+Abstract: The spatiotemporal structure of functional magnetic resonance imaging (fMRI) signals has provided a valuable window into the network underpinnings of human brain function and dysfunction. Although some cross-regional temporal correlation patterns (functional connectivity; FC) exhibit a high degree of stability across individuals and species, there is growing acknowledgment that measures of FC can exhibit marked changes over a range of temporal scales. Further, FC can co-vary with experimental task demands and ongoing neural processes linked to arousal, consciousness and perception, cognitive and affective state, and brain-body interactions. T...
+
+---
+
+Year: 2021
+Citations: 23
+Type: Article
+Venue: NeuroImage
+Title: Reconstruction of respiratory variation signals from fMRI data
+Keywords: fMRI; Machine learning; Physiology; Respiratory variation; Resting state
+Abstract: Functional MRI signals can be heavily influenced by systemic physiological processes in addition to local neural activity. For example, widespread hemodynamic fluctuations across the brain have been found to correlate with natural, low-frequency variations in the depth and rate of breathing over time. Acquiring peripheral measures of respiration during fMRI scanning not only allows for modeling such effects in fMRI analysis, but also provides valuable information for interrogating brain-body physiology. However, physiological recordings are frequently unavailable or have insufficient quality. Here, we propose a computational technique for rec...
+
+---
+
+Year: 2017
+Citations: 23
+Type: Article
+Venue: Experimental Neurology
+Title: Ventral medullary control of rapid eye movement sleep and atonia
+Keywords: AAV; DREADD; GABA; REM arousal; VGAT
+Abstract: Discrete populations of neurons at multiple levels of the brainstem control rapid eye movement (REM) sleep and the accompanying loss of postural muscle tone, or atonia. The specific contributions of these brainstem cell populations to REM sleep control remains incompletely understood. Here we show in rats that viral vector-based lesions of the ventromedial medulla at a level rostral to the inferior olive (pSOM) produced violent myoclonic twitches and abnormal electromyographic spikes, but not complete loss of tonic atonia, during REM sleep. Motor tone during non-REM (NREM) sleep was unaffected in these same animals. Acute chemogenetic activat...
+
+---
+
+Year: 2010
+Citations: 22
+Type: Article
+Venue: Journal of Cognitive Neuroscience
+Title: Neural basis of repetition priming during mathematical cognition: Repetition suppression or repetition enhancement?
+Abstract: We investigated the neural basis of repetition priming (RP) during mathematical cognition. Previous studies of RP have focused on repetition suppression as the basis of behavioral facilitation, primarily using word and object identification and classification tasks. More recently, researchers have suggested associative stimulus-response learning as an alternate model for behavioral facilitation. We examined the neural basis of RP during mathematical problem solving in the context of these two models of learning. Brain imaging and behavioral data were acquired from 39 adults during novel and repeated presentation of three-operand mathematical...
+
+---
+
+Year: 2009
+Citations: 21
+Type: Article
+Venue: NeuroImage
+Title: Development, validation, and comparison of ICA-based gradient artifact reduction algorithms for simultaneous EEG-spiral in/out and echo-planar fMRI recordings
+Keywords: Imaging artifacts; Independent component analysis (ICA); Simultaneous EEG-fMRI
+Abstract: EEG data acquired in an MRI scanner are heavily contaminated by gradient artifacts that can significantly compromise signal quality. We developed two new methods based on independent component analysis (ICA) for reducing gradient artifacts from spiral in-out and echo-planar pulse sequences at 3 T, and compared our algorithms with four other commonly used methods: average artifact subtraction (Allen, P., Josephs, O., Turner, R., 2000. A method for removing imaging artifact from continuous EEG recorded during functional MRI. NeuroImage 12, 230-239.), principal component analysis (Niazy, R., Beckmann, C., Iannetti, G., Brady, J., Smith, S., 2005...
+
+---
+
+Year: 2023
+Citations: 20
+Type: Article
+Venue: Journal of Neurosurgery
+Title: Localizing seizure onset zones in surgical epilepsy with neurostimulation deep learning
+Keywords: cortico-cortical evoked potentials; deep learning; SEEG; seizure onset zone; single-pulse electrical stimulation; temporal lobe epilepsy
+Abstract: OBJECTIVE In drug-resistant temporal lobe epilepsy, automated tools for seizure onset zone (SOZ) localization that use brief interictal recordings could supplement presurgical evaluations and improve care. Thus, the authors sought to localize SOZs by training a multichannel convolutional neural network on stereoelectroencephalography (SEEG) cortico-cortical evoked potentials. METHODS The authors performed single-pulse electrical stimulation in 10 drug-resistant temporal lobe epilepsy patients implanted with SEEG. Using 500,000 unique poststimulation SEEG epochs, the authors trained a multichannel 1-dimensional convolutional neural network to...
+
+---
+
+Year: 2013
+Citations: 20
+Type: Article
+Venue: NeuroImage
+Title: A novel approach for global noise reduction in resting-state fMRI: APPLECOR
+Keywords: Default mode network; FMRI; Functional connectivity; Networks; Noise correction; Resting state
+Abstract: Noise in fMRI recordings creates uncertainty when mapping functional networks in the brain. Non-neural physiological processes can introduce correlated noise across much of the brain, altering the apparent strength and extent of intrinsic networks. In this work, a new data-driven noise correction, termed "APPLECOR" (for Affine Parameterization of Physiological Large-scale Error Correction), is introduced. APPLECOR models spatially-common physiological noise as the linear combination of an additive term and a mean-dependent multiplicative term, and then estimates and removes these components. APPLECOR is shown to achieve greater consistency of...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Multivariate Pattern Classification**: Analyzing distributed spatial patterns in neuroimaging data to distinguish between conditions or groups (2009)
+*   **Functional Connectivity and Network Analysis**: Investigating the relationships between brain regions and networks, particularly in resting-state fMRI (2010, 2013, 2015, 2017, 2020, 2021)
+*   **Sleep and Arousal**: Examining the neural mechanisms of sleep, arousal, and consciousness, including the effects of sleep deprivation and anesthesia (2015, 2017, 2020)
+*   **Heart Rate Variability and Emotion Regulation**: Investigating the relationship between heart rate variability, emotion regulation, and brain function (2017, 2020, 2022)
+*   **Neurodevelopment and Pediatric Populations**: Applying multivariate pattern analysis and functional connectivity techniques to pediatric populations (2009)
+*   **Advanced Image Processing and Analysis Techniques**: Developing and applying new methods for analyzing fMRI data, including gradient artifact reduction and noise correction
+
+Chunk 3:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Chang_Catie_56561973300
+
+Publication records (each record is one paper):
+Year: 2021
+Citations: 19
+Type: Article
+Venue: NeuroImage
+Title: Using multiband multi-echo imaging to improve the robustness and repeatability of co-activation pattern analysis for dynamic functional connectivity
+Keywords: Co-activation patterns; Dynamic; Functional connectivity; Multi-echo; Multiband; Resting-state functional MRI
+Abstract: Emerging evidence has shown that functional connectivity is dynamic and changes over the course of a scan. Furthermore, connectivity patterns can arise from short periods of co-activation on the order of seconds. Recently, a dynamic co-activation patterns (CAPs) analysis was introduced to examine the co-activation of voxels resulting from individual timepoints. The goal of this study was to apply CAPs analysis on resting state fMRI data collected using an advanced multiband multi-echo (MBME) sequence, in comparison with a multiband (MB) sequence with a single echo. Data from 28 healthy control subjects were examined. Subjects underwent two re...
+
+---
+
+Year: 2011
+Citations: 19
+Type: Article
+Venue: Magnetic Resonance in Medicine
+Title: Variable-density spiral-in/out functional magnetic resonance imaging
+Keywords: brain; fMRI; high resolution; variable-density spiral
+Abstract: A variable-density spiral k-space trajectory is introduced for brain functional magnetic resonance imaging. The proposed spiral trajectory consists of an Archimedean spiral from the k-space origin to an arbitrary fraction r of the maximum k-space radius, extending beyond this point with a variable-density spiral in which the sampling density decreases as the k-space radius increases. It, therefore, permits a reduction in readout time at the expense of undersampling only the high spatial frequencies, in which the energy in T <inf>2</inf>*-weighted brain images is low. The trajectory was implemented in a two-dimensional spiral-in/out sequence,...
+
+---
+
+Year: 2023
+Citations: 16
+Type: Article
+Venue: Brain
+Title: Structural disconnection relates to functional changes after temporal lobe epilepsy surgery
+Keywords: ALFF; epilepsy; fMRI; structural connectivity; surgery
+Abstract: Epilepsy surgery consists of surgical resection of the epileptic focus and is recommended for patients with drug-resistant focal epilepsy. However, focal brain lesions can lead to effects in distant brain regions. Similarly, the focal resection in temporal lobe epilepsy surgery has been shown to lead to functional changes distant from the resection. Here we hypothesize that there are changes in brain function caused by temporal lobe epilepsy surgery in regions distant from the resection that are due to their structural disconnection from the resected epileptic focus. Therefore, the goal of this study was to localize changes in brain function...
+
+---
+
+Year: 2021
+Citations: 16
+Type: Article
+Venue: Network Neuroscience
+Title: Mri network progression in mesial temporal lobe epilepsy related to healthy brain architecture
+Keywords: Diffusion MRI; Focal epilepsy; Functional MRI; Network connectivity
+Abstract: We measured MRI network progression in mesial temporal lobe epilepsy (mTLE) patients as a function of healthy brain architecture. Resting-state functional MRI and diffusion-weighted MRI were acquired in 40 unilateral mTLE patients and 70 healthy controls. Data were used to construct region-to-region functional connectivity, structural connectivity, and streamline length connectomes per subject. Three models of distance from the presumed seizure focus in the anterior hippocampus in the healthy brain were computed using the average connectome across controls. A fourth model was defined using regions of transmodal (higher cognitive function) to...
+
+---
+
+Year: 2018
+Citations: 16
+Type: Article
+Venue: Frontiers in Human Neuroscience
+Title: Grading of frequency spectral centroid across resting-state networks
+Keywords: FMRI; Frequency-based grading; Major depressive disorder; Resting-state; Resting-state functional connectivity; Resting-state networks; Spectral analysis; Spectral centroid
+Abstract: Ongoing, slowly fluctuating brain activity is organized in resting-state networks (RSNs) of spatially coherent fluctuations. Beyond spatial coherence, RSN activity is governed in a frequency-specific manner. The more detailed architecture of frequency spectra across RSNs is, however, poorly understood. Here we propose a novel measure–the Spectral Centroid (SC)–which represents the center of gravity of the full power spectrum of RSN signal fluctuations. We examine whether spectral underpinnings of network fluctuations are distinct across RSNs. We hypothesize that spectral content differs across networks in a consistent way, thus, the aggregate...
+
+---
+
+Year: 2018
+Citations: 16
+Type: Article
+Venue: NeuroImage
+Title: Inter-subject phase synchronization for exploratory analysis of task-fMRI
+Keywords: Brain synchronization; Exploratory fMRI; General linear model; Instantaneous phase analysis; Inter-subject correlation; Task fMRI
+Abstract: Analysis of task-based fMRI data is conventionally carried out using a hypothesis-driven approach, where blood-oxygen-level dependent (BOLD) time courses are correlated with a hypothesized temporal structure. In some experimental designs, this temporal structure can be difficult to define. In other cases, experimenters may wish to take a more exploratory, data-driven approach to detecting task-driven BOLD activity. In this study, we demonstrate the efficiency and power of an inter-subject synchronization approach for exploratory analysis of task-based fMRI data. Combining the tools of instantaneous phase synchronization and independent compon...
+
+---
+
+Year: 2014
+Citations: 16
+Type: Article
+Venue: Cerebral Cortex
+Title: Neuroelectrical decomposition of spontaneous brain activity measured with functional magnetic resonance imaging
+Keywords: band-limited power; functional networks; resting state; spectral clustering; subspace analysis
+Abstract: Spontaneous activity in the human brain occurs in complex spatiotemporal patterns that may reflect functionally specialized neural networks. Here, we propose a subspace analysis method to elucidate large-scale networks by the joint analysis of electroencephalography (EEG) and functional magnetic resonance imaging (fMRI) data. The new approach is based on the notion that the neuroelectrical activity underlying the fMRI signal may have EEG spectral features that report on regional neuronal dynamics and interregional interactions. Applying this approach to resting healthy adults, we indeed found characteristic spectral signatures in the EEG corr...
+
+---
+
+Year: 2022
+Citations: 14
+Type: Article
+Venue: Frontiers in Neuroscience
+Title: Automated Classification of Resting-State fMRI ICA Components Using a Deep Siamese Network
+Keywords: classification; deep learning; independent component analysis; magnetic resonance imaging (MRI); one-shot learning; resting-state functional MRI; siamese network
+Abstract: Manual classification of functional resting state networks (RSNs) derived from Independent Component Analysis (ICA) decomposition can be labor intensive and requires expertise, particularly in large multi-subject analyses. Hence, a fully automatic algorithm that can reliably classify these RSNs is desirable. In this paper, we present a deep learning approach based on a Siamese Network to learn a discriminative feature representation for single-subject ICA component classification. Advantages of this supervised framework are that it requires relatively few training data examples and it does not require the number of ICA components to be specif...
+
+---
+
+Year: 2020
+Citations: 14
+Type: Article
+Venue: NeuroImage: Clinical
+Title: Evoked and intrinsic brain network dynamics in children with autism spectrum disorder
+Keywords: Attention; Central executive network; Cognitive flexibility; Default mode network; Salience network; Set-shifting; Social cognition
+Abstract: Objective: Brain dynamics underlie flexible cognition and behavior, yet little is known regarding this relationship in autism spectrum disorder (ASD). We examined time-varying changes in functional co-activation patterns (CAPs) across rest and task-evoked brain states to characterize differences between children with ASD and typically developing (TD) children and identify relationships with severity of social behaviors and restricted and repetitive behaviors. Method: 17 children with ASD and 27 TD children ages 7–12 completed a resting-state fMRI scan and four runs of a non-cued attention switching task. Metrics indexing brain dynamics were g...
+
+---
+
+Year: 2022
+Citations: 12
+Type: Article
+Venue: Cerebral Cortex
+Title: Characterization of resting functional MRI activity alterations across epileptic foci and networks
+Keywords: ALFF; fMRI; mesial temporal lobe epilepsy
+Abstract: Brain network alterations have been studied extensively in patients with mesial temporal lobe epilepsy (mTLE) and other focal epilepsies using resting-state functional magnetic resonance imaging (fMRI). However, little has been done to characterize the basic fMRI signal alterations caused by focal epilepsy. Here, we characterize how mTLE affects the fMRI signal in epileptic foci and networks. Resting-state fMRI and diffusion MRI were collected from 47 unilateral mTLE patients and 96 healthy controls. FMRI activity, quantified by amplitude of low-frequency fluctuations, was increased in the epileptic focus and connected regions in mTLE. Eviden...
+
+---
+
+Year: 2020
+Citations: 12
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: A Deep Pattern Recognition Approach for Inferring Respiratory Volume Fluctuations from fMRI Data
+Keywords: fMRI; Pattern recognition; Physiological artifact removal; Respiration data
+Abstract: Functional magnetic resonance imaging (fMRI) is one of the most widely used non-invasive techniques for investigating human brain activity. Yet, in addition to local neural activity, fMRI signals can be substantially influenced by non-local physiological effects stemming from processes such as slow changes in respiratory volume (RV) over time. While external monitoring of respiration is currently relied upon for quantifying RV and reducing its effects during fMRI scans, these measurements are not always available or of sufficient quality. Here, we propose an end-to-end procedure for modeling fMRI effects linked with RV, in the common scenario...
+
+---
+
+Year: 2025
+Citations: 11
+Type: Article
+Venue: Nature Neuroscience
+Title: Autonomic physiological coupling of the global fMRI signal
+Abstract: The brain is closely attuned to visceral signals from the body’s internal environment, as evidenced by the numerous associations between neural, hemodynamic and peripheral physiological signals. Here we show that a major mode of these brain–body cofluctuations can be captured by a single spatiotemporal pattern. Across several independent samples, as well as single-echo and multi-echo functional magnetic resonance imaging (fMRI) data acquisition sequences, we identify widespread cofluctuations in the low-frequency range (0.01–0.1 Hz) between resting-state global fMRI signals, electroencephalogram (EEG) activity, and a host of peripheral autono...
+
+---
+
+Year: 2023
+Citations: 11
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: NeuroGraph: Benchmarks for Graph Machine Learning in Brain Connectomics
+Abstract: Machine learning provides a valuable tool for analyzing high-dimensional functional neuroimaging data, and is proving effective in predicting various neurological conditions, psychiatric disorders, and cognitive patterns. In functional magnetic resonance imaging (MRI) research, interactions between brain regions are commonly modeled using graph-based representations. The potency of graph machine learning methods has been established across myriad domains, marking a trans-formative step in data interpretation and predictive modeling. Yet, despite their promise, the transposition of these techniques to the neuroimaging domain has been challengi...
+
+---
+
+Year: 2023
+Citations: 11
+Type: Article
+Venue: Frontiers in Neuroscience
+Title: Auditory and reward structures reflect the pleasure of musical expectancies during naturalistic listening
+Keywords: expectancies; fMRI; music; pleasure; superior temporal gyrus (STG); ventral striatum (VS)
+Abstract: Enjoying music consistently engages key structures of the neural auditory and reward systems such as the right superior temporal gyrus (R STG) and ventral striatum (VS). Expectations seem to play a central role in this effect, as preferences reliably vary according to listeners’ uncertainty about the musical future and surprise about the musical past. Accordingly, VS activity reflects the pleasure of musical surprise, and exhibits stronger correlations with R STG activity as pleasure grows. Yet the reward value of musical surprise – and thus the reason for these surprises engaging the reward system – remains an open question. Recent models of...
+
+---
+
+Year: 2023
+Citations: 10
+Type: Article
+Venue: Cell Reports
+Title: Time-resolved correlation of distributed brain activity tracks E-I balance and accounts for diverse scale-free phenomena
+Keywords: 1/f; calcium imaging; CP: Neuroscience; electrophysiology; excitation-inhibition balance; scale-free brain activity; time-resolved correlation
+Abstract: Much of systems neuroscience posits the functional importance of brain activity patterns that lack natural scales of sizes, durations, or frequencies. The field has developed prominent, and sometimes competing, explanations for the nature of this scale-free activity. Here, we reconcile these explanations across species and modalities. First, we link estimates of excitation-inhibition (E-I) balance with time-resolved correlation of distributed brain activity. Second, we develop an unbiased method for sampling time series constrained by this time-resolved correlation. Third, we use this method to show that estimates of E-I balance account for d...
+
+---
+
+Year: 2024
+Citations: 9
+Type: Article
+Venue: Brain
+Title: The interictal suppression hypothesis is the dominant differentiator of seizure onset zones in focal epilepsy
+Keywords: connectomics; drug-resistant focal epilepsy; interictal suppression hypothesis; machine learning; principal component analysis; stereo electroencephalography
+Abstract: Successful surgical treatment of drug-resistant epilepsy traditionally relies on the identification of seizure onset zones (SOZs). Connectome-based analyses of electrographic data from stereo electroencephalography (SEEG) may empower improved detection of SOZs. Specifically, connectome-based analyses based on the interictal suppression hypothesis posit that when the patient is not having a seizure, SOZs are inhibited by non-SOZs through high inward connectivity and low outward connectivity. However, it is not clear whether there are other motifs that can better identify potential SOZs. Thus, we sought to use unsupervised machine learning to i...
+
+---
+
+Year: 2021
+Citations: 9
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: From Brain to Body: Learning Low-Frequency Respiration and Cardiac Signals from fMRI Dynamics
+Keywords: fMRI time series; Heart rate; Physiological signals; Respiration
+Abstract: Functional magnetic resonance imaging (fMRI) is a powerful technique for studying human brain activity and large-scale neural circuits. However, fMRI signals can be strongly modulated by slow changes in respiration volume (RV) and heart rate (HR). Monitoring cardiac and respiratory signals during fMRI enables modeling and/or reducing such effects; yet, physiological measurements are often unavailable in practice, and are missing from a large number of fMRI datasets. Very recent work has demonstrated the ability to reconstruct RV signals from resting-state fMRI data, but it is currently unclear whether such an approach generalizes to other phy...
+
+---
+
+Year: 2024
+Citations: 8
+Type: Article
+Venue: Cell Reports
+Title: Causal evidence for cholinergic stabilization of attractor landscape dynamics
+Keywords: acetylcholine; attractor landscape; brain states; cholinergic; CP: Neuroscience; dynamics; fMRI; neural mass model; neuromodulation
+Abstract: There is substantial evidence that neuromodulatory systems critically influence brain state dynamics; however, most work has been purely descriptive. Here, we quantify, using data combining local inactivation of the basal forebrain with simultaneous measurement of resting-state fMRI activity in the macaque, the causal role of long-range cholinergic input to the stabilization of brain states in the cerebral cortex. Local inactivation of the nucleus basalis of Meynert (nbM) leads to a decrease in the energy barriers required for an fMRI state transition in cortical ongoing activity. Moreover, the inactivation of particular nbM sub-regions predo...
+
+---
+
+Year: 2023
+Citations: 8
+Type: Data paper
+Venue: Scientific Data
+Title: Multimodal neuroimaging data from a 5-week heart rate variability biofeedback randomized clinical trial
+Abstract: We present data from the Heart Rate Variability and Emotion Regulation (HRV-ER) randomized clinical trial testing effects of HRV biofeedback. Younger (N = 121) and older (N = 72) participants completed baseline magnetic resonance imaging (MRI) including T<inf>1</inf>-weighted, resting and emotion regulation task functional MRI (fMRI), pulsed continuous arterial spin labeling (PCASL), and proton magnetic resonance spectroscopy (1H MRS). During fMRI scans, physiological measures (blood pressure, pulse, respiration, and end-tidal CO<inf>2</inf>) were continuously acquired. Participants were randomized to either increase heart rate oscillations o...
+
+---
+
+Year: 2023
+Citations: 8
+Type: Article
+Venue: American Journal of Neuroradiology
+Title: Deep Learning Segmentation of the Nucleus Basalis of Meynert on 3T MRI
+Abstract: BACKGROUND AND PURPOSE: The nucleus basalis of Meynert is a key subcortical structure that is important in arousal and cognition and has been explored as a deep brain stimulation target but is difficult to study due to its small size, variability among patients, and lack of contrast on 3T MR imaging. Thus, our goal was to establish and evaluate a deep learning network for automatic, accurate, and patient-specific segmentations with 3T MR imaging. MATERIALS AND METHODS: Patient-specific segmentations can be produced manually; however, the nucleus basalis of Meynert is difficult to accurately segment on 3T MR imaging, with 7T being preferred. T...
+
+---
+
+Year: 2023
+Citations: 7
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Distortion correction of functional MRI without reverse phase encoding scans or field maps
+Keywords: Conditional generative network; Distortion correction; Echo planar imaging; Functional MRI; Image synthesis
+Abstract: Functional magnetic resonance images (fMRI) acquired using echo planar sequences typically suffer from spatial distortions due to susceptibility induced off-resonance fields, which may cause geometric mismatch with structural images and affect subsequent quantification and localization of brain function. State-of-the art distortion correction methods (for example, using FSL's topup or AFNI's 3dQwarp algorithms) require the collection of additional scans - either field maps or images with reverse phase encoding directions (i.e., blip-up/blip-down acquisitions) - to estimate and correct distortions. However, not all imaging protocols acquire th...
+
+---
+
+Year: 2023
+Citations: 7
+Type: Article
+Venue: Network Neuroscience
+Title: Dynamic interactions between anterior insula and anterior cingulate cortex link perceptual features and heart rate variability during movie viewing
+Keywords: Connectivity; DCM; Emotions; Heart rate; Movie; Neural dynamics
+Abstract: The dynamic integration of sensory and bodily signals is central to adaptive behaviour. Although the anterior cingulate cortex (ACC) and the anterior insular cortex (AIC) play key roles in this process, their context-dependent dynamic interactions remain unclear. Here, we studied the spectral features and interplay of these two brain regions using high-fidelity intracranial-EEG recordings fromfive patients (ACC: 13 contacts, AIC: 14 contacts) acquired duringmovie viewing with validation analyses performed on an independent resting intracranial-EEG dataset. ACC and AIC both showed a power peak and positive functional connectivity in the gamma...
+
+---
+
+Year: 2024
+Citations: 6
+Type: Article
+Venue: Imaging Neuroscience
+Title: Functional MRI signals exhibit stronger covariation with peripheral autonomic measures as vigilance decreases
+Keywords: fMRI; functional connectivity; physiology; vigilance
+Abstract: Vigilance naturally drifts over time, coinciding with marked changes in brain-wide functional magnetic resonance imaging (fMRI) signals. Though the precise origins of these hemodynamic changes are unclear, largely separate lines of research have linked different vigilance levels not only to changes in fMRI signal fluctuation amplitudes and functional connectivity, but also to significant variations in autonomic physiology. These findings raise the possibility that vigilance-related modulations in fMRI signals may arise in part from changes in autonomic physiology and their effects on cerebral hemodynamics. Here, using simultaneous recordings...
+
+---
+
+Year: 2024
+Citations: 6
+Type: Article
+Venue: Imaging Neuroscience
+Title: Systematic cross-sectional age-associations in global fMRI signal topography
+Keywords: aging; artifact removal; brain development; denoising strategies; frontoparietal network; intrinsic functional connectivity; signal versus noise
+Abstract: The global signal (GS) in resting-state functional MRI (fMRI), known to contain artifacts and non-neuronal physiological signals, also contains important neural information related to individual state and trait characteristics. Here, we show distinct linear and curvilinear relationships between GS topography and age in a cross-sectional sample of individuals (6-85 years old) representing a significant portion of the lifespan. Subcortical brain regions such as the thalamus and putamen show linear associations with the GS across age. The thalamus has stronger contributions to the GS in older-age individuals compared with younger-aged individual...
+
+---
+
+Year: 2024
+Citations: 6
+Type: Article
+Venue: Epilepsia
+Title: Indirect structural changes and reduced controllability after temporal lobe epilepsy resection
+Keywords: diffusion imaging; epilepsy surgery; imaging; magnetic resonance; network control theory
+Abstract: Objective: To understand the potential behavioral and cognitive effects of mesial temporal resection for temporal lobe epilepsy (TLE) a method is required to characterize network-wide functional alterations caused by a discrete structural disconnection. The objective of this study was to investigate network-wide alterations in brain dynamics of patients with TLE before and after surgical resection of the seizure focus using average regional controllability (ARC), a measure of the ability of a node to influence network dynamics. Methods: Diffusion-weighted imaging (DWI) data were acquired in 27 patients with drug-resistant unilateral mesial TL...
+
+---
+
+Year: 2021
+Citations: 6
+Type: Article
+Venue: Cerebral Cortex
+Title: Interindividual Signatures of fMRI Temporal Fluctuations
+Keywords: individual differences; low-frequency fluctuations; signal complexity; spontaneous activity
+Abstract: The complexity and variability of human brain activity, such as quantified from Functional Magnetic Resonance Imaging (fMRI) time series, have been widely studied as potential markers of healthy and pathological states. However, the extent to which fMRI temporal features exhibit stable markers of inter-individual differences in brain function across healthy young adults is currently an open question. In this study, we draw upon two widely used time-series measures - a nonlinear complexity measure (sample entropy; SampEn) and a spectral measure of low-frequency content (fALFF) - to capture dynamic properties of resting-state fMRI in a large sa...
+
+---
+
+Year: 2018
+Citations: 6
+Type: Editorial
+Venue: NeuroImage
+Title: Mapping and interpreting the dynamic connectivity of the brain
+Abstract: [No abstract available]
+
+---
+
+Year: 2023
+Citations: 5
+Type: Article
+Venue: Biosensors
+Title: Protein Identification and Quantification Using Porous Silicon Arrays, Optical Measurements, and Machine Learning
+Keywords: biosensing; dimensionality reduction; electronic noses; linear discriminant analysis; machine learning; point-of-care; porous silicon; principal component analysis; sensor array; s...
+Abstract: We report a versatile platform based on an array of porous silicon (PSi) thin films that can identify analytes based on their physical and chemical properties without the use of specific capture agents. The ability of this system to reproducibly classify, quantify, and discriminate three proteins separately is demonstrated by probing the reflectance of PSi array elements with a unique combination of pore size and buffer pH, and by analyzing the optical signals using machine learning. Protein identification and discrimination are reported over a concentration range of two orders of magnitude. This work represents a significant first step towar...
+
+---
+
+Year: 2014
+Citations: 5
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: The importance of physiological noise regression in high temporal resolution fMRI
+Keywords: ICA; multiband fMRI; physiological noise; resting-state; RETROICOR; SOCK
+Abstract: Recently a new technique called multiband imaging was introduced, it allows extremely low repetition times for functional magnetic resonance imaging (fMRI). As these ultra fast imaging scans can increase the Nyquist rate by an order of magnitude, there are many new effects, that have to be accounted for. As more frequencies can now be sampled directly, we want to analyze especially those that are due to physiological noise, such as cardiac and respiratory signals. Here, we adapted RETROICOR [4] to handle multiband fMRI data. We show the importance of physiological noise regression for standard temporal resolution fMRI and compare it to the hi...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Leveraging sinusoidal representation networks to predict fMRI signals from EEG
+Keywords: cross-modal prediction; EEG to fMRI; periodic neural activation; sinusoidal representation network
+Abstract: In modern neuroscience, functional magnetic resonance imaging (fMRI) has been a crucial and irreplaceable tool that provides a non-invasive window into the dynamics of whole-brain activity. Nevertheless, fMRI is limited by hemodynamic blurring as well as high cost, immobility, and incompatibility with metal implants. Electroencephalography (EEG) is complementary to fMRI and can directly record the cortical electrical activity at high temporal resolution, but has more limited spatial resolution and is unable to recover information about deep subcortical brain structures. The ability to obtain fMRI information from EEG would enable cost-effecti...
+
+---
+
+Year: 2023
+Citations: 4
+Type: Article
+Venue: Neurobiology of Aging
+Title: Daily biofeedback to modulate heart rate oscillations affects structural volume in hippocampal subregions targeted by the locus coeruleus in older adults but not younger adults
+Keywords: Aging; Biofeedback; Heart rate variability; Hippocampal subfields; Locus coeruleus
+Abstract: Using data from a clinical trial, we tested the hypothesis that daily sessions modulating heart rate oscillations affect older adults' volume of a region-of-interest (ROI) comprised of adjacent hippocampal subregions with relatively strong locus coeruleus (LC) noradrenergic input. Younger and older adults were randomly assigned to one of two daily biofeedback practices for 5 weeks: (1) engage in slow-paced breathing to increase the amplitude of oscillations in heart rate at their breathing frequency (Osc+); (2) engage in self-selected strategies to decrease heart rate oscillations (Osc-). The interventions did not significantly affect younger...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Functional Magnetic Resonance Imaging (fMRI)**: Many papers involve the use of fMRI to study brain activity, connectivity, and dynamics.
+*   **Brain Connectivity**: Several studies explore brain connectivity, including functional connectivity, structural connectivity, and network dynamics.
+*   **Neurological Disorders**: Papers discuss various neurological disorders, such as epilepsy, autism spectrum disorder, and Alzheimer's disease.
+*   **Machine Learning and AI**: Some studies employ machine learning and artificial intelligence techniques to analyze fMRI data, predict brain activity, and identify biomarkers for neurological disorders.
+*   **Physiological Signals**: Researchers investigate the impact of physiological signals, such as heart rate, respiration, and autonomic nervous system activity, on fMRI signals.
+*   **Signal Processing and Analysis**: Studies focus on developing new methods for processing and analyzing fMRI data, including noise reduction, artifact removal, and feature extraction.
+
+**Evolution Over Time:**
+
+*   **Early Focus on fMRI Techniques and Signal Processing (2011-2014)**: Early
+
+Chunk 4:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Chang_Catie_56561973300
+
+Publication records (each record is one paper):
+Year: 2022
+Citations: 4
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Learning Subject-Specific Functional Parcellations from Cortical Surface Measures
+Keywords: Cortical surface; Functional boundaries; Individual-specific; Structural features
+Abstract: Cortical parcellations that are tailored to individual subjects have been shown to improve functional connectivity prediction of behavior and provide useful information about brain function and dysfunction. A hierarchical Bayesian (HB) model derived from resting-state fMRI (rs-fMRI) is a state-of-the art tool for delineating individualized, spatially localized functional parcels. However, rs-fMRI acquisition is not routine in clinical practice and may not always be available. To overcome this issue, we hypothesize that functional parcellation may be inferred from more commonly acquired T1- and T2-weighted structural MRI scans, through cortica...
+
+---
+
+Year: 2021
+Citations: 4
+Type: Article
+Venue: Autism Research
+Title: Altered patterns of brain dynamics linked with body mass index in youth with autism
+Keywords: autism; cognitive flexibility; dynamics; obesity; resting-state functional MRI
+Abstract: Children with autism spectrum disorder (ASD) have higher rates of overweight and obesity (OWOB) compared with typically developing (TD) children. Brain functional connectivity differences have been shown in both ASD and OWOB. However, only one study to date has examined ASD and OWOB concurrently, so little is known regarding the neural mechanisms associated with the higher prevalence of OWOB and its behavioral impacts in ASD. We investigated co-activation patterns (CAPs) of brain regions identified by independent component analysis in 129 children and adolescents between 6 and 18 years of age (n = 68 ASD). We examined the interaction between...
+
+---
+
+Year: 2012
+Citations: 4
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Hadamard-encoded sub-slice fMRI for reduced signal dropout
+Keywords: FMRI; Functional magnetic resonance imaging; Hadamard; Sub-slices; Susceptibility artifacts
+Abstract: T2n-weighted blood oxygen level-dependent functional magnetic resonance imaging is adversely affected by susceptibility-induced field gradients in brain regions adjoining air interfaces that cause image distortion and signal dropout. Reducing slice thickness diminishes signal dropout but is accompanied by reduced signal-to-noise ratio (SNR). This study proposes simultaneous excitation of subslices with total width equal to the desired slice thickness, employing alternating Hadamard-encoded radiofrequency pulses coupled with incoherent addition of the subslices to achieve reduction of through-plane dephasing with minimal SNR loss but at the ex...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Article
+Venue: Journal of Neurosurgery
+Title: Abnormal functional connectivity of the posterior hypothalamus and other arousal regions in surgical temporal lobe epilepsy
+Keywords: arousal; ascending reticular activating system; functional connectivity; mesial temporal lobe epilepsy; nucleus basalis of Meynert; posterior hypothalamus
+Abstract: OBJECTIVE This study sought to characterize resting-state functional MRI (fMRI) connectivity patterns of the posterior hypothalamus (pHTH) and the nucleus basalis of Meynert (NBM) in surgical patients with mesial temporal lobe epilepsy (mTLE), and to investigate potential correlations between functional connectivity of these arousal regions and neurocognitive performance. METHODS The study evaluated resting-state fMRI in 60 patients with preoperative mTLE and in 95 healthy controls. The authors first conducted voxel-wise connectivity analyses seeded from the pHTH, combined anterior and tuberal hypothalamus (atHTH; i.e., the rest of the hypoth...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Conference paper
+Venue: Journal of Neurosurgery
+Title: Arousal and salience network connectivity alterations in surgical temporal lobe epilepsy
+Keywords: arousal structures; epilepsy surgery; fMRI; focal epilepsy; functional connectivity; networks; neuroimaging; temporal lobe epilepsy
+Abstract: OBJECTIVE It is poorly understood why patients with mesial temporal lobe epilepsy (TLE) have cognitive deficits and brain network changes that extend beyond the temporal lobe, including altered extratemporal intrinsic connectivity networks (ICNs). However, subcortical arousal structures project broadly to the neocortex, are affected by TLE, and thus may contribute to these widespread network effects. The authors’ objective was to examine functional connectivity (FC) patterns between subcortical arousal structures and neocortical ICNs, possible neurocognitive relationships, and FC changes after epilepsy surgery. METHODS The authors obtained re...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Article
+Venue: NeuroImage
+Title: Vigilance associates with the low-dimensional structure of fMRI data
+Keywords: Clustering; Dimensionality reduction; EEG; fMRI; Unsupervised learning; Vigilance
+Abstract: The human brain exhibits rich dynamics that reflect ongoing functional states. Patterns in fMRI data, detected in a data-driven manner, have uncovered recurring configurations that relate to individual and group differences in behavioral, cognitive, and clinical traits. However, resolving the neural and physiological processes that underlie such measurements is challenging, particularly without external measurements of brain state. A growing body of work points to underlying changes in vigilance as one driver of time-windowed fMRI connectivity states, calculated on the order of tens of seconds. Here we examine the degree to which the low-dime...
+
+---
+
+Year: 2022
+Citations: 3
+Type: Article
+Venue: Journal of Neuroscience
+Title: Rapid Interactions of Widespread Brain Networks Characterize Semantic Cognition
+Keywords: EEG; functional connectivity; language; language ability; MRI; semantic
+Abstract: Language comprehension requires the rapid retrieval and integration of contextually appropriate concepts (“semantic cognition”). Current neurobiological models of semantic cognition are limited by the spatial and temporal restrictions of single-modality neuroimaging and lesion approaches. This is a major impediment given the rapid sequence of processing steps that have to be coordinated to accurately comprehend language. Through the use of fused functional magnetic resonance imaging and electroencephalography analysis in humans (n = 26 adults; 15 females), we elucidate a temporally and spatially specific neurobiological model for real-time se...
+
+---
+
+Year: 2018
+Citations: 3
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Deep learning of resting state networks from independent component analysis
+Keywords: Convolutional neural networks; Functional connectivity; Independent component analysis; Resting-state
+Abstract: Independent component analysis (ICA) is a powerful technique for analyzing functional networks of the brain. It decomposes resting-state functional magnetic resonance imaging data into distinct networks that are temporally correlated but maximally independent in the spatial domain. Manual classification of ICA components is labor intensive and requires expertise; hence, a fully automatic algorithm that can reliably detect various types of functional brain networks is desirable. In this paper, we introduce a deep Convolutional Neural Network (CNN) method, which provides an automatic solution for identifying resting-state networks extracted usi...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: NeuroBOLT: Resting-state EEG-to-fMRI Synthesis with Multi-dimensional Feature Mapping
+Abstract: Functional magnetic resonance imaging (fMRI) is an indispensable tool in modern neuroscience, providing a non-invasive window into whole-brain dynamics at millimeter-scale spatial resolution. However, fMRI is constrained by issues such as high operation costs and immobility. With the rapid advancements in cross-modality synthesis and brain decoding, the use of deep neural networks has emerged as a promising solution for inferring whole-brain, high-resolution fMRI features directly from electroencephalography (EEG), a more widely accessible and portable neuroimaging modality. Nonetheless, the complex projection from neural activity to fMRI hem...
+
+---
+
+Year: 2023
+Citations: 2
+Type: Article
+Venue: Aging Brain
+Title: Short-term blood pressure variability is inversely related to regional amplitude of low frequency fluctuations in older and younger adults
+Keywords: Aging; Amplitude of low frequency fluctuations; Blood pressure variability; Medial temporal lobes
+Abstract: Blood pressure variability (BPV), independent of mean blood pressure levels, is associated with cerebrovascular disease burden on MRI and postmortem evaluation. However, less is known about relationships with markers of cerebrovascular dysfunction, such as diminished spontaneous brain activity as measured by the amplitude of low frequency fluctuations (ALFF), especially in brain regions with vascular and neuronal vulnerability in aging. We investigated the relationship between short-term BPV and concurrent regional ALFF from resting state fMRI in a sample of community-dwelling older adults (n = 44) and healthy younger adults (n = 49). In olde...
+
+---
+
+Year: 2020
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Association between fMRI brain entropy features and behavioral measures
+Keywords: Behavioral measures; HCP; Multiple linear regression; Rs-fMRI; SampEn-based brain complexity measure
+Abstract: An important goal in neuroscience is to understand the relationship between brain activity and cognitive traits. Toward this aim, many studies draw upon resting-state Functional Magnetic Resonance Imaging (rs-fMRI) datasets, which provide a means of probing the spatial and temporal structure of spontaneous brain activity in human subjects. However, as rsfMRI and behavioral data are both noisy, obtaining a robust relationship between them is difficult. Further, given the large number of candidate features in fMRI data, it is challenging to select those which may be most relevant for predicting a specific behavioral trait. In our research, we e...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Nature Communications
+Title: Simultaneous EEG-PET-MRI identifies temporally coupled and spatially structured brain dynamics across wakefulness and NREM sleep
+Abstract: Sleep entails significant changes in cerebral hemodynamics and metabolism. Yet, the way these processes evolve throughout wakefulness and sleep and their spatiotemporal dependence remain largely unknown. Here, by integrating a functional PET technique with simultaneous EEG-fMRI, we reveal a tightly coupled temporal progression of global hemodynamics and metabolism during the descent into NREM sleep, with large hemodynamic fluctuations emerging as global glucose metabolism declines, both of which track EEG arousal dynamics. Furthermore, we identify two distinct network patterns that emerge during NREM sleep: a ~0.02-Hz oscillating, high-metabo...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Scientific Reports
+Title: The relationship of white matter tract orientation to vascular geometry in the human brain
+Abstract: The white matter of the human brain exhibits highly ordered anisotropic structures of both axonal nerve fibers and cerebral vasculature. Separately, the anisotropic nature of white matter axons and white matter vasculature have been shown to cause an orientation dependence on various MRI contrasts used to study the structure and function of the brain; however, little is known of the relationship between axonal and vascular orientations. Thus, the aim of this study is to compare the orientation between nerve fibers and vasculature within the white matter. To do this, we use diffusion MRI and susceptibility weighted imaging acquired in the same...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Imaging Neuroscience
+Title: Multimodal state-dependent connectivity analysis of arousal and autonomic centers in the brainstem and basal forebrain
+Keywords: ascending arousal system; autonomic nervous system; basal forebrain; brainstem; functional connectivity; functional magnetic resonance imaging (fMRI); vigilance
+Abstract: Vigilance is a continuously altering state of cortical activation that influences cognition and behavior and is disrupted in multiple brain pathologies. Neuromodulatory nuclei in the brainstem and basal forebrain are implicated in arousal regulation and are key drivers of widespread neuronal activity and communication. However, it is unclear how their large-scale brain network architecture changes across dynamic variations in vigilance state (i.e., alertness and drowsiness). In this study, we leverage simultaneous electroencephalography (EEG) and 3T multi-echo functional magnetic resonance imaging (fMRI) to elucidate the vigilance-dependent c...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Journal of Neurosurgery
+Title: Impact of disease duration and surgical intervention on arousal networks in temporal lobe epilepsy
+Keywords: cognition and epilepsy; connectomics; epilepsy duration; seizure freedom; surgical epilepsy; temporal lobe epilepsy
+Abstract: OBJECTIVE Epilepsy is a common neurological disease affecting nearly 1% of the global population, and temporal lobe epilepsy (TLE) is the most common type. Patients experience recurrent seizures and chronic cognitive deficits that can impact their quality of life, ability to work, and independence. These cognitive deficits often extend beyond the temporal lobe and are not well understood. It has been proposed in the extended network inhibition hypothesis that repeated spread of seizure activity to the ascending reticular activating system (ARAS) may contribute to these deficits. Disease duration has been associated with other network changes...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Imaging Neuroscience
+Title: Quantitative mapping of cerebrovascular reactivity amplitude and delay with breath-hold BOLD fMRI when end-tidal CO2 quality is low
+Keywords: BOLD fMRI; breath-hold task; cerebrovascular reactivity; CO2; deep learning; respiration volume per time
+Abstract: Cerebrovascular reactivity (CVR), the ability of cerebral blood vessels to dilate or constrict in response to a vasoactive stimulus, is a clinically useful measure of cerebrovascular health. CVR is often measured using a breath-hold task to modulate blood CO<inf>2</inf> levels during an fMRI scan. Measuring end-tidal CO<inf>2</inf> (P<inf>ET</inf>CO<inf>2</inf>) with a nasal cannula during the task allows CVR amplitude to be calculated in standard units (vascular response per unit change in CO<inf>2</inf>, or %BOLD/mmHg) and CVR delay to be calculated in seconds. The use of standard units allows for normative CVR ranges to be established and...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Assessment of Cell Nuclei AI Foundation Models in Kidney Pathology
+Keywords: Ensemble learning; Foundation model; Instance Segmentation; Kidney Pathology; Model Agreement; Nuclei
+Abstract: Cell nuclei instance segmentation is a crucial task in digital kidney pathology. Traditional automatic segmentation methods often lack generalizability when applied to unseen datasets. Recently, the success of foundation models (FMs) has provided a more generalizable solution, potentially enabling the segmentation of any cell type. In this study, we perform a large-scale evaluation of three widely used state-of-the-art (SOTA) cell nuclei foundation models-Cellpose, StarDist, and CellViT. Specifically, we created a highly diverse evaluation dataset consisting of 2,542 kidney whole slide images (WSIs) collected from both human and rodent source...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Article
+Venue: Communications Biology
+Title: Genetic fingerprinting with heritable phenotypes of the resting-state brain network topology
+Abstract: Cognitive, behavioral, and disease traits are influenced by both genetic and environmental factors. Individual differences in these traits have been associated with graph theoretical properties of resting-state networks, indicating that variations in connectome topology may be driven by genetics. In this study, we establish the heritability of global and local graph properties of resting-state networks derived from functional MRI (fMRI) and magnetoencephalography (MEG) using a large sample of twins and non-twin siblings from the Human Connectome Project. We examine the heritability of MEG in the source space, providing a more accurate estimat...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Article
+Venue: Brain and Cognition
+Title: Dynamic vagal-mediated connectivity of cortical and subcortical central autonomic hubs predicts chronotropic response to submaximal exercise in healthy adults
+Keywords: Baroreflex; Central autonomic network; Chronotropic incompetence; Heart rate variability; Ventromedial prefrontal cortex
+Abstract: Background: Despite accumulation of a substantial body of literature supporting the role of exercise on frontal lobe functioning, relatively less is understood of the interconnectivity of ventromedial prefrontal cortical (vmPFC) regions that underpin cardio-autonomic regulation predict cardiac chronotropic competence (CC) in response to sub-maximal exercise. Methods: Eligibility of 161 adults (mean age = 48.6, SD = 18.3, 68% female) was based upon completion of resting state brain scan and sub-maximal bike test. Sliding window analysis of the resting state signal was conducted over 45-s windows, with 50% overlap, to assess how changes in phot...
+
+---
+
+Year: 2023
+Citations: 1
+Type: Note
+Venue: Nature Neuroscience
+Title: Complex topology meets simple statistics
+Abstract: [No abstract available]
+
+---
+
+Year: 2023
+Citations: 1
+Type: Book
+Venue: Advances in Resting-State Functional MRI: Methods, Interpretation, and Applications
+Title: Advances in Resting-State Functional MRI: Methods, Interpretation, and Applications
+Abstract: Advances in Resting-State Functional MRI: Methods, Interpretation, and Applications gives readers with basic neuroimaging experience an up-to-date and in-depth understanding of the methods, opportunities, and challenges in rs-fMRI. The book covers current knowledge gaps in rs-fMRI, including "what are biologically plausible brain networks," "how to tell what part is noise," "how to perform quality assurance on the data," "what are the spatial and temporal limits of our ability to resolve FC," and "how to best identify network features related to individual differences or disease state". This book is an ideal reference for neuroscientists, com...
+
+---
+
+Year: 2020
+Citations: 1
+Type: Conference paper
+Venue: Proceedings - 2020 IEEE Visualization Conference, VIS 2020
+Title: PRAGMA: Interactively Constructing Functional Brain Parcellations
+Keywords: brain mapping; functional parcellation; Human-centered modeling; neuroimage analysis
+Abstract: A prominent goal of neuroimaging studies is mapping the human brain, in order to identify and delineate functionally-meaningful regions and elucidate their roles in cognitive behaviors. These brain regions are typically represented by atlases that capture general trends over large populations. Despite being indispensable to neuroimaging experts, population-level atlases do not capture individual differences in functional organization. In this work, we present an interactive visualization method, PRAGMA, that allows domain experts to derive scan-specific parcellations from established atlases. PRAGMA features a user-driven, hierarchical cluste...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Nature Communications
+Title: Developmental variations in recurrent spatiotemporal brain propagations from childhood to adulthood
+Abstract: The brain undergoes profound structural and functional development from childhood to adolescence. Convergent evidence suggests that neurodevelopment proceeds in a hierarchical manner, characterized by heterogeneous maturation patterns across brain regions and networks. However, the maturation of the intrinsic spatiotemporal propagations of brain activity remains largely unexplored. This study aims to bridge this gap by delineating spatiotemporal propagations from childhood to early adulthood. By leveraging a recently developed approach that captures time-lag dynamic propagations, we characterized intrinsic dynamic propagations along three axe...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: The Journal of neuroscience : the official journal of the Society for Neuroscience
+Title: Distributed fMRI Patterns Coupled to Low-Frequency Cardiorespiratory Dynamics Provide Markers of Aging
+Keywords: aging; brain–body interactions; fMRI variability; heart rate; respiratory variation; systemic physiology
+Abstract: How aging affects brain-body connections can be investigated through changes in the coupling between functional magnetic resonance imaging (fMRI) signals and bodily autonomic processes across the adult lifespan. Recent studies using univariate approaches have identified age-related changes in the association between fMRI signals from multiple individual brain regions and low-frequency respiratory and cardiac activity. Here, we investigate if whole-brain spatial fMRI patterns associated with low-frequency physiological processes (heart rate and respiratory volume fluctuations) present generalizable changes with age. Data from human participant...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Cerebral Cortex
+Title: Global cortical arousal effects in fMRI reveal brain markers of state and trait anxiety
+Keywords: fmri; global mean signal; state anxiety; trait anxiety
+Abstract: To personalize the diagnosis and treatment of anxiety, there is a need to identify biological constructs that underlie self-reported symptoms. Notably, physiological responses and levels of arousal are constituents of anxiety, and have widespread (“global”) effects on functional magnetic resonance imaging (fMRI) signals that may provide novel brain markers of anxiety. Here, we modeled autonomic physiological and cortical arousal signatures in fMRI data and determined whether these global fMRI components relate to measures of state and trait anxiety. Additionally, we tested if these global effects impact relationships between brain network con...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science
+Title: CBrain: Cross-Modal Learning for Brain Vigilance Detection in Resting-State fMRI
+Keywords: brain patterns; cross-modal learning; EEG; fMRI
+Abstract: Detecting human vigilance states (e.g., natural shifts between alertness and drowsiness) from functional magnetic resonance imaging (fMRI) data can provide novel insight into the whole-brain patterns underlying these critical states. Moreover, as a person’s vigilance levels are closely tied to their behavior and brain activity, vigilance state can strongly influence the results of fMRI studies. Therefore, the ability to annotate fMRI scans with vigilance information can also enable clearer and more robust results in fMRI research. However, well-established vigilance indicators are derived from other modalities such as behavioral responses, el...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Neurology
+Title: Altered Interictal Bed Nucleus of Stria Terminalis Connectivity in Patients With Temporal Lobe Epilepsy
+Abstract: BACKGROUND AND OBJECTIVES: Temporal lobe epilepsy (TLE) is a highly prevalent neurologic disorder, with 30%-50% of patients developing drug-resistant epilepsy. Pharmacoresistant seizures remodel critical arousal and respiratory networks, impairing autonomic function and chemoreception and putting patients at increased risk of adverse respiratory events and sudden unexpected death (SUDEP). Given that the bed nucleus of stria terminalis (BNST) serves as a key relay between brainstem respiratory nuclei and cortical arousal networks, we characterized interictal BNST connectivity alterations in patients with TLE. METHODS: We conducted a case-contr...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Communications Medicine
+Title: Evaluating cell AI foundation models in kidney pathology with human-in-the-loop enrichment
+Abstract: Background: Large-scale artificial intelligence foundation models have emerged as promising tools for addressing healthcare challenges, including digital pathology. While many have been developed for complex tasks such as disease diagnosis and tissue quantification using extensive and diverse datasets, their readiness for seemingly simpler tasks, such as nuclei segmentation within a single organ (for example, the kidney), remains unclear. This study answers two questions: How good are current cell foundation models? and How can we improve them? Methods: We curated a multi-center, multi-disease, and multi-species dataset sampled from 2542 kidn...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Communications Biology
+Title: Functional MRI signatures of autonomic physiology in aging
+Abstract: While traditionally regarded as “noise”, blood-oxygenation-level-dependent (BOLD) functional Magnetic Resonance Imaging (fMRI) fluctuations coupled to systemic physiology—such as heart rate and respiratory changes—also hold valuable information about brain vascular properties and autonomic function. In this study, we leverage these physiological signals to characterize age-related changes in brain physiology, drawing on a large dataset from the Lifespan Human Connectome Project Aging study. Our findings reveal that aging is associated with globally slower respiratory fMRI responses, alongside faster cardiac fMRI responses and enhanced brain-c...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Imaging Neuroscience
+Title: DeepPhysioRecon: Tracing peripheral physiology in low frequency fMRI dynamics
+Keywords: brain-body; fMRI; heart rate; respiration
+Abstract: Many studies of the human brain using functional magnetic resonance imaging (fMRI) lack physiological measurements, which substantially impacts the interpretation and richness of fMRI studies. Natural fluctuations in autonomic physiology, such as breathing and heart rate, provide windows into critical functions, including cognition, emotion, and health, and can heavily influence fMRI signals. Here, we developed DeepPhysioRecon, a Long-Short-Term-Memory (LSTM)-based network that decodes continuous variations in respiration amplitude and heart rate directly from whole-brain fMRI dynamics. Through systematic evaluations, we investigate the gener...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Imaging Neuroscience
+Title: The physiological component of the BOLD signal: Impact of age and heart rate variability biofeedback training
+Keywords: aging; autonomic nervous system; BOLD fMRI; central autonomic network; heart rate variability; peripheral physiological signals
+Abstract: Aging is associated with declines in autonomic nervous system (ANS) function, impaired neurovascular coupling, and diminished cerebrovascular responsiveness—factors that may contribute to cognitive decline and neurodegenerative diseases. Understanding how aging alters the integration of physiological signals in the brain is crucial for identifying potential interventions to promote brain health. This study examines age-related differences in coupling between low-frequency cardiac rate and respiratory volume fluctuations and the blood oxygenation level-dependent (BOLD) signal, using two independent resting-state fMRI datasets with concurrent p...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Proceedings - International Conference on Software Engineering
+Title: Studying Programmers Without Programming: Investigating Expertise Using Resting State fMRI
+Keywords: fMRI; Programming Expertise; Resting State
+Abstract: Expert programmers are more effective at coding activities, but the reasons for this remain elusive. Accordingly, recent research has used neuroimaging such as fMRI to analyze how expert programmers might think as they perform coding activities. Those experiments have all involved specific program-ming tasks (i.e., comprehension), but have been unable to detect systematic differences based on coding experience. By using tasks, however, those studies may limit the number and type of brain networks involved. In Cognitive Neuroscience, researchers commonly analyze resting-state data, in which participants' brain activity is recorded as they lay...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Research Themes:**
+
+* **Functional brain networks and connectivity**: Studies on resting-state functional MRI (fMRI), electroencephalography (EEG), and magnetoencephalography (MEG) to understand brain connectivity and networks, including their relation to cognitive and behavioral traits (e.g., [1], [2], [3], [4]).
+* **Arousal and autonomic systems**: Investigations of the brain's arousal and autonomic systems, including the role of subcortical structures like the posterior hypothalamus and the bed nucleus of stria terminalis in regulating arousal and autonomic function (e.g., [5], [6], [7], [8]).
+* **Neuroplasticity and developmental changes**: Studies on the development and plasticity of brain networks and connectivity from childhood to adulthood, including the effects of aging on brain-body interactions (e.g., [9], [10], [11], [12]).
+* **Multimodal imaging and machine learning**: Research on combining different imaging modalities (e.g., fMRI, EEG
+
+Chunk 5:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Chang_Catie_56561973300
+
+Publication records (each record is one paper):
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Joint Source Decomposition of Concurrent EEG-FMRI Data in Epilepsy and Control Groups
+Keywords: EEG; fMRI; functional connectivity; ICA; neuroimaging
+Abstract: EEG and fMRI are complementary, noninvasive technologies for investigating human brain function. These modalities have been used to uncover large-scale functional networks and their disruptions in clinical populations. Given the high temporal resolution of EEG and high spatial resolution of fMRI, integrating these modalities can provide a more holistic understanding of brain activity. This work explores a multimodal source decomposition technique for extracting shared modes of temporal variation between fMRI BOLD signals and EEG spectral power fluctuations in the resting state. The resulting components are then compared between patients with...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Reconstructing physiological signals from fMRI across the adult lifespan
+Keywords: aging; cardiac activity; deep learning; physiology; respiration; Resting-state fMRI
+Abstract: Interactions between the brain and body are of fundamental importance for human behavior and health. Functional magnetic resonance imaging (fMRI) captures whole-brain activity noninvasively, and modeling how fMRI signals interact with physiological dynamics of the body can provide new insight into brain function and offer potential biomarkers of disease. However, physiological recordings are not always possible to acquire since they require extra equipment and setup, and even when they are, the recorded physiological signals may contain substantial artifacts. To overcome this limitation, machine learning models have been proposed to directly...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Enhancing Skin Lesion Classification using Segmentation-based Global-Local Feature Fusion
+Keywords: Segment Anything Model (SAM); segmentation-based Global-Local Feature Fusion (segGLFF); Skin Lesion Classification
+Abstract: The classification of skin lesions using dermatoscopic images is vital for early diagnosis and management. However, accurate skin lesion classification remains a challenging task. It has been proposed that image segmentation techniques may help to mitigate these challenges by extracting regions of interest (ROIs) and removing the background, generating segmented images as the input for skin-lesion classification. However, focusing solely on ROIs may ignore valuable global context. Here, we propose and evaluate a global-to-local feature fusion (GLFF) framework that combines global and local features from original and segmented images, respecti...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Editorial
+Venue: Frontiers in Human Neuroscience
+Title: Editorial: Advancing the measurement, interpretation, and validation of dynamic functional connectivity
+Keywords: brain states; dynamic functional connectivity; functional neuroimaging; statistical modeling; validation
+Abstract: [No abstract available]
+
+---
+
+Year: 2022
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Analysis of machine learning techniques for capture agent free biosensing with porous silicon arrays
+Keywords: Biosensing; Capture Agent Free; Dimensionality Reduction; Label Free; Machine Learning; Porous Silicon
+Abstract: We investigate the utility of various statistical and machine learning techniques for classifying and quantifying selected proteins using an array of porous silicon sensors with uniquely tuned properties. No capture agents or bioreceptors are utilized for the protein detection. The sensing approach relies on differences in non-specific physisorption and represents a step towards a new low cost, simple and robust sensor platform that can detect a vast range of biomolecules. © COPYRIGHT SPIE. Downloading of the abstract is permitted for personal use only.
+
+---
+
+Year: 2021
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: CaCL: Class-Aware Codebook Learning for Weakly Supervised Segmentation on Diffuse Image Patterns
+Keywords: AutoEncoder; Segmentation; Weakly supervised learning
+Abstract: Weakly supervised learning has been rapidly advanced in biomedical image analysis to achieve pixel-wise labels (segmentation) from image-wise annotations (classification), as biomedical images naturally contain image-wise labels in many scenarios. The current weakly supervised learning algorithms from the computer vision community are largely designed for focal objects (e.g., dogs and cats). However, such algorithms are not optimized for diffuse patterns in biomedical imaging (e.g., stains and fluorescence in microscopy imaging). In this paper, we propose a novel class-aware codebook learning (CaCL) algorithm to perform weakly supervised lear...
+
+---
+
+Year: 2018
+Citations: 0
+Type: Erratum
+Venue: NeuroImage
+Title: Corrigendum to “Mapping the end-tidal CO2 response function in the resting-state BOLD fMRI signal: Spatial specificity, test-retest reliability and effect of fMRI sampling rate.” (...
+Abstract: The authors regret for their mistake in Equation (2). The correct equation is:[Formula presented] The authors would like to apologise for any inconvenience caused. © 2017
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **Multimodal data integration**: 
+    - Combining EEG and fMRI data for better understanding of brain activity (2025)
+    - Integrating fMRI signals with physiological dynamics of the body (2025)
+* **Machine learning applications**: 
+    - Using machine learning models to reconstruct physiological signals from fMRI (2025)
+    - Employing machine learning techniques for biosensing with porous silicon arrays (2022)
+    - Developing class-aware codebook learning for weakly supervised segmentation (2021)
+* **Biomedical image analysis**: 
+    - Analyzing skin lesions using segmentation-based global-local feature fusion (2025)
+    - Investigating machine learning techniques for capturing agent-free biosensing (2022)
+    - Proposing a novel algorithm for weakly supervised segmentation of diffuse image patterns (2021)
+* **Neuroimaging and brain function**: 
+    - Examining joint source decomposition of concurrent EEG-fMRI data in epilepsy and control groups (2025)
+    - Discussing the measurement, interpretation, and validation of dynamic functional
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Dr. Catie Chang's research focuses on understanding the dynamic and complex interactions between the brain and body, with a emphasis on functional magnetic resonance imaging (fMRI) and electroencephalography (EEG). Her work has evolved over time to incorporate multimodal data integration, machine learning applications, and biomedical image analysis. Initially, she explored the neural mechanisms underlying various neurological and psychiatric disorders, including depression, autism, and epilepsy. Later, her research shifted towards understanding the brain's arousal and autonomic systems, as well as the effects of aging on brain-body interactions.
+
+Dr. Chang's primary areas of expertise lie in the intersection of neuroimaging, machine learning, and biomedical engineering. She has made significant contributions to the development of novel methods for analyzing fMRI and EEG data, including joint source decomposition and machine learning-based reconstruction of physiological signals. Her work has also focused on the application of these techniques to various fields, such as skin lesion classification, biosensing, and weakly supervised segmentation. Overall, Dr. Chang's research aims to advance our understanding of brain function and behavior, and to develop innovative solutions for diagnosing and treating neurological and psychiatric disorders.

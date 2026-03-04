@@ -1,0 +1,657 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Gao_Yurui_56163925700
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Gao_Yurui_56163925700
+
+Publication records (each record is one paper):
+Year: 2018
+Citations: 206
+Type: Article
+Venue: Proceedings of the National Academy of Sciences of the United States of America
+Title: Detection of synchronous brain activity in white matter tracts at rest and under functional loading
+Abstract: Functional MRI based on blood oxygenation level-dependent (BOLD) contrast is well established as a neuroimaging technique for detecting neural activity in the cortex of the human brain. While detection and characterization of BOLD signals, as well as their electrophysi-ological and hemodynamic/metabolic origins, have been extensively studied in gray matter (GM), the detection and interpretation of BOLD signals in white matter (WM) remain controversial. We have previously observed that BOLD signals in a resting state reveal structure-specific anisotropic temporal correlations in WM and that external stimuli alter these correlations and permit...
+
+---
+
+Year: 2019
+Citations: 201
+Type: Article
+Venue: NeuroImage
+Title: Limits to anatomical accuracy of diffusion tractography using modern approaches
+Keywords: Connectivity; Diffusion MRI; Phantom; Tracer; Tractography; Validation; White matter
+Abstract: Diffusion MRI fiber tractography is widely used to probe the structural connectivity of the brain, with a range of applications in both clinical and basic neuroscience. Despite widespread use, tractography has well-known pitfalls that limits the anatomical accuracy of this technique. Numerous modern methods have been developed to address these shortcomings through advances in acquisition, modeling, and computation. To test whether these advances improve tractography accuracy, we organized the 3-D Validation of Tractography with Experimental MRI (3D-VoTEM) challenge at the ISBI 2018 conference. We made available three unique independent tracto...
+
+---
+
+Year: 2018
+Citations: 171
+Type: Article
+Venue: NeuroImage
+Title: Histological validation of diffusion MRI fiber orientation distributions and dispersion
+Keywords: Diffusion magnetic resonance imaging; Dispersion; Fiber orientation distribution; HARDI; Histology; Reconstruction; Validation
+Abstract: Diffusion magnetic resonance imaging (dMRI) is widely used to probe tissue microstructure, and is currently the only non-invasive way to measure the brain's fiber architecture. While a large number of approaches to recover the intra-voxel fiber structure have been utilized in the scientific community, a direct, 3D, quantitative validation of these methods against relevant histological fiber geometries is lacking. In this study, we investigate how well different high angular resolution diffusion imaging (HARDI) models and reconstruction methods predict the ground-truth histologically defined fiber orientation distribution (FOD), as well as inv...
+
+---
+
+Year: 2019
+Citations: 119
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Functional MRI and resting state connectivity in white matter - a mini-review
+Abstract: Functional MRI (fMRI) signals are robustly detectable in white matter (WM) but they have been largely ignored in the fMRI literature. Their nature, interpretation, and relevance as potential indicators of brain function remain under explored and even controversial. Blood oxygenation level dependent (BOLD) contrast has for over 25 years been exploited for detecting localized neural activity in the cortex using fMRI. While BOLD signals have been reliably detected in grey matter (GM) in a very large number of studies, such signals have rarely been reported from WM. However, it is clear from our own and other studies that although BOLD effects ar...
+
+---
+
+Year: 2018
+Citations: 101
+Type: Article
+Venue: Human Brain Mapping
+Title: Confirmation of a gyral bias in diffusion MRI fiber tractography
+Keywords: brain; connectivity; diffusion MRI; gyral bias; histology; tractography; validation
+Abstract: Diffusion MRI fiber tractography has been increasingly used to map the structural connectivity of the human brain. However, this technique is not without limitations; for example, there is a growing concern over anatomically correlated bias in tractography findings. In this study, we demonstrate that there is a bias for fiber tracking algorithms to terminate preferentially on gyral crowns, rather than the banks of sulci. We investigate this issue by comparing diffusion MRI (dMRI) tractography with equivalent measures made on myelin-stained histological sections. We begin by investigating the orientation and trajectories of axons near the whit...
+
+---
+
+Year: 2016
+Citations: 91
+Type: Article
+Venue: NeuroImage
+Title: Comparison of 3D orientation distribution functions measured with confocal microscopy and diffusion MRI
+Keywords: Crossing fibers; Diffusion MRI; DTI; Fiber orientation distribution; Validation
+Abstract: The ability of diffusion MRI (dMRI) fiber tractography to non-invasively map three-dimensional (3D) anatomical networks in the human brain has made it a valuable tool in both clinical and research settings. However, there are many assumptions inherent to any tractography algorithm that can limit the accuracy of the reconstructed fiber tracts. Among them is the assumption that the diffusion-weighted images accurately reflect the underlying fiber orientation distribution (FOD) in the MRI voxel. Consequently, validating dMRI's ability to assess the underlying fiber orientation in each voxel is critical for its use as a biomedical tool. Here, usi...
+
+---
+
+Year: 2017
+Citations: 76
+Type: Article
+Venue: NMR in Biomedicine
+Title: Can increased spatial resolution solve the crossing fiber problem for diffusion MRI?
+Keywords: crossing fibers; diffusion MRI; histology; macaque; validation; white matter
+Abstract: It is now widely recognized that voxels with crossing fibers or complex geometrical configurations present a challenge for diffusion MRI (dMRI) reconstruction and fiber tracking, as well as microstructural modeling of brain tissues. This “crossing fiber” problem has been estimated to affect anywhere from 30% to as many as 90% of white matter voxels, and it is often assumed that increasing spatial resolution will decrease the prevalence of voxels containing multiple fiber populations. The aim of this study is to estimate the extent of the crossing fiber problem as we progressively increase the spatial resolution, with the goal of determining w...
+
+---
+
+Year: 2011
+Citations: 65
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Accuracy of image registration between MRI and light microscopy in the ex vivo brain
+Keywords: Brain; Image registration; Light microscopy
+Abstract: A multistep procedure was developed to register magnetic resonance imaging (MRI) and histological data from the same sample in the light microscopy image space, with the ultimate goal of allowing quantitative comparisons of the two datasets. The fixed brain of an owl monkey was used to develop and test the procedure. In addition to the MRI and histological data, photographic images of the brain tissue block acquired during sectioning were assembled into a blockface volume to provide an intermediate step for the overall registration process. The MR volume was first registered to the blockface volume using a combination of linear and nonlinear...
+
+---
+
+Year: 2013
+Citations: 57
+Type: Article
+Venue: PLoS ONE
+Title: Simultaneous Analysis and Quality Assurance for Diffusion Tensor Imaging
+Abstract: Diffusion tensor imaging (DTI) enables non-invasive, cyto-architectural mapping of in vivo tissue microarchitecture through voxel-wise mathematical modeling of multiple magnetic resonance imaging (MRI) acquisitions, each differently sensitized to water diffusion. DTI computations are fundamentally estimation processes and are sensitive to noise and artifacts. Despite widespread adoption in the neuroimaging community, maintaining consistent DTI data quality remains challenging given the propensity for patient motion, artifacts associated with fast imaging techniques, and the possibility of hardware changes/failures. Furthermore, the quantity o...
+
+---
+
+Year: 2013
+Citations: 50
+Type: Article
+Venue: PLoS ONE
+Title: Validation of DTI Tractography-Based Measures of Primary Motor Area Connectivity in the Squirrel Monkey Brain
+Abstract: Diffusion tensor imaging (DTI) tractography provides noninvasive measures of structural cortico-cortical connectivity of the brain. However, the agreement between DTI-tractography-based measures and histological 'ground truth' has not been quantified. In this study, we reconstructed the 3D density distribution maps (DDM) of fibers labeled with an anatomical tracer, biotinylated dextran amine (BDA), as well as DTI tractography-derived streamlines connecting the primary motor (M1) cortex to other cortical regions in the squirrel monkey brain. We evaluated the agreement in M1-cortical connectivity between the fibers labeled in the brain tissue a...
+
+---
+
+Year: 2020
+Citations: 46
+Type: Article
+Venue: PLoS ONE
+Title: Functional connectivity of white matter as a biomarker of cognitive decline in Alzheimer's disease
+Abstract: Objective In vivo functional changes in white matter during the progression of Alzheimer's disease (AD) have not been previously reported. Our objectives are to measure changes in white matter functional connectivity (FC) in an elderly population undergoing cognitive decline as AD develops, to establish their relationship to neuropsychological scores of cognitive abilities, and to assess the performance in prediction of AD using white matter FC measures as features. Methods Analyses were conducted using resting state functional MRI and neuropsychological data from 383 ADNI participants, including 136 cognitive normal (CN) controls, 46 with si...
+
+---
+
+Year: 2019
+Citations: 42
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Deep learning reveals untapped information for local white-matter fiber reconstruction in diffusion-weighted MRI
+Keywords: Deep learning; DW-MRI; Ground truth; HARDI; Histology; Spherical harmonics
+Abstract: Purpose: Diffusion-weighted magnetic resonance imaging (DW-MRI) is of critical importance for characterizing in-vivo white matter. Models relating microarchitecture to observed DW-MRI signals as a function of diffusion sensitization are the lens through which DW-MRI data are interpreted. Numerous modern approaches offer opportunities to assess more complex intra-voxel structures. Nevertheless, there remains a substantial gap between intra-voxel estimated structures and ground truth captured by 3-D histology. Methods: Herein, we propose a novel data-driven approach to model the non-linear mapping between observed DW-MRI signals and ground trut...
+
+---
+
+Year: 2020
+Citations: 39
+Type: Article
+Venue: NeuroImage
+Title: Functional engagement of white matter in resting-state brain networks
+Keywords: Brain network; Engagement map; Partial correlation; Physiological noise; Resting-state; White matter
+Abstract: The topological characteristics of functional networks, derived from measurements of resting-state connectivity in gray matter (GM), are associated with individual cognitive abilities or specific dysfunctions. However, blood oxygen level-dependent (BOLD) signals in white matter (WM) are usually ignored or even regressed out as nuisance factors in the data analyses that underlie network models. Recent studies have demonstrated reliable detection of WM BOLD signals and imply these reflect associated neural activities. Here we evaluate quantitatively the contributions of individual WM voxels to the identification of functional networks, which we...
+
+---
+
+Year: 2016
+Citations: 36
+Type: Article
+Venue: NeuroImage
+Title: Vanderbilt University Institute of Imaging Science Center for Computational Imaging XNAT: A multimodal data archive and processing environment
+Abstract: The Vanderbilt University Institute for Imaging Science (VUIIS) Center for Computational Imaging (CCI) has developed a database built on XNAT housing over a quarter of a million scans. The database provides framework for (1) rapid prototyping, (2) large scale batch processing of images and (3) scalable project management. The system uses the web-based interfaces of XNAT and REDCap to allow for graphical interaction. A python middleware layer, the Distributed Automation for XNAT (DAX) package, distributes computation across the Vanderbilt Advanced Computing Center for Research and Education high performance computing center. All software are m...
+
+---
+
+Year: 2019
+Citations: 35
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Anatomical accuracy of standard-practice tractography algorithms in the motor system - A histological validation in the squirrel monkey brain
+Keywords: Accuracy; Diffusion magnetic resonance imaging; Dispersion; HARDI; Histology; Tractography; Validation
+Abstract: For two decades diffusion fiber tractography has been used to probe both the spatial extent of white matter pathways and the region to region connectivity of the brain. In both cases, anatomical accuracy of tractography is critical for sound scientific conclusions. Here we assess and validate the algorithms and tractography implementations that have been most widely used - often because of ease of use, algorithm simplicity, or availability offered in open source software. Comparing forty tractography results to a ground truth defined by histological tracers in the primary motor cortex on the same squirrel monkey brains, we assess tract fideli...
+
+---
+
+Year: 2023
+Citations: 30
+Type: Article
+Venue: Proceedings of the National Academy of Sciences of the United States of America
+Title: Whole-brain, gray, and white matter time-locked functional signal changes with simple tasks and model-free analysis
+Keywords: activation; fMRI; hemodynamic response; white matter
+Abstract: Recent studies have revealed the production of time-locked blood oxygenation level–dependent (BOLD) functional MRI (fMRI) signals throughout the entire brain in response to tasks, challenging the existence of sparse and localized brain functions and highlighting the pervasiveness of potential false negative fMRI findings. “Whole-brain” actually refers to gray matter, the only tissue traditionally studied with fMRI. However, several reports have demonstrated reliable detection of BOLD signals in white matter, which have previously been largely ignored. Using simple tasks and analyses, we demonstrate BOLD signal changes across the whole brain,...
+
+---
+
+Year: 2021
+Citations: 24
+Type: Article
+Venue: Proceedings of the National Academy of Sciences of the United States of America
+Title: Power spectra reveal distinct BOLD resting-state time courses in white matter
+Keywords: fMRI; power spectra; resting state; white matter
+Abstract: Accurate characterization of the time courses of blood-oxygen-level–dependent (BOLD) signal changes is crucial for the analysis and interpretation of functional MRI data. While several studies have shown that white matter (WM) exhibits distinct BOLD responses evoked by tasks, there have been no comprehensive investigations into the time courses of spontaneous signal fluctuations in WM. We measured the power spectra of the resting-state time courses in a set of regions within WM identified as showing synchronous signals using independent components analysis. In each component, a clear separation between voxels into two categories was evident,...
+
+---
+
+Year: 2019
+Citations: 23
+Type: Article
+Venue: NeuroImage
+Title: Resting-state white matter-cortical connectivity in non-human primate brain
+Keywords: BOLD; fMRI; Non-human primates; Resting-state; White matter
+Abstract: Numerous studies have used functional magnetic resonance imaging (fMRI) to characterize functional connectivity between cortical regions by analyzing correlations in blood oxygenation level dependent (BOLD) signals in a resting state. However, to date, there have been only a handful of studies reporting resting state BOLD signals in white matter. Nonetheless, a growing number of reports has emerged in recent years suggesting white matter BOLD signals can be reliably detected, though their biophysical origins remain unclear. Moreover, recent studies have identified robust correlations in a resting state between signals from cortex and specific...
+
+---
+
+Year: 2017
+Citations: 21
+Type: Article
+Venue: Neuroinformatics
+Title: The VALiDATe29 MRI Based Multi-Channel Atlas of the Squirrel Monkey Brain
+Keywords: Atlas; Brain; Diffusion MRI; Magnetic Resonance Imaging; Segmentation; Squirrel monkey; Template
+Abstract: We describe the development of the first digital atlas of the normal squirrel monkey brain and present the resulting product, VALiDATe29. The VALiDATe29 atlas is based on multiple types of magnetic resonance imaging (MRI) contrast acquired on 29 squirrel monkeys, and is created using unbiased, nonlinear registration techniques, resulting in a population-averaged stereotaxic coordinate system. The atlas consists of multiple anatomical templates (proton density, T1, and T2* weighted), diffusion MRI templates (fractional anisotropy and mean diffusivity), and ex vivo templates (fractional anisotropy and a structural MRI). In addition, the templat...
+
+---
+
+Year: 2017
+Citations: 21
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Reproducibility and variation of diffusion measures in the squirrel monkey brain, in vivo and ex vivo
+Keywords: Cortex; Diffusion MRI; DTI; Primate; Squirrel monkey
+Abstract: Purpose Animal models are needed to better understand the relationship between diffusion MRI (dMRI) and the underlying tissue microstructure. One promising model for validation studies is the common squirrel monkey, Saimiri sciureus. This study aims to determine (1) the reproducibility of in vivo diffusion measures both within and between subjects; (2) the agreement between in vivo and ex vivo data acquired from the same specimen and (3) normal diffusion values and their variation across brain regions. Methods Data were acquired from three healthy squirrel monkeys, each imaged twice in vivo and once ex vivo. Reproducibility of fractional anis...
+
+---
+
+Year: 2019
+Citations: 20
+Type: Article
+Venue: NMR in Biomedicine
+Title: Histologically derived fiber response functions for diffusion MRI vary across white matter fibers—An ex vivo validation study in the squirrel monkey brain
+Keywords: diffusion MRI; HARDI; histology; response function; spherical deconvolution; tractography
+Abstract: Understanding the relationship between the diffusion-weighted MRI signal and the arrangement of white matter fibers is fundamental for accurate voxel-wise reconstruction of the fiber orientation distribution (FOD) and subsequent fiber tractography. Spherical deconvolution reconstruction techniques model the diffusion signal as the convolution of the FOD with a response function that represents the signal profile of a single fiber orientation. Thus, given the signal and a fiber response function, the FOD can be estimated in every imaging voxel by deconvolution. However, the selection of the appropriate response function remains relatively unde...
+
+---
+
+Year: 2019
+Citations: 20
+Type: Article
+Venue: Magnetic Resonance in Medicine
+Title: Functional tractography of white matter by high angular resolution functional-correlation imaging (HARFI)
+Keywords: functional connectivity; functional magnetic resonance imaging; functional pathways; high angular resolution
+Abstract: Purpose: Functional magnetic resonance imaging with BOLD contrast is widely used for detecting brain activity in the cortex. Recently, several studies have described anisotropic correlations of resting-state BOLD signals between voxels in white matter (WM). These local WM correlations have been modeled as functional-correlation tensors, are largely consistent with underlying WM fiber orientations derived from diffusion MRI, and appear to change during functional activity. However, functional-correlation tensors have several limitations. The use of only nearest-neighbor voxels makes functional-correlation tensors sensitive to noise. Furthermor...
+
+---
+
+Year: 2024
+Citations: 18
+Type: Article
+Venue: Science Advances
+Title: The missing third dimension-Functional correlations of BOLD signals incorporating white matter
+Abstract: Correlations between magnetic resonance imaging (MRI) blood oxygenation level-dependent (BOLD) signals from pairs of gray matter areas are used to infer their functional connectivity, but they are unable to describe how white matter is engaged in brain networks. Recently, evidence that BOLD signals in white matter are robustly detectable and are modulated by neural activities has accumulated. We introduce a three-way correlation between BOLD signals from pairs of gray matter volumes (nodes) and white matter bundles (edges) to define the communication connectivity through each white matter bundle. Using MRI images from publicly available datab...
+
+---
+
+Year: 2021
+Citations: 17
+Type: Article
+Venue: Schizophrenia Research
+Title: Lower functional connectivity of white matter during rest and working memory tasks is associated with cognitive impairments in schizophrenia
+Keywords: Cognitive associate; Functional connectivity; Resting-state fMRI; Spatial working memory task; White matter
+Abstract: Background: Schizophrenia can be understood as a disturbance of functional connections within brain networks. However, functional alterations that involve white matter (WM) specifically, or their cognitive correlates, have seldomly been investigated, especially during tasks. Methods: Resting state and task fMRI images were acquired on 84 patients and 67 controls. Functional connectivities (FC) between 46 WM bundles and 82 cortical regions were compared between the groups under two conditions (i.e., resting state and during working memory retention period). The FC density of each WM bundle was then compared between groups. Associations of FC w...
+
+---
+
+Year: 2019
+Citations: 17
+Type: Conference paper
+Venue: Mathematics and Visualization
+Title: Inter-Scanner Harmonization of High Angular Resolution DW-MRI Using Null Space Deep Learning
+Keywords: CSD; Deep learning; Diffusion; DW-MRI; HARDI; Harmonization; Histology; Inter-scanner; Null space
+Abstract: Diffusion-weighted magnetic resonance imaging (DW-MRI) allows for non-invasive imaging of the local fiber architecture of the human brain at a millimetric scale. Multiple classical approaches have been proposed to detect both single (e.g., tensors) and multiple (e.g., constrained spherical deconvolution, CSD) fiber population orientations per voxel. However, existing techniques generally exhibit low reproducibility across MRI scanners. Herein, we propose a data-driven technique using a neural network design which exploits two categories of data. First, training data were acquired on three squirrel monkey brains using ex-vivo DW-MRI and histol...
+
+---
+
+Year: 2023
+Citations: 15
+Type: Article
+Venue: Imaging Neuroscience
+Title: White matter tract microstructure, macrostructure, and associated cortical gray matter morphology across the lifespan
+Keywords: cortex; lifespan; macrostructure; microstructure; tractography; white matter
+Abstract: Characterizing how, when, and where the human brain changes across the lifespan is fundamental to our understanding of developmental processes of childhood and adolescence, degenerative processes of aging, and divergence from normal patterns in disease and disorders. We aimed to provide detailed descriptions of white matter pathways across the lifespan by thoroughly characterizing white matter microstructure, white matter macrostructure, and morphology of the cortex associated with white matter pathways. We analyzed four large, high-quality, cross-sectional datasets comprising 2789 total imaging sessions, and participants ranging from 0 to 10...
+
+---
+
+Year: 2023
+Citations: 14
+Type: Article
+Venue: NeuroImage
+Title: Functional alterations in bipartite network of white and grey matters during aging
+Keywords: Adulthood; Bipartite graph; Functional connectivity; Normal aging; Resting state FMRI; White matter
+Abstract: The effects of normal aging on functional connectivity (FC) within various brain networks of gray matter (GM) have been well-documented. However, the age effects on the networks of FC between white matter (WM) and GM, namely WM-GM FC, remains unclear. Evaluating crucial properties, such as global efficiency (GE), for a WM-GM FC network poses a challenge due to the absence of closed triangle paths which are essential for assessing network properties in traditional graph models. In this study, we propose a bipartite graph model to characterize the WM-GM FC network and quantify these challenging network properties. Leveraging this model, we asse...
+
+---
+
+Year: 2013
+Citations: 13
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Integration of XNAT/PACS, DICOM, and research software for automated multi-modal image analysis
+Keywords: Automatic multi-modal image analysis; Traumatic brain injury; XNAT
+Abstract: Traumatic brain injury (TBI) is an increasingly important public health concern. While there are several promising avenues of intervention, clinical assessments are relatively coarse and comparative quantitative analysis is an emerging field. Imaging data provide potentially useful information for evaluating TBI across functional, structural, and micro structural phenotypes. Integration and management of disparate data types are major obstacles. In a multi-institution collaboration, we are collecting electro encephalogy (EEG), structural MRI, diffusion tensor MRI (DTI), and single photon emission computed tomography (SPECT) from a large cohor...
+
+---
+
+Year: 2019
+Citations: 12
+Type: Article
+Venue: Neuroinformatics
+Title: A Web-Based Atlas Combining MRI and Histology of the Squirrel Monkey Brain
+Keywords: Histology; MRI; Squirrel monkey; User interactive; Web-based atlas
+Abstract: The squirrel monkey (Saimiri sciureus) is a commonly-used surrogate for humans in biomedical research. In the neuroimaging community, MRI and histological atlases serve as valuable resources for anatomical, physiological, and functional studies of the brain; however, no digital MRI/histology atlas is currently available for the squirrel monkey. This paper describes the construction of a web-based multi-modal atlas of the squirrel monkey brain. The MRI-derived information includes anatomical MRI contrast (i.e., T2-weighted and proton-density-weighted) and diffusion MRI metrics (i.e., fractional anisotropy and mean diffusivity) from data acquir...
+
+---
+
+Year: 2018
+Citations: 12
+Type: Article
+Venue: NeuroImage
+Title: Tests of cortical parcellation based on white matter connectivity using diffusion tensor imaging
+Keywords: Classification; Cortical parcellation; Cross-validation; DTI tractography; White matter connectivity
+Abstract: The cerebral cortex is conventionally divided into a number of domains based on cytoarchitectural features. Diffusion tensor imaging (DTI) enables noninvasive parcellation of the cortex based on white matter connectivity patterns. However, the correspondence between DTI-connectivity-based and cytoarchitectural parcellation has not been systematically established. In this study, we compared histological parcellation of New World monkey neocortex to DTI- connectivity-based classification and clustering in the same brains. First, we used supervised classification to parcellate parieto-frontal cortex based on DTI tractograms and the cytoarchitect...
+
+---
+
+Year: 2016
+Citations: 11
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: A 3D high resolution ex vivo white matter atlas of the common squirrel monkey (saimiri sciureus) based on diffusion tensor imaging
+Keywords: Brain atlas; Diffusion tensor imaging; Magnetic resonance imaging; Neuroanatomy; Squirrel monkey; Tractography; White matter atlas
+Abstract: Modern magnetic resonance imaging (MRI) brain atlases are high quality 3-D volumes with specific structures labeled in the volume. Atlases are essential in providing a common space for interpretation of results across studies, for anatomical education, and providing quantitative image-based navigation. Extensive work has been devoted to atlas construction for humans, macaque, and several non-primate species (e.g., rat). One notable gap in the literature is the common squirrel monkey - for which the primary published atlases date from the 1960's. The common squirrel monkey has been used extensively as surrogate for humans in biomedical studies...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+1. **Diffusion MRI and its applications**: 
+    * Investigating the accuracy and limitations of diffusion MRI in reconstructing white matter tracts and fiber orientation distributions (e.g., [1], [5], [7], [16])
+    * Developing new methods for improving diffusion MRI tractography, such as deep learning approaches (e.g., [19])
+    * Validating diffusion MRI against histological data (e.g., [3], [8], [22])
+
+2. **White matter functional connectivity and BOLD signals**: 
+    * Detecting and interpreting BOLD signals in white matter (e.g., [4], [11], [14], [25])
+    * Investigating the role of white matter in functional brain networks (e.g., [12], [27])
+    * Examining the relationship between white matter functional connectivity and cognitive abilities or diseases (e.g., [20], [28])
+
+3. **Validation and comparison of imaging modalities**: 
+    * Validating diffusion MRI against histological data (e.g., [
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Gao_Yurui_56163925700
+
+Publication records (each record is one paper):
+Year: 2022
+Citations: 10
+Type: Article
+Venue: NeuroImage
+Title: Detection of functional activity in brain white matter using fiber architecture informed synchrony mapping
+Keywords: Activation mapping; Functional MRI; Graph signal processing; Synchrony mapping; White matter
+Abstract: A general linear model is widely used for analyzing fMRI data, in which the blood oxygenation-level dependent (BOLD) signals in gray matter (GM) evoked in response to neural stimulation are modeled by convolving the time course of the expected neural activity with a canonical hemodynamic response function (HRF) obtained a priori. The maps of brain activity produced reflect the magnitude of local BOLD responses. However, detecting BOLD signals in white matter (WM) is more challenging as the BOLD signals are weaker and the HRF is different, and may vary more across the brain. Here we propose a model-free approach to detect changes in BOLD signa...
+
+---
+
+Year: 2022
+Citations: 10
+Type: Article
+Venue: NeuroImage
+Title: Dynamic variations of resting-state BOLD signal spectra in white matter
+Keywords: Dynamic; fMRI; Hemodynamic response function; Power spectra; Resting state; White matter
+Abstract: Recent studies have demonstrated that the mathematical model used for analyzing and interpreting fMRI data in gray matter (GM) is inappropriate for detecting or describing blood-oxygenation-level-dependent (BOLD) signals in white matter (WM). In particular the hemodynamic response function (HRF) which serves as the regressor in general linear models is different in WM compared to GM. We recently reported measurements of the frequency contents of resting-state signal time courses in WM that showed distinct power spectra which depended on local structural-vascular-functional associations. In addition, multiple studies of GM have revealed how fu...
+
+---
+
+Year: 2014
+Citations: 10
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: A brain MRI atlas of the common squirrel monkey, Saimiri sciureus
+Keywords: Atlas; Diffusion tensor imaging; Magnetic resonance imaging; Primate neuroanatomy
+Abstract: The common squirrel monkey, Saimiri sciureus, is a New World monkey with functional and microstructural organization of central nervous system similar to that of humans. It is one of the most commonly used South American primates in biomedical research. Unlike its Old World macaque cousins, no digital atlases have described the organization of the squirrel monkey brain. Here, we present a multi-modal magnetic resonance imaging (MRI) atlas constructed from the brain of an adult female squirrel monkey. In vivo MRI acquisitions include high resolution T2 structural imaging and low resolution diffusion tensor imaging. Ex vivo MRI acquisitions inc...
+
+---
+
+Year: 2023
+Citations: 9
+Type: Article
+Venue: Frontiers in Aging Neuroscience
+Title: Changes in white matter functional networks across late adulthood
+Keywords: BOLD; fMRI; ICA; normal aging brain; resting state; white matter (WM)
+Abstract: Introduction: The aging brain is characterized by decreases in not only neuronal density but also reductions in myelinated white matter (WM) fibers that provide the essential foundation for communication between cortical regions. Age-related degeneration of WM has been previously characterized by histopathology as well as T2 FLAIR and diffusion MRI. Recent studies have consistently shown that BOLD (blood oxygenation level dependent) effects in WM are robustly detectable, are modulated by neural activities, and thus represent a complementary window into the functional organization of the brain. However, there have been no previous systematic s...
+
+---
+
+Year: 2024
+Citations: 7
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Reductions in the white–gray functional connectome in preclinical Alzheimer's disease and their associations with amyloid and cognition
+Keywords: amyloid beta; cognitive performance; functional connectivity; integration; preclinical Alzheimer's disease; segregation; white matter
+Abstract: BACKGROUND: The magnitudes and patterns of alterations of the white–gray matter (WM–GM) functional connectome in preclinical Alzheimer's disease (AD), and their associations with amyloid and cognition, remain unclear. METHODS: We compared regional WM–GM functional connectivity (FC) and network properties in subjects with preclinical AD (or AD dementia) and controls (total n = 344). Their associations with positron emission tomography AV45-measured amyloid beta (Aβ) load and modified Preclinical Alzheimer Cognitive Composite (mPACC) scores were examined. RESULTS: Preclinical AD subjects showed lower FC in specific WM–GM pairs and reduced segre...
+
+---
+
+Year: 2022
+Citations: 7
+Type: Article
+Venue: IEEE Transactions on Medical Imaging
+Title: Functional Parcellation of Human Brain Using Localized Topo-Connectivity Mapping
+Keywords: functional connectivity; functional MRI; functional parcellation; Graph signal processing; localized topo-connectivity mapping
+Abstract: The analysis of connectivity between parcellated regions of cortex provides insights into the functional architecture of the brain at a systems level. However, the derivation of functional structures from voxel-wise analyses at finer scales remains a challenge. We propose a novel method, called localized topo-connectivity mapping with singular-value-decomposition-informed filtering (or filtered LTM), to identify and characterize voxel-wise functional structures in the human brain from resting-state fMRI data. Here we describe its mathematical formulation and provide a proof-of-concept using simulated data that allow an intuitive interpretatio...
+
+---
+
+Year: 2019
+Citations: 6
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Enabling Multi-shell b-Value Generalizability of Data-Driven Diffusion Models with Deep SHORE
+Keywords: Deep learning; Orthonormal basis; SHORE; Spherical harmonics
+Abstract: Intra-voxel models of the diffusion signal are essential for interpreting organization of the tissue environment at micrometer level with data at millimeter resolution. Recent advances in data driven methods have enabled direct comparison and optimization of methods for in-vivo data with externally validated histological sections with both 2-D and 3-D histology. Yet, all existing methods make limiting assumptions of either (1) model-based linkages between b-values or (2) limited associations with single shell data. We generalize prior deep learning models that used single shell spherical harmonic transforms to integrate the recently developed...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Article
+Venue: Scientific Reports
+Title: Seasonal variations of functional connectivity of human brains
+Abstract: Seasonal variations have long been observed in various aspects of human life. While there is an abundance of research that has characterized seasonality effects in, for example, cognition, mood, and behavior, including studies of underlying biophysical mechanisms, direct measurements of seasonal variations of brain functional activities have not gained wide attention. We have quantified seasonal effects on functional connectivity as derived from MRI scans. A cohort of healthy human subjects was divided into four groups based on the seasons of their scanning dates as documented in the image database of the Human Connectome Project. Sinusoidal...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Automatic Preprocessing Pipeline for White Matter Functional Analyses of Large-Scale Databases
+Keywords: aging; Alzheimer’s disease; automatic preprocessing pipeline; resting state fMRI; white matter function; XNAT
+Abstract: Recently, increasing evidence suggests that fMRI signals in white matter (WM), conventionally ignored as nuisance, are robustly detectable using appropriate processing methods and are related to neural activity, while changes in WM with aging and degeneration are also well documented. These findings suggest variations in patterns of BOLD signals in WM should be investigated. However, existing fMRI analysis tools, which were designed for processing gray matter signals, are not well suited for large-scale processing of WM signals in fMRI data. We developed an automatic pipeline for high-performance preprocessing of fMRI images with emphasis on...
+
+---
+
+Year: 2019
+Citations: 5
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Harmonizing 1.5T/3T diffusion weighted MRI through development of deep learning stabilized microarchitecture estimators
+Keywords: Deep Learning; Dual Network; DW-MRI; Fiber Orientation Distribution; Harmonization; Null Space; Spherical Harmonics
+Abstract: Diffusion weighted magnetic resonance imaging (DW-MRI) is interpreted as a quantitative method that is sensitive to tissue microarchitecture at a millimeter scale. However, the sensitization is dependent on acquisition sequences (e.g., diffusion time, gradient strength, etc.) and susceptible to imaging artifacts. Hence, comparison of quantitative DW-MRI biomarkers across field strengths (including different scanners, hardware performance, and sequence design considerations) is a challenging area of research. We propose a novel method to estimate microstructure using DW-MRI that is robust to scanner difference between 1.5T and 3T imaging. We p...
+
+---
+
+Year: 2015
+Citations: 5
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Integrating histology and MRI in the first digital brain of common squirrel monkey, Saimiri sciureus
+Keywords: Atlas; Diffusion tensor imaging; Magnetic resonance imaging; Primate neuroanatomy
+Abstract: This effort is a continuation of development of a digital brain atlas of the common squirrel monkey, Saimiri sciureus, a New World monkey with functional and microstructural organization of central nervous system similar to that of humans. Here, we present the integration of histology with multi-modal magnetic resonance imaging (MRI) atlas constructed from the brain of an adult female squirrel monkey. The central concept of this work is to use block face photography to establish an intermediate common space in coordinate system which preserves the high resolution in-plane resolution of histology while enabling 3-D correspondence with MRI. In...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Article
+Venue: NeuroImage
+Title: White matter engagement in brain networks assessed by integration of functional and structural connectivity
+Keywords: BOLD; Engagement; fMRI; Functional connectivity; Structural connectivity; White matter
+Abstract: Current models of brain networks may potentially be improved by integrating our knowledge of structural connections, within and between circuits, with metrics of functional interactions between network nodes. The former may be obtained from diffusion MRI of white matter (WM), while the latter may be derived by measuring correlations between resting state BOLD signals from pairs of gray matter (GM) regions. From inspection of diffusion MRI data, it is clear that each WM voxel within a 3D image array may be traversed by multiple WM structural tracts, each of which connects a pair of GM nodes. We hypothesized that by appropriately weighting and...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Article
+Venue: Brain Imaging and Behavior
+Title: Functional correlation tensors in brain white matter and the effects of normal aging
+Keywords: Aging; BOLD; fMRI; Functional correlation tensor; Resting state; White matter
+Abstract: Resting state correlations between blood oxygenation level dependent (BOLD) MRI signals from voxels in white matter (WM) are demonstrably anisotropic, so that functional correlation tensors (FCT) may be used to quantify the underlying microstructure of BOLD effects in WM tracts. However, the overall spatial distribution of FCTs and their metrics in specific populations has not yet been established, and the factors that affect their precise arrangements remain unclear. Changes in WM occur with normal aging, and these may be expected to affect FCTs. We hypothesized that FCTs exhibit a characteristic spatial pattern and may show systematic chang...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Article
+Venue: Cerebral Cortex
+Title: Quantification of mediation effects of white matter functional characteristics on cognitive decline in aging
+Keywords: aging; cognitive decline; mediation; resting-state fMRI; white matter
+Abstract: Cognitive decline with aging involves multifactorial processes, including changes in brain structure and function. This study focuses on the role of white matter functional characteristics, as reflected in blood oxygenation level-dependent signals, in age-related cognitive deterioration. Building on previous research confirming the reproducibility and age-dependence of blood oxygenation level-dependent signals acquired via functional magnetic resonance imaging, we here employ mediation analysis to test if aging affects cognition through white matter blood oxygenation level-dependent signal changes, impacting various cognitive domains and spec...
+
+---
+
+Year: 2019
+Citations: 3
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Progressive degeneration of white matter functional connectivity in Alzheimer's disease
+Keywords: Alzheimer's Disease; functional MRI; progressive degeneration; resting state; white matter
+Abstract: Background: Alzheimer's Disease (AD) is a progressive neurodegenerative disorder, in which pathological alterations are seen in both gray matter (GM) and white matter (WM). To date functional MRI (fMRI) studies of AD have been exclusively focused on GM, since blood oxygenation level dependent (BOLD) signals in WM are relatively weak and thus ignored in practice. Our recent work provides compelling evidence that BOLD fluctuations in brain WM are reliably detectable and reflect neural activities, offering the potential of investigating the functional connectivity in WM. Purpose: In this study, we aim to apply our fMRI analysis method to the inv...
+
+---
+
+Year: 2025
+Citations: 2
+Type: Article
+Venue: Nature Communications
+Title: Functional contrast across the gray-white matter boundary
+Abstract: Functional magnetic resonance imaging studies have traditionally focused on gray matter, overlooking white matter despite growing evidence that functional blood oxygenation-level dependent effects also occur there. In particular, functional coupling across the gray-white matter boundary, an interface between local and global processing, remains poorly understood. This study introduces two metrics: gray-white matter functional connectivity, which captures temporal synchrony across the boundary, and gray-white blood oxygenation-level dependent power ratio, which reflects differences in signal amplitude. Gray-white matter functional connectivity...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Identification of functional white matter networks in BOLD fMRI
+Keywords: hierarchical clustering; resting state BOLD fMRI; white matter
+Abstract: White matter signals in resting state blood oxygen level dependent functional magnetic resonance (BOLD-fMRI) have been largely discounted, yet there is growing evidence that these signals are indicative of brain activity. Understanding how these white matter signals capture function can provide insight into brain physiology. Moreover, functional signals could potentially be used as early markers for neurological changes, such as in Alzheimer’s Disease. To investigate white matter brain networks, we leveraged the OASIS-3 dataset to extract white matter signals from resting state BOLDFMRI data on 711 subjects. The imaging was longitudinal with...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Scientific Reports
+Title: Cortical modulation of resting state BOLD signals in white matter
+Abstract: Magnetic resonance images of normal brains were analyzed in order to clarify the relationship of resting state BOLD signals in white matter to cortical neural activity. We quantified the degree to which spontaneous activities in the cortex, which are reflected in low frequency fluctuations in BOLD signals from gray matter, modulate corresponding resting state BOLD signals in white matter. The similarity between the resting state BOLD signals from selected cortical regions and white matter voxels, measured using the inner product of their time series, was found to be directly proportional to the BOLD signal power in each cortical volume. From...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Scientific Reports
+Title: The relationship of white matter tract orientation to vascular geometry in the human brain
+Abstract: The white matter of the human brain exhibits highly ordered anisotropic structures of both axonal nerve fibers and cerebral vasculature. Separately, the anisotropic nature of white matter axons and white matter vasculature have been shown to cause an orientation dependence on various MRI contrasts used to study the structure and function of the brain; however, little is known of the relationship between axonal and vascular orientations. Thus, the aim of this study is to compare the orientation between nerve fibers and vasculature within the white matter. To do this, we use diffusion MRI and susceptibility weighted imaging acquired in the same...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Vasculature-informed spatial smoothing of white matter functional magnetic resonance imaging
+Keywords: diffusion-informed spatial smoothing; graph signal processing; susceptibility-weighted imaging; vasculature; white matter fMRI
+Abstract: Blood oxygenation level-dependent (BOLD) signals in white matter in the brain are anisotropically oriented, so that typical isotropic Gaussian spatial smoothing (GSS) of functional magnetic resonance images (fMRI) blurs across anatomical distributions. Abramian et al. developed a graph signal processing approach to smooth fMRI data along white matter fibers using diffusion MRI (diffusion-informed spatial smoothing, DSS). BOLD signals are modulated by the volume and oxygenation of blood carried by the vasculature, so we extend this method to provide vasculature-informed spatial smoothing (VSS). We collected susceptibility-weighted images and a...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Bundle-wise functional connectivity density and fractional amplitude of low-frequency fluctuations decrease in white matter in preclinical Alzheimer’s disease and are associated wi...
+Keywords: beta-amyloid; cognitive decline; fALFF; fMRI; functional connectivity density; mPACC; preclinical Alzheimer’s disease; white matter
+Abstract: Neurophysiological changes associated with Alzheimer’s disease (AD) begin decades before clinical symptoms emerge, during preclinical AD. Functional abnormalities in white matter (WM) at this preclinical stage remain largely unexplored. We obtained resting-state functional magnetic resonance imaging (rs-fMRI) data of 295 participants from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) and evaluated bundle-wise functional connectivity density (FCD) and fractional amplitude of low-frequency fluctuations (fALFF) across 46 bundles, which reflects the strength of synchronizations of BOLD dynamics between each WM bundle and whole-brain 200...
+
+---
+
+Year: 2019
+Citations: 1
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Learning 3d white matter microstructure from 2d histology
+Keywords: Connectivity; Convolution neural network; Diffusion MRI; Histology; Microstructure; Validation
+Abstract: Histological analysis is typically the gold standard for validating measures of tissue microstructure derived from magnetic resonance imaging (MRI) contrasts. However, most histological investigations are inherently 2-dimensional (2D), due to increased field-of-view, higher in-plane resolutions, ease of acquisition, decreased costs, and a large number of available contrasts compared to 3-dimensional (3D) analysis. Because of this, it would be of great interest to be able to learn the 3D tissue microstructure from 2D histology. In this study, we use diffusion MRI (dMRI) of a squirrel monkey brain and corresponding myelin stained sections in co...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Review
+Venue: Magnetic Resonance Imaging
+Title: The nature and interpretation of BOLD signals in white matter - A review
+Keywords: Connectivity; FMRI; Resting state; White matter
+Abstract: This review summarizes selected recent findings demonstrating the dependence of blood oxygenation level dependent (BOLD) signals in white matter (WM) on tissue microstructure, composition, vascular properties and metabolism, as well as their relationships to fMRI signals within gray matter (GM) networks. BOLD signals in WM are robustly detectable after a stimulus, and at rest their temporal variations reveal synchronized networks and correlated neural activities involving both WM and GM. However, to date, most analyses of brain fMRI data have ignored WM signals, and often have removed them as nuisance regressors. However, emerging evidence cl...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: A 4D atlas of diffusion-informed spatial smoothing windows for BOLD signal in white matter
+Keywords: atlas; diffusion magnetic resonance imaging; diffusion-informed spatial smoothing; functional magnetic resonance imaging; graph signal processing; white matter BOLD
+Abstract: Typical methods for preprocessing functional magnetic resonance images (fMRI) involve applying isotropic Gaussian smoothing windows to denoise blood oxygenation level-dependent (BOLD) signals, a process which spatially smooths white matter signals that occur along anisotropically-oriented fibers. Abramian et al. have proposed diffusion-informed spatial smoothing (DSS) filters to smooth white matter in a physiologically-informed manner. However, these filters rely on paired diffusion MRI and fMRI data, which are not always available. Here, we create DSS windows for smoothing fMRI data in the white matter based on the Human Connectome Project Y...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Erratum
+Venue: Imaging Neuroscience
+Title: Correction to: White matter tract microstructure, macrostructure, and associated cortical gray matter morphology across the lifespan (Imaging Neuroscience, (2023), 1, (1-24), 10.11...
+Abstract: Figure 3 and Figure 5 have been updated due to formatting issues with the colorbar labels on several subplots. These labels have been corrected, however, the color and format of the rest of the figure remains unchanged, and no results nor interpretation are changed by the formatting issue. White matter microstructure shows different associations with age across pathways and across different lifespan stages. The % difference per year (cross-sectional % change per year) of all white matter microstructure features, for all bundles is shown for each of the four cohorts. Note that each cohort is visualized on a different scale to highlight trends...
+
+---
+
+Year: 2019
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Quantitative assessment of dMRI-based dentate-rubro-thalamic tractography in squirrel monkey
+Keywords: assessment; dentate-rubro-thalamic tract; diffusion MRI; squirrel monkey; tractography; tremor control
+Abstract: Background: The dentate-rubro-thalamic-tract (DRTT) has recently been suggested as a new target in treatment of tremors for patients of essential tremor and Parkinson's disease. Diffusion MRI (dMRI) tractography was reported to able to reconstruct DRTT non-invasively in human brain. However, the performance of dMRI tractography with different setups has not been rigorously evaluated, which serves as a necessary step to optimize the protocol of reconstruction. Purpose: In this study, we aim to assess the efficacy of the dMRI-based DRTT tractography by comparing with histological "ground truth" in the same brain. Method: A fixed squirrel monkey...
+
+---
+
+Year: 2018
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Tests of clustering thalamic nuclei based on various dMRI models in the squirrel monkey brain
+Keywords: clustering; deep brain stimulation; diffusion MRI; dMRI modeling; histology validation; Thalamic parcellation
+Abstract: Background: Clustering thalamic nuclei is important for both research and clinical purposes. For example, ventral intermediate nuclei in thalami serve as targets in both deep brain stimulation neurosurgery and radiosurgery for treating patients suffering from movement disorders (e.g., Parkinson's disease and essential tremor). Diffusion magnetic resonance imaging (dMRI) is able to reflect tissue microstructure in the central nervous system via fitting different models, such as, the diffusion tensor (DT), constrained spherical deconvolution (CSD), neurite orientation dispersion and density imaging (NODDI), diffusion kurtosis imaging (DKI) and...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **White matter functional analysis**: 
+    - Detecting and characterizing BOLD signals in white matter (WM) using various techniques (e.g., fiber architecture informed synchrony mapping, dynamic variations of resting-state BOLD signal spectra).
+    - Investigating the relationship between WM functional signals and neural activity, cognitive decline, and Alzheimer's disease.
+* **Graph signal processing and diffusion MRI**: 
+    - Developing methods for analyzing and processing diffusion MRI data to understand WM microstructure and its relationship to BOLD signals.
+    - Applying graph signal processing techniques to smooth fMRI data in a physiologically-informed manner.
+* **Functional connectivity and network analysis**: 
+    - Studying the functional connectivity of WM and its association with cognitive decline, Alzheimer's disease, and other neurological conditions.
+    - Investigating the relationship between WM functional signals and cortical neural activity.
+* **Atlas construction and registration**: 
+    - Creating digital brain atlases of the common squirrel monkey, Saimiri sciureus, using multi-modal MRI and histology.
+    - Developing
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Dr. Gao Yurui's research trajectory has evolved significantly over the past decade, shifting from primarily focusing on the technical aspects of diffusion MRI and its applications to exploring the functional significance of white matter in the brain. Initially, Dr. Gao's work centered around developing and validating methods for diffusion MRI tractography, including the creation of digital brain atlases and the investigation of white matter microstructure. As their research progressed, they began to explore the functional implications of white matter, examining the relationship between BOLD signals in white matter and neural activity, cognitive decline, and neurological conditions.
+
+Currently, Dr. Gao's primary areas of expertise lie at the intersection of diffusion MRI, graph signal processing, and functional connectivity analysis. They continue to push the boundaries of our understanding of white matter function, developing innovative methods for analyzing and processing diffusion MRI data to uncover the intricate relationships between white matter, neural activity, and cognitive processes. Their work has significant implications for the diagnosis and treatment of neurological disorders, including Alzheimer's disease, and holds promise for advancing our understanding of the human brain.

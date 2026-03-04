@@ -1,0 +1,107 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Franklin_Jacob_59140283400
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Franklin_Jacob_59140283400
+
+Publication records (each record is one paper):
+Year: 2024
+Citations: 22
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Why do users override alerts? Utilizing large language model to summarize comments and optimize clinical decision support
+Keywords: alert fatigue; clinical decision support; health personnel; large language model
+Abstract: Objectives: To evaluate the capability of using generative artificial intelligence (AI) in summarizing alert comments and to determine if the AI-generated summary could be used to improve clinical decision support (CDS) alerts. Materials and Methods: We extracted user comments to alerts generated from September 1, 2022 to September 1, 2023 at Vanderbilt University Medical Center. For a subset of 8 alerts, comment summaries were generated independently by 2 physicians and then separately by GPT-4. We surveyed 5 CDS experts to rate the human-generated and AI-generated summaries on a scale from 1 (strongly disagree) to 5 (strongly agree) for the...
+
+---
+
+Year: 2026
+Citations: 1
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Enterprise-wide simultaneous deployment of ambient scribe technology: lessons learned from an academic health system
+Keywords: ambient scribing; artificial intelligence; burnout; clinical documentation; electronic health records
+Abstract: Objectives To report on the feasibility of a simultaneous, enterprise-wide deployment of EHR-integrated ambient scribe technology across a large academic health system. Materials and Methods On January 15, 2025, ambient scribing was made available to over 2400 ambulatory and emergency department clinicians. We tracked utilization rates, technical support needs, and user feedback. Results By March 31, 2025, 20.1% of visit notes incorporated ambient scribing, and 1223 clinicians had used ambient scribing. Among 209 respondents (22.1% of 947 surveyed), 90.9% would be disappointed if they lost access to ambient scribing, and 84.7% reported a posi...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: JAMA network open
+Title: Barriers and Solutions to Efficient Health Care AI Implementation
+Abstract: [No abstract available]
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: JAMA Network Open
+Title: AI-Driven Clinical Decision Support to Reduce Hospital-Acquired Venous Thromboembolism: A Trial Protocol
+Abstract: Importance: Hospital-acquired venous thromboembolism (HA-VTE) remains a leading cause of preventable death among hospitalized adults in the US. Despite numerous attempts to prognosticate HA-VTE with risk models, no single model has outperformed the rest, and the effectiveness of such models to drive prophylaxis decisions is unknown. Testing such systems in urban and rural settings may inform their generalizability. Objective: To conduct a randomized clinical trial to assess the effectiveness of artificial intelligence (AI)-driven clinical decision support (CDS) in reducing HA-VTE incidence in adults across urban and rural hospital settings. D...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Editorial
+Venue: JAMA Network Open
+Title: Barriers and Solutions to Efficient Health Care AI Implementation
+Abstract: [No abstract available]
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **Clinical Decision Support (CDS)**: 
+    - Developing AI-driven CDS to reduce alert fatigue and improve user experience (2024)
+    - Evaluating the effectiveness of AI-driven CDS in reducing hospital-acquired complications (2025)
+* **Healthcare Technology**: 
+    - Implementing ambient scribe technology to enhance clinical documentation (2026)
+    - Exploring the potential of AI in healthcare, including its challenges and solutions (2025)
+* **Artificial Intelligence (AI) Applications**: 
+    - Using large language models to summarize alert comments and optimize CDS (2024)
+    - Leveraging AI to drive clinical decision-making and improve patient outcomes (2025)
+
+**Timeline/Evolution:**
+
+* Early focus on developing and evaluating AI-driven CDS systems (2024-2025)
+* Recent shift towards implementing and scaling up healthcare technologies, such as ambient scribing (2025-2026)
+* Increasing emphasis on addressing the practical challenges and barriers to efficient AI implementation in healthcare (2025)
+
+**Research Identity:**
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Franklin Jacob is a researcher who has evolved his focus from developing and evaluating Artificial Intelligence (AI) driven Clinical Decision Support (CDS) systems to exploring the practical applications and challenges of implementing these technologies in real-world healthcare settings. His early work (2024) centered on utilizing large language models to summarize alert comments and optimize CDS, while more recently he has shifted towards investigating the feasibility and impact of deploying AI-powered tools, such as ambient scribing, across entire health systems.
+
+As a researcher, Franklin Jacob specializes in the intersection of AI, healthcare technology, and clinical decision-making. His primary areas of expertise include developing and implementing AI-driven CDS systems, leveraging large language models to improve clinical workflows, and exploring the practical challenges and solutions to efficient AI adoption in healthcare.

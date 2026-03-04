@@ -1,0 +1,964 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Kolouri_Soheil_55497793500
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Kolouri_Soheil_55497793500
+
+Publication records (each record is one paper):
+Year: 2019
+Citations: 514
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: Explainability methods for graph convolutional neural networks
+Keywords: Deep Learning; Deep Learning
+Abstract: With the growing use of graph convolutional neural networks (GCNNs) comes the need for explainability. In this paper, we introduce explainability methods for GCNNs. We develop the graph analogues of three prominent explainability methods for convolutional neural networks: contrastive gradient-based (CG) saliency maps, Class Activation Mapping (CAM), and Excitation Back-Propagation (EB) and their variants, gradient-weighted CAM (Grad-CAM) and contrastive EB (c-EB). We show a proof-of-concept of these methods on classification problems in two application domains: visual scene graphs and molecular graphs. To compare the methods, we identify thre...
+
+---
+
+Year: 2018
+Citations: 455
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: Image to Image Translation for Domain Adaptation
+Abstract: We propose a general framework for unsupervised domain adaptation, which allows deep neural networks trained on a source domain to be tested on a different target domain without requiring any training annotations in the target domain. This is achieved by adding extra networks and losses that help regularize the features extracted by the backbone encoder network. To this end we propose the novel use of the recently proposed unpaired image-to-image translation framework to constrain the features extracted by the encoder network. Specifically, we require that the features extracted are able to reconstruct the images in both domains. In addition...
+
+---
+
+Year: 2017
+Citations: 374
+Type: Article
+Venue: IEEE Signal Processing Magazine
+Title: Optimal Mass Transport: Signal processing and machine-learning applications
+Abstract: Transport-based techniques for signal and data analysis have recently received increased interest. Given their ability to provide accurate generative models for signal intensities and other data distributions, they have been used in a variety of applications, including content-based retrieval, cancer detection, image superresolution, and statistical machine learning, to name a few, and they have been shown to produce state-of-the-art results. Moreover, the geometric characteristics of transport-related metrics have inspired new kinds of algorithms for interpreting the meaning of data distributions. Here, we provide a practical overview of the...
+
+---
+
+Year: 2019
+Citations: 229
+Type: Article
+Venue: Remote Sensing
+Title: Deep transfer learning for few-shot SAR image classification
+Keywords: Convolutional neural network; Electro-optical imaging; Optimal transport metric; Synthetic Aperture Radar (SAR) imaging; Transfer learning
+Abstract: The reemergence of Deep Neural Networks (DNNs) has lead to high-performance supervised learning algorithms for the Electro-Optical (EO) domain classification and detection problems. This success is because generating huge labeled datasets has become possible using modern crowdsourcing labeling platforms such as Amazon's Mechanical Turk that recruit ordinary people to label data. Unlike the EO domain, labeling the Synthetic Aperture Radar (SAR) domain data can be much more challenging, and for various reasons, using crowdsourcing platforms is not feasible for labeling the SAR domain data. As a result, training deep networks using supervised le...
+
+---
+
+Year: 2019
+Citations: 223
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: Generalized sliced wasserstein distances
+Abstract: The Wasserstein distance and its variations, e.g., the sliced-Wasserstein (SW) distance, have recently drawn attention from the machine learning community. The SW distance, specifically, was shown to have similar properties to the Wasserstein distance, while being much simpler to compute, and is therefore used in various applications including generative modeling and general supervised/unsupervised learning. In this paper, we first clarify the mathematical connection between the SW distance and the Radon transform. We then utilize the generalized Radon transform to define a new family of distances for probability measures, which we call gener...
+
+---
+
+Year: 2022
+Citations: 211
+Type: Review
+Venue: Nature Machine Intelligence
+Title: Biological underpinnings for lifelong learning machines
+Abstract: Biological organisms learn from interactions with their environment throughout their lifetime. For artificial systems to successfully act and adapt in the real world, it is desirable to similarly be able to learn on a continual basis. This challenge is known as lifelong learning, and remains to a large extent unsolved. In this Perspective article, we identify a set of key capabilities that artificial systems will need to achieve lifelong learning. We describe a number of biological mechanisms, both neuronal and non-neuronal, that help explain how organisms solve these challenges, and present examples of biologically inspired models and biolog...
+
+---
+
+Year: 2020
+Citations: 196
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: Universal Litmus Patterns: Revealing Backdoor Attacks in CNNs
+Abstract: The unprecedented success of deep neural networks in many applications has made these networks a prime target for adversarial exploitation. In this paper, we introduce a benchmark technique for detecting backdoor attacks (aka Trojan attacks) on deep convolutional neural networks (CNNs). We introduce the concept of Universal Litmus Patterns (ULPs), which enable one to reveal backdoor attacks by feeding these universal patterns to the network and analyzing the output (i.e., classifying the network as 'clean' or 'corrupted'). This detection is fast because it requires only a few forward passes through a CNN. We demonstrate the effectiveness of U...
+
+---
+
+Year: 2016
+Citations: 129
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: Sliced Wasserstein kernels for probability distributions
+Abstract: Optimal transport distances, otherwise known as Wasserstein distances, have recently drawn ample attention in computer vision and machine learning as powerful discrepancy measures for probability distributions. The recent developments on alternative formulations of the optimal transport have allowed for faster solutions to the problem and have revamped their practical applications in machine learning. In this paper, we exploit the widely used kernel methods and provide a family of provably positive definite kernels based on the Sliced Wasserstein distance and demonstrate the benefits of these kernels in a variety of learning tasks. Our work p...
+
+---
+
+Year: 2018
+Citations: 106
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: Sliced Wasserstein Distance for Learning Gaussian Mixture Models
+Abstract: Gaussian mixture models (GMM) are powerful parametric tools with many applications in machine learning and computer vision. Expectation maximization (EM) is the most popular algorithm for estimating the GMM parameters. However, EM guarantees only convergence to a stationary point of the log-likelihood function, which could be arbitrarily worse than the optimal solution. Inspired by the relationship between the negative log-likelihood function and the Kullback-Leibler (KL) divergence, we propose an alternative formulation for estimating the GMM parameters using the sliced Wasserstein distance, which gives rise to a new algorithm. Specifically,...
+
+---
+
+Year: 2015
+Citations: 90
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: Transport-based single frame super resolution of very low resolution face images
+Abstract: Extracting high-resolution information from highly degraded facial images is an important problem with several applications in science and technology. Here we describe a single frame super resolution technique that uses a transport-based formulation of the problem. The method consists of a training and a testing phase. In the training phase, a nonlinear Lagrangian model of high-resolution facial appearance is constructed fully automatically. In the testing phase, the resolution of a degraded image is enhanced by finding the model parameters that best fit the given low resolution data. We test the approach on two face datasets, namely the exte...
+
+---
+
+Year: 2016
+Citations: 81
+Type: Article
+Venue: IEEE Transactions on Image Processing
+Title: The Radon Cumulative Distribution Transform and Its Application to Image Classification
+Keywords: Image classification; Image representation; Transforms
+Abstract: Invertible image representation methods (transforms) are routinely employed as low-level image processing operations based on which feature extraction and recognition algorithms are developed. Most transforms in current use (e.g., Fourier, wavelet, and so on) are linear transforms and, by themselves, are unable to substantially simplify the representation of image classes for classification. Here, we describe a nonlinear, invertible, low-level image processing transform based on combining the well-known Radon transform for image data, and the 1D cumulative distribution transform proposed earlier. We describe a few of the properties of this ne...
+
+---
+
+Year: 2019
+Citations: 71
+Type: Conference paper
+Venue: 7th International Conference on Learning Representations, ICLR 2019
+Title: Sliced-Wasserstein auto-encoders
+Abstract: In this paper we use the geometric properties of the optimal transport (OT) problem and the Wasserstein distances to define a prior distribution for the latent space of an auto-encoder. We introduce Sliced-Wasserstein Auto-Encoders (SWAE), that enable one to shape the distribution of the latent space into any samplable probability distribution without the need for training an adversarial network or having a likelihood function specified. In short, we regularize the auto-encoder loss with the sliced-Wasserstein distance between the distribution of the encoded training samples and a samplable prior distribution. We show that the proposed formul...
+
+---
+
+Year: 2014
+Citations: 70
+Type: Article
+Venue: Proceedings of the National Academy of Sciences of the United States of America
+Title: Detecting and visualizing cell phenotype differences from microscopy images using transportbased morphometry
+Keywords: Cell morphometry; High content screening; Optimal transport
+Abstract: Modern microscopic imaging devices are able to extract more information regarding the subcellular organization of different molecules and proteins than can be obtained by visual inspection. Predetermined numerical features (descriptors) often used to quantify cells extracted from these images have long been shown useful for discriminating cell populations (e.g., normal vs. diseased). Direct visual or biological interpretation of results obtained, however, is often not a trivial task. We describe an approach for detecting and visualizing phenotypic differences between classes of cells based on the theory of optimal mass transport. The method i...
+
+---
+
+Year: 2019
+Citations: 67
+Type: Conference paper
+Venue: IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops
+Title: SAR image classification using few-shot cross-domain transfer learning
+Abstract: Data-driven classification algorithms based on deep convolutional neural networks have reached human-level performance for many tasks within Electro-Optical (EO) computer vision. Despite being the prevailing visual sensory data, EO imaging is not effective in applications such as environmental monitoring at extended periods, where data collection at occluded weather is necessary. Synthetic Aperture Radar (SAR) is an effective imaging tool to circumvent these limitations and collect visual sensory information continually. However, replicating the success of deep learning on SAR domains is not straightforward. This is mainly because training de...
+
+---
+
+Year: 2020
+Citations: 64
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: Statistical and topological properties of sliced probability divergences
+Abstract: The idea of slicing divergences has been proven to be successful when comparing two probability measures in various machine learning applications including generative modeling, and consists in computing the expected value of a ‘base divergence’ between one-dimensional random projections of the two measures. However, the topological, statistical, and computational consequences of this technique have not yet been well-established. In this paper, we aim at bridging this gap and derive various theoretical properties of sliced probability divergences. First, we show that slicing preserves the metric axioms and the weak continuity of the divergence...
+
+---
+
+Year: 2014
+Citations: 59
+Type: Article
+Venue: Medical Image Analysis
+Title: Accurate diagnosis of thyroid follicular lesions from nuclear morphology using supervised learning
+Keywords: Image analysis; Nuclear morphology; Optimal transport; Thyroid follicular lesions
+Abstract: Follicular lesions of the thyroid remain significant diagnostic challenges in surgical pathology and cytology. The diagnosis often requires considerable resources and ancillary tests including immunohistochemistry, molecular studies, and expert consultation. Visual analyses of nuclear morphological features, generally speaking, have not been helpful in distinguishing this group of lesions. Here we describe a method for distinguishing between follicular lesions of the thyroid based on nuclear morphology. The method utilizes an optimal transport-based linear embedding for segmented nuclei, together with an adaptation of existing classification...
+
+---
+
+Year: 2017
+Citations: 52
+Type: Article
+Venue: Journal of Mathematical Imaging and Vision
+Title: A Transportation Lp Distance for Signal Analysis
+Keywords: Colour transfer; Histogram specification; Image Registration; Optimal transport; Signal comparison
+Abstract: Transport-based distances, such as the Wasserstein distance and earth mover’s distance, have been shown to be an effective tool in signal and image analysis. The success of transport-based distances is in part due to their Lagrangian nature which allows it to capture the important variations in many signal classes. However, these distances require the signal to be non-negative and normalised. Furthermore, the signals are considered as measures and compared by redistributing (transporting) them, which does not directly take into account the signal intensity. Here, we study a transport-based distance, called the TLp distance, that combines Lagr...
+
+---
+
+Year: 2018
+Citations: 48
+Type: Article
+Venue: Applied and Computational Harmonic Analysis
+Title: The cumulative distribution transform and linear pattern classification
+Keywords: Cumulative distribution transform; Signal classification
+Abstract: Discriminating data classes emanating from sensors is an important problem with many applications in science and technology. We describe a new transform for pattern representation that interprets patterns as probability density functions, and has special properties with regards to classification. The transform, which we denote as the Cumulative Distribution Transform (CDT), is invertible, with well defined forward and inverse operations. We show that it can be useful in ‘parsing out’ variations (confounds) that are ‘Lagrangian’ (displacement and intensity variations) by converting these to ‘Eulerian’ (intensity variations) in transform space....
+
+---
+
+Year: 2016
+Citations: 48
+Type: Article
+Venue: Pattern Recognition
+Title: A continuous linear optimal transport approach for pattern analysis in image datasets
+Keywords: Generative image modeling; Linear embedding; Optimal transport; Pattern visualization
+Abstract: We present a new approach to facilitate the application of the optimal transport metric to pattern recognition on image databases. The method is based on a linearized version of the optimal transport metric, which provides a linear embedding for the images. Hence, it enables shape and appearance modeling using linear geometric analysis techniques in the embedded space. In contrast to previous work, we use Monge's formulation of the optimal transport problem, which allows for reasonably fast computation of the linearized optimal transport embedding for large images. We demonstrate the application of the method to recover and visualize meaningf...
+
+---
+
+Year: 2021
+Citations: 46
+Type: Conference paper
+Venue: ICLR 2021 - 9th International Conference on Learning Representations
+Title: WASSERSTEIN EMBEDDING FOR GRAPH LEARNING
+Abstract: We present Wasserstein Embedding for Graph Learning (WEGL), a novel and fast framework for embedding entire graphs in a vector space, in which various machine learning models are applicable for graph-level prediction tasks. We leverage new insights on defining similarity between graphs as a function of the similarity between their node embedding distributions. Specifically, we use the Wasserstein distance to measure the dissimilarity between node embeddings of different graphs. Unlike prior work, we avoid pairwise calculation of distances between graphs and reduce the computational complexity from quadratic to linear in the number of graphs....
+
+---
+
+Year: 2019
+Citations: 43
+Type: Conference paper
+Venue: IJCAI International Joint Conference on Artificial Intelligence
+Title: Complementary learning for overcoming catastrophic forgetting using experience replay
+Abstract: Despite huge success, deep networks are unable to learn effectively in sequential multitask learning settings as they forget the past learned tasks after learning new tasks. Inspired from complementary learning systems theory, we address this challenge by learning a generative model that couples the current task to the past learned tasks through a discriminative embedding space. We learn an abstract generative distribution in the embedding that allows generation of data points to represent past experience. We sample from this distribution and utilize experience replay to avoid forgetting and simultaneously accumulate new knowledge to the abst...
+
+---
+
+Year: 2024
+Citations: 36
+Type: Article
+Venue: Nature Machine Intelligence
+Title: A collective AI via lifelong learning and sharing at the edge
+Abstract: One vision of a future artificial intelligence (AI) is where many separate units can learn independently over a lifetime and share their knowledge with each other. The synergy between lifelong learning and sharing has the potential to create a society of AI systems, as each individual unit can contribute to and benefit from the collective knowledge. Essential to this vision are the abilities to learn multiple skills incrementally during a lifetime, to exchange knowledge among units via a common language, to use both local data and communication to learn, and to rely on edge devices to host the necessary decentralized computation and data. The...
+
+---
+
+Year: 2020
+Citations: 36
+Type: Conference paper
+Venue: AAAI 2020 - 34th AAAI Conference on Artificial Intelligence
+Title: Generative continual concept learning
+Abstract: After learning a concept, humans are also able to continually generalize their learned concepts to new domains by observing only a few labeled instances without any interference with the past learned knowledge. In contrast, learning concepts efficiently in a continual learning setting remains an open challenge for current Artificial Intelligence algorithms as persistent model retraining is necessary. Inspired by the Parallel Distributed Processing learning and the Complementary Learning Systems theories, we develop a computational model that is able to expand its previously learned concepts efficiently to new domains using a few labeled sampl...
+
+---
+
+Year: 2017
+Citations: 32
+Type: Conference paper
+Venue: Proceedings - 30th IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2017
+Title: Zero shot learning via multi-Scale manifold regularization
+Abstract: We address zero-shot learning using a new manifold alignment framework based on a localized multi-scale transform on graphs. Our inference approach includes a smoothness criterion for a function mapping nodes on a graph (visual representation) onto a linear space (semantic representation), which we optimize using multi-scale graph wavelets. The robustness of the ensuing scheme allows us to operate with automatically generated semantic annotations, resulting in an algorithm that is entirely free of manual supervision, and yet improves the state-of-the-art as measured on benchmark datasets. © 2017 IEEE.
+
+---
+
+Year: 2015
+Citations: 30
+Type: Article
+Venue: Cytometry Part A
+Title: Detection of malignant mesothelioma using nuclear structure of mesothelial cells in effusion cytology specimens
+Keywords: Cancer detection; Chromatin distribution; Cytology; Mesothelioma; Nuclear structure; Optimal transport
+Abstract: Mesothelioma is a form of cancer generally caused from previous exposure to asbestos. Although it was considered a rare neoplasm in the past, its incidence is increasing worldwide due to extensive use of asbestos. In the current practice of medicine, the gold standard for diagnosing mesothelioma is through a pleural biopsy with subsequent histologic examination of the tissue. The diagnostic tissue should demonstrate the invasion by the tumor and is obtained through thoracoscopy or open thoracotomy, both being highly invasive surgical operations. On the other hand, thoracocentesis, which is removal of effusion fluid from the pleural space, is...
+
+---
+
+Year: 2023
+Citations: 27
+Type: Article
+Venue: IEEE Access
+Title: Learning to Solve Optimization Problems With Hard Linear Constraints
+Keywords: hard constraints; image registration; Learning to optimize; machine learning; optimal power flow
+Abstract: Constrained optimization problems have appeared in a wide variety of challenging real-world problems, where constraints often capture the physics of the underlying system. Classic methods for solving these problems relied on iterative algorithms that explored the feasible domain in the search for the best solution. These iterative methods often became the computational bottleneck in decision-making and adversely impacted time-sensitive applications. Recently, neural approximators have shown promise as a replacement for the iterative solvers that can output the optimal solution in a single feed-forward providing rapid solutions to optimization...
+
+---
+
+Year: 2020
+Citations: 27
+Type: Conference paper
+Venue: 8th International Conference on Learning Representations, ICLR 2020
+Title: GAT: GENERATIVE ADVERSARIAL TRAINING FOR ADVERSARIAL EXAMPLE DETECTION AND ROBUST CLASSIFICATION
+Abstract: The vulnerabilities of deep neural networks against adversarial examples have become a significant concern for deploying these models in sensitive domains. Devising a definitive defense against such attacks is proven to be challenging, and the methods relying on detecting adversarial samples are only valid when the attacker is oblivious to the detection mechanism. In this paper we propose a principled adversarial example detection method that can withstand norm-constrained white-box attacks. Inspired by one-versus-the-rest classification, in a K class classification problem, we train K binary classifiers where the i-th binary classifier is us...
+
+---
+
+Year: 2023
+Citations: 22
+Type: Article
+Venue: Neural Networks
+Title: A domain-agnostic approach for characterization of lifelong learning systems
+Keywords: Catastrophic forgetting; Continual learning; Lifelong learning; Reinforcement learning; System evaluation
+Abstract: Despite the advancement of machine learning techniques in recent years, state-of-the-art systems lack robustness to “real world” events, where the input distributions and tasks encountered by the deployed systems will not be limited to the original training context, and systems will instead need to adapt to novel distributions and tasks while deployed. This critical gap may be addressed through the development of “Lifelong Learning” systems that are capable of (1) Continuous Learning, (2) Transfer and Adaptation, and (3) Scalability. Unfortunately, efforts to improve these capabilities are typically treated as distinct areas of research that...
+
+---
+
+Year: 2020
+Citations: 22
+Type: Conference paper
+Venue: 8th International Conference on Learning Representations, ICLR 2020
+Title: SLICED CRAMÉR SYNAPTIC CONSOLIDATION FOR PRESERVING DEEPLY LEARNED REPRESENTATIONS
+Abstract: Deep neural networks suffer from the inability to preserve the learned data representation (i.e., catastrophic forgetting) in domains where the input data distribution is non-stationary, and it changes during training. Various selective synaptic plasticity approaches have been recently proposed to preserve network parameters, which are crucial for previously learned tasks while learning new tasks. We explore such selective synaptic plasticity approaches through a unifying lens of memory replay and show the close relationship between methods like Elastic Weight Consolidation (EWC) and Memory-Aware-Synapses (MAS). We then propose a fundamentall...
+
+---
+
+Year: 2022
+Citations: 21
+Type: Article
+Venue: IEEE Transactions on Neural Networks and Learning Systems
+Title: Deep Reinforcement Learning With Modulated Hebbian Plus Q-Network Architecture
+Keywords: Biologically inspired learning; decision-making; deep reinforcement learning (RL); partially observable Markov decision process (POMDP)
+Abstract: In this article, we consider a subclass of partially observable Markov decision process (POMDP) problems which we termed confounding POMDPs. In these types of POMDPs, temporal difference (TD)-based reinforcement learning (RL) algorithms struggle, as TD error cannot be easily derived from observations. We solve these types of problems using a new bio-inspired neural architecture that combines a modulated Hebbian network (MOHN) with deep Q-network (DQN), which we call modulated Hebbian plus Q-network architecture (MOHQA). The key idea is to use a Hebbian network with rarely correlated bio-inspired neural traces to bridge temporal delays between...
+
+---
+
+Year: 2018
+Citations: 21
+Type: Article
+Venue: NeuroImage
+Title: Discovery and visualization of structural biomarkers from MRI using transport-based morphometry
+Keywords: Aging; Computer-aided detection; Magnetic resonance imaging; Transport-based morphometry
+Abstract: Disease in the brain is often associated with subtle, spatially diffuse, or complex tissue changes that may lie beneath the level of gross visual inspection, even on magnetic resonance imaging (MRI). Unfortunately, current computer-assisted approaches that examine pre-specified features, whether anatomically-defined (i.e. thalamic volume, cortical thickness) or based on pixelwise comparison (i.e. deformation-based methods), are prone to missing a vast array of physical changes that are not well-encapsulated by these metrics. In this paper, we have developed a technique for automated pattern analysis that can fully determine the relationship b...
+
+---
+
+Year: 2021
+Citations: 20
+Type: Article
+Venue: Journal of Mathematical Imaging and Vision
+Title: Radon Cumulative Distribution Transform Subspace Modeling for Image Classification
+Keywords: Generative model; Image classification; Nearest subspace; R-CDT
+Abstract: We present a new supervised image classification method applicable to a broad class of image deformation models. The method makes use of the previously described Radon Cumulative Distribution Transform (R-CDT) for image data, whose mathematical properties are exploited to express the image data in a form that is more suitable for machine learning. While certain operations such as translation, scaling, and higher-order transformations are challenging to model in native image space, we show the R-CDT can capture some of these variations and thus render the associated image classification problems easier to solve. The method—utilizing a nearest-...
+
+---
+
+Year: 2021
+Citations: 19
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: Pooling by Sliced-Wasserstein Embedding
+Abstract: Learning representations from sets has become increasingly important with many applications in point cloud processing, graph learning, image/video recognition, and object detection. We introduce a geometrically-interpretable and generic pooling mechanism for aggregating a set of features into a fixed-dimensional representation. In particular, we treat elements of a set as samples from a probability distribution and propose an end-to-end trainable Euclidean embedding for sliced-Wasserstein distance to learn from set-structured data effectively. We evaluate our proposed pooling method on a wide variety of set-structured data, including point-cl...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Optimal Transport and Related Methods**: Many papers focus on developing and applying optimal transport methods, such as the Wasserstein distance, sliced Wasserstein distance, and transportation-based distances, to various machine learning and computer vision tasks, including image classification, signal analysis, and generative modeling.
+*   **Deep Learning and Neural Networks**: Several papers investigate the application of deep learning and neural networks to various tasks, including image classification, object detection, and generative modeling, with a focus on improving their interpretability and robustness.
+*   **Transfer Learning and Few-Shot Learning**: Some papers explore transfer learning and few-shot learning methods, particularly in the context of synthetic aperture radar (SAR) image classification and other domains where labeled data is scarce.
+*   **Lifelong Learning and Continual Learning**: Recent papers focus on developing lifelong learning and continual learning methods that enable machines to learn continuously and adapt to new tasks and environments.
+*   **Signal and Image Processing**: Several papers apply optimal transport and related methods to signal and image processing tasks, including
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Kolouri_Soheil_55497793500
+
+Publication records (each record is one paper):
+Year: 2023
+Citations: 17
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: Sliced Optimal Partial Transport
+Keywords: Machine learning (other than deep learning)
+Abstract: Optimal transport (OT) has become exceedingly popular in machine learning, data science, and computer vision. The core assumption in the OT problem is the equal total amount of mass in source and target measures, which limits its application. Optimal Partial Transport (OPT) is a recently proposed solution to this limitation. Similar to the OT problem, the computation of OPT relies on solving a linear programming problem (often in high dimensions), which can become computationally prohibitive. In this paper, we propose an efficient algorithm for calculating the OPT problem between two non-negative measures in one dimension. Next, following the...
+
+---
+
+Year: 2019
+Citations: 17
+Type: Conference paper
+Venue: 2019 57th Annual Allerton Conference on Communication, Control, and Computing, Allerton 20...
+Title: Learning a Domain-Invariant Embedding for Unsupervised Domain Adaptation Using Class-Conditioned Distribution Alignment
+Abstract: We address the problem of unsupervised domain adaptation (UDA) by learning a cross-domain agnostic embedding space, where the distance between the probability distributions of the two source and target visual domains is minimized. We use the output space of a shared cross-domain deep encoder to model the embedding space and use the Sliced-Wasserstein Distance (SWD) to measure and minimize the distance between the embedded distributions of two source and target domains to enforce the embedding to be domain-agnostic. Additionally, we use the source domain labeled data to train a deep classifier from the embedding space to the label space to enf...
+
+---
+
+Year: 2018
+Citations: 16
+Type: Conference paper
+Venue: Proceedings of the International Joint Conference on Autonomous Agents and Multiagent Syst...
+Title: Multi-agent distributed lifelong learning for collective knowledge acquisition
+Keywords: Distributed optimization; Lifelong machine learning; Multi-agent collective learning
+Abstract: Lifelong machine learning methods acquire knowledge over a series of consecutive tasks, continually building upon their experience. Current lifelong learning algorithms rely upon a single learning agent that has centralized access to all data. In this paper, we extend the idea of lifelong learning from a single agent to a network of multiple agents that collectively learn a series of tasks. Each agent faces some (potentially unique) set of tasks; the key idea is that knowledge learned from these tasks may benefit other agents tryi ng to learn different (but related) tasks. Our Collective Lifelong Learning Algorithm (C0LLA) provides an efficie...
+
+---
+
+Year: 2014
+Citations: 16
+Type: Article
+Venue: Journal of the Acoustical Society of America
+Title: A statistical-based approach for acoustic tomography of the atmosphere
+Abstract: Acoustic travel-time tomography of the atmosphere is a nonlinear inverse problem which attempts to reconstruct temperature and wind velocity fields in the atmospheric surface layer using the dependence of sound speed on temperature and wind velocity fields along the propagation path. This paper presents a statistical-based acoustic travel-time tomography algorithm based on dual state-parameter unscented Kalman filter (UKF) which is capable of reconstructing and tracking, in time, temperature, and wind velocity fields (state variables) as well as the dynamic model parameters within a specified investigation area. An adaptive 3-D spatial-tempor...
+
+---
+
+Year: 2014
+Citations: 16
+Type: Article
+Venue: IEEE Transactions on Geoscience and Remote Sensing
+Title: Acoustic tomography of the atmosphere using unscented kalman filter
+Keywords: Acoustic tomography; Fractal Brownian motion; Unscented Kalman filter
+Abstract: Acoustic travel-time tomography of the atmosphere is a nonlinear inverse problem which attempts to reconstruct temperature and wind velocity fields in the atmospheric surface layer using the dependence of sound speed on temperature and wind velocity fields along the propagation path. This paper presents a new statistical-based acoustic travel-time tomography algorithm based on unscented Kalman filter (UKF) which is capable of reconstructing and tracking temperature and wind velocity fields (state variables) within a specified investigation area. The method exploits an iterative ray-tracing algorithm to handle situations when straight-ray assu...
+
+---
+
+Year: 2018
+Citations: 13
+Type: Conference paper
+Venue: 32nd AAAI Conference on Artificial Intelligence, AAAI 2018
+Title: Joint dictionaries for zero-shot learning
+Abstract: A classic approach toward zero-shot learning (ZSL) is to map the input domain to a set of semantically meaningful attributes that could be used later on to classify unseen classes of data (e.g. visual data). In this paper, we propose to learn a visual feature dictionary that has semantically meaningful atoms. Such a dictionary is learned via joint dictionary learning for the visual domain and the attribute domain, while enforcing the same sparse coding for both dictionaries. Our novel attribute aware formulation provides an algorithmic solution to the domain shift/hubness problem in ZSL. Upon learning the joint dictionaries, images from unsee...
+
+---
+
+Year: 2024
+Citations: 12
+Type: Conference paper
+Venue: 12th International Conference on Learning Representations, ICLR 2024
+Title: NOLA: COMPRESSING LORA USING LINEAR COMBINATION OF RANDOM BASIS
+Abstract: Fine-tuning Large Language Models (LLMs) and storing them for each downstream task or domain is impractical because of the massive model size (e.g., 350GB in GPT-3). Current literature, such as LoRA, showcases the potential of low-rank modifications to the original weights of an LLM, enabling efficient adaptation and storage for task-specific models. These methods can reduce the number of parameters needed to fine-tune an LLM by several orders of magnitude. Yet, these methods face two primary limitations: (1) the parameter count is lower-bounded by the rank one decomposition, and (2) the extent of reduction is heavily influenced by both the m...
+
+---
+
+Year: 2022
+Citations: 12
+Type: Article
+Venue: Machine Learning with Applications
+Title: Zero-shot image classification using coupled dictionary embedding
+Keywords: Coupled dictionary learning; Domain-shift; Hubness; Semantic attribute embedding; Zero shot learning
+Abstract: Zero-shot learning (ZSL) is a framework to classify images that belong to unseen visual classes using their semantic descriptions about the unseen classes. We develop a new ZSL algorithm based on coupled dictionary learning. The core idea is to enforce the visual features and the semantic attributes of an image to share the same sparse representation in an intermediate embedding space, modeled as the shared input space of two sparsifying dictionaries. In the ZSL training stage, we use images from a number of seen classes for which we have access to both the visual and the semantic attributes to train two coupled dictionaries that can represen...
+
+---
+
+Year: 2025
+Citations: 11
+Type: Article
+Venue: Neural Networks
+Title: Wasserstein task embedding for measuring task similarities
+Keywords: Continual learning; Dataset similarity; Optimal transport; Task embedding; Transfer learning
+Abstract: Measuring similarities between different tasks is critical in a broad spectrum of machine learning problems, including transfer, multi-task, continual, and meta-learning. Most current approaches to measuring task similarities are architecture-dependent: (1) relying on pre-trained models, or (2) training networks on tasks and using forward transfer as a proxy for task similarity. In this paper, we leverage the optimal transport theory and define a novel task embedding for supervised classification that is model-agnostic, training-free, and capable of handling (partially) disjoint label sets. In short, given a dataset with ground-truth labels,...
+
+---
+
+Year: 2023
+Citations: 11
+Type: Conference paper
+Venue: IEEE Power and Energy Society General Meeting
+Title: Learning to Optimize Distributed Optimization: ADMM-based DC-OPF Case Study
+Keywords: Alternating Direction Method of Multipliers (ADMM); DC optimal power flow; learning to optimize; machine learning; neural network
+Abstract: The decision-making paradigms of future energy systems are increasingly becoming decentralized and multi-entity/agent. The Alternating Direction Method of Multipliers (ADMM) has been widely used to address the computational needs of decentralized decision-making problems, e.g., optimal power flow (OPF). In this paper, we propose a novel data-driven method to accelerate the convergence of ADMM for decentralized DC-OPF, where our optimizer will learn the iterative behavior of agents to produce a high-quality feasible solution. The proposed method utilizes the gauge maps to enforce feasibility with respect to agents' local constraints while iter...
+
+---
+
+Year: 2020
+Citations: 10
+Type: Article
+Venue: Neural Networks
+Title: Neuromodulated attention and goal-driven perception in uncertain domains
+Keywords: Contrastive excitation backprop; Goal-driven perception; Neuromodulation; Top-down attention; Uncertainty
+Abstract: In uncertain domains, the goals are often unknown and need to be predicted by the organism or system. In this paper, contrastive Excitation Backprop (c-EB) was used in two goal-driven perception tasks – one with pairs of noisy MNIST digits and the other with a robot in an action-based attention scenario. The first task included attending to even, odd, low, and high digits, whereas the second task included action goals, such as “eat”, “work-on-computer”, “read”, and “say-hi” that led to attention to objects associated with those actions. The system needed to increase attention to target items and decrease attention to distractor items and back...
+
+---
+
+Year: 2022
+Citations: 9
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: SPARSITY AND HETEROGENEOUS DROPOUT FOR CONTINUAL LEARNING IN THE NULL SPACE OF NEURAL ACTIVATIONS
+Abstract: Continual/lifelong learning from a non-stationary input data stream is a cornerstone of intelligence. Despite their phenomenal performance in a wide variety of applications, deep neural networks are prone to forgetting their previously learned information upon learning new ones. This phenomenon is called “catastrophic forgetting” and is deeply rooted in the stability-plasticity dilemma. Overcoming catastrophic forgetting in deep neural networks has become an active field of research in recent years. In particular, gradient projection-based methods have recently shown exceptional performance at overcoming catastrophic forgetting. This paper pr...
+
+---
+
+Year: 2022
+Citations: 9
+Type: Conference paper
+Venue: ICASSP, IEEE International Conference on Acoustics, Speech and Signal Processing - Proceed...
+Title: GENERALIZED SLICED PROBABILITY METRICS
+Keywords: gradient flows; Sliced probability metrics
+Abstract: Sliced probability metrics have become increasingly popular in machine learning, and they play a quintessential role in various applications, including statistical hypothesis testing and generative modeling. However, in a practical setting, the convergence behavior of the algorithms built upon these distances have not been well established, except for a few specific cases. In this paper, we introduce a new family of sliced probability metrics, namely Generalized Sliced Probability Metrics (GSPMs), based on the idea of slicing high-dimensional distributions into a set of their one-dimensional marginals. We show that GSPMs are true metrics, and...
+
+---
+
+Year: 2021
+Citations: 9
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: Lifelong Learning with Sketched Structural Regularization
+Keywords: Lifelong learning; machine learning; online learning; sketching
+Abstract: Preventing catastrophic forgetting while continually learning new tasks is an essential problem in lifelong learning. Structural regularization (SR) refers to a family of algorithms that mitigate catastrophic forgetting by penalizing the network for changing its “critical parameters” from previous tasks while learning a new one. The penalty is often induced via a quadratic regularizer defined by an importance matrix, e.g., the (empirical) Fisher information matrix in the Elastic Weight Consolidation framework. In practice and due to computational constraints, most SR methods crudely approximate the importance matrix by its diagonal. In this p...
+
+---
+
+Year: 2023
+Citations: 8
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: Characterizing Out-of-Distribution Error via Optimal Transport
+Abstract: Out-of-distribution (OOD) data poses serious challenges in deployed machine learning models, so methods of predicting a model's performance on OOD data without labels are important for machine learning safety. While a number of methods have been proposed by prior work, they often underestimate the actual error, sometimes by a large margin, which greatly impacts their applicability to real tasks. In this work, we identify pseudo-label shift, or the difference between the predicted and true OOD label distributions, as a key indicator of this under-estimation. Based on this observation, we introduce a novel method for estimating model performanc...
+
+---
+
+Year: 2025
+Citations: 7
+Type: Article
+Venue: Composites Part A: Applied Science and Manufacturing
+Title: An inverse design framework for optimizing tensile strength of composite materials based on a CNN surrogate for the phase field fracture model
+Keywords: Convolutional neural network; Deep learning surrogate; Inverse design; Microstructure; Phase-field fracture model
+Abstract: This paper introduces a novel inverse design framework that combines a convolutional neural network (CNN) surrogate for the phase field fracture model with a differentiable simulator to optimize two-phase composite microstructures. The CNN surrogate accurately predicts the damage-influenced stress fields from the composite microstructure images, whereas the simulator generates these images given the composite material design parameters, preserving crucial gradient information. This integration enables efficient optimization of microstructure designs through gradient descent-based methods. We demonstrate that our framework can significantly en...
+
+---
+
+Year: 2019
+Citations: 7
+Type: Conference paper
+Venue: IEEE International Workshop on Machine Learning for Signal Processing, MLSP
+Title: Collaborative Learning Through Shared Collective Knowledge and Local Expertise
+Keywords: Collaborative Learning; Local Expertise
+Abstract: Collaborative lifelong learning for collective knowledge acquisition has recently attracted plethora of attention from various societies. Life long learning is rooted in continuous learning over a series of consecutive tasks. The learning tasks can be carried out by a single agent with access to a complete set of information or collaborative agents with restricted access to partial data sets. Existing lifelong learning methods are mostly based on centralized learning structure, which may limit applicability in most real settings. In this paper, we introduce a novel collaborative learning approach that relies on shared collective knowledge whi...
+
+---
+
+Year: 2012
+Citations: 7
+Type: Conference paper
+Venue: European Signal Processing Conference
+Title: Acoustic tomography of the atmosphere using unscented Kalman filter
+Keywords: Acoustic Tomography; Unscented Kalman Filter; Unscented Transform
+Abstract: Acoustic travel-time tomography of the atmosphere is a nonlinear inverse problem which attemps to reconstruct temperature and wind velocity fields in the atmospheric surface layer (ASL) using the dependence of sound speed on temperature and wind velocity fields along the propagation path. A new statistical-based algorithm is introduced in this paper based on fixed-point unscented Kalman filter (UKF) which is capable of reconstructing and tracking temperature and wind velocity fields within a specified investigation area. © 2012 EURASIP.
+
+---
+
+Year: 2024
+Citations: 6
+Type: Conference paper
+Venue: Proceedings - 2024 IEEE Winter Conference on Applications of Computer Vision, WACV 2024
+Title: SLoSH: Set Locality Sensitive Hashing via Sliced-Wasserstein Embeddings
+Keywords: Algorithms; and algorithms; formulations; Machine learning architectures
+Abstract: Learning from set-structured data is an essential problem with many applications in machine learning and computer vision. This paper focuses on a non-parametric, data-independent, and efficient learning algorithm from setstructured data using optimal transport and approximate nearest neighbor (ANN) solutions, particularly localitysensitive hashing. We consider the problem of set retrieval from an input set query. This retrieval problem requires 1) an efficient mechanism to calculate the distances/dissimilarities between sets and 2) an appropriate data structure for a fast nearest-neighbor search. To that end, we propose to use Sliced-Wasserst...
+
+---
+
+Year: 2024
+Citations: 6
+Type: Article
+Venue: IEEE Access
+Title: Teaching Networks to Solve Optimization Problems
+Keywords: deep set learning; Machine learning for optimization
+Abstract: Leveraging machine learning to facilitate the optimization process is an emerging field that holds the promise to bypass the fundamental computational bottleneck caused by classic iterative solvers in critical applications requiring near-real-time optimization. The majority of existing approaches focus on learning data-driven optimizers that lead to fewer iterations in solving an optimization. In this paper, we take a different approach and propose to replace the iterative solvers altogether with a trainable parametric set function, that outputs the optimal arguments/parameters of an optimization problem in a single feed forward. We denote ou...
+
+---
+
+Year: 2023
+Citations: 6
+Type: Article
+Venue: IEEE Signal Processing Letters
+Title: Multi-Agent Lifelong Implicit Neural Learning
+Keywords: Continual learning; implicit neural representations; lifelong learning; multi-agent systems
+Abstract: Implicit neural representations (INRs) have emerged as powerful tools for the continuous representation of signals, finding applications in imaging, computer graphics, and signal compression. Additionally, decentralized multi-agent systems are crucial in various applications, frequently leading to enhanced reliability and efficiencies in computation and communication. In this letter, we explore using multi-agent Lifelong Learning (LL) systems for learning INRs. We propose a rigorous problem setup and evaluation plan to investigate the efficacy of such systems compared to single-agent and multi-task learning baselines. Our research, conducted...
+
+---
+
+Year: 2020
+Citations: 6
+Type: Article
+Venue: Frontiers in Neurorobotics
+Title: Detecting Changes and Avoiding Catastrophic Forgetting in Dynamic Partially Observable Environments
+Keywords: catastrophic forgetting; continual learning; lifelong learning; neural network; POMDP; PSR
+Abstract: The ability of an agent to detect changes in an environment is key to successful adaptation. This ability involves at least two phases: learning a model of an environment, and detecting that a change is likely to have occurred when this model is no longer accurate. This task is particularly challenging in partially observable environments, such as those modeled with partially observable Markov decision processes (POMDPs). Some predictive learners are able to infer the state from observations and thus perform better with partial observability. Predictive state representations (PSRs) and neural networks are two such tools that can be trained to...
+
+---
+
+Year: 2017
+Citations: 6
+Type: Conference paper
+Venue: IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops
+Title: Explaining Distributed Neural Activations via Unsupervised Learning
+Abstract: Recent work has demonstrated the emergence of semantic object-part detectors in activation patterns of convolutional neural networks (CNNs), but did not account for the distributed multi-layer neural activations in such networks. In this work, we propose a novel method to extract distributed patterns of activations from a CNN and show that such patterns correspond to high-level visual attributes. We propose an unsupervised learning module that sits above a pre-trained CNN and learns distributed activation patterns of the network. We utilize elastic non-negative matrix factorization to analyze the responses of a pretrained CNN to an input imag...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Article
+Venue: Transactions on Machine Learning Research
+Title: Lifelong Reinforcement Learning with Modulating Masks
+Abstract: Lifelong learning aims to create AI systems that continuously and incrementally learn during a lifetime, similar to biological learning. Attempts so far have met problems, including catastrophic forgetting, interference among tasks, and the inability to exploit previous knowledge. While considerable research has focused on learning multiple supervised classification tasks that involve changes in the input distribution, lifelong reinforcement learning (LRL) must deal with variations in the state and transition distributions, and in the reward functions. Modulating masks with a fixed backbone network, recently developed for classification, are...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Conference paper
+Venue: Proceedings of the IEEE International Conference on Computer Vision
+Title: PRANC: Pseudo RAndom Networks for Compacting deep models
+Abstract: We demonstrate that a deep model can be reparametrized as a linear combination of several randomly initialized and frozen deep models in the weight space. During training, we seek local minima that reside within the subspace spanned by these random models (i.e., 'basis' networks). Our framework, PRANC, enables significant compaction of a deep model. The model can be reconstructed using a single scalar'seed,' employed to generate the pseudo-random 'basis' networks, together with the learned linear mixture coefficients. In practical applications, PRANC addresses the challenge of efficiently storing and communicating deep models, a common bottl...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: SHARING LIFELONG REINFORCEMENT LEARNING KNOWLEDGE VIA MODULATING MASKS
+Abstract: Lifelong learning agents aim to learn multiple tasks sequentially over a lifetime. This involves the ability to exploit previous knowledge when learning new tasks and to avoid forgetting. Recently, modulating masks, a specific type of parameter isolation approach, have shown promise in both supervised and reinforcement learning. While lifelong learning algorithms have been investigated mainly within a single-agent approach, a question remains on how multiple agents can share lifelong learning knowledge with each other. We show that the parameter isolation mechanism used by modulating masks is particularly suitable for exchanging knowledge amo...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Conference paper
+Venue: ICASSP, IEEE International Conference on Acoustics, Speech and Signal Processing - Proceed...
+Title: Is Multi-Task Learning an Upper Bound for Continual Learning?
+Keywords: Continual Learning; Multi-Task Learning; Self Supervised Learning
+Abstract: Continual learning and multi-task learning are commonly used machine learning techniques for learning from multiple tasks. However, existing literature assumes multi-task learning as a reasonable performance upper bound for various continual learning algorithms, without rigorous justification. Additionally, in a multi-task setting, a small subset of tasks may behave as adversarial tasks, negatively impacting overall learning performance. On the other hand, continual learning approaches can avoid the negative impact of adversarial tasks and maintain performance on the remaining tasks, resulting in better performance than multi-task learning. T...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: Linear Optimal Partial Transport Embedding
+Abstract: Optimal transport (OT) has gained popularity due to its various applications in fields such as machine learning, statistics, and signal processing. However, the balanced mass requirement limits its performance in practical problems. To address these limitations, variants of the OT problem, including unbalanced OT, Optimal partial transport (OPT), and Hellinger Kantorovich (HK), have been proposed. In this paper, we propose the Linear optimal partial transport (LOPT) embedding, which extends the (local) linearization technique on OT and HK to the OPT problem. The proposed embedding allows for faster computation of OPT distance between pairs of...
+
+---
+
+Year: 2020
+Citations: 4
+Type: Article
+Venue: IEEE Signal Processing Magazine
+Title: Neural Networks, Hypersurfaces, and the Generalized Radon Transform [Lecture Notes]
+Abstract: Artificial neural networks (ANNs) have long been used as a mathematical modeling method and have recently found numerous applications in science and technology, including computer vision, signal processing, and machine learning [1], to name a few. Although notable function approximation results exist [2], theoretical explanations have yet to catch up with newer developments, particularly with regard to (deep) hierarchical learning. As a consequence, numerous doubts often accompany NN practitioners, such as How many layers should one use? What is the effect of different activation functions? What are the effects of pooling? and many others. ©...
+
+---
+
+Year: 2025
+Citations: 3
+Type: Article
+Venue: Sampling Theory, Signal Processing, and Data Analysis
+Title: Partial transport for point-cloud registration
+Keywords: Non-rigid registration; Optimal transport; Point cloud registration; Unbalanced optimal transport
+Abstract: Point cloud registration is an important task in fields like robotics, computer graphics, and medical imaging, involving the determination of spatial relationships between point sets in 3D space. Real-world challenges, such as non-rigid movements and partial visibility, including occlusions and sensor noise, make non-rigid registration particularly difficult. Traditional methods are often computationally intensive, exhibit unstable performance, and lack strong theoretical guarantees. Recently, the optimal transport problem, including its unbalanced variations like the optimal partial transport problem, has emerged as a powerful tool for point...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recogni...
+Title: BrainWash: A Poisoning Attack to Forget in Continual Learning
+Keywords: continual learning; poisoning attack
+Abstract: Continual learning has gained substantial attention within the deep learning community, offering promising solutions to the challenging problem of sequential learning. Yet, a largely unexplored facet of this paradigm is its susceptibility to adversarial attacks, especially with the aim of inducing forgetting. In this paper, we introduce 'Brain-Wash,' a novel data poisoning method tailored to impose forgetting on a continual learner. By adding the Brain-Wash noise to a variety of baselines, we demonstrate how a trained continual learner can be induced to forget its previously learned tasks catastrophically, even when using these continual lear...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: Stereographic Spherical Sliced Wasserstein Distances
+Abstract: Comparing spherical probability distributions is of great interest in various fields, including geology, medical domains, computer vision, and deep representation learning. The utility of optimal transport-based distances, such as the Wasserstein distance, for comparing probability measures has spurred active research in developing computationally efficient variations of these distances for spherical probability measures. This paper introduces a high-speed and highly parallelizable distance for comparing spherical measures using the stereographic projection and the generalized Radon transform, which we refer to as the Stereographic Spherical...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Article
+Venue: Scientific Reports
+Title: Enhancing the image quality of blue light cystoscopy through green-hue correction and fogginess removal
+Abstract: Blue light cystoscopy (BLC) is a guideline-recommended endoscopic tool to detect bladder cancer with high sensitivity. Having clear, high-quality images during cystoscopy is crucial to the sensitive, efficient detection of bladder tumors; yet, important diagnostic information is often missed or poorly visualized in images containing illumination artifacts or impacted by impurities in the bladder. In this study, we introduce computational methods to remove two common artifacts in images from BLC videos: green hue and fogginess. We also evaluate the effect of artifact removal on the perceptual quality of the BLC images through a survey study an...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Optimal Transport (OT)**: Several papers (2023, 2025, 2024, 2023) apply OT concepts to solve problems in machine learning, computer vision, and signal processing.
+*   **Continual/Lifelong Learning**: Many papers (2018, 2022, 2022, 2021, 2023, 2023, 2023, 2020) focus on developing methods for continual learning, addressing issues like catastrophic forgetting and knowledge sharing.
+*   **Deep Learning and Neural Networks**: Papers (2020, 2023, 2023, 2023) explore applications and theoretical aspects of deep learning, including neural network architectures and optimization methods.
+*   **Signal Processing and Image Analysis**: Works (2014, 2014, 2024, 2024, 2023) apply signal processing and image analysis techniques to problems in acoustics, computer vision, and medical imaging.
+*   **Machine Learning and Optimization**: Various papers (2023
+
+Chunk 3:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Kolouri_Soheil_55497793500
+
+Publication records (each record is one paper):
+Year: 2015
+Citations: 3
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: A symmetric deformation-based similarity measure for shape analysis
+Keywords: image registration; machine learning; Shape analysis
+Abstract: Statistical modeling of cellular/subcellular shapes is required for quantifying shape variations and understanding complex cell behaviors. Such statistical models rely on the choice of a proper similarity measure. In this paper we introduce a symmetric deformation-based similarity measure for cellular shape analysis. The proposed method is based on finding an optimal diffeomorphic mapping between shape images that minimizes a physically meaningful energy function. We compare our proposed method to the large deformation dif-feomorphic metric mapping (LDDMM) and the standard Euclidean metric on a nuclei dataset and show that the proposed method...
+
+---
+
+Year: 2025
+Citations: 2
+Type: Article
+Venue: International Journal of Computer Assisted Radiology and Surgery
+Title: Zero-shot prompt-based video encoder for surgical gesture recognition
+Keywords: Cross-task learning; Prompt engineering; Surgical gesture recognition; Zero-shot learning
+Abstract: Purpose: In order to produce a surgical gesture recognition system that can support a wide variety of procedures, either a very large annotated dataset must be acquired, or fitted models must generalize to new labels (so-called zero-shot capability). In this paper we investigate the feasibility of latter option. Methods: Leveraging the bridge-prompt framework, we prompt-tune a pre-trained vision-text model (CLIP) for gesture recognition in surgical videos. This can utilize extensive outside video data such as text, but also make use of label meta-data and weakly supervised contrastive losses. Results: Our experiments show that prompt-based vi...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Article
+Venue: Communications Medicine
+Title: Low-cost and label-free blue light cystoscopy through digital staining of white light cystoscopy videos
+Abstract: Background: Bladder cancer is the 10th most common malignancy and carries the highest treatment cost among all cancers. The elevated cost stems from its high recurrence rate, which necessitates frequent surveillance. White light cystoscopy (WLC), the standard of care surveillance tool to examine the bladder for lesions, has limited sensitivity for early-stage bladder cancer. Blue light cystoscopy (BLC) utilizes a fluorescent dye to induce contrast in cancerous regions, improving the sensitivity of detection by 43%. Nevertheless, the added equipment cost and lengthy dwell time of the dye limits the availability of BLC. Methods: Here, we report...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: NeuroBOLT: Resting-state EEG-to-fMRI Synthesis with Multi-dimensional Feature Mapping
+Abstract: Functional magnetic resonance imaging (fMRI) is an indispensable tool in modern neuroscience, providing a non-invasive window into whole-brain dynamics at millimeter-scale spatial resolution. However, fMRI is constrained by issues such as high operation costs and immobility. With the rapid advancements in cross-modality synthesis and brain decoding, the use of deep neural networks has emerged as a promising solution for inferring whole-brain, high-resolution fMRI features directly from electroencephalography (EEG), a more widely accessible and portable neuroimaging modality. Nonetheless, the complex projection from neural activity to fMRI hem...
+
+---
+
+Year: 2016
+Citations: 2
+Type: Article
+Venue: Journal of Voice
+Title: Quantification of Respiratory Laryngeal Morphometry: Comparison of Laryngeal Lumen Angle Estimate Methods
+Keywords: laryngeal breathing disorders; laryngeal configuration; laryngeal morphometrics; paradoxical vocal fold movement disorder; quantitative measurement methods; respiration; vocal cord...
+Abstract: Objectives Evaluate the effects of (1) laryngeal configuration, (2) image barrel distortion, and (3) lens perspective on the accuracy of anterior and posterolateral laryngeal lumen angle morphometric estimates. Study Design Prospective, repeated-measures. Methods Twenty-four (24) excised canine larynges were manipulated across four different length-by-width configurations to evaluate the influence of laryngeal configuration on relative precision of three laryngeal morphometric angle estimate methods. Physical measurements of the laryngeal specimens were compared (statistically and descriptively) with corresponding unadjusted and barrel-distor...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: 13th International Conference on Learning Representations, ICLR 2025
+Title: MCNC: MANIFOLD-CONSTRAINED REPARAMETERIZATION FOR NEURAL COMPRESSION
+Abstract: The outstanding performance of large foundational models across diverse tasks, from computer vision to speech and natural language processing, has significantly increased their demand. However, storing and transmitting these models poses significant challenges due to their massive size (e.g., 750GB for Llama 3.1 405B). Recent literature has focused on compressing the original weights or reducing the number of parameters required for fine-tuning these models. These compression methods generally constrain the parameter space, for example, through low-rank reparametrization (e.g., LoRA), pruning, or quantization (e.g., QLoRA) during or after the...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Conference paper
+Venue: 12th International Conference on Learning Representations, ICLR 2024
+Title: LCOT: LINEAR CIRCULAR OPTIMAL TRANSPORT
+Abstract: The optimal transport problem for measures supported on non-Euclidean spaces has recently gained ample interest in diverse applications involving representation learning. In this paper, we focus on circular probability measures, i.e., probability measures supported on the unit circle, and introduce a new computationally efficient metric for these measures, denoted as Linear Circular Optimal Transport (LCOT). The proposed metric comes with an explicit linear embedding that allows one to apply Machine Learning (ML) algorithms to the embedded measures and seamlessly modify the underlying metric for the ML algorithm to LCOT. We show that the prop...
+
+---
+
+Year: 2020
+Citations: 1
+Type: Conference paper
+Venue: Proceedings of SPIE - The International Society for Optical Engineering
+Title: Sar automatic target recognition with less labels
+Keywords: Atr; Deep learning; Learning with less labels; Sar; Self consistency; Self-supervised learning
+Abstract: Synthetic-Aperture-Radar (SAR) is a commonly used modality in mission-critical remote-sensing applications, including battlefield intelligence, surveillance, and reconnaissance (ISR). Processing SAR sensory inputs with deep learning is challenging because deep learning methods generally require large training datasets and high- quality labels, which are expensive for SAR. In this paper, we introduce a new approach for learning from SAR images in the absence of abundant labeled SAR data. We demonstrate that our geometrically-inspired neural architecture, together with our proposed self-supervision scheme, enables us to leverage the unlabeled S...
+
+---
+
+Year: 2014
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Quantifying and visualizing variations in sets of images using continuous linear optimal transport
+Keywords: Appearance modeling; Nuclear morphology; Optimal transport
+Abstract: Modern advancements in imaging devices have enabled us to explore the subcellular structure of living organisms and extract vast amounts of information. However, interpreting the biological information mined in the captured images is not a trivial task. Utilizing predetermined numerical features is usually the only hope for quantifying this information. Nonetheless, direct visual or biological interpretation of results obtained from these selected features is non-intuitive and difficult. In this paper, we describe an automatic method for modeling visual variations in a set of images, which allows for direct visual interpretation of the most s...
+
+---
+
+Year: 2014
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Novel computer-aided diagnosis of mesothelioma using nuclear structure of mesothelial cells in effusion cytology specimens
+Keywords: cancer detection; classification; cytology; Mesothelioma; nuclear structure
+Abstract: diagnostic standard is a pleural biopsy with subsequent histologic examination of the tissue demonstrating invasion by the tumor. The diagnostic tissue is obtained through thoracoscopy or open thoracotomy, both being highly invasive procedures. Thoracocenthesis, or removal of effusion fluid from the pleural space, is a far less invasive procedure that can provide material for cytological examination. However, it is insufficient to definitively confirm or exclude the diagnosis of malignant mesothelioma, since tissue invasion cannot be determined. In this study, we present a computerized method to detect and classify malignant mesothelioma base...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Artificial Intelligence Review
+Title: Knowledge distillation and dataset distillation of large language models: emerging trends, challenges, and future directions
+Keywords: Dataset distillation; Efficiency; Knowledge distillation; Large language models; Model compression; Survey
+Abstract: The exponential growth of Large Language Models (LLMs) continues to highlight the need for efficient strategies to meet ever-expanding computational and data demands. This survey provides a comprehensive analysis of two complementary paradigms: Knowledge Distillation (KD) and Dataset Distillation (DD), both aimed at compressing LLMs while preserving their advanced reasoning capabilities and linguistic diversity. We first examine key methodologies in KD, such as task-specific alignment, rationale-based training, and multi-teacher frameworks, alongside DD techniques that synthesize compact, high-impact datasets through optimization-based gradie...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: ESPFormer: Doubly-Stochastic Attention with Expected Sliced Transport Plans
+Abstract: While self-attention has been instrumental in the success of Transformers, it can lead to overconcentration on a few tokens during training, resulting in suboptimal information flow. Enforcing doubly-stochastic constraints in attention matrices has been shown to improve structure and balance in attention distributions. However, existing methods rely on iterative Sinkhorn normalization, which is computationally costly. In this paper, we introduce a novel, fully parallelizable doublystochastic attention mechanism based on sliced optimal transport, leveraging Expected Sliced Transport Plans (ESP). Unlike prior approaches, our method enforces dou...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: 13th International Conference on Learning Representations, ICLR 2025
+Title: LINEAR PARTIAL GROMOV-WASSERSTEIN EMBEDDING
+Abstract: The Gromov-Wasserstein (GW) problem, a variant of the classical optimal transport (OT) problem, has attracted growing interest in the machine learning and data science communities due to its ability to quantify similarity between measures in different metric spaces. However, like the classical OT problem, GW imposes an equal mass constraint between measures, which restricts its application in many machine learning tasks. To address this limitation, the partial Gromov-Wasserstein (PGW) problem has been introduced. It relaxes the equal mass constraint, allowing the comparison of general positive Radon measures. Despite this, both GW and PGW fac...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: 13th International Conference on Learning Representations, ICLR 2025
+Title: EXPECTED SLICED TRANSPORT PLANS
+Abstract: The optimal transport (OT) problem has gained significant traction in modern machine learning for its ability to: (1) provide versatile metrics, such as Wasserstein distances and their variants, and (2) determine optimal couplings between probability measures. To reduce the computational complexity of OT solvers, methods like entropic regularization and sliced optimal transport have been proposed. The sliced OT framework improves efficiency by comparing one-dimensional projections (slices) of high-dimensional distributions. However, despite their computational efficiency, sliced-Wasserstein approaches lack a transport plan between the input m...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: 13th International Conference on Learning Representations, ICLR 2025
+Title: LINEAR SPHERICAL SLICED OPTIMAL TRANSPORT: A FAST METRIC FOR COMPARING SPHERICAL DATA
+Abstract: Efficient comparison of spherical probability distributions becomes important in fields such as computer vision, geosciences, and medicine. Sliced optimal transport distances, such as spherical and stereographic spherical sliced Wasserstein distances, have recently been developed to address this need. These methods reduce the computational burden of optimal transport by slicing hyperspheres into one-dimensional projections, i.e., lines or circles. Concurrently, linear optimal transport has been proposed to embed distributions into L2 spaces, where the L2 distance approximates the optimal transport distance, thereby simplifying comparisons acr...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: 13th International Conference on Learning Representations, ICLR 2025
+Title: Partial Gromov-Wasserstein Metric
+Abstract: The Gromov-Wasserstein (GW) distance has gained increasing interest in the machine learning community in recent years, as it allows for the comparison of measures in different metric spaces. To overcome the limitations imposed by the equal mass requirements of the classical GW problem, researchers have begun exploring its application in unbalanced settings. However, Unbalanced GW (UGW) can only be regarded as a discrepancy rather than a rigorous metric/distance between two metric measure spaces (mm-spaces). In this paper, we propose a particular case of the UGW problem, termed Partial Gromov-Wasserstein (PGW). We establish that PGW is a well-...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Digital Twin Modeling and Machine Learning Frameworks for Forecasting Multiple Microwave Ablation Volumes
+Keywords: Computational Model; Digital Twin; Liver; Machine Learning; Microwave Ablation
+Abstract: Computational tools, such as "digital twin" modeling, are facilitating patient-specific surgical planning for ablative therapies in treating hepatocellular carcinoma. In microwave ablation (MWA), various tissue-specific factors-like tissue perfusion, material properties, and disease state-affect ablative outcomes, which current thermal dosing guidelines often overlook. Moreover, adaptive strategies such as multi-antenna thermal ablation enhance MWA for larger or complex tumors. The biophysical interaction between simultaneously activated multiple ablation probes results in unique, fused ablation zones that differ from individual probe activat...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: STATISTICAL CONTEXT DETECTION FOR DEEP LIFELONG REINFORCEMENT LEARNING
+Abstract: Context detection involves labeling segments of an online stream of data as belonging to different tasks. Task labels are used in lifelong learning algorithms to perform consolidation or other procedures that prevent catastrophic forgetting. Inferring task labels from online experiences remains a challenging problem. Most approaches assume finite and low-dimension observation spaces or a preliminary training phase during which task labels are learned. Moreover, changes in the transition or reward functions can be detected only in combination with a policy, and therefore are more difficult to detect than changes in the input distribution. This...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of Machine Learning Research
+Title: Equivariant vs. Invariant Layers: A Comparison of Backbone and Pooling for Point Cloud Classification
+Abstract: Learning from set-structured data, such as point clouds, has gained significant attention from the machine learning community. Geometric deep learning provides a blueprint for designing effective set neural networks that preserve the permutation symmetry of set-structured data. Of our interest are permutation invariant networks, which are composed of a permutation equivariant backbone, permutation invariant global pooling, and regression/classification head. While existing literature has focused on improving equivariant backbones, the impact of the pooling layer is often overlooked. In this paper, we examine the interplay between permutation...
+
+---
+
+Year: 2020
+Citations: 0
+Type: Book chapter
+Venue: Domain Adaptation in Computer Vision with Deep Learning
+Title: Domain Adaptation via Image to Image Translation
+Keywords: Cyclic consistency; Domain adaptation; Image to image translation
+Abstract: Unsupervised Domain Adaptation (UDA) has recently attracted a lot of attention from the computer vision community. In this chapter, we review a general framework for UDA, which allows deep neural networks trained on a source domain to be tested on a different target domain without requiring any training annotations in the target domain. UDA is a challenging problem, as it aims at overcoming the potentially large difference between source and target data distributions, which is known as the “domain gap.” Here we propose a general UDA algorithm by adding extra networks and losses that help regularize the features extracted by the backbone encod...
+
+---
+
+Year: 2017
+Citations: 0
+Type: Conference paper
+Venue: IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops
+Title: Automatic Tactical Adjustment in Real-Time: Modeling Adversary Formations with Radon-Cumulative Distribution Transform and Canonical Correlation Analysis
+Abstract: In this paper we introduce two fundamentally different techniques for optimizing counter formations in team sports. In the first technique, we use canonical correlation analysis (CCA) to learn an 'explicit' relationship between offensive and defensive formations. We then use the learned CCA components to make predictions about players' spatial position. Experimenting with the basketball dataset (NBA season 2012-2013) we are able to predict players' positions with high precision. In the second technique, we create an image-based representation of the player movements relative to the ball. The mentioned representation enables coaches to assess...
+
+---
+
+Year: 2015
+Citations: 0
+Type: Conference paper
+Venue: Optics InfoBase Conference Papers
+Title: PCA-Based Super-Resolution in Transport Space
+Abstract: In this paper, we describe a single frame super-resolution technique for reconstructing high-resolution face images from their very low-resolution counterparts. Our technique is based on learning a subspace for high-resolution images in the transport space. © 2015 OSA.
+
+---
+
+Year: 2014
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of the IEEE Annual Northeast Bioengineering Conference, NEBEC
+Title: Temporal information inference from static high-content fluorescent microscopy
+Keywords: Isomap; Optimal transport; Time-lapse microscopy
+Abstract: Recent advancements in high content fluorescent microscopy have enabled us to capture large amounts of cellular/sub-cellular information in a single snapshot. In this paper, we propose a method to infer temporal information from static high content fluorescent microscopy images. The proposed method is based on low dimensional embedding of the optimal transport manifold and enables simulation of time-lapse microscopy images from static data. We demonstrate the application of the method on a dataset of bone marrow extracted macrophages to simulate video realistic results from static images. © 2014 IEEE.
+
+---
+
+Year: 2014
+Citations: 0
+Type: Conference paper
+Venue: 2014 IEEE 11th International Symposium on Biomedical Imaging, ISBI 2014
+Title: Learning and visualizing statistical relationships between protein distributions from microscopy images
+Keywords: Canonical correlation analysis; Optimal transport; Organelle morphology; Protein distributions; Subcellular localization
+Abstract: Multichannel microscopy has emerged as a technique for imaging multiple targets (molecules, protein distributions, etc.) simultaneously. Discovering the relative changes in these targets (i.e. distribution of different proteins) is fundamental for understanding cell structure and function. We describe a new method for quantifying and visualizing relationships between multiple targets, from a set of segmented multichannel cells. The method is based on combining the canonical correlation analysis technique with a framework for analyzing images based on the concept of optimal mass transportation. We apply the method towards understanding chromat...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Optimal Transport and Similarity Measures**: 
+    *   Introduced a symmetric deformation-based similarity measure for shape analysis (2015)
+    *   Developed Linear Circular Optimal Transport (LCOT) for circular probability measures (2024)
+    *   Proposed Linear Spherical Sliced Optimal Transport for comparing spherical probability distributions (2025)
+    *   Investigated the Partial Gromov-Wasserstein (PGW) problem for comparing measures in different metric spaces (2025)
+*   **Deep Learning and Computer Vision**: 
+    *   Applied deep learning to image registration and shape analysis (2015)
+    *   Used deep learning for surgical gesture recognition (2025)
+    *   Explored domain adaptation via image-to-image translation (2020)
+    *   Examined equivariant vs. invariant layers for point cloud classification (2024)
+*   **Medical Imaging and Applications**: 
+    *   Developed a method for quantifying and visualizing variations in sets of images using continuous linear optimal transport (2014)
+    *
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Soheil Kolouri is a researcher with a focus on developing and applying optimal transport methods to various machine learning and computer vision tasks. His early work (2014-2016) centered around signal and image processing, including applications in medical imaging and computer vision. He then shifted his focus to deep learning and neural networks, exploring topics such as domain adaptation, lifelong learning, and neural network compression. Recent works (2020-present) emphasize the intersection of optimal transport and deep learning, including the development of novel similarity measures and their applications in computer vision and machine learning.
+
+Kolouri's primary areas of expertise include optimal transport, deep learning, and computer vision. He has made significant contributions to the development of novel similarity measures, such as Linear Circular Optimal Transport (LCOT) and Linear Spherical Sliced Optimal Transport, which have been applied to various tasks in computer vision and machine learning. His work on lifelong learning and neural network compression has also had a significant impact on the field. Overall, Kolouri's research focuses on advancing the intersection of optimal transport and deep learning, with applications in computer vision, machine learning, and beyond.
