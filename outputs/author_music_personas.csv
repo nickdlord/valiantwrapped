@@ -1,5 +1,44 @@
-author_label,artist_name,persona_bio,album_title,tracklist,status
-Landman_Bennett_16679175200,,,,,json_parse_failed
-Li_Zhiyuan_59144471700,,,,,json_parse_failed
-Lionts_Marilyn_58886284600,,,,,json_parse_failed
-Lord_Nick_57218632790,,,,,json_parse_failed
+author_label,artist_name,persona_bio,album_title,tracklist,status,source_file
+Landman_Bennett_16679175200,The Frequency Splitter,"Bennett's beat drops like a sonogram, navigating the sonic landscapes of medical imagery. This sonic alchemist blends genres to diagnose rhythm and melody, where fragmented frequencies become harmonious wholes. From the echoes of diffusion MRI to the reverberations of tractography, The Frequency Splitter weaves a soundscape of innovation and precision. Through machine learning remixes and deep learning distortions, they craft an audio experience that's both precise and sublime.",Signal to Noise Revival,"Track 01 - Echoes in the Fiber
+Track 02 - Reverb of Reality
+Track 03 - Cutting Through the Clutter
+Track 04 - Harmonic Resonance
+Track 05 - Deep Dive
+Track 06 - Segmentation Symphony
+Track 07 - Tractography Tapestry
+Track 08 - BIAS Boogie
+Track 09 - Signal Strength
+Track 10 - Decathlon Dash
+Track 11 - Learning Curve",ok,author_expertise_txt/Landman_Bennett_16679175200.txt
+Li_Zhiyuan_59144471700,EchoMind,"EchoMind is a sonic architect weaving together threads of sound to dissect the human experience. With a career spanning the realms of resonance and reverberation, EchoMind's artistry has evolved to synthesize the fragmented signals of life. From the hushed whispers of microstructure to the cacophony of cognitive decay, their craft lies at the intersection of subtle nuances and transformative harmonies. In recent years, EchoMind has delved into the uncharted territories of data-driven innovation, conjuring deep learning rhythms to reimagine the topography of medical imaging. With each composition, they seek to harmonize the discordant notes of reality, crafting an immersive sonic tapestry that echoes the complexities of the human condition.",Resonance Reborn,"Track 01 - Diffusion Dreamscape
+Track 02 - Segmented Slices
+Track 03 - Brain Age Revival
+Track 04 - Neurodegenerative Nightscapes
+Track 05 - Learning Loops
+Track 06 - Signal Synthesis Serenade
+Track 07 - Harmonized Cohorts Harmony
+Track 08 - Data Reverb Reverie
+Track 09 - Microstructure Waltz
+Track 10 - Alzheimer's Lullaby",ok,author_expertise_txt/Li_Zhiyuan_59144471700.txt
+Lionts_Marilyn_58886284600,Spectral Siren,"A maestro of medical marvels, Spectral Siren harmonizes soundscapes with science. With a keen ear for diagnostics, she fine-tunes frequencies to reveal hidden harmonies within the human form. From the whispers of Raman spectroscopy to the rich tapestry of histopathology, her compositions weave together disparate threads of knowledge. As she evolves, her melodies delve into the vast expanse of healthcare and disease surveillance, where epidemiological data becomes a sweeping orchestral score. With each note, she explores the intersections of art and science, distilling complex concepts into sonic tapestries that resonate deeply. Join her on a journey through the symphony of health and healing.",Diagnostic Harmonics,"Track 01 - Resonance Reveal
+Track 02 - Split Decision
+Track 03 - Echoes in the Microscope
+Track 04 - The Great Distiller
+Track 05 - Frequency Frenzy
+Track 06 - Kidney Kick
+Track 07 - Disease Dynamics
+Track 08 - Transmission Tales
+Track 09 - Healing Hues
+Track 10 - Data Drift
+Track 11 - Pattern Play
+Track 12 - Shared Symmetry",ok,author_expertise_txt/Lionts_Marilyn_58886284600.txt
+Lord_Nick_57218632790,Miso Hungry,"With a taste for innovation, Miso Hungry crafts sonic landscapes that blend the earthy rhythms of agriculture with the sweetness of discovery. Born from a passion for food science and a knack for experimentation, their sound has evolved through the seasons, much like the edamame they've dedicated their life's work to understanding. From the roots of traditional spectroscopy to the futuristic realms of machine learning, Miso Hungry's music takes you on a journey through the harmonies of harvest and nutrition, always keeping an ear out for the perfect beat of efficiency. With each note, they celebrate the beauty of locally sourced, organic delights and the unsung heroes of the agricultural world.",Harvest Hues,"Track 01 - Edamame Odyssey
+Track 02 - Sugar Rush
+Track 03 - Soil Symphony
+Track 04 - Near-Infrared Nights
+Track 05 - Local Love Song
+Track 06 - The Calibrated Beat
+Track 07 - Reverb Revolution
+Track 08 - On-The-Stalk Serenade
+Track 09 - Transforming Tastes
+Track 10 - Grain of Truth",ok,author_expertise_txt/Lord_Nick_57218632790.txt
