@@ -55,21 +55,29 @@ llm_model = AutoModelForCausalLM.from_pretrained(
 )
 
 # ----------------------------
-# LOAD IMAGE MODEL
+# LOAD IMAGE MODEL (FLUX optimized for GPU)
 # ----------------------------
 
 print("Loading FLUX image model...")
+
+# Enable faster matrix operations on Ampere GPUs (A6000 / A100)
+torch.backends.cuda.matmul.allow_tf32 = True
+torch.backends.cudnn.allow_tf32 = True
 
 pipe = FluxPipeline.from_pretrained(
     IMAGE_MODEL,
     torch_dtype=torch.bfloat16
 )
 
-pipe.to(DEVICE)
+pipe = pipe.to(DEVICE)
+
+# Reduce VRAM usage slightly (safe default)
+pipe.enable_attention_slicing()
 
 # ----------------------------
 # HELPERS
 # ----------------------------
+
 
 def extract_fields(text):
 
