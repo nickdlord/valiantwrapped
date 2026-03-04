@@ -1,0 +1,844 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Derr_Tyler_57198886641
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Derr_Tyler_57198886641
+
+Publication records (each record is one paper):
+Year: 2018
+Citations: 309
+Type: Conference paper
+Venue: Proceedings - IEEE International Conference on Data Mining, ICDM
+Title: Signed Graph Convolutional Networks
+Keywords: Balance theory; Graph convolutional networks; Network embedding; Signed networks
+Abstract: Due to the fact much of today's data can be represented as graphs, there has been a demand for generalizing neural network models for graph data. One recent direction that has shown fruitful results, and therefore growing interest, is the usage of graph convolutional neural networks (GCNs). They have been shown to provide a significant improvement on a wide range of tasks in network analysis, one of which being node representation learning. The task of learning low-dimensional node representations has shown to increase performance on a plethora of other tasks from link prediction and node classification, to community detection and visualizati...
+
+---
+
+Year: 2021
+Citations: 265
+Type: Conference paper
+Venue: WSDM 2021 - Proceedings of the 14th ACM International Conference on Web Search and Data Mi...
+Title: Node Similarity Preserving Graph Convolutional Networks
+Keywords: graph neural networks; node similarity preserving; semi-supervised learning
+Abstract: Graph Neural Networks (GNNs) have achieved tremendous success in various real-world applications due to their strong ability in graph representation learning. GNNs explore the graph structure and node features by aggregating and transforming information within node neighborhoods. However, through theoretical and empirical analysis, we reveal that the aggregation process of GNNs tends to destroy node similarity in the original feature space. There are many scenarios where node similarity plays a crucial role. Thus, it has motivated the proposed framework SimP-GCN that can effectively and efficiently preserve node similarity while exploiting gr...
+
+---
+
+Year: 2021
+Citations: 152
+Type: Conference paper
+Venue: 35th AAAI Conference on Artificial Intelligence, AAAI 2021
+Title: Stock Selection via Spatiotemporal Hypergraph Attention Network: A Learning to Rank Approach
+Abstract: Quantitative trading and investment decision making are intricate financial tasks that rely on accurate stock selection. Despite advances in deep learning that have made significant progress in the complex and highly stochastic stock prediction problem, modern solutions face two significant limitations. They do not directly optimize the target of investment in terms of profit, and treat each stock as independent from the others, ignoring the rich signals between related stocks' temporal price movements. Building on these limitations, we reformulate stock prediction as a learning to rank problem and propose STHAN-SR, a neural hypergraph archit...
+
+---
+
+Year: 2024
+Citations: 146
+Type: Conference paper
+Venue: Proceedings of the AAAI Conference on Artificial Intelligence
+Title: Knowledge Graph Prompting for Multi-Document Question Answering
+Abstract: The ‘pre-train, prompt, predict’ paradigm of large language models (LLMs) has achieved remarkable success in open-domain question answering (OD-QA). However, few works explore this paradigm in multi-document question answering (MD-QA), a task demanding a thorough understanding of the logical associations among the contents and structures of documents. To fill this crucial gap, we propose a Knowledge Graph Prompting (KGP) method to formulate the right context in prompting LLMs for MD-QA, which consists of a graph construction module and a graph traversal module. For graph construction, we create a knowledge graph (KG) over multiple documents w...
+
+---
+
+Year: 2022
+Citations: 88
+Type: Conference paper
+Venue: Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Min...
+Title: Improving Fairness in Graph Neural Networks via Mitigating Sensitive Attribute Leakage
+Keywords: fairness; graph neural network; sensitive attribute leakage
+Abstract: Graph Neural Networks (GNNs) have shown great power in learning node representations on graphs. However, they may inherit historical prejudices from training data, leading to discriminatory bias in predictions. Although some work has developed fair GNNs, most of them directly borrow fair representation learning techniques from non-graph domains without considering the potential problem of sensitive attribute leakage caused by feature propagation in GNNs. However, we empirically observe that feature propagation could vary the correlation of previously innocuous non-sensitive features to the sensitive ones. This can be viewed as a leakage of se...
+
+---
+
+Year: 2021
+Citations: 79
+Type: Conference paper
+Venue: Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Min...
+Title: Graph Adversarial Attack via Rewiring
+Keywords: adversarial attack; graph neural networks; rewiring
+Abstract: Graph Neural Networks (GNNs) have demonstrated their powerful capability in learning representations for graph-structured data. Consequently, they have enhanced the performance of many graph-related tasks such as node classification and graph classification. However, it is evident from recent studies that GNNs are vulnerable to adversarial attacks. Their performance can be largely impaired by deliberately adding carefully created unnoticeable perturbations to the graph. Existing attacking methods often produce perturbation by adding/deleting a few edges, which might be noticeable even when the number of modified edges is small. In this paper,...
+
+---
+
+Year: 2021
+Citations: 65
+Type: Conference paper
+Venue: Proceedings - International Conference on Data Engineering
+Title: Attacking black-box recommendations via copying cross-domain user profiles
+Keywords: Adversarial Attacks; Black-box Attacks; Cross-Domain; Data Poisoning Attacks; Recommender Systems
+Abstract: Recommender systems, which aim to suggest personalized lists of items for users, have drawn a lot of attention. In fact, many of these state-of-the-art recommender systems have been built on deep neural networks (DNNs). Recent studies have shown that these deep neural networks are vulnerable to attacks, such as data poisoning, which generate fake users to promote a selected set of items. Correspondingly, effective defense strategies have been developed to detect these generated users with fake profiles. Thus, new strategies of creating more'realistic' user profiles to promote a set of items should be investigated to further understand the vu...
+
+---
+
+Year: 2021
+Citations: 63
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Tree Decomposed Graph Neural Network
+Keywords: graph neural networks; multi-hop dependency; tree decomposition
+Abstract: Graph Neural Networks (GNNs) have achieved significant success in learning better representations by performing feature propagation and transformation iteratively to leverage neighborhood information. Nevertheless, iterative propagation restricts the information of higher-layer neighborhoods to be transported through and fused with the lower-layer neighborhoods', which unavoidably results in feature smoothing between neighborhoods in different layers and can thus compromise the performance, especially on heterophily networks. Furthermore, most deep GNNs only recognize the importance of higher-layer neighborhoods while yet to fully explore the...
+
+---
+
+Year: 2023
+Citations: 56
+Type: Conference paper
+Venue: ACM Web Conference 2023 - Proceedings of the World Wide Web Conference, WWW 2023
+Title: Collaboration-Aware Graph Convolutional Network for Recommender Systems
+Keywords: collaborative effect; graph neural networks; Recommender systems
+Abstract: Graph Neural Networks (GNNs) have been successfully adopted in recommender systems by virtue of the message-passing that implicitly captures collaborative effect. Nevertheless, most of the existing message-passing mechanisms for recommendation are directly inherited from GNNs without scrutinizing whether the captured collaborative effect would benefit the prediction of user preferences. In this paper, we first analyze how message-passing captures the collaborative effect and propose a recommendation-oriented topological metric, Common Interacted Ratio (CIR), which measures the level of interaction between a specific neighbor of a node with th...
+
+---
+
+Year: 2019
+Citations: 54
+Type: Conference paper
+Venue: IJCAI International Joint Conference on Artificial Intelligence
+Title: Deep adversarial social recommendation
+Abstract: Recent years have witnessed rapid developments on social recommendation techniques for improving the performance of recommender systems due to the growing influence of social networks to our daily life. The majority of existing social recommendation methods unify user representation for the user-item interactions (item domain) and user-user connections (social domain). However, it may restrain user representation learning in each respective domain, since users behave and interact differently in two domains, which makes their representations to be heterogeneous. In addition, most of traditional recommender systems can not efficiently optimize...
+
+---
+
+Year: 2018
+Citations: 54
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Signed network modeling based on structural balance theory
+Keywords: Balance Theory; Network Modeling; Signed Networks
+Abstract: The modeling of networks, specifically generative models, has been shown to provide a plethora of information about the underlying network structures, as well as many other benefits behind their construction. There has been a considerable increase in interest for the better understanding and modeling of networks, and the vast majority of existing work has been for unsigned networks. However, many networks can have positive and negative links (or signed networks), especially in online social media. It is evident from recent work that signed networks present unique properties and principles from unsigned networks due to the added complexity, wh...
+
+---
+
+Year: 2020
+Citations: 51
+Type: Conference paper
+Venue: Proceedings of the 13th International Conference on Educational Data Mining, EDM 2020
+Title: Online Academic Course Performance Prediction using Relational Graph Convolutional Neural Network
+Keywords: Graph neural networks; Knowledge graph; MOOC; Online courses; Student behavior modeling
+Abstract: Online learning has attracted a large number of participants and is increasingly becoming very popular. However, the completion rates for online learning are notoriously low. Further, unlike traditional education systems, teachers, if any, are unable to comprehensively evaluate the learning gain of each student through the online learning platform. Hence, we need to have an effective framework for evaluating students’ performance in online education systems and to predict their expected outcomes and associated early failures. To this end, we introduce Deep Online Performance Evaluation (DOPE), which first models the student course relations i...
+
+---
+
+Year: 2022
+Citations: 47
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Imbalanced Graph Classification via Graph-of-Graph Neural Networks
+Keywords: graph augmentations; graph neural network; graph of graphs; imbalanced graph classification
+Abstract: Graph Neural Networks (GNNs) have achieved unprecedented success in identifying categorical labels of graphs. However, most existing graph classification problems with GNNs follow the protocol of balanced data splitting, which misaligns with many real-world scenarios in which some classes have much fewer labels than others. Directly training GNNs under this imbalanced scenario may lead to uninformative representations of graphs in minority classes, and compromise the overall classification performance, which signifies the importance of developing effective GNNs towards handling imbalanced graph classification. Existing methods are either tail...
+
+---
+
+Year: 2025
+Citations: 42
+Type: Article
+Venue: ACM Transactions on Intelligent Systems and Technology
+Title: Fairness and Diversity in Recommender Systems: A Survey
+Keywords: Diversity; Fairness
+Abstract: Recommender systems (RS) are effective tools for mitigating information overload and have seen extensive applications across various domains. However, the single focus on utility goals proves to be inadequate in addressing real-world concerns, leading to increasing attention to fairness-aware and diversity-aware RS. While most existing studies explore fairness and diversity independently, we identify strong connections between these two domains. In this survey, we first discuss each of them individually and then dive into their connections. Additionally, motivated by the concepts of user-level and item-level fairness, we broaden the understan...
+
+---
+
+Year: 2020
+Citations: 38
+Type: Conference paper
+Venue: The Web Conference 2020 - Proceedings of the World Wide Web Conference, WWW 2020
+Title: ROSE: Role-based Signed Network Embedding
+Keywords: Embedding; Network Transformation; Signed networks
+Abstract: In real-world networks, nodes might have more than one type of relationship. Signed networks are an important class of such networks consisting of two types of relations: positive and negative. Recently, embedding signed networks has attracted increasing attention and is more challenging than classic networks since nodes are connected by paths with multi-types of links. Existing works capture the complex relationships by relying on social theories. However, this approach has major drawbacks, including the incompleteness/inaccurateness of such theories. Thus, we propose network transformation based embedding to address these shortcomings. The...
+
+---
+
+Year: 2020
+Citations: 37
+Type: Conference paper
+Venue: Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Min...
+Title: Deep Graph Learning: Foundations, Advances and Applications
+Abstract: Many real data come in the form of non-grid objects, i.e. graphs, from social networks to molecules. Adaptation of deep learning from grid-alike data (e.g. images) to graphs has recently received unprecedented attention from both machine learning and data mining communities, leading to a new cross-domain field - -Deep Graph Learning (DGL). Instead of painstaking feature engineering, DGL aims to learn informative representations of graphs in an end-to-end manner. It has exhibited remarkable success in various tasks, such as node/graph classification, link prediction, etc. In this tutorial, we aim to provide a comprehensive introduction to deep...
+
+---
+
+Year: 2019
+Citations: 37
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Balance in signed bipartite networks
+Keywords: Balance Theory; Sign Prediction; Signed Bipartite Networks
+Abstract: A large portion of today's big data can be represented as networks. However, not all networks are the same, and in fact, for many that have additional complexities to their structure, traditional general network analysis methods are no longer applicable. For example, signed networks contain both positive and negative links, and thus dedicated theories and algorithms have been developed. However, previous work mainly focuses on the unipartite setting where signed links connect any pair of nodes. Signed bipartite networks on the one hand, are commonly found, but have primarily been overlooked. Their complexities of having two node types where s...
+
+---
+
+Year: 2023
+Citations: 35
+Type: Conference paper
+Venue: Proceedings of the 37th AAAI Conference on Artificial Intelligence, AAAI 2023
+Title: Interpretable Chirality-Aware Graph Neural Network for Quantitative Structure Activity Relationship Modeling in Drug Discovery
+Abstract: In computer-aided drug discovery, quantitative structure activity relation models are trained to predict biological activity from chemical structure. Despite the recent success of applying graph neural network to this task, important chemical information such as molecular chirality is ignored. To fill this crucial gap, we propose Molecular-Kernel Graph Neural Network (MolKGNN) for molecular representation learning, which features SE(3)-/conformation invariance, chirality-awareness, and interpretability. For our MolKGNN, we first design a molecular graph convolution to capture the chemical pattern by comparing the atom’s similarity with the le...
+
+---
+
+Year: 2022
+Citations: 33
+Type: Conference paper
+Venue: Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Min...
+Title: On Structural Explanation of Bias in Graph Neural Networks
+Keywords: algorithmic fairness; graph neural networks; model explanability
+Abstract: Graph Neural Networks (GNNs) have shown satisfying performance in various graph analytical problems. Hence, they have become the de facto solution in a variety of decision-making scenarios. However, GNNs could yield biased results against certain demographic subgroups. Some recent works have empirically shown that the biased structure of the input network is a significant source of bias for GNNs. Nevertheless, no studies have systematically scrutinized which part of the input network structure leads to biased predictions for any given node. The low transparency on how the structure of the input network influences the bias in GNN outcome large...
+
+---
+
+Year: 2020
+Citations: 31
+Type: Conference paper
+Venue: WSDM 2020 - Proceedings of the 13th International Conference on Web Search and Data Mining
+Title: Epidemic graph convolutional network
+Keywords: Epidemic models; Graph neural networks; Node classification
+Abstract: A growing trend recently is to harness the structure of today’s big data, where much of the data can be represented as graphs. Simultaneously, graph convolutional networks (GCNs) have been proposed and since seen rapid development. More recently, due to the scalability issues that arise when attempting to utilize these powerful models on real-world data, methodologies have sought the use of sampling techniques. More specifically, minibatches of nodes are formed and then sets of nodes are sampled to aggregate from in one or more layers. Among these methods, the two prominent ways are based on sampling nodes from either a local or global perspe...
+
+---
+
+Year: 2023
+Citations: 30
+Type: Article
+Venue: IEEE Transactions on Knowledge and Data Engineering
+Title: Adversarial Attacks for Black-Box Recommender Systems via Copying Transferable Cross-Domain User Profiles
+Keywords: adversarial attacks; black-box attacks; cross-domain recommendations; Recommender systems; trustworthy recommender systems
+Abstract: As widely used in data-driven decision-making, recommender systems have been recognized for their capabilities to provide users with personalized services in many user-oriented online services, such as E-commerce (e.g., Amazon, Taobao, etc.) and Social Media sites (e.g., Facebook and Twitter). Recent works have shown that deep neural networks-based recommender systems are highly vulnerable to adversarial attacks, where adversaries can inject carefully crafted fake user profiles (i.e., a set of items that fake users have interacted with) into a target recommender system to promote or demote a set of target items. Instead of generating users wi...
+
+---
+
+Year: 2021
+Citations: 29
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Deep Adversarial Network Alignment
+Keywords: adversarial graph distribution alignment; nearest neighbor node alignment; unsupervised network alignment
+Abstract: Network alignment, in general, seeks to discover the hidden underlying correspondence between nodes across two (or more) networks when given their network structure. However, most existing network alignment methods have added assumptions of additional constraints to guide the alignment, such as having a set of seed node-node correspondences across the networks or the existence of side-information. Instead, we seek to develop a general unsupervised network alignment algorithm that makes no additional assumptions. Recently, network embedding has proven effective in many network analysis tasks, but embeddings of different networks are not aligne...
+
+---
+
+Year: 2019
+Citations: 25
+Type: Conference paper
+Venue: Proceedings of the 2019 IEEE/ACM International Conference on Advances in Social Networks A...
+Title: Multi-factor congressional vote prediction
+Abstract: In recent times we have seen a trend of having the ideologies of the two dominant political parties in the U.S. growing further and further apart. Simultaneously we have entered the age of big data raising enormous interest in computational approaches to solve problems in many domains such as political elections. However, an overlooked problem lies in predicting what happens once our elected officials take office, more specifically, predicting the congressional votes, which are perhaps the most influential decisions being made in the U.S. This, nevertheless, is far from a trivial task, since the congressional system is highly complex and heav...
+
+---
+
+Year: 2022
+Citations: 24
+Type: Book chapter
+Venue: Graph Neural Networks: Foundations, Frontiers, and Applications
+Title: Graph Neural Networks: Self-supervised Learning
+Abstract: Although deep learning has achieved state-of-the-art performance across numerous domains, these models generally require large annotated datasets to reach their full potential and avoid overfitting. However, obtaining such datasets can have high associated costs or even be impossible to procure. Self-supervised learning (SSL) seeks to create and utilize specific pretext tasks on unlabeled data to aid in alleviating this fundamental limitation of deep learning models. Although initially applied in the image and text domains, recent interest has been in leveraging SSL in the graph domain to improve the performance of graph neural networks (GNNs...
+
+---
+
+Year: 2024
+Citations: 22
+Type: Article
+Venue: IEEE Transactions on Knowledge and Data Engineering
+Title: A Survey on Privacy in Graph Neural Networks: Attacks, Preservation, and Applications
+Keywords: Deep learning on graphs; graph neural networks; privacy attacks; privacy preservation
+Abstract: Graph Neural Networks (GNNs) have gained significant attention owing to their ability to handle graph-structured data and the improvement in practical applications. However, many of these models prioritize high utility performance, such as accuracy, with a lack of privacy consideration, which is a major concern in modern society where privacy attacks are rampant. To address this issue, researchers have started to develop privacy-preserving GNNs. Despite this progress, there is a lack of a comprehensive overview of the attacks and the techniques for preserving privacy in the graph domain. In this survey, we aim to address this gap by summarizi...
+
+---
+
+Year: 2019
+Citations: 21
+Type: Article
+Venue: Teachers College Record
+Title: A Roadmap for Incorporating Online Social Media in Educational Research
+Abstract: Thanks to advancements in communication and online social media, there has been a surge of useful online educational resources across the Internet. In addition to supplementing educational materials, these resources could be used in varying education research and potentially advance the quality of education. Nevertheless, conducting such research projects requires using big data techniques and approaches to find meaningful resources and harnessing them in an effective way. In this chapter, we present a roadmap for how to incorporate online social media in education research projects. The roadmap consists of three major components: project ini...
+
+---
+
+Year: 2023
+Citations: 16
+Type: Conference paper
+Venue: Proceedings of the 37th AAAI Conference on Artificial Intelligence, AAAI 2023
+Title: Fairness and Explainability: Bridging the Gap towards Fair Model Explanations
+Abstract: While machine learning models have achieved unprecedented success in real-world applications, they might make biased/unfair decisions for specific demographic groups and hence result in discriminative outcomes. Although research efforts have been devoted to measuring and mitigating bias, they mainly study bias from the result-oriented perspective while neglecting the bias encoded in the decision-making procedure. This results in their inability to capture procedure-oriented bias, which therefore limits the ability to have a fully debiasing method. Fortunately, with the rapid development of explainable machine learning, explanations for predic...
+
+---
+
+Year: 2022
+Citations: 16
+Type: Conference paper
+Venue: Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Min...
+Title: ChemicalX: A Deep Learning Library for Drug Pair Scoring
+Keywords: chemistry; deep learning; neural networks
+Abstract: In this paper, we introduce ChemicalX, a PyTorch-based deep learning library designed for providing a range of state of the art models to solve the drug pair scoring task. The primary objective of the library is to make deep drug pair scoring models accessible to machine learning researchers and practitioners in a streamlined framework. The design of ChemicalX reuses existing high level model training utilities, geometric deep learning, and deep chemistry layers from the PyTorch ecosystem. Our system provides neural network layers, custom pair scoring architectures, data loaders, and batch iterators for end users. We showcase these features w...
+
+---
+
+Year: 2022
+Citations: 15
+Type: Conference paper
+Venue: Proceedings - IEEE International Conference on Data Mining, ICDM
+Title: THINK: Temporal Hypergraph Hyperbolic Network
+Keywords: hyperbolic; hypergraphs; spatio-temporal forecasting
+Abstract: Network-based time series forecasting is a challenging task as it involves complex geometric properties, higher-order relations, and scale-free characteristics. Previous work has modeled network-based series as oversimplified graphs or has ignored the power law dynamics of real-world temporal and dynamic networks, which could yield suboptimal results. With the aim to address these issues, here we propose THINK, a novel framework based on hypergraph learning that captures the hyperbolic properties of time-evolving dynamic hypergraphs. We design an elegant hyperbolic distance-aware hypergraph attention mechanism to better capture informative in...
+
+---
+
+Year: 2018
+Citations: 15
+Type: Conference paper
+Venue: IEEE International Conference on Data Mining Workshops, ICDMW
+Title: Congressional vote analysis using signed networks
+Keywords: Balance Theory; Signed Bipartite Networks; Signed Networks; U.S. Congress
+Abstract: In today's era of big data, much can be represented as a network. However, most of the work in traditional network analysis is unable to handle many existing network types, which is due to certain networks having added complexities. For example, signed networks, which have both positive and negative links, have been shown to require dedicated efforts due to the methods designed for typical unsigned networks (those having only positive links) being no longer applicable. One specific type of signed network is that of voting records, such as the Senate and House of Representatives from the U.S. Congress, which form signed bipartite networks betw...
+
+---
+
+Year: 2023
+Citations: 14
+Type: Article
+Venue: iScience
+Title: ADEPT: Autoencoder with differentially expressed genes and imputation for robust spatial transcriptomics clustering
+Keywords: Automation in bioinformatics; Data processing in systems biology; Transcriptomics
+Abstract: Advancements in spatial transcriptomics (ST) have enabled an in-depth understanding of complex tissues by quantifying gene expression at spatially localized spots. Several notable clustering methods have been introduced to utilize both spatial and transcriptional information in the analysis of ST datasets. However, data quality across different ST sequencing techniques and types of datasets influence the performance of different methods and benchmarks. To harness spatial context and transcriptional profile in ST data, we developed a graph-based, multi-stage framework for robust clustering, called ADEPT. To control and stabilize data quality,...
+
+---
+
+Year: 2020
+Citations: 14
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: Towards Improving Sample Representativeness of Teachers on Online Social Media: A Case Study on Pinterest
+Keywords: Pinterest; Sample representativeness; Teachers in social media
+Abstract: Many teachers utilize online social media to supplement their students’ needs and enhance their professional activities, curating millions of educational resources. In fact, during the Coronovirus pandemic, online curation of resources provides teachers a repository of materials to provide students in online space. Teachers’ engagement online then provides the ability to learn more about how teachers are addressing students’ learning needs and potentially improve the quality of the resources they share. Historically, to perform such a study, we often survey some teachers and then leverage their shared resources to investigate education-relate...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+*   **Graph Neural Networks (GNNs)**: Designing and improving GNNs for various applications, including node classification, graph classification, and recommender systems.
+*   **Adversarial Attacks**: Developing methods to defend against adversarial attacks on GNNs, including graph adversarial attacks and black-box attacks.
+*   **Fairness and Explainability**: Investigating fairness and explainability in GNNs, including bias mitigation and model interpretability.
+*   **Signed Networks**: Analyzing and modeling signed networks, including signed bipartite networks and balance theory.
+*   **Graph Representation Learning**: Exploring graph representation learning techniques, including graph convolutional networks and graph embedding.
+*   **Recommendation Systems**: Applying GNNs to recommendation systems, including collaborative filtering and content-based filtering.
+
+**Timeline/Evolution:**
+
+*   Early work (2018-2019): Focus on designing and improving GNNs for various applications, including node classification, graph classification, and recommender systems.
+*   Mid-term (2020-202
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Derr_Tyler_57198886641
+
+Publication records (each record is one paper):
+Year: 2020
+Citations: 12
+Type: Article
+Venue: Social Network Analysis and Mining
+Title: Link and interaction polarity predictions in signed networks
+Keywords: Interaction polarity prediction; Link prediction; Signed networks; Social media
+Abstract: In today’s world, users typically take to online social media to express their opinions, which can inherently be both positive and negative. In fact, online social networks can be best modeled as signed networks, where opinions in the form of positive and negative links can exist between users, such as our friends and foes (e.g., “unfriended” users), respectively. Furthermore, users can also express their opinions to content generated by others through online social interactions, such as commenting or rating. Intuitively, these two types of opinions in the form of links and interactions should be related. For example, users’ interactions are...
+
+---
+
+Year: 2023
+Citations: 11
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: NeuroGraph: Benchmarks for Graph Machine Learning in Brain Connectomics
+Abstract: Machine learning provides a valuable tool for analyzing high-dimensional functional neuroimaging data, and is proving effective in predicting various neurological conditions, psychiatric disorders, and cognitive patterns. In functional magnetic resonance imaging (MRI) research, interactions between brain regions are commonly modeled using graph-based representations. The potency of graph machine learning methods has been established across myriad domains, marking a trans-formative step in data interpretation and predictive modeling. Yet, despite their promise, the transposition of these techniques to the neuroimaging domain has been challengi...
+
+---
+
+Year: 2024
+Citations: 10
+Type: Conference paper
+Venue: WWW 2024 - Proceedings of the ACM Web Conference
+Title: Can One Embedding Fit All? A Multi-Interest Learning Paradigm Towards Improving User Interest Diversity Fairness
+Keywords: diversity; fairness; multi-interest recommendations
+Abstract: Recommender systems (RSs) have gained widespread applications across various domains owing to the superior ability to capture users' interests. However, the complexity and nuanced nature of users' interests, which span a wide range of diversity, pose a significant challenge in delivering fair recommendations. In practice, user preferences vary significantly; some users show a clear preference toward certain item categories, while others have a broad interest in diverse ones. Even though it is expected that all users should receive high-quality recommendations, the effectiveness of RSs in catering to this disparate interest diversity remains u...
+
+---
+
+Year: 2018
+Citations: 9
+Type: Conference paper
+Venue: Proceedings of the 2018 IEEE/ACM International Conference on Advances in Social Networks A...
+Title: Opinions power opinions: Joint link and interaction polarity predictions in signed networks
+Keywords: Interaction Polarity Prediction; Link Prediction; Signed Network; Social Media
+Abstract: Social media has been widely adopted by online users to share their opinions. Among users in signed networks, two types of opinions can be expressed. They can directly specify opinions to others via establishing positive or negative links; and they also can give opinions to content generated by others via a variety of social interactions such as commenting and rating. Intuitively these two types of opinions should be related. For example, users are likely to give positive (or negative) opinions to content from those with positive (or negative) links; and users tend to create positive (or negative) links with those that they frequently positiv...
+
+---
+
+Year: 2024
+Citations: 8
+Type: Conference paper
+Venue: WWW 2024 Companion - Companion Proceedings of the ACM Web Conference
+Title: Knowledge Graph-based Session Recommendation with Session-Adaptive Propagation
+Keywords: Adaptive Propagation; Knowledge Graph; Session Recommendation
+Abstract: Session-based recommender systems (SBRSs) predict users’ next interacted items based on their historical activities. While most SBRSs capture purchasing intentions locally within each session, capturing items’ global information across different sessions is crucial in characterizing their general properties. Previous works capture this cross-session information by constructing graphs and incorporating neighbor information. However, this incorporation cannot vary adaptively according to the unique intention of each session, and the constructed graphs consist of only one type of user-item interaction. To address these limitations, we propose kn...
+
+---
+
+Year: 2020
+Citations: 8
+Type: Conference paper
+Venue: L@S 2020 - Proceedings of the 7th ACM Conference on Learning @ Scale
+Title: Characterizing Teacher Connections in Online Social Media: A Case Study on Pinterest
+Keywords: pinterest; social media; teachers
+Abstract: Increasingly many teachers are turning to online social media to supplement educational resources and meet students' needs in the classrooms. The diffusion of information from online social media to the classroom is significantly faster than traditional curriculum-based approaches. However, this is contingent upon how well teachers across an online social media network are connected. To understand this, we perform a thorough and large-scale investigation of teacher connections in online social media, which is lacking in the literature. To make this feasible, we construct a large dataset of teachers on Pinterest, an image-based popular online...
+
+---
+
+Year: 2024
+Citations: 7
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: FT-AED: Benchmark Dataset for Early Freeway Traffic Anomalous Event Detection
+Abstract: Early and accurate detection of anomalous events on the freeway, such as accidents, can improve emergency response and clearance. However, existing delays and mistakes from manual crash reporting records make it a difficult problem to solve. Current large-scale freeway traffic datasets are not designed for anomaly detection and ignore these challenges. In this paper, we introduce the first large-scale lane-level freeway traffic dataset for anomaly detection. Our dataset consists of a month of weekday radar detection sensor data collected in 4 lanes along an 18-mile stretch of Interstate 24 heading toward Nashville, TN, comprising over 3.7 mil...
+
+---
+
+Year: 2022
+Citations: 7
+Type: Conference paper
+Venue: IEEE International Conference on Data Mining Workshops, ICDMW
+Title: Degree-Related Bias in Link Prediction
+Keywords: degree-related bias; Link prediction; the node-centric evaluation metric
+Abstract: Link prediction is a fundamental problem for network-structured data and has achieved unprecedented success in many real-world applications. Despite the significant progress being made towards improving its performance by characterizing underlined topological patterns or leveraging representation learning, few works have focused on the imbalanced performance among nodes of different degrees. In this paper, we propose a novel problem, degree-related bias and evaluation bias, on link prediction with an emphasis on recommender system applications. We first empirically demonstrate the performance differ-ence among nodes with different degrees and...
+
+---
+
+Year: 2020
+Citations: 7
+Type: Conference paper
+Venue: WSDM 2020 - Proceedings of the 13th International Conference on Web Search and Data Mining
+Title: Network analysis with negative links
+Keywords: Negative links; Network analysis; Signed networks
+Abstract: As we rapidly continue into the information age, the rate at which data is produced has created an unprecedented demand for novel methods to effectively/efficiently extract insightful patterns. Then, once paired with domain knowledge, we can seek to understand the past, make predictions about the future, and ultimately take actionable steps towards improving our society. Thus, due to the fact that much of today’s big data can be represented as graphs, emphasis is being taken to harness the natural structure of data through network analysis. Furthermore, many real-world networks can be better represented as signed networks, e.g., in an online...
+
+---
+
+Year: 2017
+Citations: 7
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Understanding and predicting weight loss with mobile social networking data
+Keywords: Mobile applications; Social network analysis; Weight loss
+Abstract: It has become increasingly popular to use mobile social networking applications for weight loss and management. Users can not only create profiles and maintain their records but also perform a variety of social activities that shatter the barrier to share or seek information. Due to the open and connected nature, these applications produce massive data that consists of rich weight-related information which offers immense opportunities for us to enable advanced research on weight loss. In this paper, we conduct the initial investigation to understand weight loss with a large-scale mobile social networking dataset with near 10 million users. In...
+
+---
+
+Year: 2024
+Citations: 6
+Type: Conference paper
+Venue: 12th International Conference on Learning Representations, ICLR 2024
+Title: A TOPOLOGICAL PERSPECTIVE ON DEMYSTIFYING GNN-BASED LINK PREDICTION PERFORMANCE
+Abstract: Graph Neural Networks (GNNs) have shown great promise in learning node embeddings for link prediction (LP). While numerous studies improve the overall GNNs' LP performance, none have explored their varying performance across different nodes and the underlying reasons. To this end, we demystify which nodes perform better from the perspective of their local topology. Despite the widespread belief that low-degree nodes exhibit worse LP performance, we surprisingly observe an inconsistent performance trend. This prompts us to propose a node-level metric, Topological Concentration (TC), based on the intersection of the local subgraph of each node...
+
+---
+
+Year: 2025
+Citations: 5
+Type: Conference paper
+Venue: Proceedings of the AAAI Conference on Artificial Intelligence
+Title: Towards Trustworthy Knowledge Graph Reasoning: An Uncertainty Aware Perspective
+Abstract: Recently, Knowledge Graphs (KGs) have been successfully coupled with Large Language Models (LLMs) to mitigate their hallucinations and enhance their reasoning capability, e.g., KG-based retrieval-augmented framework. However, current KG-LLM frameworks lack rigorous uncertainty estimation, limiting their reliable deployment in high-stakes applications Directly incorporating uncertainty quantification into KG-LLM frameworks presents challenges due to their complex architectures and the intricate interactions between the knowledge graph and language model components. To address this crucial gap, we propose a new trustworthy KG-LLM framework, UAG...
+
+---
+
+Year: 2022
+Citations: 5
+Type: Conference paper
+Venue: Proceedings - 21st IEEE International Conference on Machine Learning and Applications, ICM...
+Title: Decision Boundaries of Deep Neural Networks
+Keywords: Adversarial Examples; Decision Boundary; Neural Networks
+Abstract: Deep neural networks and in particular, deep neural classifiers have become an integral part of many modern applications. Despite their practical success, we still have limited knowledge of how they work and the demand for such an understanding is evergrowing. In this regard, one crucial aspect of deep neural network classifiers that can help us deepen our knowledge about their decision-making behavior is to investigate their decision boundaries. Nevertheless, this is contingent upon having access to samples populating the areas near the decision boundary. To achieve this, we propose a novel approach we call Deep Decision boundary Instance Ge...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Conference paper
+Venue: Proceedings of the AAAI Conference on Artificial Intelligence
+Title: Leveraging Opposite Gender Interaction Ratio as a Path towards Fairness in Online Dating Recommendations Based on User Sexual Orientation
+Abstract: Online dating platforms have gained widespread popularity as a means for individuals to seek potential romantic relationships. While recommender systems have been designed to improve the user experience in dating platforms by providing personalized recommendations, increasing concerns about fairness have encouraged the development of fairnessaware recommender systems from various perspectives (e.g., gender and race). However, sexual orientation, which plays a significant role in finding a satisfying relationship, is underinvestigated. To fill this crucial gap, we propose a novel metric, Opposite Gender Interaction Ratio (OGIR), as a way to in...
+
+---
+
+Year: 2023
+Citations: 4
+Type: Conference paper
+Venue: Proceedings - 2023 IEEE International Conference on Big Data, BigData 2023
+Title: An Analysis of the Dynamics of Ties on Twitter
+Keywords: Broken Ties; Dissolved Ties; Social Media; Twitter; Unfollow
+Abstract: Online social networks are the breeding grounds for user connections, fostering information exchange, communication, content sharing, and community building. However, the dissolution of these digital relationships, often a less-explored facet, complements the studies of tie formation and maintenance. A comprehensive grasp of these connections, encompassing their inception, unraveling, and the potential foresight of disconnections, offers invaluable insights into network dynamics and the progression of interpersonal bonds. Yet, the investigation of broken ties faces a substantial challenge: the paucity of longitudinal and detailed data. To bri...
+
+---
+
+Year: 2021
+Citations: 4
+Type: Conference paper
+Venue: HT 2021 - Proceedings of the 32nd ACM Conference on Hypertext and Social Media
+Title: Road to the White House: Analyzing the Relations between Mainstream and Social Media during the U.S. Presidential Primaries
+Keywords: 2020 presidential election; mainstream news; news source correlation; online social media
+Abstract: Information is crucial to the function of a democratic society where well-informed citizens can make rational political decisions. While in the past political entities primarily utilized newspapers and later radio and television to inform the public, the political arena has transformed into a more complex structure with the rise of the Internet and online social media. Now, more than ever, people express themselves online while mainstream news agencies attempt to utilize the power of the Internet to spread their articles as much as possible. To grasp the political coexistence of mainstream media and online social media, in this paper, we anal...
+
+---
+
+Year: 2020
+Citations: 4
+Type: Conference paper
+Venue: Proceedings - IEEE International Conference on Data Mining, ICDM
+Title: Learning from incomplete labeled data via adversarial data generation
+Keywords: Active learning; Generative model; Incomplete labeled data
+Abstract: Positive and unlabeled (PU) learning aims to obtain a well-performed classifier via an incomplete binary training set, in which only a part of labels of one category is known while the rest are unknown. However, in many real-world applications such as image recognition, the collected data samples often involve more than two categories. Moreover, only a small portion of the collected samples might have associated labels due to some practical reasons, and these labeled samples cannot always cover all the categories. We refer to this type of data as incomplete labeled data. In this paper, we first formally define the incomplete labeled data lear...
+
+---
+
+Year: 2025
+Citations: 3
+Type: Article
+Venue: Journal of Chemical Information and Modeling
+Title: Advancements in Ligand-Based Virtual Screening through the Synergistic Integration of Graph Neural Networks and Expert-Crafted Descriptors
+Abstract: The fusion of traditional chemical descriptors with graph neural networks (GNNs) offers a compelling strategy for enhancing ligand-based virtual screening methodologies. A comprehensive evaluation revealed that the benefits derived from this integrative strategy vary significantly among different GNNs. Specifically, while GCN and SchNet demonstrate pronounced improvements by incorporating descriptors, SphereNet exhibits only marginal enhancement. Intriguingly, despite SphereNet’s modest gain, all three models-GCN, SchNet, and SphereNet-achieve comparable performance levels when leveraging this combination strategy. This observation underscore...
+
+---
+
+Year: 2025
+Citations: 3
+Type: Conference paper
+Venue: WSDM 2025 - Proceedings of the 18th ACM International Conference on Web Search and Data Mi...
+Title: Edge Classification on Graphs: New Directions in Topological Imbalance
+Keywords: Edge classification; graph neural network; topological imbalance
+Abstract: Recent years have witnessed the remarkable success of applying Graph Machine Learning (GML) to node/graph classification and link prediction. However, edge classification task that enjoys numerous real-world applications such as social network analysis and cybersecurity, has not seen significant advancement with the progress of GML. To address this gap, our study pioneers a comprehensive approach to edge classification. We identify a novel 'Topological Imbalance Issue,' which arises from the skewed distribution of edges across different classes, affecting the local subgraph of each edge and harming the performance of edge classifications. Ins...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: Robust Graph Neural Networks via Unbiased Aggregation
+Abstract: The adversarial robustness of Graph Neural Networks (GNNs) has been questioned due to the false sense of security uncovered by strong adaptive attacks despite the existence of numerous defenses. In this work, we delve into the robustness analysis of representative robust GNNs and provide a unified robust estimation point of view to understand their robustness and limitations. Our novel analysis of estimation bias motivates the design of a robust and unbiased graph signal estimator. We then develop an efficient Quasi-Newton Iterative Reweighted Least Squares algorithm to solve the estimation problem, which is unfolded as robust unbiased aggreg...
+
+---
+
+Year: 2022
+Citations: 3
+Type: Conference paper
+Venue: Proceedings - 2022 IEEE 9th International Conference on Data Science and Advanced Analytic...
+Title: Enhancing Individual Fairness through Propensity Score Matching
+Keywords: Fairness; Individual Fairness; Machine Learning; Propensity Score Matching; Triplet Loss
+Abstract: The central idea of individual fairness is based on an auspicious yet intuitive assertion: similar individuals should be treated similarly. Nevertheless, the fulfillment of individual fairness is hindered by three major obstacles. First, one needs to determine individuals who should receive similar treatment. Second, seamlessly formulating the notion of individual fairness in an ML learning process is another challenge. Third, effectively evaluating the notion of similar treatment in probabilistic classifiers is another challenge. To overcome these challenges, we propose a novel framework called FairMatch. Our proposed framework offers a new...
+
+---
+
+Year: 2021
+Citations: 3
+Type: Conference paper
+Venue: Lecture Notes in Computer Science
+Title: Interpretable Visual Understanding with Cognitive Attention Network
+Abstract: While image understanding on recognition-level has achieved remarkable advancements, reliable visual scene understanding requires comprehensive image understanding on recognition-level but also cognition-level, which calls for exploiting the multi-source information as well as learning different levels of understanding and extensive commonsense knowledge. In this paper, we propose a novel Cognitive Attention Network (CAN) for visual commonsense reasoning to achieve interpretable visual understanding. Specifically, we first introduce an image-text fusion module to fuse information from images and text collectively. Second, a novel inference mo...
+
+---
+
+Year: 2020
+Citations: 3
+Type: Conference paper
+Venue: Proceedings of 2020 IEEE International Conference on Teaching, Assessment, and Learning fo...
+Title: Understanding and promoting teacher connections in online social media: A case study on pinterest
+Keywords: Link recommendation; Network analysis; Pinterest; Social media; Teachers
+Abstract: In this work, we perform a large-scale investigation of teacher connections in online social media. To this end, we first construct a large dataset of teachers on Pinterest, an image-based popular online social media. Our dataset includes 540 teachers across 5 states and 48 districts, as well as thousands of connections they have established. Then, considering some crucial teacher-related attributes (e.g., their states and grade levels), we characterize direct and indirect teacher connections. Through this characterization, we discover that teachers are predominately connected to their peers in the same district or at least within the same st...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Topology-aware Retrieval Augmentation for Text Generation
+Keywords: graph structural relations; retrieval-augmented generation
+Abstract: Retrieval-augmented Generation has been used to augment Language Models by retrieving texts from external databases. Since real-world texts are often connected in the graph (e.g., papers in citation networks), we use these relations to guide the retrieval process of RAG. Concretely, we investigate proximity and role-based relations, where the former considers topologically close nodes and the latter considers structurally similar nodes. We empirically verify their correlation to text relations, which motivates us to propose the framework of Topology-aware Retrieval-augmented Generation for text generation, which consists of a retrieval module...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Data Quality-aware Graph Machine Learning
+Keywords: data-centric artificial intelligence; graph machine learning
+Abstract: Recent years have seen a significant shift in Artificial Intelligence from model-centric to data-centric approaches, highlighted by the success of large foundational models. Following this trend, despite numerous innovations in graph machine learning model design, graph-structured data often suffers from data quality issues, jeopardizing the progress of Data-centric AI in graph-structured applications. Our proposed tutorial addresses this gap by raising awareness about data quality issues within the graph machine-learning community. We provide an overview of existing topology, imbalance, bias, limited data, and abnormality issues in graph dat...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: IEEE International Conference on Communications
+Title: Signed Network Dataset Repository: Extracting Signed Relations From Social Networks
+Keywords: Real-world networks; Signed network datasets
+Abstract: The proliferation in the use of social media and networking platforms has enhanced frequent interactions among individuals. The signed networks can be utilized to best perceive such complex relations. However, these real-world signed network datasets are scarce as the real-world signed datasets often involve dealing with sensitive information about individuals and their relationships. The ethical and privacy concerns of various social media platforms can further limit the availability of datasets for research and academic purposes. Furthermore, the availability of signed bipartite network datasets is even scarcer than signed network datasets....
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Transactions on Machine Learning Research
+Title: Personalization of Large Language Models: A Survey
+Abstract: Personalization of Large Language Models (LLMs) has recently become increasingly important with a wide range of applications. Despite the importance and recent progress, most existing works on personalized LLMs have focused either entirely on (a) personalized text generation or (b) leveraging LLMs for personalization-related downstream applications, such as recommendation systems. In this work, we bridge the gap between these two separate main directions for the first time by introducing a taxonomy for personalized LLM usage and summarizing the key differences and challenges. We provide a formalization of the foundations of personalized LLMs...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Conference paper
+Venue: ICAIF 2024 - 5th ACM International Conference on AI in Finance
+Title: FairNNV: The Neural Network Verification Tool For Certifying Fairness
+Keywords: Fairness; Formal Verification; Neural Networks
+Abstract: Ensuring fairness in machine learning (ML) is vital, especially as these models are increasingly used in socially critical financial decision-making processes such as credit scoring, loan approvals, and fraud detection. Fairness verification aims to provide formal guarantees of fairness in ML models. In this work, we introduce FairNNV, a tool that leverages the Neural Network Verification (NNV) framework to verify individual and counterfactual fairness using reachability analysis techniques. FairNNV introduces the Verified Fairness (VF) score to quantify fairness. Additionally, we compare the verification process of models before and after ap...
+
+---
+
+Year: 2023
+Citations: 1
+Type: Conference paper
+Venue: Proceedings - 22nd IEEE International Conference on Machine Learning and Applications, ICM...
+Title: Enhanced Graph Neural Networks with Ego-Centric Spectral Subgraph Embeddings Augmentation
+Keywords: Abnormal Features; Graph Descriptors; Graph Neural Networks; Subgraph Spectral Embeddings
+Abstract: Graph Neural Networks (GNNs) have shown remarkable merit in performing various learning-based tasks in complex networks. The superior performance of GNNs often correlates with the availability and quality of node-level features in the input networks. However, for many network applications, such node-level information may be missing or unreliable, thereby limiting the applicability and efficacy of GNNs. To address this limitation, we present a novel approach denoted as Ego-centric Spectral subGraph Embedding Augmentation (ESGEA), which aims to enhance and design node features, particularly in scenarios where information is lacking. Our method...
+
+---
+
+Year: 2022
+Citations: 1
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: PAS: Privacy Algorithms in Systems
+Keywords: differential privacy; machine learning; privacy algorithms; systems
+Abstract: Today we face an explosion of data generation, ranging from health monitoring to national security infrastructure systems. More and more systems are connected to the Internet that collects data at regular time intervals. These systems share data and use machine learning methods for intelligent decisions, which resulted in numerous real-world applications (e.g., autonomous vehicles, recommendation systems, and heart-rate monitoring) that have benefited from it. However, these approaches are prone to identity thief and other privacy related cyber-security attacks. So, how can data privacy be protected efficiently in these scenarios? More dedica...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Communications Chemistry
+Title: Superwater as a generative AI framework to predict water molecule positions on protein structures
+Abstract: Water molecules play a significant role in maintaining protein structural stability and facilitating molecular interactions. Accurate prediction of water molecule positions around protein structures is essential for understanding their biological roles and has significant implications for protein engineering and drug discovery. Here, we introduce SuperWater, a novel generative AI framework that integrates a score-based diffusion model with equivariant graph neural networks to predict water molecule placements around proteins with high accuracy. SuperWater surpasses existing methods, delivering state-of-the-art performance in both crystal wate...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Min...
+Title: BTS: A Comprehensive Benchmark for Tie Strength Prediction
+Keywords: social network analysis; social tie resilience; tie strength prediction
+Abstract: The rapid rise of online social networks underscores the need to understand the heterogeneous strengths of online relationships. Yet, efforts to assess tie strength (TS) are hindered by the lack of ground-truth labels, differing research perspectives, and limited model performance in real-world settings. To address this gap, we introduce BTS, a comprehensive Benchmark for Tie Strength prediction, aiming to establish a standardized foundation for evaluating and advancing TS prediction methodologies. Specifically, our contributions are: TS Pseudo-Label Techniques - we categorize TS into seven standardized pseudo-labeling techniques based on pri...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Min...
+Title: Machine Learning on Graphs in the Era of Generative Artificial Intelligence
+Keywords: generative artificial intelligence; graph machine learning
+Abstract: Graphs, which encode pairwise relations between entities, serve as a fundamental data structure across real-world domains. Many critical applications can be formulated as graph-based tasks, and graph machine learning (GML), from the shallow embedding models to graph neural networks and further advanced to the most powerful graph transformers, has been well-established to automate knowledge discovery and decision-making on graphs. In parallel, the recent emergence of large foundational models has driven machine learning into a new era of Generative Artificial Intelligence (Gen-AI), and this revolution presents both unprecedented opportunities...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Signed Networks**: Predictions and analysis of signed networks, including link and interaction polarity predictions, understanding and characterizing teacher connections, and analyzing the dynamics of ties on social media platforms.
+*   **Graph Machine Learning**: Development and application of graph neural networks (GNNs) for various tasks, such as link prediction, edge classification, and robustness analysis.
+*   **Social Media Analysis**: Investigation of social media platforms, including online social networks, Twitter, and Pinterest, to analyze user behaviors, connections, and interactions.
+*   **Fairness and Bias**: Addressing fairness and bias in machine learning models, including individual fairness, propensity score matching, and fairness verification.
+*   **Knowledge Graphs**: Application of knowledge graphs in various domains, including text generation, recommendation systems, and data quality-aware graph machine learning.
+
+**Evolution Over Time:**
+
+*   **Early Directions (2017-2018)**: Initial focus on signed networks, social media analysis, and graph machine learning, with a emphasis on link prediction and understanding user behaviors
+
+Chunk 3:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Derr_Tyler_57198886641
+
+Publication records (each record is one paper):
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Proceedings of the ACM/IEEE 16th International Conference on Cyber-Physical Systems, ICCPS...
+Title: Real-Time Freeway Traffic Anomalous Event Detection System via Radar Detector Sensors
+Keywords: anomaly detection; freeway operation; incident detection; traffic monitoring; transportation cyber-physical systems
+Abstract: Undetected anomalous incidents on the freeway, such as crashes, can cause increased congestion and secondary crashes. To address this problem, we recently released a real freeway traffic anomalous event detection dataset. However, our evaluation was limited to a static week of traffic data. This demo presents a live anomaly detection dashboard, processing sensor data with a 1-minute delay. It has interactive components to adjust the anomaly detection performance, providing a realistic evaluation of graph anomaly detection methods for long-term analysis and method improvements. © 2025 Copyright held by the owner/author(s).
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli...
+Title: EDGE-UP: Enhanced Dynamic GNN Ensemble for Unfollow Prediction in Online Social Networks
+Keywords: Dynamic Graph Neural Networks; Social Networks; Twitter (X); Unfollow Prediction
+Abstract: In the complex landscape of online social networks, predicting unfollow events is challenging due to data sparsity, class imbalance, and the dynamic nature of user interactions. This paper presents EDGE-UP, an Enhanced Dynamic Graph Neural Network (GNN) Ensemble model adeptly designed to overcome these challenges in unfollow prediction. EDGE-UP leverages a large-scale, longitudinal Twitter dataset featuring 58 weekly snapshots across 118,890 users to capture the evolving social dynamics. It minimizes the need for extensive feature engineering by utilizing GNNs for spatial encoding and LSTMs for capturing temporal dynamics, addressing data spa...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: 2025 Annual Conference of the Nations of the Americas Chapter of the Association for Compu...
+Title: Demystifying the Power of Large Language Models in Graph Structure Generation
+Abstract: Despite the unprecedented success of applying Large Language Models (LLMs) to graph discriminative tasks such as node classification and link prediction, its potential for graph structure generation remains largely unexplored. To fill this crucial gap, this paper presents a systematic investigation into the capability of LLMs for graph structure generation. Specifically, we design prompts triggering LLMs to generate codes that optimize network properties by injecting domain expertise from network science. Since graphs in different domains exhibit unique structural properties captured by various metrics (e.g., clustering coefficient capturing...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: 13th International Conference on Learning Representations, ICLR 2025
+Title: A LARGE-SCALE TRAINING PARADIGM FOR GRAPH GENERATIVE MODELS
+Abstract: Large Generative Models (LGMs) such as GPT, Stable Diffusion, Sora, and Suno are trained on a huge amount of texts, images, videos, and audio that are extremely diverse from numerous domains. This large-scale training paradigm on diverse well-curated data enhances the creativity and diversity of the generated content. However, all previous graph-generative models (e.g., GraphRNN, MD-VAE, MoFlow, GDSS, and DiGress) have been trained only on one dataset each time, which cannot replicate the revolutionary success achieved by LGMs in other fields. To remedy this crucial gap, we propose a large-scale training paradigm that uses a large corpus of g...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: IEEE Transactions on Network Science and Engineering
+Title: Edges Matter: An Analysis of Graph Time-Series Representations for Temporal Networks
+Keywords: edge streams; graph time-series representations; Temporal networks
+Abstract: Representations of temporal networks arising from a stream of edges lie at the heart of models learned on it and its performance on downstream applications. Previous modeling work has mainly represented a stream of timestamped edges using a time-series of graphs based on a specific time-scale τ (e.g., 1 mo). In contrast, it has recently been shown that constructing a time-series of graphs where each graph maintains a fixed ϵ number of edges, namely ϵ-graph time-series, leads to better performance on downstream applications, but there has yet to be a detailed investigation on why ϵ-graphs outperform τ-graphs. In this work, we design extensive...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: WSDM 2024 - Proceedings of the 17th ACM International Conference on Web Search and Data Mi...
+Title: The 5th International Workshop on Machine Learning on Graphs (MLoG)
+Abstract: Graphs, which encode pairwise relations between entities, are a kind of universal data structure for a lot of real-world data, including social networks, transportation networks, and chemical molecules. Many important applications on these data can be treated as computational tasks on graphs. Recently, machine learning techniques are widely developed and utilized to effectively tame graphs for discovering actionable patterns and harnessing them for advancing various graph-related computational tasks. Huge success has been achieved and numerous real-world applications have benefited from it. However, since in today's world, we are generating a...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Advances in Neural Information Processing Systems
+Title: WelQrate: Defining the Gold Standard in Small Molecule Drug Discovery Benchmarking
+Abstract: While deep learning has revolutionized computer-aided drug discovery, the AI community has predominantly focused on model innovation and placed less emphasis on establishing best benchmarking practices. We posit that without a sound model evaluation framework, the AI community's efforts cannot reach their full potential, thereby slowing the progress and transfer of innovation into real-world drug discovery. Thus, in this paper, we seek to establish a new gold standard for small molecule drug discovery benchmarking, WelQrate. Specifically, our contributions are threefold: WelQrate dataset collection - we introduce a meticulously curated collec...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Conference paper
+Venue: WSDM 2023 - Proceedings of the 16th ACM International Conference on Web Search and Data Mi...
+Title: The 3rd International Workshop on Machine Learning on Graphs (MLoG)
+Abstract: Graphs, which encode pairwise relations between entities, are a kind of universal data structure for a lot of real-world data, including social networks, transportation networks, and chemical molecules. Many important applications on these data can be treated as computational tasks on graphs. Recently, machine learning techniques are widely developed and utilized to effectively tame graphs for discovering actionable patterns and harnessing them for advancing various graph-related computational tasks. Huge success has been achieved and numerous real-world applications have benefited from it. However, since in today's world, we are generating a...
+
+---
+
+Year: 2021
+Citations: 0
+Type: Conference paper
+Venue: International Conference on Information and Knowledge Management, Proceedings
+Title: Graph Feature Gating Networks
+Keywords: graph mining; graph neural networks; semi-supervised learning
+Abstract: Graph neural networks (GNNs) have received tremendous attention due to their power in learning effective representations for graphs. Most GNNs follow a message-passing scheme where the node representations are updated by aggregating and transforming the information from the neighborhood. Meanwhile, they adopt the same strategy in aggregating the information from different feature dimensions. However, suggested by social dimension theory and spectral embedding, there are potential benefits to treat the dimensions differently during the aggregation process. In this work, we investigate to enable heterogeneous contributions of feature dimensions...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **Graph-based Methods**: 
+    * Graph neural networks (GNNs) for various applications (e.g., node classification, link prediction, graph structure generation, graph generative models)
+    * Graph time-series representations for temporal networks
+    * Graph feature gating networks for semi-supervised learning
+* **Machine Learning on Graphs**: 
+    * Developing and utilizing machine learning techniques for graph-related computational tasks
+    * Establishing best benchmarking practices for machine learning on graphs
+* **Data Representation and Analysis**: 
+    * Investigating different graph representations (e.g., ϵ-graph time-series, τ-graph time-series)
+    * Designing and evaluating large-scale training paradigms for graph generative models
+* **Cyber-Physical Systems**: 
+    * Real-time freeway traffic anomalous event detection system via radar detector sensors
+* **Social Networks and Online Platforms**: 
+    * Predicting unfollow events in online social networks
+    * Analyzing and understanding online social dynamics
+
+**Timeline/Evolution:**
+
+* Early focus on developing
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+**Research Evolution and Expertise:**
+
+Tyler Derr's research has evolved from an early focus on developing graph-based methods, including graph neural networks (GNNs) for various applications, to exploring machine learning on graphs and data representation and analysis. His work has expanded to include investigating different graph representations, designing and evaluating large-scale training paradigms for graph generative models, and applying GNNs to real-world problems such as real-time freeway traffic anomalous event detection and predicting unfollow events in online social networks.
+
+As a researcher, Tyler Derr is primarily expert in graph-based methods, machine learning on graphs, data representation and analysis, cyber-physical systems, and social networks and online platforms. His work has contributed to the development of innovative graph-based techniques and their applications in various domains, demonstrating his expertise in these areas.

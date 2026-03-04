@@ -1,0 +1,194 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Guo_Junlin_58170992800
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Guo_Junlin_58170992800
+
+Publication records (each record is one paper):
+Year: 2025
+Citations: 47
+Type: Article
+Venue: IEEE Geoscience and Remote Sensing Magazine
+Title: Vision Foundation Models in Remote Sensing: A survey
+Abstract: Artificial intelligence (AI) technologies have profoundly transformed the field of remote sensing (RS), revolutionizing data collection, processing, and analysis. Traditionally reliant on manual interpretation and task-specific models, RS research has been significantly enhanced by the advent of foundation models (FMs)—large-scale pretrained AI models capable of performing a wide array of tasks with unprecedented accuracy and efficiency. This article provides a comprehensive survey of FMs in the RS domain. We categorize these models based on their architectures, pretraining datasets, and methodologies. Through detailed performance comparisons...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: BHI 2024 - IEEE-EMBS International Conference on Biomedical and Health Informatics, Procee...
+Title: Enhancing Physician Flexibility: Prompt-Guided Multi-class Pathological Segmentation for Diverse Outcomes
+Keywords: Medical image segmentation; Renal pathology; Visual-language model
+Abstract: The Vision Foundation Model has recently gained attention in medical image analysis. Its zero-shot learning capabilities accelerate AI deployment and enhance the generalizability of clinical applications. However, segmenting pathological images presents a special focus on the flexibility of segmentation targets. For instance, a single click on a Whole Slide Image (WSI) could signify a cell, a functional unit, or layers, adding layers of complexity to the segmentation tasks. Current models primarily predict potential outcomes but lack the flexibility needed for physician input. In this paper, we explore the potential of enhancing segmentation...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Article
+Venue: International Journal of Remote Sensing
+Title: Semi-supervised contrastive learning for remote sensing: identifying ancient urbanization in the south-central Andes
+Keywords: Contrastive Learning; Machine Learning; Satellite Imagery; Semi-Supervised Learning
+Abstract: Archaeology has long faced fundamental issues of sampling and scalar representation. Traditionally, the local-to-regional-scale views of settlement patterns are produced through systematic pedestrian surveys. Recently, systematic manual survey of satellite and aerial imagery has enabled continuous distributional views of archaeological phenomena at interregional scales. However, such ‘brute force’ manual imagery survey methods are both time- and labour-intensive, as well as prone to inter-observer differences in sensitivity and specificity. The development of self-supervised learning methods (e.g. contrastive learning) offers a scalable learn...
+
+---
+
+Year: 2025
+Citations: 2
+Type: Article
+Venue: Journal of Pathology Informatics
+Title: GloFinder: AI-empowered QuPath plugin for WSI-level glomerular detection, visualization, and curation
+Keywords: Automated glomerular detection; CircleNet; Medical image analysis; QuPath plugin; Renal pathology; Weighted circle fusion; Whole slide images
+Abstract: Artificial intelligence (AI) has demonstrated significant success in automating the detection of glomeruli—key functional units of the kidney—from whole slide images (WSIs) in kidney pathology. However, existing open-source tools are often distributed as source code or Docker containers, requiring advanced programming skills that hinder accessibility for non-programmers, such as clinicians. Additionally, current models are typically trained on a single dataset and lack flexibility in adjusting confidence levels for predictions. To overcome these challenges, we introduce GloFinder, a QuPath plugin designed for single-click automated glomerular...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Glo-In-One-v2: holistic identification of glomerular cells, tissues, and lesions in human and mouse histopathology
+Keywords: glomerular lesion; glomerular segmentation; open-source; renal pathology; transfer learning; whole-slide image
+Abstract: Purpose: Segmenting intraglomerular tissue and glomerular lesions traditionally depends on detailed morphological evaluations by expert nephropathologists, a labor-intensive process susceptible to interobserver variability. Our group previously developed the Glo-In-One toolkit for integrated glomerulus detection and segmentation. We leverage the Glo-In-One toolkit to version 2 (Glo-In-One-v2), which adds fine-grained segmentation capabilities. We curated 14 distinct labels spanning tissue regions, cells, and lesions across 23,529 annotated glomeruli from human and mouse histopathology data. To our knowledge, this dataset is among the largest...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Img2ST-Net: efficient high-resolution spatial omics prediction from whole-slide histology images via fully convolutional image-to-image learning
+Keywords: computational pathology; spatial transcriptomics; Visium HD
+Abstract: Purpose: Recent advances in multimodal artificial intelligence (AI) have demonstrated promising potential for generating the currently expensive spatial transcriptomics (ST) data directly from routine histology images, offering a means to reduce the high cost and time-intensive nature of ST data acquisition. However, the increasing resolution of ST—particularly with platforms such as Visium HD achieving 8 μm or finer—introduces significant computational and modeling challenges. Conventional spot-by-spot sequential regression frameworks become inefficient and unstable at this scale, whereas the inherent extreme sparsity and low expression leve...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing
+Title: DeepAndes: A Self-Supervised Vision Foundation Model for Multispectral Remote Sensing Imagery of the Andes
+Keywords: Andean archaeology; DINOv2; foundation model (FM); multispectral imaging; remote sensing; self-supervised learning
+Abstract: By mapping sites at large scales usingremotely sensed data, archaeologists can generate unique insights into long-term demographic trends, interregional social networks, and human adaptations in the past. Remote sensing surveys complement field-based approaches, and their reach can be especially great when combined with deep learning and computer vision techniques. However, conventional supervised deep learning methods face challenges in annotating fine-grained archaeological features at scale. In addition, while recent vision foundation models have shown remarkable success in learning large-scale remote sensing data with minimal annotations,...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Assessment of Cell Nuclei AI Foundation Models in Kidney Pathology
+Keywords: Ensemble learning; Foundation model; Instance Segmentation; Kidney Pathology; Model Agreement; Nuclei
+Abstract: Cell nuclei instance segmentation is a crucial task in digital kidney pathology. Traditional automatic segmentation methods often lack generalizability when applied to unseen datasets. Recently, the success of foundation models (FMs) has provided a more generalizable solution, potentially enabling the segmentation of any cell type. In this study, we perform a large-scale evaluation of three widely used state-of-the-art (SOTA) cell nuclei foundation models-Cellpose, StarDist, and CellViT. Specifically, we created a highly diverse evaluation dataset consisting of 2,542 kidney whole slide images (WSIs) collected from both human and rodent source...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Communications Medicine
+Title: Evaluating cell AI foundation models in kidney pathology with human-in-the-loop enrichment
+Abstract: Background: Large-scale artificial intelligence foundation models have emerged as promising tools for addressing healthcare challenges, including digital pathology. While many have been developed for complex tasks such as disease diagnosis and tissue quantification using extensive and diverse datasets, their readiness for seemingly simpler tasks, such as nuclei segmentation within a single organ (for example, the kidney), remains unclear. This study answers two questions: How good are current cell foundation models? and How can we improve them? Methods: We curated a multi-center, multi-disease, and multi-species dataset sampled from 2542 kidn...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: ZeroReg3D: A zero-shot registration pipeline for 3D consecutive histopathology image reconstruction
+Keywords: 3D reconstruction; deep learning; histology; image registration; pathology
+Abstract: Purpose: Histological analysis plays a crucial role in understanding tissue struc ture and pathology. Although recent advancements in registration methods have improved 2D histological analysis, they often struggle to preserve critical 3D spa tial relationships, limiting their utility in both clinical and research applications. Specifically, constructing accurate 3D models from 2D slices remains challenging due to tissue deformation, sectioning artifacts, variability in imaging techniques, and inconsistent illumination. Deep learning-based registration methods have demon strated improved performance but suffer from limited generalizability an...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Weighted Circle Fusion: Ensembling Circle Representation from Different Object Detection Results
+Keywords: Circle Representation; Ensemble Methods; Medical Imaging; Weighted Circle Fusion
+Abstract: Recently, the use of circle representation has emerged as a method to improve the identification of spherical objects (such as glomeruli, cells, and nuclei) in medical imaging studies. In traditional bounding box-based object detection, combining results from multiple models improves accuracy, especially when real-time processing isn’t crucial. Unfortunately, this widely adopted strategy is not readily available for combining circle representations. In this paper, we propose Weighted Circle Fusion (WCF), a simple approach for merging predictions from various circle detection models. Our method leverages confidence scores associated with each...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Cross-organ Deployment of EOS Detection AI without Retraining: Feasibility and Limitation
+Keywords: Chronic Rhinosinusitis; CircleSnake; Deep Learning; Eosinophils
+Abstract: Chronic rhinosinusitis (CRS) is characterized by persistent inflammation in the paranasal sinuses, leading to typical symptoms of nasal congestion, facial pressure, olfactory dysfunction, and discolored nasal drainage, which can significantly impact quality-of-life. Eosinophils (Eos), a crucial component in the mucosal immune response, have been linked to disease severity in CRS. The diagnosis of eosinophilic CRS typically uses a threshold of 10-20 eos per high-power field (HPF). However, manually counting Eos in histological samples is laborious and time-intensive, making the use of AI-driven methods for automated evaluations highly desirabl...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Proceedings - International Symposium on Biomedical Imaging
+Title: Mitigating Over-Saturated Fluorescence Images Through a Semi-Supervised Generative Adversarial Network
+Keywords: color saturation; Fluorescence; GAN
+Abstract: Multiplex immunofluorescence (MxIF) imaging is a critical tool in biomedical research, offering detailed insights into cell composition and spatial context. As an example, DAPI staining identifies cell nuclei, while CD20 staining helps segment cell membranes in MxIF. However, a persistent challenge in MxIF is saturation artifacts, which hinder single-cell level analysis in areas with over-saturated pixels. Traditional gamma correction methods for fixing saturation are limited, often incorrectly assuming uniform distribution of saturation, which is rarely the case in practice. This paper introduces a novel approach to correct saturation artifa...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Exploring timing patterns around the phase transition of the brain system using resting-state fMRI
+Keywords: avalanche; dynamic change detection; machine learning; phase transition; resting state; sliding window PCA; timing patterns
+Abstract: The brain is a complex system with the characteristic of transitioning between the ordered and disordered phases around an optimal point, criticality. Many studies focus on exploring the brain behaviors around criticality. However, complexity and variability in the criticality also make the work more challenging. Here, we are intrigued to investigate the highly organized phase, the avalanche or avalanche peaks, which can also be represented as the few gigantic peaks in the global fMRI signal. We explored different timing patterns around the rapid phase transition of the avalanche peaks using statistical and image processing methods. The first...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **Application of Artificial Intelligence (AI) in Remote Sensing**: 
+    - Using AI technologies to transform remote sensing data collection, processing, and analysis (2025)
+    - Developing foundation models for remote sensing applications (2023, 2025)
+    - Applying AI to identify ancient urbanization in the South-Central Andes (2023)
+    - Utilizing self-supervised learning methods for scalable remote sensing (2023)
+* **Medical Image Analysis**: 
+    - Employing AI for pathological image segmentation (2024, 2025)
+    - Developing AI-powered plugins for whole-slide image analysis (2025)
+    - Improving glomerular detection and segmentation in kidney pathology (2025)
+    - Assessing cell nuclei AI foundation models in kidney pathology (2025)
+* **Deep Learning and Computer Vision**: 
+    - Investigating the feasibility of zero-shot registration pipelines for 3D consecutive histopathology image reconstruction (2025)
+    - Proposing weighted circle fusion for ensembling circle representation from different object detection results (
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Guo Junlin is a researcher who has evolved her focus from applying artificial intelligence (AI) in remote sensing to expanding its applications in medical image analysis. Initially, her work centered on developing foundation models for remote sensing, leveraging self-supervised learning methods for scalable analysis of satellite and aerial imagery (2023). She then shifted her focus to medical imaging, where she employed AI for pathological image segmentation, developed AI-powered plugins for whole-slide image analysis, and assessed cell nuclei AI foundation models in kidney pathology (2024-2025).
+
+Her primary areas of expertise lie at the intersection of AI, computer vision, and medical imaging. Guo Junlin has made significant contributions to the development of AI-powered tools for remote sensing, medical image analysis, and computer vision. Her work encompasses the design and implementation of AI algorithms for tasks such as image segmentation, object detection, and registration, as well as the creation of plugins and pipelines for whole-slide image analysis.

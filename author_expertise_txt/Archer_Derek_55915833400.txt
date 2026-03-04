@@ -1,0 +1,617 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Archer_Derek_55915833400
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Archer_Derek_55915833400
+
+Publication records (each record is one paper):
+Year: 2022
+Citations: 53
+Type: Article
+Venue: Brain Structure and Function
+Title: Aging and white matter microstructure and macrostructure: a longitudinal multi-site diffusion MRI study of 1218 participants
+Keywords: Aging; Diffusion MRI; Tractography; Volume; White matter
+Abstract: Quantifying the microstructural and macrostructural geometrical features of the human brain’s connections is necessary for understanding normal aging and disease. Here, we examine brain white matter diffusion magnetic resonance imaging data from one cross-sectional and two longitudinal data sets totaling in 1218 subjects and 2459 sessions of people aged 50–97 years. Data was drawn from well-established cohorts, including the Baltimore Longitudinal Study of Aging data set, Cambridge Centre for Ageing Neuroscience data set, and the Vanderbilt Memory & Aging Project. Quantifying 4 microstructural features and, for the first time, 11 macrostructu...
+
+---
+
+Year: 2023
+Citations: 40
+Type: Article
+Venue: Acta Neuropathologica Communications
+Title: Large multi-ethnic genetic analyses of amyloid imaging identify new genes for Alzheimer disease
+Keywords: Alzheimer’s disease; Amyloid PET; Brain amyloidosis; GWAS; Meta-analysis; Multi-ethnic
+Abstract: Amyloid PET imaging has been crucial for detecting the accumulation of amyloid beta (Aβ) deposits in the brain and to study Alzheimer’s disease (AD). We performed a genome-wide association study on the largest collection of amyloid imaging data (N = 13,409) to date, across multiple ethnicities from multicenter cohorts to identify variants associated with brain amyloidosis and AD risk. We found a strong APOE signal on chr19q.13.32 (top SNP: APOE ɛ4; rs429358; β = 0.35, SE = 0.01, P = 6.2 × 10–311, MAF = 0.19), driven by APOE ɛ4, and five additional novel associations (APOE ε2/rs7412; rs73052335/rs5117, rs1081105, rs438811, and rs4420638) indep...
+
+---
+
+Year: 2020
+Citations: 31
+Type: Article
+Venue: Neurobiology of Aging
+Title: Free-water metrics in medial temporal lobe white matter tract projections relate to longitudinal cognitive decline
+Keywords: Cognition; Diffusion MRI; Free-water; Medial temporal lobe; Tractography
+Abstract: Although hippocampal volume has served as a long-standing predictor of cognitive decline, diffusion magnetic resonance imaging studies of white matter have shown similar relationships. Still, it remains unclear if gray matter and white matter interact to predict cognitive impairment and longitudinal decline. Here, we investigate whether free-water (FW) and FW-corrected fractional anisotropy (FA<inf>T</inf>) within medial temporal lobe white matter tracts provides meaningful contribution to cognition and cognitive decline beyond hippocampal volume. Using data from the Vanderbilt Memory & Aging Project (n = 319), we found that FW was associated...
+
+---
+
+Year: 2022
+Citations: 26
+Type: Article
+Venue: NeuroImage: Clinical
+Title: Advanced diffusion imaging to track progression in Parkinson's disease, multiple system atrophy, and progressive supranuclear palsy
+Keywords: Fixel-based analysis; Free-water; Longitudinal; Neurite Orientation and Density; Parkinsonism
+Abstract: Advanced diffusion imaging which accounts for complex tissue properties, such as crossing fibers and extracellular fluid, may detect longitudinal changes in widespread pathology in atypical Parkinsonian syndromes. We implemented fixel-based analysis, Neurite Orientation and Density Imaging (NODDI), and free-water imaging in Parkinson's disease (PD), multiple system atrophy (MSAp), progressive supranuclear palsy (PSP), and controls longitudinally over one year. Further, we used these three advanced diffusion imaging techniques to investigate longitudinal progression-related effects in key white matter tracts and gray matter regions in PD and t...
+
+---
+
+Year: 2023
+Citations: 21
+Type: Article
+Venue: Brain Structure and Function
+Title: Superficial white matter across development, young adulthood, and aging: volume, thickness, and relationship with cortical features
+Keywords: Aging; Development; Lifespan; Superficial white matter; Tractography; U-fibers
+Abstract: Superficial white matter (SWM) represents a significantly understudied part of the human brain, despite comprising a large portion of brain volume and making up a majority of cortico-cortical white matter connections. Using multiple, high-quality datasets with large sample sizes (N = 2421, age range 5–100) in combination with methodological advances in tractography, we quantified features of SWM volume and thickness across the brain and across development, young adulthood, and aging. We had four primary aims: (1) characterize SWM thickness across brain regions (2) describe associations between SWM volume and age (3) describe associations betw...
+
+---
+
+Year: 2021
+Citations: 21
+Type: Article
+Venue: NeuroImage: Clinical
+Title: The relationship between white matter microstructure and self-perceived cognitive decline
+Abstract: Subjective cognitive decline (SCD) is a perceived cognitive change prior to objective cognitive deficits, and although it is associated with Alzheimer's disease (AD) pathology, it likely results from multiple underlying pathologies. We investigated the association of white matter microstructure to SCD as a sensitive and early marker of cognitive decline and quantified the contribution of white matter microstructure separate from amyloidosis. Vanderbilt Memory & Aging Project participants with diffusion MRI data and a 45-item measure of SCD were included [n = 236, 137 cognitively unimpaired (CU), 99 with mild cognitive impairment (MCI), 73 ± 7...
+
+---
+
+Year: 2023
+Citations: 18
+Type: Article
+Venue: Aging Brain
+Title: Short superficial white matter and aging: A longitudinal multi-site study of 1293 subjects and 2711 sessions
+Keywords: Brain aging; Superficial white matter; Tractography; U-fibers
+Abstract: It is estimated that short association fibers running immediately beneath the cortex may make up as much as 60 % of the total white matter volume. However, these have been understudied relative to the long-range association, projection, and commissural fibers of the brain. This is largely because of limitations of diffusion MRI fiber tractography, which is the primary methodology used to non-invasively study the white matter connections. Inspired by recent anatomical considerations and methodological improvements in superficial white matter (SWM) tractography, we aim to characterize changes in these fiber systems in cognitively normal aging,...
+
+---
+
+Year: 2024
+Citations: 17
+Type: Article
+Venue: Molecular Autism
+Title: Cortico-basal ganglia white matter microstructure is linked to restricted repetitive behavior in autism spectrum disorder
+Keywords: Autism spectrum disorder; Basal ganglia; Cerebellum; Cortico-basal ganglia; Diffusion tensor imaging; Free-water; Gray matter; Restricted repetitive behavior; White matter
+Abstract: Background: Restricted repetitive behavior (RRB) is one of two behavioral domains required for the diagnosis of autism spectrum disorder (ASD). Neuroimaging is widely used to study brain alterations associated with ASD and the domain of social and communication deficits, but there has been less work regarding brain alterations linked to RRB. Methods: We utilized neuroimaging data from the National Institute of Mental Health Data Archive to assess basal ganglia and cerebellum structure in a cohort of children and adolescents with ASD compared to typically developing (TD) controls. We evaluated regional gray matter volumes from T1-weighted anat...
+
+---
+
+Year: 2023
+Citations: 15
+Type: Article
+Venue: Imaging Neuroscience
+Title: White matter tract microstructure, macrostructure, and associated cortical gray matter morphology across the lifespan
+Keywords: cortex; lifespan; macrostructure; microstructure; tractography; white matter
+Abstract: Characterizing how, when, and where the human brain changes across the lifespan is fundamental to our understanding of developmental processes of childhood and adolescence, degenerative processes of aging, and divergence from normal patterns in disease and disorders. We aimed to provide detailed descriptions of white matter pathways across the lifespan by thoroughly characterizing white matter microstructure, white matter macrostructure, and morphology of the cortex associated with white matter pathways. We analyzed four large, high-quality, cross-sectional datasets comprising 2789 total imaging sessions, and participants ranging from 0 to 10...
+
+---
+
+Year: 2023
+Citations: 14
+Type: Article
+Venue: Alzheimer's and Dementia: Diagnosis, Assessment and Disease Monitoring
+Title: Leveraging longitudinal diffusion MRI data to quantify differences in white matter microstructural decline in normal and abnormal aging
+Keywords: aging; diffusion MRI; free-water; harmonization; white matter
+Abstract: Introduction: It is unclear how rates of white matter microstructural decline differ between normal aging and abnormal aging. Methods: Diffusion MRI data from several well-established longitudinal cohorts of aging (Alzheimer's Disease Neuroimaging Initiative [ADNI], Baltimore Longitudinal Study of Aging [BLSA], Vanderbilt Memory & Aging Project [VMAP]) were free-water corrected and harmonized. This dataset included 1723 participants (age at baseline: 72.8 ± 8.87 years, 49.5% male) and 4605 imaging sessions (follow-up time: 2.97 ± 2.09 years, follow-up range: 1–13 years, mean number of visits: 4.42 ± 1.98). Differences in white matter microstr...
+
+---
+
+Year: 2023
+Citations: 14
+Type: Article
+Venue: Alzheimer's and Dementia: Diagnosis, Assessment and Disease Monitoring
+Title: White matter microstructural metrics are sensitively associated with clinical staging in Alzheimer's disease
+Keywords: diagnosis; diffusion MRI; free-water; harmonization; white matter
+Abstract: Introduction: White matter microstructure may be abnormal along the Alzheimer's disease (AD) continuum. Methods: Diffusion magnetic resonance imaging (dMRI) data from the Alzheimer's Disease Neuroimaging Initiative (ADNI, n = 627), Baltimore Longitudinal Study of Aging (BLSA, n = 684), and Vanderbilt Memory & Aging Project (VMAP, n = 296) cohorts were free-water (FW) corrected and conventional, and FW-corrected microstructural metrics were quantified within 48 white matter tracts. Microstructural values were subsequently harmonized using the Longitudinal ComBat technique and inputted as independent variables to predict diagnosis (cognitively...
+
+---
+
+Year: 2024
+Citations: 12
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Sex-specific genetic architecture of late-life memory performance
+Keywords: aging; Alzheimer's disease; cognition; endophenotypes; Genomics; GWAS; memory; sex differences; sex-specific
+Abstract: BACKGROUND: Women demonstrate a memory advantage when cognitively healthy yet lose this advantage to men in Alzheimer's disease. However, the genetic underpinnings of this sex difference in memory performance remain unclear. METHODS: We conducted the largest sex-aware genetic study on late-life memory to date (N<inf>males</inf> = 11,942; N<inf>females</inf> = 15,641). Leveraging harmonized memory composite scores from four cohorts of cognitive aging and AD, we performed sex-stratified and sex-interaction genome-wide association studies in 24,216 non-Hispanic White and 3367 non-Hispanic Black participants. RESULTS: We identified three sex-spec...
+
+---
+
+Year: 2024
+Citations: 8
+Type: Article
+Venue: Neuroinformatics
+Title: DeepN4: Learning N4ITK Bias Field Correction for T1-weighted Images
+Keywords: 3D U-Net; Bias field correction; Inhomogeneity; N4ITK; T1-weighted images
+Abstract: T1-weighted (T1w) MRI has low frequency intensity artifacts due to magnetic field inhomogeneities. Removal of these biases in T1w MRI images is a critical preprocessing step to ensure spatially consistent image interpretation. N4ITK bias field correction, the current state-of-the-art, is implemented in such a way that makes it difficult to port between different pipelines and workflows, thus making it hard to reimplement and reproduce results across local, cloud, and edge platforms. Moreover, N4ITK is opaque to optimization before and after its application, meaning that methodological development must work around the inhomogeneity correction...
+
+---
+
+Year: 2024
+Citations: 8
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Longitudinal change in memory performance as a strong endophenotype for Alzheimer's disease
+Keywords: Alzheimer's disease; genetics; GWAS; memory
+Abstract: INTRODUCTION: Although large-scale genome-wide association studies (GWAS) have been conducted on AD, few have been conducted on continuous measures of memory performance and memory decline. METHODS: We conducted a cross-ancestry GWAS on memory performance (in 27,633 participants) and memory decline (in 22,365 participants; 129,201 observations) by leveraging harmonized cognitive data from four aging cohorts. RESULTS: We found high heritability for two ancestry backgrounds. Further, we found a novel ancestry locus for memory decline on chromosome 4 (rs6848524) and three loci in the non-Hispanic Black ancestry group for memory performance on ch...
+
+---
+
+Year: 2023
+Citations: 8
+Type: Article
+Venue: NeuroImage: Clinical
+Title: Associations among executive function Abilities, free Water, and white matter microstructure in early old age
+Keywords: Abnormal white matter; Cognitive control; Executive control; Working memory
+Abstract: Background: Studies have investigated white matter microstructure in relation to late-life cognitive impairments, with fractional anisotropy (FA) and mean diffusivity (MD) measures thought to capture demyelination and axonal degradation. However, new post-processing methods allow isolation of free water (FW), which captures extracellular fluid contributions such as atrophy and neuroinflammation, from tissue components. FW also appears to be highly relevant to late-life cognitive impairment. Here, we evaluated whether executive functions are associated with FW, and FA and MD corrected for FW (FA<inf>FWcorr</inf> and MD<inf>FWcorr</inf>). Metho...
+
+---
+
+Year: 2025
+Citations: 7
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Sex and APOE ε4 allele differences in longitudinal white matter microstructure in multiple cohorts of aging and Alzheimer's disease
+Keywords: aging; Alzheimer's disease; sex differences; white matter disease
+Abstract: INTRODUCTION: The effects of sex and apolipoprotein E (APOE)—Alzheimer's disease (AD) risk factors—on white matter microstructure are not well characterized. METHODS: Diffusion magnetic resonance imaging data from nine well-established longitudinal cohorts of aging were free water (FW)–corrected and harmonized. This dataset included 4741 participants (age = 73.06 ± 9.75) with 9671 imaging sessions over time. FW and FW-corrected fractional anisotropy (FA<inf>FWcorr</inf>) were used to assess differences in white matter microstructure by sex and APOE ε4 carrier status. RESULTS: Sex differences in FA<inf>FWcorr</inf> in projection tracts and APO...
+
+---
+
+Year: 2025
+Citations: 6
+Type: Article
+Venue: JAMA Neurology
+Title: White Matter Abnormalities and Cognition in Aging and Alzheimer Disease
+Abstract: IMPORTANCE There has yet to be a large-scale study quantifying the association between white matter microstructure and cognitive performance and decline in aging and Alzheimer disease (AD). OBJECTIVE To investigate the associations between tract-specific white matter microstructure and cognitive performance and decline in aging and AD-related cognitive impairment. DESIGN, SETTING, AND PARTICIPANTS This prognostic study of aging and AD, a secondary data analysis of multisite cohort studies, acquired data from 9 cohorts between September 2002 and November 2022. Participants were eligible if they had diffusion-weighted magnetic resonance imaging...
+
+---
+
+Year: 2023
+Citations: 6
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Comparing voxel- and feature-wise harmonization of complex graph measures from multiple sites for structural brain network investigation of aging
+Keywords: complex network measures; Diffusion-weighted imaging; harmonization; multi-site; tractography
+Abstract: Complex graph theory measures of brain structural connectomes derived from diffusion weighted images (DWI) provide insight into the network structure of the brain. Further, as the number of available DWI datasets grows, so does the ability to investigate associations in these measures with major biological factors, like age. However, one key hurdle that remains is the presence of scanner effects that can arise from different DWI datasets and confound multisite analyses. Two common approaches to correct these effects are voxel-wise and feature-wise harmonization. However, it is still unclear how to best leverage them for graph-theory analysis...
+
+---
+
+Year: 2024
+Citations: 5
+Type: Article
+Venue: Imaging Neuroscience
+Title: Free-water: A promising structural biomarker for cognitive decline in aging and mild cognitive impairment
+Keywords: aging; Alzheimer’s disease (AD); cognition; diffusion MRI; fractional anisotropy (FA); free-water
+Abstract: Diffusion MRI derived free-water (FW) metrics show promise in predicting cognitive impairment and decline in aging and Alzheimer’s disease (AD). FW is sensitive to subtle changes in brain microstructure, so it is possible these measures may be more sensitive than traditional structural neuroimaging biomarkers. In this study, we examined the associations among FW metrics (measured in the hippocampus and two AD signature meta-ROIs) with cognitive performance, and compared FW findings to those from more traditional neuroimaging biomarkers of AD. We leveraged data from a longitudinal cohort (n<inf>participants</inf> = 296, n<inf>observations</inf...
+
+---
+
+Year: 2024
+Citations: 5
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Empirical assessment of the assumptions of ComBat with diffusion tensor imaging
+Keywords: bootstrap; ComBat; diffusion tensor imaging; harmonization; magnetic resonance imaging
+Abstract: Purpose: Diffusion tensor imaging (DTI) is a magnetic resonance imaging technique that provides unique information about white matter microstructure in the brain but is susceptible to confounding effects introduced by scanner or acquisition differences. ComBat is a leading approach for addressing these site biases. However, despite its frequent use for harmonization, ComBat’s robustness toward site dissimilarities and overall cohort size have not yet been evaluated in terms of DTI. Approach: As a baseline, we match N = 358 participants from two sites to create a “silver standard” that simulates a cohort for multi-site harmonization. Across si...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Article
+Venue: Imaging Neuroscience
+Title: Tractography from T1-weighted MRI: Empirically exploring the clinical viability of streamline propagation without diffusion MRI
+Keywords: convolutional recurrent neural networks; CoRNN; diffusion MRI; open-source software; streamline tractography; T1-weighted MRI; white matter
+Abstract: Over the last few decades, diffusion MRI (dMRI) streamline tractography has emerged as the dominant method for in vivo estimation of white matter (WM) pathways in the brain. One key limitation to this technique is that modern tractography implementations require high angular resolution diffusion imaging (HARDI). However, HARDI can be difficult to collect clinically, limiting the reach of tractography analyses to research cohorts and thus limiting many WM investigations to certain populations and pathologies. As such, a clinically viable tractography solution applicable to wider patient populations scanned as a part of routine care would be of...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Field-of-view extension for brain diffusion MRI via deep generative models
+Keywords: diffusion MRI; generative model; imputation; medical image synthesis
+Abstract: Purpose: In brain diffusion magnetic resonance imaging (dMRI), the volumetric and bundle analyses of whole-brain tissue microstructure and connectivity can be severely impeded by an incomplete field of view (FOV). We aim to develop a method for imputing the missing slices directly from existing dMRI scans with an incomplete FOV. We hypothesize that the imputed image with a complete FOV can improve whole-brain tractography for corrupted data with an incomplete FOV. Therefore, our approach provides a desirable alternative to discarding the valuable brain dMRI data, enabling subsequent tractography analyses that would otherwise be challenging or...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Conference paper
+Venue: Pacific Symposium on Biocomputing
+Title: A deep neural network estimation of brain age is sensitive to cognitive impairment and decline
+Keywords: Alzheimers disease; cognition; deep neural network; free-water correction
+Abstract: The greatest known risk factor for Alzheimers disease (AD) is age. While both normal aging and AD pathology involve structural changes in the brain, their trajectories of atrophy are not the same. Recent developments in artificial intelligence have encouraged studies to leverage neuroimaging-derived measures and deep learning approaches to predict brain age, which has shown promise as a sensitive biomarker in diagnosing and monitoring AD. However, prior efforts primarily involved structural magnetic resonance imaging and conventional diffusion MRI (dMRI) metrics without accounting for partial volume effects. To address this issue, we post-pro...
+
+---
+
+Year: 2022
+Citations: 3
+Type: Article
+Venue: Frontiers in Neurology
+Title: Transcallosal and Corticospinal White Matter Disease and Its Association With Motor Impairment in Multiple Sclerosis
+Keywords: magnetic resonance imaging (MRI); multiple sclerosis; neurite orientation dispersion and density imagining (NODDI); neurodegeneration; probabilistic tractography
+Abstract: Purpose: In this cross-sectional, proof-of-concept study, we propose that using the more pathologically-specific neurite orientation dispersion and density imaging (NODDI) method, in conjunction with high-resolution probabilistic tractography, white matter tract templates can improve the assessment of regional axonal injury and its association with disability of people with multiple sclerosis (pwMS). Methods: Parametric maps of the neurite density index, orientation dispersion index, and the apparent isotropic volume fraction (IVF) were estimated in 18 pwMS and nine matched healthy controls (HCs). Tract-specific values were measured in transc...
+
+---
+
+Year: 2025
+Citations: 2
+Type: Article
+Venue: PLOS ONE
+Title: Scalable quality control on processing of large diffusion-weighted and structural magnetic resonance imaging datasets
+Abstract: Thorough quality control (QC) can be time consuming when working with large-scale medical imaging datasets, yet necessary, as poor-quality data can lead to erroneous conclusions or poorly trained machine learning models. Most efforts to reduce data QC time rely on quantitative outlier detection, which cannot capture every instance of algorithm failure. Thus, there is a need to visually inspect every output of data processing pipelines in a scalable manner. We design a QC pipeline that allows for low time cost and effort across a team setting for a large database of diffusion-weighted and structural magnetic resonance images. Our proposed meth...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Predicting Age from White Matter Diffusivity with Residual Learning
+Keywords: brain age; convolutional neural networks; deep learning; DTI
+Abstract: Imaging findings inconsistent with those expected at specific chronological age ranges may serve as early indicators of neurological disorders and increased mortality risk. Estimation of chronological age, and deviations from expected results, from structural magnetic resonance imaging (MRI) data has become an important proxy task for developing biomarkers that are sensitive to such deviations. Complementary to structural analysis, diffusion tensor imaging (DTI) has proven effective in identifying age-related microstructural changes within the brain white matter, thereby presenting itself as a promising additional modality for brain age predi...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Evaluation of Mean Shift, ComBat, and CycleGAN for Harmonizing Brain Connectivity Matrices Across Sites
+Keywords: ComBat; Connectivity matrix; connectome; CycleGAN; dMRI; graph measure; harmonization; mean shift
+Abstract: Connectivity matrices derived from diffusion MRI (dMRI) provide an interpretable and generalizable way of understanding the human brain connectome. However, dMRI suffers from inter-site and between-scanner variation, which impedes analysis across datasets to improve robustness and reproducibility of results. To evaluate different harmonization approaches on connectivity matrices, we compared graph measures derived from these matrices before and after applying three harmonization techniques: mean shift, ComBat, and CycleGAN. The sample comprises 168 age-matched, sex-matched normal subjects from two studies: the Vanderbilt Memory and Aging Proj...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Review
+Venue: Alzheimer's and Dementia: Translational Research and Clinical Interventions
+Title: New directions for Alzheimer's disease research from the Jackson Laboratory Center for Alzheimer's and Dementia Research 2022 workshop
+Abstract: INTRODUCTION: In September 2022, The Jackson Laboratory Center for Alzheimer's and Dementia Research (JAX CADR) hosted a workshop with leading researchers in the Alzheimer's disease and related dementias (ADRD) field. METHODS: During the workshop, the participants brainstormed new directions to overcome current barriers to providing patients with effective ADRD therapeutics. The participants outlined specific areas of focus. Following the workshop, each group used standard literature search methods to provide background for each topic. RESULTS: The team of invited experts identified four key areas that can be collectively addressed to make a...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Bridging the gap: addressing NACC's evolving cognition batteries across UDS versions
+Keywords: co-calibration; cognition; data sharing; harmonization; National Alzheimer's Coordinating Centre; psychometrics; uniform data set; validity
+Abstract: INTRODUCTION: The Uniform Data Set (UDS) version 3 neuropsychological battery replaced old tests used in UDS 1&2. Here, we validate domain scores for memory, executive functioning, and language co-calibrated across UDS eras. METHODS: We compared co-calibrated and harmonized domain scores to traditional equipercentile equating in a crosswalk sample. We also validated domain scores by evaluating associations with magnetic resonance imaging (MRI) findings and APOE genotype across UDS eras. RESULTS: We co-calibrated cognitive domain scores for 49,396 participants, about 25% of whom had data spanning UDS 1&2 and UDS 3 eras. Crosswalk sample (n = 9...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+*   **White matter microstructure and its relationship to various conditions**: 
+    *   Investigated white matter microstructure in relation to aging, Alzheimer's disease, Parkinson's disease, multiple system atrophy, progressive supranuclear palsy, and autism spectrum disorder.
+    *   Used diffusion MRI and other imaging techniques to analyze white matter microstructure.
+*   **Diffusion MRI and its applications**: 
+    *   Utilized diffusion MRI to study white matter microstructure and its changes across the lifespan.
+    *   Developed and applied new methods for analyzing diffusion MRI data, such as fixel-based analysis and free-water imaging.
+*   **Brain aging and cognitive decline**: 
+    *   Examined the relationship between white matter microstructure and cognitive decline in aging and Alzheimer's disease.
+    *   Investigated the role of free-water in predicting cognitive decline.
+*   **Harmonization and standardization of imaging data**: 
+    *   Developed and applied methods for harmonizing and standardizing diffusion MRI data across different sites and scanners.
+    *
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Archer_Derek_55915833400
+
+Publication records (each record is one paper):
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Harmonized connectome resampling for variance in voxel sizes
+Keywords: Connectomics; Diffusion MRI; Harmonization; Spatial sampling; Tractography
+Abstract: Diffusion MRI (dMRI) fiber tractography presents exciting opportunities to deepen our knowledge of human brain connectivity and discover novel alterations in white matter. To date, there has been no comprehensive study characterizing the effect of dMRI voxel resolution on the resulting connectome for subject data. We assessed the statistical significance of graph measures derived from dMRI data by comparing connectomes from the same scans across different resolutions with 44 subjects (32 female) from the Human Connectome Project – Young Adult dataset (HCP-YA) with scan/rescan data (88 scans). We explored 15 isotropic and anisotropic resolutio...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Brain
+Title: Novel modelling approaches to elucidate the genetic architecture of resilience to Alzheimer’s disease
+Keywords: cognitive reserve; dementia; functional genomics; genome-wide association study; neurodegeneration
+Abstract: Up to 30% of older adults meet pathological criteria for a diagnosis of Alzheimer’s disease at autopsy yet never show signs of cognitive impairment. Recent work has highlighted genetic drivers of this resilience, or better-than-expected cognitive performance given a level of neuropathology, that allow the aged brain to protect itself from the downstream consequences of amyloid and tau deposition. However, models of resilience have been constrained by reliance on measures of neuropathology, substantially limiting the number of participants available for analysis. We sought to determine whether new approaches using APOE allele status, age and o...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: The association between poor sleep health and Alzheimer's disease structural neuroimaging biomarkers
+Keywords: actigraphy; Alzheimer's disease; atrophy; magnetic resonance imaging; sleep
+Abstract: INTRODUCTION: Poor sleep may be a risk factor for neurodegeneration and Alzheimer's disease (AD). Few studies have examined objectively measured sleep with structural neuroimaging measures. METHODS: Vanderbilt Memory and Aging Project participants (N = 407; median age: 70 years) wore ActiGraph accelerometers for 10 days to estimate sleep regularity, timing, efficiency, duration, wake-after-sleep onset, and awakening length. Volume in brain regions of interest (ROIs) and AD signatures were quantified using 3T brain magnetic resonance imaging (MRI). Cross-sectional linear regression models were adjusted for sociodemographic and lifestyle factor...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Imaging Neuroscience
+Title: Brain age identification from diffusion MRI synergistically predicts neurodegenerative disease
+Keywords: Alzheimer’s disease; brain age; deep learning; diffusion MRI; mild cognitive impairment
+Abstract: Estimated brain age from magnetic resonance image (MRI) and its deviation from chronological age can provide early insights into potential neurodegenerative diseases, supporting early detection and implementation of prevention strategies to slow disease progression and onset. Diffusion MRI (dMRI), a widely used modality for brain age estimation, presents an opportunity to build an earlier biomarker for neurodegenerative disease prediction because it captures subtle microstructural changes that precede more perceptible macrostructural changes. However, the coexistence of macro- and micro-structural information in dMRI raises the question of wh...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Deep learning-based free-water correction for single-shell diffusion MRI
+Keywords: Deep learning; Diffusion MRI; Free water elimination; Reproducibility
+Abstract: Free-water elimination (FWE) modeling in diffusion magnetic resonance imaging (dMRI) is crucial for accurate estimation of diffusion properties by mitigating the partial volume effects caused by free water, particularly at the interface between white matter and cerebrospinal fluid. The presence of free water partial volume effects leads to biases in estimating diffusion properties. Additionally, the existing mathematical FWE model is a two-compartment model, which can be well posed for multi-shell data. However, single-shell acquisitions are more common in clinical cohorts due to time constraints. To overcome these problems, we proposed a dee...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: The effect of Alzheimer's disease genetic factors on limbic white matter microstructure
+Keywords: Alzheimer's disease; diffusion MRI; free water; genetic risk variants; polygenic risk; white matter microstructure
+Abstract: INTRODUCTION: White matter (WM) microstructure is essential for brain function but deteriorates with age and in neurodegenerative conditions such as Alzheimer's disease (AD). Diffusion MRI, enhanced by advanced bi-tensor models accounting for free water (FW), enables in vivo quantification of WM microstructural differences. METHODS: To evaluate how AD genetic risk factors affect limbic WM microstructure – crucial for memory and early impacted in disease – we conducted linear regression analyses in a cohort of 2,614 non-Hispanic White aging adults (aged 50.12 to 100.85 years). The study evaluated 36 AD risk variants across 26 genes, the associ...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Scalable, reproducible, and cost-effective processing of large-scale medical imaging datasets
+Keywords: AI Ready; Batch Processing; Informatics; MRI
+Abstract: Curating, processing, and combining large-scale medical imaging datasets from national studies is a non-trivial task due to the intense computation and data throughput required, variability of acquired data, and associated financial overhead. Existing platforms or tools for large-scale data curation, processing, and storage have difficulty achieving a viable cost-to-scale ratio of computation speed for research purposes, either being too slow or too expensive. Additionally, management and consistency of processing large data in a team-driven manner is a non-trivial task. We design a BIDS-compliant method for an efficient and robust data proce...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: MidRISH: Unbiased harmonization of rotationally invariant harmonics of the diffusion signal
+Keywords: Diffusion imaging; Diffusion tensor imaging; Harmonization; Spherical harmonics
+Abstract: Data harmonization is necessary for removing confounding effects in multi-site diffusion image analysis. One such harmonization method, LinearRISH, scales rotationally invariant spherical harmonic (RISH) features from one site (“target”) to the second (“reference”) to reduce confounding scanner effects. However, reference and target site designations are not arbitrary and resultant diffusion metrics (fractional anisotropy, mean diffusivity) are biased by this choice. In this work we propose MidRISH: rather than scaling reference RISH features to target RISH features, we project both sites to a mid-space. We validate MidRISH with the following...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Magnetic Resonance Imaging
+Title: Multi-modality conditioned variational U-net for field-of-view extension in brain diffusion MRI
+Keywords: Diffusion MRI; Generative model; Imputation; Medical image synthesis
+Abstract: An incomplete field-of-view (FOV) in diffusion magnetic resonance imaging (dMRI) can severely hinder the volumetric and bundle analyses of whole-brain white matter connectivity. Although existing works have investigated imputing the missing regions using deep generative models, it remains unclear how to specifically utilize additional information from paired multi-modality data and whether this can enhance the imputation quality and be useful for downstream tractography. To fill this gap, we propose a novel framework for imputing dMRI scans in the incomplete part of the FOV by integrating the learned diffusion features in the acquired part of...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Evaluating the association of apolipoprotein E genotype and cognitive resilience in SuperAgers
+Keywords: Alzheimer's disease; APOE genotype; cognitive aging; cognitive resilience; SuperAgers
+Abstract: INTRODUCTION: “SuperAgers” are oldest-old adults (ages 80+) whose memory performance more closely resembles middle-aged adults. The present study examined apolipoprotein E (APOE) allele frequency in non-Hispanic Black (NHB) and non-Hispanic White (NHW) SuperAgers compared to controls and Alzheimer's disease dementia cases. METHODS: In 18,080 participants from eight cohorts, harmonized clinical diagnostics and memory, executive function, and language domain scores were used to identify SuperAgers, cases, and controls across age-defined bins. RESULTS: NHW SuperAgers had significantly lower frequency of APOE-ε4 alleles and higher frequency of AP...
+
+---
+
+Year: 2026
+Citations: 0
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Characterizing amyloid and tau positron emission tomography-based stages across the clinical continuum
+Keywords: Alzheimer's disease; amyloid; PET; tau
+Abstract: INTRODUCTION: We standardized positron emission tomography (PET) data across multiple cohorts and tracers to characterize the frequency of amyloid and tau PET severity along the clinical continuum. METHODS: Clinical stage was defined using cohort-specific criteria and included cognitively unimpaired (CU), mild cognitive impairment (MCI), and dementia. Amyloid severity was staged using Centiloids (CL). Tau severity was staged using a hierarchical Braak-based schema. The cumulative probabilities of PET-based stages were estimated using ordinal logistic regressions. RESULTS: Among 10,396 individuals (mean [standard deviation] age: 71.9 [7.1] yea...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: APOE, ABCA7, and RASGEF1C are associated with earlier onset of amyloid deposition from more than 4000 harmonized positron emission tomography images
+Keywords: ABCA7; Alzheimer's disease; amyloid; amyloid clearance; apolipoprotein E; genetics; harmonization; positron emission tomography
+Abstract: INTRODUCTION: New methods estimate amyloid positivity onset age (EAOA) from amyloid positron emission tomography (PET). We explore the genetics of EAOA to identify molecular factors underlying the earliest Alzheimer's disease (AD) changes. METHODS: Harmonized amyloid PET data from 4216 participants were used in genome-wide survival, tissue-specific gene expression, and genetic covariance analyses of EAOA. RESULTS: Variants in apolipoprotein E (APOE), ABCA7, and RASGEF1C associated with earlier EAOA. APOE ε4/ε4 and ε3/ε4 converted 6.3 and 5 years earlier than ε3/ε3, respectively. ε2 was protective against earlier EAOA. rs4147929, an expression...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Harmonizing 10,000 connectomes: site-invariant representation learning for multi-site analysis of network connectivity and cognitive impairment
+Keywords: brain networks; connectomics; diffusion imaging; machine learning; multi-site
+Abstract: Purpose: Data-driven harmonization can mitigate systematic confounding signals across imaging cohorts caused by variance in scanners and acquisition protocols. As diffusion magnetic resonance imaging data are often acquired with different hardware and software, harmonization is essential for integrating these scattered datasets into a cohesive analysis for improved statistical power. Large-scale, multi-site studies for Alzheimer’s disease (AD), a neurodegenerative condition characterized by high data variability and complex pathology, pose the challenge of both site-based and biological variation. Approach: We learn lower-dimensional represen...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Computers in Biology and Medicine
+Title: Pitfalls of defacing whole-head MRI: re-identification risk with diffusion models and compromised research potential
+Keywords: Data sharing; Defacing; Generative models; MRI; Privacy
+Abstract: Defacing is often applied to head magnetic resonance image (MRI) datasets prior to public release to address privacy concerns. The alteration of facial and nearby voxels has provoked discussions about the true capability of these techniques to ensure privacy as well as their impact on downstream tasks. With advancements in deep generative models, the extent to which defacing can protect privacy is uncertain. Additionally, while the altered voxels are known to contain valuable anatomical information, their potential to support research beyond the anatomical regions directly affected by defacing remains uncertain. To evaluate these consideratio...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Alzheimer's and Dementia
+Title: Five-year change in sleep duration and incident Alzheimer's Disease and Related Dementias among lower-income older adults
+Keywords: change in sleep duration; dementia; health disparities; longitudinal study
+Abstract: INTRODUCTION: Little is known about change in sleep duration over time and Alzheimer's Disease and Related Dementias (ADRD) risk. METHODS: ADRD cases were identified among Southern Community Cohort Study participants enrolled in Medicare. Sleep duration was reported at enrollment and first study follow-up and categorized (short (< 7 hours), recommended (7-9) and long (> 9)), change was calculated between timepoints. Adjusted Cox proportional hazards regression was used to estimate hazard ratios (HRs, 95% CIs) for incident ADRD. RESULTS: We identified 2,093 ADRD cases among 17,945 participants. Compared to maintaining optimal sleep duration (7...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Alzheimer's and Dementia: Diagnosis, Assessment and Disease Monitoring
+Title: Cerebrospinal fluid YKL-40 relates to white matter hyperintensity progression in females but not males over a 6-year period
+Keywords: aging; Alzheimer's disease; sex differences; white matter disease
+Abstract: INTRODUCTION: Neuroinflammation may have sex-specific effects on white matter injury and impact the development of dementia. METHODS: Human chitinase-3-like protein-1 (YKL-40) concentrations at baseline were related to white matter hyperintensity (WMH) volume, free water (FW), and FW-corrected fractional anisotropy using linear effects models (for cross-sectional outcomes) and linear mixed-effects models (for longitudinal outcomes), adjusting for demographic and medical risk factors. Models were repeated with a sex-interaction term and then stratified by sex. RESULTS: In stratified analyses, greater baseline YKL-40 concentrations were associa...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Alzheimer's and Dementia: Diagnosis, Assessment and Disease Monitoring
+Title: Associations between APOE-TOMM40 ‘523 haplotypes and limbic system white matter microstructure
+Keywords: aging; Alzheimer's disease (AD); APOE; diffusion magnetic resonance imaging (dMRI); free water corrected metrics; genetic risk factors; limbic system tracts; Minority Aging Researc...
+Abstract: INTRODUCTION: We assessed associations between apolipoprotein E Translocase of Outer Mitochondrial Membrane 40 (APOE-TOMM40)-‘523 haplotypes and white matter microstructure (WMM) across limbic tracts important for memory and cognition in non-Hispanic Black and White individuals. METHODS: Linear regression models, stratified by APOE and racialized groups, assessed associations between TOMM40-‘523-S and limbic tract WMM free-water (FW) and free-water-corrected fractional anisotropy (FAFWcorr). RESULTS: Black-ε4+-one-'523-S carriers had lower FW in the cingulum and inferior longitudinal fasciculus compared to Black-ε4+-no-'523-S carriers. Additi...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Human Brain Mapping
+Title: Head Motion in Diffusion Magnetic Resonance Imaging: Quantification, Mitigation, and Structural Associations in Large, Cross-Sectional Datasets Across the Lifespan
+Abstract: Head motion during diffusion magnetic resonance imaging (MRI) scans can cause numerous artifacts and biases subsequent quantification. However, a thorough characterization of motion across multiple scans, cohorts, and consortiums has not been performed. To address this, we designed a study with three aims. First, we aimed to characterize subject motion across several large cohorts, utilizing 13 cohorts comprised of 16,995 imaging sessions (age 0.1–100 years, mean age = 63 years; 7220 females; 3175 cognitively impaired adults; 471 developmentally delayed children) to describe the magnitude and directions of subject movement. Second, we aimed t...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Learning disentangled representations to harmonize connectome network measures
+Keywords: brain networks; connectome; diffusion-weighted imaging; harmonization; magnetic resonance imaging
+Abstract: Purpose: Connectome network metrics are commonly regarded as fundamental properties of the brain, and their alterations have been implicated in the development of Alzheimer's disease, multiple sclerosis, and traumatic brain injury. However, these metrics are actually estimated properties through a multistage propagation from local voxel diffusion estimations, regional tractography, and region of interest mapping. These estimation processes are significantly influenced by choices specific to imaging protocols and software, producing site-wise effects. Approach: Recent advances in disentanglement techniques offer opportunities to learn represen...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Polyhedra Encoding Transformers: Enhancing Diffusion MRI Analysis Beyond Voxel and Volumetric Embedding
+Keywords: Deep learning; Diffusion MRI; Estimation; Transformer
+Abstract: Diffusion-weighted Magnetic Resonance Imaging (dMRI) is an essential tool in neuroimaging. It is arguably the sole noninvasive technique for examining the microstructural properties and structural connectivity of the brain. Recent years have seen the emergence of machine learning and data-driven approaches that enhance the speed, accuracy, and consistency of dMRI data analysis. However, traditional deep learning models often fell short, as they typically utilize pixel-level or volumetric patch-level embeddings similar to those used in structural MRI, and do not account for the unique distribution of various gradient encodings. In this paper,...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Conference paper
+Venue: Lecture Notes in Computer Science
+Title: Ts-FWE: Token-Aware Single-Shell Free Water Estimation for Brain Diffusion MRI
+Keywords: Diffusion MRI; Free water elimination; Vision transformer
+Abstract: Recent advances in deep learning opened a new window for achieving precise free water estimation (FWE) through single-shell diffusion-weighted imaging (DWI) data. Compared with traditional approaches, those methods mitigated biases from free water contamination without relying on multi-shell data. However, current single-shell-based FWE methods still suffer from the “case-by-case” deep learning design, struggling to generalize across the diverse acquisition schemes in a more clinically useful plug-and-play fashion. In this paper, we propose a novel token-aware single-shell FWE (Ts-FWE) method towards a “one-for-all” design, so that a single m...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Article
+Venue: Journal of Medical Imaging
+Title: Characterizing patterns of diffusion tensor imaging variance in aging brains
+Keywords: aging; brain; DTI; motion; variance
+Abstract: Purpose: As large analyses merge data across sites, a deeper understanding of variance in statistical assessment across the sources of data becomes critical for valid analyses. Diffusion tensor imaging (DTI) exhibits spatially varying and correlated noise, so care must be taken with distributional assumptions. Here, we characterize the role of physiology, subject compliance, and the interaction of the subject with the scanner in the understanding of DTI variability, as modeled in the spatial variance of derived metrics in homogeneous regions. Approach: We analyze DTI data from 1035 subjects in the Baltimore Longitudinal Study of Aging, with a...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Erratum
+Venue: Imaging Neuroscience
+Title: Correction to: White matter tract microstructure, macrostructure, and associated cortical gray matter morphology across the lifespan (Imaging Neuroscience, (2023), 1, (1-24), 10.11...
+Abstract: Figure 3 and Figure 5 have been updated due to formatting issues with the colorbar labels on several subplots. These labels have been corrected, however, the color and format of the rest of the figure remains unchanged, and no results nor interpretation are changed by the formatting issue. White matter microstructure shows different associations with age across pathways and across different lifespan stages. The % difference per year (cross-sectional % change per year) of all white matter microstructure features, for all bundles is shown for each of the four cohorts. Note that each cohort is visualized on a different scale to highlight trends...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Conference paper
+Venue: Progress in Biomedical Optics and Imaging - Proceedings of SPIE
+Title: Learning-based Free-Water Correction using Single-shell Diffusion MRI
+Keywords: Deep learning; Diffusion MRI; Free water elimination; Reproducibility
+Abstract: Diffusion magnetic resonance imaging (dMRI) offers the ability to assess subvoxel brain microstructure through the extraction of biomarkers like fractional anisotropy, as well as to unveil brain connectivity by reconstructing white matter fiber trajectories. However, accurate analysis becomes challenging at the interface between cerebrospinal fluid and white matter, where the MRI signal originates from both the cerebrospinal fluid and the white matter partial volume. The presence of free water partial volume effects introduces a substantial bias in estimating diffusion properties, thereby limiting the clinical utility of DWI. Moreover, curren...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+* **Diffusion MRI and Connectome Analysis**: 
+    * Methods: diffusion MRI, tractography, connectome analysis, graph measures, harmonization, free-water correction
+    * Application Areas: brain connectivity, white matter microstructure, neurodegenerative diseases (Alzheimer's disease)
+* **Genetic Factors and Biomarkers**: 
+    * Methods: genome-wide association study, genetic risk variants, APOE allele status, polygenic risk
+    * Application Areas: Alzheimer's disease, cognitive resilience, amyloid deposition
+* **Machine Learning and Image Analysis**: 
+    * Methods: deep learning, neural networks, transformers, disentangled representations, free-water estimation
+    * Application Areas: diffusion MRI analysis, brain image synthesis, data harmonization
+* **Sleep and Cognitive Function**: 
+    * Methods: actigraphy, sleep duration, longitudinal study
+    * Application Areas: Alzheimer's disease, cognitive decline, sleep disorders
+* **Brain Age and Neurodegeneration**: 
+    * Methods: brain age estimation, diffusion MRI, deep
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+**Research Evolution and Expertise:**
+
+Dr. Derek Archer's research has evolved over time, focusing on the intersection of diffusion MRI, connectome analysis, and machine learning. Initially, his work centered on investigating white matter microstructure and its relationship to various conditions, including aging, Alzheimer's disease, and Parkinson's disease. He later expanded his scope to incorporate genetic factors and biomarkers, exploring their impact on cognitive resilience and amyloid deposition. Recently, Dr. Archer has delved into machine learning and image analysis, developing novel methods for diffusion MRI analysis, brain image synthesis, and data harmonization.
+
+As a result, Dr. Archer's primary areas of expertise lie at the confluence of diffusion MRI, connectome analysis, and machine learning. His work focuses on uncovering the intricate relationships between brain structure, function, and behavior, with a particular emphasis on neurodegenerative diseases, cognitive decline, and brain aging. Through his research, Dr. Archer seeks to advance our understanding of the human brain and develop innovative solutions for diagnosing and treating neurological disorders.

@@ -1,0 +1,18 @@
+THEMES:
+- **Edamame Research**:
+- Investigation of physical and chemical properties of edamame
+- Analysis of chemical compositions of edamame genotypes grown in different locations
+- Development of calibrations for sugar content in ground soybean seed (edamame)
+- **Spectroscopy-based Methods**:
+- Application of spectroscopy-based machine learning techniques to predict optimal harvest time
+- Near-infrared reflectance spectroscopy calibration for sugar content in ground soybean seed
+- **Food Quality and Nutrition**:
+- Examination of nutrition and potential health benefits of edamame
+- Investigation of consumer demand and willingness to pay for fresh, local, organic, and "on-the-stalk" edamame
+- **Agricultural Applications**:
+- Determination of optimal harvest time for edamame
+
+SUMMARY:
+Dr. Nick is a researcher with a diverse background in agricultural science. His work has primarily focused on edamame, exploring its physical and chemical properties, as well as its nutritional value and potential health benefits. Over time, his research interests have evolved to encompass various aspects of edamame production, including the development of calibrations for sugar content in ground soybean seed.
+
+Dr. Nick's expertise spans multiple areas, including spectroscopy-based methods for predicting optimal harvest times and near-infrared reflectance spectroscopy calibration. He also investigates consumer behavior related to food quality and nutrition, examining factors such as demand and willingness to pay for fresh, locally sourced, and organically produced edamame. With a strong foundation in agricultural applications, Dr. Nick continues to contribute to the advancement of edamame research and its practical implementation in the field.

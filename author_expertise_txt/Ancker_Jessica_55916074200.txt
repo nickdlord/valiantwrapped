@@ -1,0 +1,1796 @@
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You write concise website-ready research bios.
+Hard rules:
+- Use ONLY the evidence in the chunk summaries.
+- Do NOT invent facts.
+- Write 1–2 paragraphs, ~130–230 words total.
+- Must include (a) academic journey/evolution AND (b) primary expertise areas.
+- Professional, plain-language tone.user
+
+Author ID: Ancker_Jessica_55916074200
+
+Chunk-level evidence summaries:
+Chunk 1:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Ancker_Jessica_55916074200
+
+Publication records (each record is one paper):
+Year: 2011
+Citations: 1452
+Type: Article
+Venue: Journal of Medical Internet Research
+Title: ConSORT-eHealth: Improving and standardizing evaluation reports of web-based and mobile health interventions
+Keywords: Evaluation; Guidelines; Internet; Medical informatics; Mobile health; Publishing standards; Quality control; Randomized controlled trials as topic; Reporting standards
+Abstract: Background: Web-based and mobile health interventions (also called "Internet interventions" or "eHealth/mHealth interventions") are tools or treatments, typically behaviorally based, that are operationalized and transformed for delivery via the Internet or mobile platforms. These include electronic tools for patients, informal caregivers, healthy consumers, and health care providers. The Consolidated Standards of Reporting Trials (CONSORT) statement was developed to improve the suboptimal reporting of randomized controlled trials (RCTs). While the CONSORT statement can be applied to provide broad guidance on how eHealth and mHealth trials sho...
+
+---
+
+Year: 2018
+Citations: 493
+Type: Review
+Venue: Journal of the American Medical Informatics Association
+Title: Good intentions are not enough: How informatics interventions can worsen inequality
+Keywords: Consumer health informatics; Evaluation; Health equity; Population health informatics; Social determinants of health; Unintended consequences
+Abstract: Health informatics interventions are designed to help people avoid, recover from, or cope with disease and disability, or to improve the quality and safety of healthcare. Unfortunately, they pose a risk of producing intervention-generated inequalities (IGI) by disproportionately benefiting more advantaged people. In this perspective paper, we discuss characteristics of health-related interventions known to produce IGI, explain why health informatics interventions are particularly vulnerable to this phenomenon, and describe safeguards that can be implemented to improve health equity. We provide examples in which health informatics intervention...
+
+---
+
+Year: 2017
+Citations: 475
+Type: Article
+Venue: BMC Medical Informatics and Decision Making
+Title: Effects of workload, work complexity, and repeated alerts on alert fatigue in a clinical decision support system
+Keywords: Alert fatigue; Clinical decision support; Electronic health records
+Abstract: Background: Although alert fatigue is blamed for high override rates in contemporary clinical decision support systems, the concept of alert fatigue is poorly defined. We tested hypotheses arising from two possible alert fatigue mechanisms: (A) cognitive overload associated with amount of work, complexity of work, and effort distinguishing informative from uninformative alerts, and (B) desensitization from repeated exposure to the same alert over time. Methods: Retrospective cohort study using electronic health record data (both drug alerts and clinical practice reminders) from January 2010 through June 2013 from 112 ambulatory primary care c...
+
+---
+
+Year: 2006
+Citations: 462
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Design Features of Graphs in Health Risk Communication: A Systematic Review
+Abstract: This review describes recent experimental and focus group research on graphics as a method of communication about quantitative health risks. Some of the studies discussed in this review assessed effect of graphs on quantitative reasoning, others assessed effects on behavior or behavioral intentions, and still others assessed viewers' likes and dislikes. Graphical features that improve the accuracy of quantitative reasoning appear to differ from the features most likely to alter behavior or intentions. For example, graphs that make part-to-whole relationships available visually may help people attend to the relationship between the numerator (...
+
+---
+
+Year: 2021
+Citations: 420
+Type: Note
+Venue: npj Digital Medicine
+Title: Digital inclusion as a social determinant of health
+Abstract: [No abstract available]
+
+---
+
+Year: 2011
+Citations: 278
+Type: Article
+Venue: Journal of General Internal Medicine
+Title: Use of an electronic patient portal among disadvantaged populations
+Keywords: chronic illness; health disparities; health information technology; insurance status; personal health record
+Abstract: Background: Electronic patient portals give patients access to information from their electronic health record and the ability to message their providers. These tools are becoming more widely used and are expected to promote patient engagement with health care. Objective: To quantify portal usage and explore potential differences in adoption and use according to patients' socioeconomic and clinical characteristics in a network of federally qualified health centers serving New York City and neighboring counties. Design: Retrospective analysis of data from portal and electronic health records. Participants: 74,368 adult patients seen between Ap...
+
+---
+
+Year: 2020
+Citations: 249
+Type: Review
+Venue: American Journal of Public Health
+Title: Broadband internet access is a social determinant of health!
+Abstract: [No abstract available]
+
+---
+
+Year: 2007
+Citations: 225
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Rethinking Health Numeracy: A Multidisciplinary Literature Review
+Abstract: The purpose of this review is to organize various published conceptions of health numeracy and to discuss how health numeracy contributes to the productive use of quantitative information for health. We define health numeracy as the individual-level skills needed to understand and use quantitative health information, including basic computation skills, ability to use information in documents and non-text formats such as graphs, and ability to communicate orally. We also identify two other factors affecting whether a consumer can use quantitative health information: design of documents and other information artifacts, and health-care providers...
+
+---
+
+Year: 2015
+Citations: 217
+Type: Article
+Venue: Journal of Medical Internet Research
+Title: "You get reminded you're a sick person": Personal data tracking and patients with multiple chronic conditions
+Keywords: Attitudes; Chronic disease; Consumer health information; Health knowledge; Medical informatics; Practices; Self-care
+Abstract: Background: Consumer health information technologies (HIT) that encourage self-tracking, such as diet and fitness tracking apps and disease journals, are attracting widespread interest among technology-oriented consumers (such as "quantified self" advocates), entrepreneurs, and the health care industry. Such electronic technologies could potentially benefit the growing population of patients with multiple chronic conditions (MCC). However, MCC is predominantly a condition of the elderly and disproportionately affects the less affluent, so it also seems possible that the barriers to use of consumer HIT would be particularly severe for this pat...
+
+---
+
+Year: 2019
+Citations: 194
+Type: Review
+Venue: Journal of the American Medical Informatics Association
+Title: Interventions to increase patient portal use in vulnerable populations: A systematic review
+Keywords: Consumer health information; Healthcare disparities; Patient access to records; Patient portals; Personal health records; Vulnerable populations
+Abstract: Background: More than 100 studies document disparities in patient portal use among vulnerable populations. Developing and testing strategies to reduce disparities in use is essential to ensure portals benefit all populations. Objective: To systematically review the impact of interventions designed to: (1) increase portal use or predictors of use in vulnerable patient populations, or (2) reduce disparities in use. Materials and Methods: A librarian searched Ovid MEDLINE, EMBASE, CINAHL, and Cochrane Reviews for studies published before September 1, 2018. Two reviewers independently selected English-language research articles that evaluated any...
+
+---
+
+Year: 2018
+Citations: 154
+Type: Article
+Venue: Health Policy and Technology
+Title: Patient access to electronic health records: Differences across ten countries
+Keywords: International comparison; Patient accessible electronic health records; Patient health records; Patient portal
+Abstract: Objectives: Patient-accessible electronic health records (PAEHRs) are being implemented at international scale. Comparing policies and systems could allow countries to learn from each other to address global and nation-specific challenges. We compare national PAEHR policy (hard and soft regulation) and services in 10 countries. Methods: PAEHR policy and system documentation was gathered from Australia, Denmark, Estonia, Finland, France, the Netherlands, New Zealand, Norway, Sweden and the United States. A basic analytic model for policy analysis was used to delimit our focus to policy content, followed by an inductive thematic analysis across...
+
+---
+
+Year: 2007
+Citations: 135
+Type: Article
+Venue: Journal of Biomedical Informatics
+Title: Redesigning electronic health record systems to support public health
+Keywords: Assessment; Assurance; Decision support; Patient-centered health records; Policy development; Public health; Surveillance
+Abstract: Current electronic health record systems are primarily clinical in focus, designed to provide patient-level data and provider-level decision support. Adapting EHR systems to serve public health needs provides the possibility of enormous advances for public health practice and policy. In this review, we evaluate EHR functionality and map it to the three core functions of public health: assessment, policy development, and assurance. In doing so, we identify and discuss important design, implementation, and methodological issues with current systems. For example, in order to support public health's traditional focus on preventive health and soci...
+
+---
+
+Year: 2015
+Citations: 131
+Type: Article
+Venue: Journal of Medical Internet Research
+Title: The invisible work of personal health information management among people with multiple chronic conditions: Qualitative interview study among patients and providers
+Keywords: Chronic disease; Consumer health information technology; Diabetes; Electronic medical records; Electronic patient portals; Information management; Personal health records (PHRs); Q...
+Abstract: Background: A critical problem for patients with chronic conditions who see multiple health care providers is incomplete or inaccurate information, which can contribute to lack of care coordination, low quality of care, and medical errors. Objective: As part of a larger project on applications of consumer health information technology (HIT) and barriers to its use, we conducted a semistructured interview study with patients with multiple chronic conditions (MCC) with the objective of exploring their role in managing their personal health information. Methods: Semistructured interviews were conducted with patients and providers. Patients were...
+
+---
+
+Year: 2022
+Citations: 100
+Type: Article
+Venue: Pediatrics
+Title: State-by-State Variability in Adolescent Privacy Laws
+Abstract: OBJECTIVES: Health care providers managing the complex health needs of adolescents must comply with state laws governing adolescent consent and right to privacy. However, these laws vary. Our objectives were to summarize consent and privacy laws state-by-state and assess the implications of variation for compliance with the 21st Century Cures Act and with evidence-based guidance on adolescent care. METHODS: We summarized state laws and regulations on minor consent for the following: health services, substance abuse treatment, prenatal care, mental health care, contraceptive management, immunizations, sexually transmitted infection management,...
+
+---
+
+Year: 2017
+Citations: 100
+Type: Review
+Venue: Journal of Biomedical Informatics
+Title: Navigation in the electronic health record: A review of the safety and usability literature
+Keywords: Electronic health record; Navigation; Safety; Scoping review; Usability
+Abstract: Objective Inefficient navigation in electronic health records has been shown to increase users’ cognitive load, which may increase potential for errors, reduce efficiency, and increase fatigue. However, navigation has received insufficient recognition and attention in the electronic health record (EHR) literature as an independent construct and contributor to overall usability. Our aims in this literature review were to (1) assess the prevalence of navigation-related topics within the EHR usability and safety research literature, (2) categorize types of navigation actions within the EHR, (3) capture relationships between these navigation acti...
+
+---
+
+Year: 2007
+Citations: 93
+Type: Article
+Venue: Science and Engineering Ethics
+Title: A comparison of conflict of interest policies at peer-reviewed journals in different scientific disciplines
+Keywords: Competing interests; Conflicts of interest; Ethics; Journals; Publication
+Abstract: Scientific journals can promote ethical publication practices through policies on conflicts of interest. However, the prevalence of conflict of interest policies and the definition of conflict of interest appear to vary across scientific disciplines. This survey of high-impact, peer-reviewed journals in 12 different scientific disciplines was conducted to assess these variations. The survey identified published conflict of interest policies in 28 of 84 journals (33%). However, when representatives of 49 of the 84 journals (58%) completed a Web-based survey about journal conflict of interest policies, 39 (80%) reported having such a policy. Fr...
+
+---
+
+Year: 2019
+Citations: 77
+Type: Review
+Venue: Journal of the American Medical Informatics Association
+Title: Health informatics and health equity: Improving our reach and impact
+Abstract: Health informatics studies the use of information technology to improve human health. As informaticists, we seek to reduce the gaps between current healthcare practices and our societal goals for better health and healthcare quality, safety, or cost. It is time to recognize health equity as one of these societal goals - a point underscored by this Journal of the American Medical Informatics Association Special Focus Issue, "Health Informatics and Health Equity: Improving our Reach and Impact." This Special Issue highlights health informatics research that focuses on marginalized and underserved groups, health disparities, and health equity. I...
+
+---
+
+Year: 2012
+Citations: 75
+Type: Article
+Venue: American Journal of Preventive Medicine
+Title: Consumer perceptions of electronic health information exchange
+Abstract: Background: Public support will be critical to the success and long-term sustainability of electronic health information exchange (HIE) initiatives currently promoted by federal policy. Purpose: The goal of this study was to assess consumer perceptions of HIE in a state (New York) with a 6-year history of successful HIE organizations. Methods: The Empire State Poll is a random-digit-dial telephone survey of adult New York State residents conducted annually by the Survey Research Institute at Cornell University. In 2011, it contained 77 items. Results: The survey was conducted and data were analyzed in 2011. Eight hundred respondents participa...
+
+---
+
+Year: 2019
+Citations: 71
+Type: Review
+Venue: Applied Clinical Informatics
+Title: A Systematic Review of Patient-Facing Visualizations of Personal Health Data
+Keywords: comprehension; consumer health information; data visualization; health literacy; patient engagement
+Abstract: Objectives As personal health data are being returned to patients with increasing frequency and volume, visualizations are garnering excitement for their potential to facilitate patient interpretation. Evaluating these visualizations is important to ensure that patients are able to understand and, when appropriate, act upon health data in a safe and effective manner. The objective of this systematic review was to review and evaluate the state of the science of patient-facing visualizations of personal health data. Methods We searched five scholarly databases (PubMed, Embase, Scopus, ACM Digital Library [Association for Computing Machinery Dig...
+
+---
+
+Year: 2014
+Citations: 71
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: How is the electronic health record being used? Use of EHR data to assess physician-level variability in technology use
+Abstract: Background Studies of the effects of electronic health records (EHRs) have had mixed findings, which may be attributable to unmeasured confounders such as individual variability in use of EHR features. Objective To capture physician-level variations in use of EHR features, associations with other predictors, and usage intensity over time. Methods Retrospective cohort study of primary care providers eligible for meaningful use at a network of federally qualified health centers, using commercial EHR data from January 2010 through June 2013, a period during which the organization was preparing for and in the early stages of meaningful use. Resul...
+
+---
+
+Year: 2023
+Citations: 70
+Type: Article
+Venue: Medical Care
+Title: Telemedicine Impact on the Patient-Provider Relationship in Primary Care During the COVID-19 Pandemic
+Keywords: communication; patient-centered care; patient-provider relationship; qualitative research; telemedicine
+Abstract: Background: The COVID-19 pandemic has necessitated a rapid uptake of telemedicine in primary care requiring both patients and providers to learn how to navigate care remotely. This change can impact the patient-provider relationship that often defines care, especially in primary care. Objective: This study aims to provide insight into the experiences of patients and providers with telemedicine during the pandemic, and the impact it had on their relationship. Research Design: A qualitative study using thematic analysis of semistructured interviews. Subjects: Primary care providers (n=21) and adult patients (n=65) with chronic disease across pr...
+
+---
+
+Year: 2013
+Citations: 70
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Consumer experience with and attitudes toward health information technology: A nationwide survey
+Abstract: Electronic health records (EHR) are becoming more common because of the federal EHR incentive programme, which is also promoting electronic health information exchange (HIE). To determine whether consumers' attitudes toward EHR and HIE are associated with experience with doctors using EHR, a nationwide random-digit-dial survey was conducted in December 2011. Of 1603 eligible people contacted, 1000 (63%) participated. Most believed EHR and HIE would improve healthcare quality (66% and 79%, respectively). Respondents whose doctor had an EHR were more likely to believe that these technologies would improve quality (for EHR, OR 2.3; for HIE, OR 1...
+
+---
+
+Year: 2020
+Citations: 61
+Type: Article
+Venue: Journal of Biomedical Informatics
+Title: Identifying sub-phenotypes of acute kidney injury using structured and unstructured electronic health record data with memory networks
+Keywords: Acute Kidney Injury; Electronic health record; Memory networks; Phenotyping
+Abstract: Acute Kidney Injury (AKI) is a common clinical syndrome characterized by the rapid loss of kidney excretory function, which aggravates the clinical severity of other diseases in a large number of hospitalized patients. Accurate early prediction of AKI can enable in-time interventions and treatments. However, AKI is highly heterogeneous, thus identification of AKI sub-phenotypes can lead to an improved understanding of the disease pathophysiology and development of more targeted clinical interventions. This study used a memory network-based deep learning approach to discover AKI sub-phenotypes using structured and unstructured electronic healt...
+
+---
+
+Year: 2019
+Citations: 61
+Type: Review
+Venue: Medical Care
+Title: Leveling Up: On the Potential of Upstream Health Informatics Interventions to Enhance Health Equity
+Abstract: [No abstract available]
+
+---
+
+Year: 2015
+Citations: 58
+Type: Article
+Venue: Informatics for Health and Social Care
+Title: Patient activation and use of an electronic patient portal
+Keywords: Consumer informatics; Electronic health records; Patient activation; Patient engagement; Personal health records; Survey research
+Abstract: Primary objective: Electronic patient portals give patients access to personal medical data, potentially creating opportunities to improve knowledge, self-efficacy, and engagement in healthcare. The combination of knowledge, self-efficacy, and engagement has been termed activation. Our objective was to assess the relationship between patient activation and outpatient use of a patient portal. Research design: Survey. Methods and procedures: A telephone survey was conducted with 180 patients who had been given access to a portal, 113 of whom used it and 67 of whom did not. The validated patient activation measure (PAM) was administered along wi...
+
+---
+
+Year: 2012
+Citations: 57
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: The triangle Model for evaluating the effect of health information technology on healthcare quality and safety
+Abstract: With the proliferation of relatively mature health information technology (IT) systems with large numbers of users, it becomes increasingly important to evaluate the effect of these systems on the quality and safety of healthcare. Previous research on the effectiveness of health IT has had mixed results, which may be in part attributable to the evaluation frameworks used. The authors propose a model for evaluation, the Triangle Model, developed for designing studies of quality and safety outcomes of health IT. This model identifies structure-level predictors, including characteristics of: (1) the technology itself; (2) the provider using the...
+
+---
+
+Year: 2018
+Citations: 54
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Variability in adolescent portal privacy features: How the unique privacy needs of the adolescent patient create a complex decision-making process
+Keywords: adolescent; electronic health records; patient portals; personal health records; privacy
+Abstract: Objective: Medical privacy policies, which are clear-cut for adults and young children, become ambiguous during adolescence. Yet medical organizations must establish unambiguous rules about patient and parental access to electronic patient portals. We conducted a national interview study to characterize the diversity in adolescent portal policies across a range of institutions and determine the factors influencing decisions about these policies. Methods: Within a sampling framework that ensured diversity of geography and medical organization type, we used purposive and snowball sampling to identify key informants. Semi-structured interviews w...
+
+---
+
+Year: 2015
+Citations: 52
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Associations between healthcare quality and use of electronic health record functions in ambulatory care
+Abstract: Objectives: Contemporary electronic health records (EHRs) offer a wide variety of features, creating opportunities to influence healthcare quality in different ways. This study was designed to assess the relationship between physician use of individual EHR functions and healthcare quality. Materials and Methods: Sixty-five providers eligible for "meaningful use" were included. Data were abstracted from office visit records during the study timeframe (183 095 visits with 61 977 patients). Three EHR functions were considered potential predictors: acceptance of best practice alerts, use of order sets, and viewing panel-level reports. Eighteen cl...
+
+---
+
+Year: 2009
+Citations: 51
+Type: Conference paper
+Venue: Journal of Health Communication
+Title: Peer-to-peer communication, cancer prevention, and the Internet
+Abstract: Online communication among patients and consumers through support groups, discussion boards, and knowledge resources is becoming more common. In this article, the summary of a workgroup discussion, we discuss key methods through which such web-based peer-to-peer communication may affect health promotion and disease prevention behavior (exchanges of information, emotional and instrumental support, and establishment of group norms and models). We also discuss several theoretical models for studying online peer communication, including social theory, health communication models, and health behavior models. Although online peer communication abou...
+
+---
+
+Year: 2009
+Citations: 51
+Type: Article
+Venue: Journal of Health Communication
+Title: Interactive graphics for expressing health risks: Development and qualitative evaluation
+Abstract: Recent findings suggest that interactive game-like graphics might be useful in communicating probabilities. We developed a prototype for a risk communication module, focusing on eliciting users' preferences for different interactive graphics and assessing usability and user interpretations. Feedback from five focus groups was used to design the graphics. The final version displayed a matrix of square buttons; clicking on any button allowed the user to see whether the stick figure underneath was affected by the health outcome. When participants used this interaction to learn about a risk, they expressed more emotional responses, both positive...
+
+---
+
+Year: 2022
+Citations: 49
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Trust in AI: why we should be designing for APPROPRIATE reliance
+Keywords: algorithms; artificial intelligence; machine learning; trust
+Abstract: Use of artificial intelligence in healthcare, such as machine learning-based predictive algorithms, holds promise for advancing outcomes, but few systems are used in routine clinical practice. Trust has been cited as an important challenge to meaningful use of artificial intelligence in clinical practice. Artificial intelligence systems often involve automating cognitively challenging tasks. Therefore, previous literature on trust in automation may hold important lessons for artificial intelligence applications in healthcare. In this perspective, we argue that informatics should take lessons from literature on trust in automation such that th...
+
+---
+
+Year: 2020
+Citations: 48
+Type: Article
+Venue: PLoS ONE
+Title: Assessing the impact of social determinants of health on predictive models for potentially avoidable 30-day readmission or death
+Abstract: Objectives Early hospital readmissions or deaths are key healthcare quality measures in pay-for-performance programs. Predictive models could identify patients at higher risk of readmission or death and target interventions. However, existing models usually do not incorporate social determinants of health (SDH) information, although this information is of great importance to address health disparities related to social risk factors. The objective of this study is to examine the impact of social determinants of health on predictive models for potentially avoidable 30-day readmission. Methods We extracted electronic health record data for 19,94...
+
+---
+
+Year: 2017
+Citations: 48
+Type: Article
+Venue: Health Policy and Technology
+Title: Access policy and the digital divide in patient access to medical records
+Keywords: Chronic illness; Health disparities; Health information technology; Personal health record; Socioeconomic status
+Abstract: Background Patient access to medical records may help them manage their healthcare. After socioeconomic disparities were found in early adoption of a patient portal, a safety net medical organization implemented universal access policies, a mobile portal app, and a Spanish version. The objective of this study was to estimate the effect of the changes on socioeconomic disparities in use of the patient portal. Methods Retrospective cohort study of 129,738 adult patients visiting the Institute for Family Health between 2011 and 2014. Logistic regression was used to model the odds of receiving portal access and using the portal. Results In 2011,...
+
+---
+
+Year: 2020
+Citations: 47
+Type: Article
+Venue: Medical Care
+Title: Association between Residential Neighborhood Social Conditions and Health Care Utilization and Costs
+Keywords: health care costs; health care quality; health care utilization; Medicare; social determinants of health
+Abstract: Background:Social factors are important drivers of health. However, it is unclear to what extent neighborhood social conditions are associated with total and preventable health care utilization and costs.Objectives:To examine the association of neighborhood social conditions with total annual and potentially preventable Medicare costs.Research Design and Subjects:Retrospective cohort study. Medicare claims data from 2013 to 2014 linked with neighborhood social conditions at the US census block group level of 2013 for 93,429 Medicare fee-for-service and dually eligible patients.Measures:Neighborhood social conditions were measured by Area Depr...
+
+---
+
+Year: 2016
+Citations: 47
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Effects of an e-Prescribing interface redesign on rates of generic drug prescribing: Exploiting default options
+Keywords: Drug substitution; Electronic health records; Electronic prescribing; Generic drugs; Human-computer interaction; Order entry systems
+Abstract: Objective Increasing the use of generic medications could help control medical costs. However, educational interventions have limited impact on prescriber behavior, and e-prescribing alerts are associated with high override rates and alert fatigue. Our objective was to evaluate the effect of a less intrusive intervention, a redesign of an e-prescribing interface that provides default options intended to "nudge" prescribers towards prescribing generic drugs.Methods This retrospective cohort study in an academic ambulatory multispecialty practice assessed the effects of customizing an e-prescribing interface to substitute generic equivalents fo...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+*   **Health informatics and technology:** The author explores the intersection of health informatics, technology, and healthcare, examining the impact of electronic health records (EHRs), patient portals, and health information exchange (HIE) on healthcare quality, safety, and equity.
+*   **Patient engagement and empowerment:** The author investigates ways to engage patients in their healthcare through the use of technology, including patient portals, personal health records, and consumer health information technologies.
+*   **Health equity and disparities:** The author addresses the issue of health inequities and disparities, examining how health informatics and technology can exacerbate or mitigate these issues, particularly for vulnerable populations.
+*   **Usability and safety:** The author evaluates the usability and safety of EHRs, patient portals, and other health information technologies, highlighting the need for intuitive designs that minimize cognitive load and reduce errors.
+*   **Data visualization and communication:** The author explores the use of data visualization and interactive graphics to communicate health risks and promote informed decision-making.
+
+**Evolution of research themes
+
+Chunk 2:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Ancker_Jessica_55916074200
+
+Publication records (each record is one paper):
+Year: 2016
+Citations: 47
+Type: Short survey
+Venue: American Journal of Managed Care
+Title: Socioeconomic disparities in adoption of personal health records over time
+Abstract: [No abstract available]
+
+---
+
+Year: 2021
+Citations: 45
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Guidance for publishing qualitative research in informatics
+Keywords: Biases; Data analysis; Data collection; Qualitative methods; Qualitative research; Reliability
+Abstract: Qualitative research, the analysis of nonquantitative and nonquantifiable data through methods such as interviews and observation, is integral to the field of biomedical and health informatics. To demonstrate the integrity and quality of their qualitative research, authors should report important elements of their work. This perspective article offers guidance about reporting components of the research, including theory, the research question, sampling, data collection methods, data analysis, results, and discussion. Addressing these points in the paper assists peer reviewers and readers in assessing the rigor of the work and its contribution...
+
+---
+
+Year: 2011
+Citations: 45
+Type: Article
+Venue: Medical Decision Making
+Title: Effects of game-like interactive graphics on risk perceptions and decisions
+Keywords: Cost utility analysis; Population-based studies; Randomized trial methodology; Risk stratification; Scale development/validation
+Abstract: Background. Many patients have difficulty interpreting risks described in statistical terms as percentages. Computer game technology offers the opportunity to experience how often an event occurs, rather than simply read about its frequency. Objective. To assess effects of interactive graphics on risk perceptions and decisions. Design. Electronic questionnaire. Participants and setting. Respondents (n = 165) recruited online or at an urban hospital. Intervention. Health risks were illustrated by either static graphics or interactive game-like graphics. The interactive search graphic was a grid of squares, which, when clicked, revealed stick f...
+
+---
+
+Year: 2014
+Citations: 42
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Sociotechnical challenges to developing technologies for patient access to health information exchange data
+Abstract: Background: Providing patients with access to their medical data is widely expected to help educate and empower them to manage their own health. Health information exchange (HIE) infrastructures could potentially help patients access records across multiple healthcare providers. We studied three HIE organizations as they developed portals to give consumers access to HIE data previously exchanged only among healthcare organizations. Objective: To follow the development of new consumer portal technologies, and to identify barriers and facilitators to patient access to HIE data. Methods: Semistructured interviews of 15 key informants over a 2-ye...
+
+---
+
+Year: 2020
+Citations: 40
+Type: Note
+Venue: Journal of General Internal Medicine
+Title: Health Literacy 2030: Is It Time to Redefine the Term?
+Keywords: comprehension; health communication; health literacy; Medical Subject Headings; vocabulary
+Abstract: For decades, health literacy has been used to describe the ability of individuals to locate, interpret, and apply health information to their decisions. The US Department of Health and Human Services has now proposed redefining the term to emphasize the role of society in providing accessible, comprehensible information. This redefinition would reflect a welcome shift to encompass the roles of those who communicate information, not simply those who seek it. However, redefining an accepted term would have serious negative effects on the indexing of the research literature and create difficulties interpreting studies conducted under the previou...
+
+---
+
+Year: 2020
+Citations: 40
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: "how did you get to this number?" Stakeholder needs for implementing predictive analytics: A pre-implementation qualitative study
+Keywords: healthcare utilization; implementation; predictive analytics; quality; user-centered design
+Abstract: Predictive analytics are potentially powerful tools, but to improve healthcare delivery, they must be carefully integrated into healthcare organizations. Our objective was to identify facilitators, challenges, and recommendations for implementing a novel predictive algorithm which aims to prospectively identify patients with high preventable utilization to proactively involve them in preventative interventions. Materials and Methods: In preparation for implementing the predictive algorithm in 3 organizations, we interviewed 3 stakeholder groups: health systems operations (eg, chief medical officers, department chairs), informatics personnel,...
+
+---
+
+Year: 2018
+Citations: 39
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Focus Section Health IT Usability: Applying a Task-Technology Fit Model to Adapt an Electronic Patient Portal for Patient Work
+Keywords: chronic disease; electronic patient portal; health information management; task-technology fit; usability; workload
+Abstract: Objectives Although electronic patient portals are offered by most health care organizations, poor usability and poor fit to patient needs may pose barriers to adoption. We collaborated with an academic hospital to conduct iterative user evaluation of a newly deployed portal designed to deliver inpatient data upon hospital discharge. Methods Three evaluators applied heuristic usability evaluation and conducted 23 individual user testing sessions with patients with chronic disease or managing the care of family members with chronic disease. Evaluation and development/improvement were conducted iteratively. User testing and analysis of qualitat...
+
+---
+
+Year: 2021
+Citations: 36
+Type: Article
+Venue: Annals of Surgery
+Title: A Randomized Controlled Trial Evaluating Electronic Outpatient Symptom Monitoring after Ambulatory Cancer Surgery
+Keywords: ambulatory cancer surgery; patient reported outcomes; RCT; remote symptom monitoring
+Abstract: Objective:We implemented routine daily electronic monitoring of patient-reported outcomes (PROs) for 10 days after discharge after ambulatory cancer surgery, with alerts to clinical staff for worrying symptoms. We sought to determine whether enhancing this monitoring by adding immediate automated normative feedback to patients regarding expected symptoms would further improve the patient experience.Summary of Background Data:PRO monitoring reduces symptom severity in cancer patients. In ambulatory cancer surgery, it reduces potentially avoidable urgent care center (UCC) visits, defined as those UCC visits without readmission.Methods:Patients...
+
+---
+
+Year: 2011
+Citations: 31
+Type: Article
+Venue: Medical Decision Making
+Title: Effect of arrangement of stick figures on estimates of proportion in risk graphics
+Keywords: Cost utility analysis; Population-based studies; Randomized trial methodology; Risk stratification; Scale development/validation
+Abstract: Background. Health risks are sometimes illustrated with stick figures, with a certain proportion colored to indicate they are affected by the disease. Perception of these graphics may be affected by whether the affected stick figures are scattered randomly throughout the group or arranged in a block. Objective. To assess the effects of stick-figure arrangement on first impressions of estimates of proportion, under a 10-s deadline. Design. Questionnaire. Participants and Setting. Respondents recruited online (n = 100) or in waiting rooms at an urban hospital (n = 65). Intervention. Participants were asked to estimate the proportion represented...
+
+---
+
+Year: 2022
+Citations: 29
+Type: Article
+Venue: Risk Analysis
+Title: Taxonomies for synthesizing the evidence on communicating numbers in health: Goals, format, and structure
+Keywords: data graphics; health numeracy; numeracy; risk communication; taxonomy
+Abstract: Many people, especially those with low numeracy, are known to have difficulty interpreting and applying quantitative information to health decisions. These difficulties have resulted in a rich body of research about better ways to communicate numbers. Synthesizing this body of research into evidence-based guidance, however, is complicated by inconsistencies in research terminology and researcher goals. In this article, we introduce three taxonomies intended to systematize terminology in the literature, derived from an ongoing systematic literature review. The first taxonomy provides a systematic nomenclature for the outcome measures assessed...
+
+---
+
+Year: 2013
+Citations: 29
+Type: Article
+Venue: Informatics in Primary Care
+Title: The impact of interoperability of electronic health records on ambulatory physician practices: A discrete-event simulation study
+Keywords: Computer simulation; Electronic health record (EHR); Interoperability; Physician practice
+Abstract: Background: The effect of health information technology (HIT) on efficiency and workload among clinical and nonclinical staff has been debated, with conflicting evidence about whether electronic health records (EHRs) increase or decrease effort. None of this paper to date, however, examines the effect of interoperability quantitatively using discrete event simulation techniques. Objective: To estimate the impact of EHR systems with various levels of interoperability on day-to-day tasks and operations of ambulatory physician offices. Methods: Interviews and observations were used to collect workflow data from 12 adult primary and specialty pra...
+
+---
+
+Year: 2019
+Citations: 28
+Type: Article
+Venue: BMJ Open
+Title: Ambulatory cancer care electronic symptom self-reporting (ACCESS) for surgical patients: A randomised controlled trial protocol
+Keywords: health informatics; oncology; patient-reported outcomes; quality in health care; surgery
+Abstract: Introduction An increasing proportion of cancer surgeries are ambulatory procedures requiring a stay of 1 day or less in the hospital. Providing patients and their caregivers with ongoing, real-time support after discharge aids delivery of high-quality postoperative care in this new healthcare environment. Despite abundant evidence that patient self-reporting of symptoms improves quality of care, the most effective way to monitor and manage this self-reported information is not known. Methods and analysis This is a two-armed randomised, controlled trial evaluating two approaches to the management of patient-reported data: (1) team monitoring,...
+
+---
+
+Year: 2012
+Citations: 28
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: Push and pull: physician usage of and satisfaction with health information exchange.
+Abstract: Federal policy toward health information exchange (HIE), the electronic transfer of patient data across organizations, has evolved to support two forms-push, or point-to-point data transmission, and pull, or multisource data aggregation. HIE usage is associated with user satisfaction, but existing quantitative research is limited to settings where only pull HIE is available. To address this gap, we surveyed 99 physicians regarding usage of and satisfaction with push HIE and pull HIE available in their communities as well as effects of HIE on practice and overall HIE satisfaction. In five of nine measures, respondents reported being very satis...
+
+---
+
+Year: 2011
+Citations: 27
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: Root causes underlying challenges to secondary use of data.
+Abstract: Although one potential benefit of electronic information systems is the opportunity for secondary use of data, it is often challenging in practice to reuse data. We identify challenges to the secondary use of electronic data from a web-based project management system, and trace these challenges to their root causes. Data quality issues arose from: differential incentives for integrity of different data; software flexibility that allowed a single task to be documented in multiple ways; variability in documentation practices; variability in use of standardized vocabulary; and changes in project procedures and system configuration over time. The...
+
+---
+
+Year: 2021
+Citations: 26
+Type: Review
+Venue: Journal of General Internal Medicine
+Title: Imprecision and Preferences in Interpretation of Verbal Probabilities in Health: a Systematic Review
+Keywords: health literacy; health numeracy; patient-provider communication; risk communication
+Abstract: Introduction: Many health providers and communicators who are concerned that patients will not understand numbers instead use verbal probabilities (e.g., terms such as “rare” or “common”) to convey the gist of a health message. Objective: To assess patient interpretation of and preferences for verbal probability information in health contexts. Methods: We conducted a systematic review of literature published through September 2020. Original studies conducted in English with samples representative of lay populations were included if they assessed health-related information and elicited either (a) numerical estimates of verbal probability terms...
+
+---
+
+Year: 2019
+Citations: 24
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Early adopters of patient-generated health data upload in an electronic patient portal
+Keywords: blood glucose self-monitoring; diabetes; obstetrics-gynecology; patient portals; self-management
+Abstract: Background and Objective Patient-generated health data (PGHD) may help providers monitor patient status between clinical visits. Our objective was to describe our medical center's early experience with an electronic flowsheet allowing patients to upload self-monitored blood glucose to their provider's electronic health record (EHR). Methods An academic multispecialty practice enabled the portal-linked PGHD tool in 2012. We conducted a retrospective observational study of adult ambulatory patients using this tool between 2012 and 2016, comparing clinical and demographic characteristics of data uploaders with those of a group of patients with d...
+
+---
+
+Year: 2014
+Citations: 24
+Type: Article
+Venue: Journal of General Internal Medicine
+Title: Rapid growth in use of personal health records in New York, 2012-2013
+Keywords: consumer informatics; electronic health records; personal health records; survey research
+Abstract: BACKGROUND: Giving patients access to their own medical data may help improve communication and engage patients in healthcare. As a result, the federal electronic health record (EHR) incentive program requires providers to offer electronic data sharing with patients via personal health records (PHRs) or other technologies. OBJECTIVE: We sought to estimate the rate of adoption of PHRs over a 2-year period. DESIGN: Survey of 800 respondents (margin of error: 3.5 percentage points) in consecutive years of the Empire State Poll, an annual random-digit-dial telephone survey. PARTICIPANTS: Adult New York State residents. MAIN MEASURES: Self-reporte...
+
+---
+
+Year: 2019
+Citations: 23
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Technology Access, Technical Assistance, and Disparities in Inpatient Portal Use
+Keywords: health records; informatics; patient engagement; patient portals
+Abstract: Background Disadvantaged populations, including minorities and the elderly, use patient portals less often than relatively more advantaged populations. Limited access to and experience with technology contribute to these disparities. Free access to devices, the Internet, and technical assistance may eliminate disparities in portal use. Objective To examine predictors of frequent versus infrequent portal use among hospitalized patients who received free access to an iPad, the Internet, and technical assistance. Materials and Methods This subgroup analysis includes 146 intervention-arm participants from a pragmatic randomized controlled trial o...
+
+---
+
+Year: 2018
+Citations: 23
+Type: Article
+Venue: Journal of General Internal Medicine
+Title: First Opioid Prescription and Subsequent High-Risk Opioid Use: a National Study of Privately Insured and Medicare Advantage Adults
+Keywords: health services research; pain; physician behavior; prescription drug abuse
+Abstract: Background: National guidelines make recommendations regarding the initial opioid prescriptions, but most of the supporting evidence is from the initial episode of care, not the first prescription. Objective: To examine associations between features of the first opioid prescription and high-risk opioid use in the 18 months following the first prescription. Design: Retrospective cohort study using data from a large commercial insurance claims database for 2011–2014 to identify individuals with no recent use of opioids and follow them for 18 months after the first opioid prescription. Participants: Privately insured patients aged 18–64 and Medi...
+
+---
+
+Year: 2021
+Citations: 22
+Type: Article
+Venue: Journal of General Internal Medicine
+Title: Effect of an Electronic Health Record “Nudge” on Opioid Prescribing and Electronic Health Record Keystrokes in Ambulatory Care
+Keywords: behavioral nudge; clinical decision support; EHR workload; electronic health records; electronic prescribing; opioid prescribing
+Abstract: Background: Multiple policy initiatives encourage more cautious prescribing of opioids in light of their risks. Electronic health record (EHR) redesign can influence prescriber choices, but some redesigns add to workload. Objective: To estimate the effect of an EHR prescribing redesign on both opioid prescribing choices and keystrokes. Design: Quality improvement quasi-experiment, analyzed as interrupted time series. Participants: Adult patients of an academic multispecialty practice and a federally qualified health center (FQHC) who received new prescriptions for short-acting opioids, and their providers. Intervention: In the redesign, new p...
+
+---
+
+Year: 2023
+Citations: 20
+Type: Review
+Venue: Journal of the National Cancer Institute
+Title: The decision aid is the easy part: workflow challenges of shared decision making in cancer care
+Abstract: Delivering high-quality, patient-centered cancer care remains a challenge. Both the National Academy of Medicine and the American Society of Clinical Oncology recommend shared decision making to improve patient-centered care, but widespread adoption of shared decision making into clinical care has been limited. Shared decision making is a process in which a patient and the patient’s health-care professional weigh the risks and benefits of different options and come to a joint decision on the best course of action for that patient on the basis of their values, preferences, and goals for care. Patients who engage in shared decision making repor...
+
+---
+
+Year: 2021
+Citations: 20
+Type: Review
+Venue: Clinical Infectious Diseases
+Title: The Impact of Clinical Decision Support Alerts on Clostridioides difficile Testing: A Systematic Review
+Keywords: clinical decision support; Clostridioides difficile; Clostridium difficile; diagnostic testing; electronic alerts
+Abstract: Background: Several studies have investigated the utility of electronic decision support alerts in diagnostic stewardship for Clostridioides difficile infection (CDI). However, it is unclear if alerts are effective in reducing inappropriate CDI testing and/or CDI rates. The aim of this systematic review was to determine if alerts related to CDI diagnostic stewardship are effective at reducing inappropriate CDI testing volume and CDI rates among hospitalized adult patients. Methods: We searched Ovid Medline and 5 other databases for original studies evaluating the association between alerts for CDI diagnosis and CDI testing volume and/or CDI r...
+
+---
+
+Year: 2018
+Citations: 20
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Should parents see their teen’s medical record? Asking about the effect on adolescent–doctor communication changes attitudes
+Keywords: Adolescents; Children; Confidentiality; Electronic patient portal; Ethics
+Abstract: Objective: Parents routinely access young children’s medical records, but medical societies strongly recommend confidential care during adolescence, and most medical centers restrict parental records access during the teen years. We sought to assess public opinion about adolescent medical privacy. Materials and Methods: The Cornell National Social Survey (CNSS) is an annual nationwide public opinion survey. We added questions about a) whether parents should be able to see their 16-year-old child’s medical record, and b) whether teens would avoid discussing sensitive issues (sex, alcohol) with doctors if parents could see the record. Hypothesi...
+
+---
+
+Year: 2020
+Citations: 19
+Type: Article
+Venue: Learning Health Systems
+Title: Toward cross-platform electronic health record-driven phenotyping using Clinical Quality Language
+Keywords: Clinical Quality Language; common data models; electronic health records; phenotyping
+Abstract: Introduction: Electronic health record (EHR)-driven phenotyping is a critical first step in generating biomedical knowledge from EHR data. Despite recent progress, current phenotyping approaches are manual, time-consuming, error-prone, and platform-specific. This results in duplication of effort and highly variable results across systems and institutions, and is not scalable or portable. In this work, we investigate how the nascent Clinical Quality Language (CQL) can address these issues and enable high-throughput, cross-platform phenotyping. Methods: We selected a clinically validated heart failure (HF) phenotype definition and translated it...
+
+---
+
+Year: 2007
+Citations: 18
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: Digital partnerships for health: steps to develop a community-specific health portal aimed at promoting health and well-being.
+Abstract: We describe the steps taken by the Harlem Health Promotion Center to develop a community-specific health web portal aimed at promoting health and well-being in Harlem. Methods and results that begin with data collection and move onto elucidating requirements for the web portal are discussed. Sentiments of distrust in medical institutions, and the desire for community specific content and resources were among the needs emanating from our data analysis. These findings guided our decision to customize social software designed to foster connections, collaborations, flexibility, and interactivity; an "architecture of participation". While, we main...
+
+---
+
+Year: 2019
+Citations: 17
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Evaluating the Portability of an NLP System for Processing Echocardiograms: A Retrospective, Multi-site Observational Study
+Abstract: While natural language processing (NLP) of unstructured clinical narratives holds the potential for patient care and clinical research, portability of NLP approaches across multiple sites remains a major challenge. This study investigated the portability of an NLP system developed initially at the Department of Veterans Affairs (VA) to extract 27 key cardiac concepts from free-text or semi-structured echocardiograms from three academic edical centers: Weill Cornell Medicine, Mayo Clinic and Northwestern Medicine. While the NLP system showed high precision and recall easurements for four target concepts (aortic valve regurgitation, left atrium...
+
+---
+
+Year: 2019
+Citations: 17
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Considerations for Improving the Portability of Electronic Health Record-Based Phenotype Algorithms
+Abstract: With the increased adoption of electronic health records, data collected for routine clinical care is used for health outcomes and population sciences research, including the identification of phenotypes. In recent years, research networks, such as eMERGE, OHDSI and PCORnet, have been able to increase statistical power and population diversity by combining patient cohorts. These networks share phenotype algorithms that are executed at each participating site. Here we observe experiences with phenotype algorithm portability across seven research networks and propose a generalizable framework for phenotype algorithm portability. Several strateg...
+
+---
+
+Year: 2017
+Citations: 17
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Health information exchange in the wild: The association between organizational capability and perceived utility of clinical event notifications in ambulatory and community care
+Abstract: Objective: Event notifications are real-time, electronic, automatic alerts to providers of their patients' health care encounters at other facilities. Our objective was to examine the effects of organizational capability and related social/organizational issues upon users' perceptions of the impact of event notifications on quality, efficiency, and satisfaction. Materials and methods: We surveyed representatives (n=49) of 10 organizations subscribing to the Bronx Regional Health Information Organization's event notification services about organizational capabilities, notification information quality, perceived usage, perceived impact, and org...
+
+---
+
+Year: 2015
+Citations: 17
+Type: Article
+Venue: The American journal of managed care
+Title: Trends in public perceptions of electronic health records during early years of meaningful use
+Abstract: OBJECTIVES: The proportion of US doctors using electronic health records (EHRs) has risen sharply in response to the federal Meaningful Use (MU) program, which incentivizes EHR adoption. To track consumer perceptions of EHRs during this period, we conducted a national telephone survey annually for 3 consecutive years, from 2011 to 2013, corresponding with the early years of MU.STUDY DESIGN: Nationwide random digit-dial survey.METHODS: The survey used random digit-dial sampling on a dual frame of landline and cell phone numbers in the continental United States, but was not otherwise stratified by geographic region, race, or other variables. Be...
+
+---
+
+Year: 2009
+Citations: 17
+Type: Article
+Venue: Journal of Health Communication
+Title: Health care system approaches for cancer patient communication
+Abstract: Cancer patient communication is always embedded in a complex background of inter-related parts, that is, a system. Cancer patients specifically are exposed to a health care system. Considering this context, this article summarizes the insights from a roundtable discussion involving behavioral medicine and oncology experts convened at the 2008 Annual Meeting of the Society of Behavioral Medicine as part of an annual preconference course entitled “Interpersonal Communication and Cancer Control: Emerging Themes.” In this article we summarize the communication- relevant components of health care systems, focusing on the macro level. Next, we revi...
+
+---
+
+Year: 2024
+Citations: 16
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Do you want to promote recall, perceptions, or behavior? the best data visualization depends on the communication goal
+Keywords: data visualization; goals; health communication; health literacy; numeracy
+Abstract: Data visualizations can be effective and inclusive means for helping people understand health-related data. Yet numerous high-quality studies comparing data visualizations have yielded relatively little practical design guidance because of a lack of clarity about what communicators want their audience to accomplish. When conducting rigorous evaluations of communication (eg, applying the ISO 9186 method), describing the process simply as evaluating "comprehension"or "interpretation"of visualizations fails to do justice to the true range of outcomes being studied. We present newly developed taxonomies of outcome measures and tasks that are guid...
+
+---
+
+Year: 2019
+Citations: 16
+Type: Conference paper
+Venue: Studies in Health Technology and Informatics
+Title: Stratified mortality prediction of patients with acute kidney injury in critical care
+Keywords: Acute Kidney Injury; Critical Care; Forecasting
+Abstract: Acute Kidney Injury (AKI) is the most common cause of organ dysfunction in critically ill adults and prior studies have shown AKI is associated with a significant increase of the mortality risk. Early prediction of the mortality risk for AKI patients can help clinical decision makers better understand the patient condition in time and take appropriate actions. However, AKI is a heterogeneous disease and its cause is complex, which makes such predictions a challenging task. In this paper, we investigate machine learning models for predicting the mortality risk of AKI patients who are stratified according to their AKI stages. With this setup we...
+
+---
+
+Year: 2020
+Citations: 15
+Type: Article
+Venue: Numeracy
+Title: The covid-19 pandemic and the power of numbers
+Keywords: Epidemic; Public health; Quantitative literacy
+Abstract: The COVID-19 pandemic has produced a deluge of news coverage of quantitative concepts. In this viewpoint, we provide examples of effective and poor quantitative communication by the professional news media as well as social media communicators. Effective examples include a number of online animations and engaging interactive simulations. Examples of poor quantitative communication include the widespread reporting of raw numbers rather than rates, failing to address uncertainty, not providing sufficient context for numbers, and not discussing the implications of false negative and false positive diagnostic test results. Educators can draw from...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring Research Themes:**
+
+*   **Healthcare Technology and Informatics:** 
+    *   Development and evaluation of electronic health records (EHRs)
+    *   Health information exchange (HIE) and interoperability
+    *   Patient portals and patient-generated health data (PGHD)
+    *   Natural language processing (NLP) for clinical narratives
+*   **Health Communication and Education**
+    *   Communicating health risks and statistics effectively
+    *   Using data visualizations to facilitate understanding
+    *   Health literacy and numeracy
+    *   Patient education and empowerment
+*   **Patient-Centered Care and Engagement**
+    *   Shared decision-making and patient involvement in healthcare
+    *   Electronic symptom monitoring and patient-reported outcomes
+    *   Patient-provider communication and confidentiality
+    *   Patient engagement and activation
+*   **Quantitative and Qualitative Research Methods**
+    *   Developing and evaluating qualitative research methods
+    *   Analyzing and presenting quantitative data effectively
+    *   Mixed-methods research and integration of qualitative and quantitative findings
+*
+
+Chunk 3:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Ancker_Jessica_55916074200
+
+Publication records (each record is one paper):
+Year: 2016
+Citations: 15
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Expanding access to high-quality plain-language patient education information through context-specific hyperlinks
+Abstract: Medical records, which are increasingly directly accessible to patients, contain highly technical terms unfamiliar to many patients. A federally qualified health center (FQHC) sought to help patients interpret their records by embedding context-specific hyperlinks to plain-language patient education materials in its portal. We assessed the impact of this innovation through a 3-year retrospective cohort study. A total of 12,877 (10% of all patients) in this safety net population had used the MPC links. Black patients, Latino patients comfortable using English, and patients covered by Medicaid were more likely to use the informational hyperlink...
+
+---
+
+Year: 2013
+Citations: 15
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Predictors of success for electronic health record implementation in small physician practices
+Keywords: Ambulatory care/primary care; Electronic health records; Facilitators and barriers; Implementation and deployment; Mixed methods; Quantitative methods
+Abstract: Background: The federal government is promoting adoption of electronic health records (EHRs) through financial incentives for EHR use and implementation support provided by regional extension centers. Small practices have been slow to adopt EHRs. Objectives: Our objective was to measure time to EHR implementation and identify factors associated with successful implementation in small practices receiving financial incentives and implementation support. This study is unique in exploiting quantitative implementation time data collected prospectively as part of routine project management. Methods: This mixed-methods study includes interviews of k...
+
+---
+
+Year: 2018
+Citations: 14
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Informing, Reassuring, or Alarming? Balancing Patient Needs in the Development of a Postsurgical Symptom Reporting System in Cancer
+Abstract: After ambulatory surgeries, patients who recover at home have multiple questions about wound healing, symptoms and medication side effects, and recovery expectations. We conducted user testing and rapid application development of a newly developed symptom reporting system that supports home-based recovery by inviting patients to self-report symptoms in the days after surgery and then receive an immediate feedback report giving context for their reported symptoms. Findings showed that some participants primarily valued reassurance, whereas others prioritized receiving alerts about potential problems. Results also showed that most patients want...
+
+---
+
+Year: 2011
+Citations: 14
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Evaluating health information technology in community-based settings: Lessons learned
+Abstract: Implementing health information technology (IT) at the community level is a national priority to help improve healthcare quality, safety, and efficiency. However, community-based organizations implementing health IT may not have expertise in evaluation. This study describes lessons learned from experience as a multi-institutional academic collaborative established to provide independent evaluation of community-based health IT initiatives. The authors' experience derived from adapting the principles of community-based participatory research to the field of health IT. To assist other researchers, the lessons learned under four themes are presen...
+
+---
+
+Year: 2023
+Citations: 13
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Examining and Addressing Telemedicine Disparities Through the Lens of the Social Determinants of Health: A Qualitative Study of Patient and Provider During the COVID-19 Pandemic
+Abstract: Accelerated use of telemedicine during the COVID-19 pandemic enabled uninterrupted healthcare delivery while unmasking care disparities for several vulnerable communities. The social determinants of health (SDOH) serve as a critical model for understanding how the circumstances in which people are born, work, and live impact health outcomes. We performed semi-structured interviews to understand patients and providers' experiences with telemedicine encounters during the COVID-19 pandemic. Through a deductive approach, we applied the SDOH to determine telemedicine's role and impact within this framework. Overall, patient and provider interviews...
+
+---
+
+Year: 2013
+Citations: 13
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: Patient encounters and care transitions in one community supported by automated query-based health information exchange.
+Abstract: Care transitions from one facility to another threaten patient safety due to the potential loss of critical clinical information. Electronic clinical data exchange may address the problem. Approaches to exchange range from manual directed exchange, or sending point-to-point messages, to automated query-based health information exchange (HIE), or aggregating data from multiple sources. In this study, we measured the extent to which automated query-based HIE supported patient encounters and care transitions in one community. During the 23-month study period, 41% (n=33,219) of affirmatively consented patients had at least one encounter supported...
+
+---
+
+Year: 2023
+Citations: 12
+Type: Article
+Venue: Applied Clinical Informatics
+Title: The State-of-the-Art of Patient Portals: Adapting to External Factors, Addressing Barriers, and Innovating
+Keywords: 21st Century Cures Act; COVID-19; digital health disparities; patient portals; proxy portal access
+Abstract: Background and Objective Recent external factors-the 21st Century Cures Act and the coronavirus disease 2019 (COVID-19) pandemic-have stimulated major changes in the patient portal landscape. The objective of this state-of-the-art review is to describe recent developments in the patient portal literature and to identify recommendations and future directions for the design, implementation, and evaluation of portals. Methods To focus this review on salient contemporary issues, we elected to center it on four topics: (1) 21st Century Cures Act's impact on patient portals (e.g., Open Notes); (2) COVID-19's pandemic impact on portals; (3) proxy ac...
+
+---
+
+Year: 2006
+Citations: 12
+Type: Article
+Venue: Journal of Statistics Education
+Title: The Language of Conditional Probability
+Keywords: Statistical language; Statistics education
+Abstract: Statistical terms are accurate and powerful but can sometimes lead to misleading impressions among beginning students. Discrepancies between the popular and statistical meanings of "conditional" are discussed, and suggestions are made for the use of different vocabulary when teaching beginners in applied introductory courses. Copyright © 2006 by Jessica S. Ancker all rights reserved.
+
+---
+
+Year: 2023
+Citations: 11
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Impact of notification policy on patient-before-clinician review of immediately released test results
+Keywords: 21st Century Cures Act; patient portal; policy; test results
+Abstract: The 21st Century Cures Act mandates immediate availability of test results upon request. The Cures Act does not require that patients be informed of results, but many organizations send notifications when results become available. Our medical center implemented 2 sequential policies: immediate notifications for all results, and notifications only to patients who opt in. We used over 2 years of data from Vanderbilt University Medical Center to measure the effect of these policies on rates of patient-before-clinician result review and patient-initiated messaging using interrupted time series analysis. When releasing test results with immediate...
+
+---
+
+Year: 2022
+Citations: 11
+Type: Review
+Venue: Journal of the American Medical Informatics Association
+Title: Conceptualizing clinical decision support as complex interventions: a meta-analysis of comparative effectiveness trials
+Keywords: clinical decision support; comparative effectiveness; complex intervention; electronic health record; reporting guideline
+Abstract: Objectives: Complex interventions with multiple components and behavior change strategies are increasingly implemented as a form of clinical decision support (CDS) using native electronic health record functionality. Objectives of this study were, therefore, to (1) identify the proportion of randomized controlled trials with CDS interventions that were complex, (2) describe common gaps in the reporting of complexity in CDS research, and (3) determine the impact of increased complexity on CDS effectiveness. Materials and Methods: To assess CDS complexity and identify reporting gaps for characterizing CDS interventions, we used the Preferred Re...
+
+---
+
+Year: 2021
+Citations: 11
+Type: Article
+Venue: American Journal of Preventive Medicine
+Title: Improving Patient Engagement Through Patient Decision Support
+Abstract: [No abstract available]
+
+---
+
+Year: 2020
+Citations: 11
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: The Age Limit Does Not Exist: A Pilot Usability Assessment of a SMS-Messaging and Smartwatch-Based Intervention for Older Adults with Depression
+Abstract: Current treatments for major depressive disorder are either less effective for older adults (i.e. pharmacotherapy) or are challenging to extend to community settings (i.e. psychotherapy). To improve and extend mental health treatment for older adults, our team has expanded a previously developed streamlined talk-therapy model to incorporate a technology package that includes patient-reported outcome questions (sent via SMS) and a smartwatch. The goal of this pilot study was to assess and improve the usability, usefulness, and acceptability of the technology package. We completed a pilot feasibility and usability assessment with 15 older adult...
+
+---
+
+Year: 2013
+Citations: 11
+Type: Review
+Venue: The American journal of managed care
+Title: Financial effects of health information technology: a systematic review
+Abstract: BACKGROUND: Health information technology (HIT) is widely viewed as an important lever with which to improve the quality and efficiency of the healthcare system. However, there has long been debate about its financial effects.OBJECTIVES: To characterize the existing data on the financial effects of HIT and to consider the implications for the effect of HIT on healthcare spending.STUDY DESIGN: Systematic literature review.METHODS: We identified articles by (1) searching PubMed using the intersection of terms related to HIT applications and terms related to financial or economic effect; and (2) reviewing the reference lists of the included arti...
+
+---
+
+Year: 2023
+Citations: 10
+Type: Article
+Venue: JCO Oncology Practice
+Title: A Remote Symptom Monitoring Tool As Part of Ambulatory Cancer Surgery Recovery: A Qualitative Analysis of Patient Experience
+Abstract: PURPOSEPatients recovering from ambulatory cancer surgery at home may find it difficult to determine whether their postoperative symptoms are normal or potentially serious. We developed the Recovery Tracker to help patients navigate such issues. The Recovery Tracker is a 10-day, web-based electronic survey that monitors symptoms daily and provides feedback as to whether reported symptoms are expected or require follow-up. We sought to examine patient perceptions using this tool.METHODSSemistructured interviews were conducted from August 2017 to September 2019 with a convenience sample of patients from a larger randomized controlled trial of t...
+
+---
+
+Year: 2023
+Citations: 10
+Type: Article
+Venue: European Journal of Cardiovascular Nursing
+Title: 'Replace uncertainty with information': shared decision-making and decision quality surrounding catheter ablation for atrial fibrillation
+Keywords: Atrial fibrillation; Catheter ablation; Decision aids; Shared decision-making; User-centred design
+Abstract: Aims: As a first step in developing a decision aid to support shared decision-making (SDM) for patients with atrial fibrillation (AF) to evaluate treatment options for rhythm and symptom control, we aimed to measure decision quality and describe decision-making processes among patients and clinicians involved in decision-making around catheter ablation for AF. Methods and results: We conducted a cross-sectional, mixed-methods study guided by an SDM model outlining decision antecedents, processes, and outcomes. Patients and clinicians completed semi-structured interviews about decision-making around ablation, feelings of decision conflict and...
+
+---
+
+Year: 2023
+Citations: 10
+Type: Article
+Venue: Health Systems
+Title: Beyond mathematics, statistics, and programming: data science, machine learning, and artificial intelligence competencies and curricula for clinicians, informaticians, science jour...
+Keywords: artificial intelligence; biomedical research; clinicians; Data science; health and clinical informatics; machine learning
+Abstract: Data science, machine learning and artificial intelligence applications impact clinicians, informaticians, science journalists, and researchers. Most biomedical data science training focuses on learning a programming language in addition to higher mathematics and advanced statistics. This approach is appropriate for graduate students but greatly reduces the number of individuals in healthcare who can be involved in data science. To serve these four stakeholder audiences, we describe several curricular strategies focusing on solving real problems of interest to these audiences. Relevant competencies for these audiences include using intuitive...
+
+---
+
+Year: 2022
+Citations: 10
+Type: Article
+Venue: Supportive Care in Cancer
+Title: A qualitative analysis of caregiver burden during the recovery process in ambulatory cancer surgery
+Keywords: Ambulatory surgery; Cancer; Caregiver; Caregiver burden
+Abstract: Purpose: Cancer impacts caregivers as well as patients. Ambulatory oncology surgeries requiring a short hospital stay place additional responsibility on informal caregivers as they help patients navigate their post-operative recovery at home, and determine if symptoms are expected or emergent. Our objective was to explore the experience of informal caregivers during patients’ ambulatory cancer surgery and then recovery at home with remote monitoring of symptoms via web-based patient-reported outcomes questionnaire (“Recovery Tracker”). Methods: Semi-structured interviews were conducted with caregivers from a larger sample participating in a r...
+
+---
+
+Year: 2022
+Citations: 10
+Type: Review
+Venue: Patient Education and Counseling
+Title: Strategies to optimize comprehension of numerical medication instructions: A systematic review and concept map
+Keywords: Adherence; Format variations; Medication instructions; Numerical interventions; Pictograms
+Abstract: Objective: To develop evidence-based recommendations for improving comprehension of quantitative medication instructions. Methods: This review included a literature search from inception to November 2021. Studies were included for the following: 1) original research; 2) compared multiple formats for presenting quantitative medication information on dose, frequency, and/or time; 3) included patients/lay-people; 4) assessed comprehension-related outcomes quantitatively. To classify the studies, we developed a concept map. We weighed 3 factors (risk of bias in individual studies, consistency of findings among studies, and homogeneity of the inte...
+
+---
+
+Year: 2019
+Citations: 10
+Type: Erratum
+Venue: BMC medical informatics and decision making
+Title: Erratum: Correction to: Effects of workload, work complexity, and repeated alerts on alert fatigue in a clinical decision support system (BMC medical informatics and decision makin...
+Abstract: Following publication of the original article [1], the authors reported that the article erroneously stated that Dr. Ancker was affiliated with the Tehran University of Medical Sciences. Dr. Ancker is not affiliated with that institution.
+
+---
+
+Year: 2018
+Citations: 10
+Type: Letter
+Venue: Journal of the American Medical Informatics Association
+Title: The potential value of social determinants of health in predicting health outcomes
+Abstract: [No abstract available]
+
+---
+
+Year: 2017
+Citations: 10
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Health IT usability focus section: Adapting EHR-based medication instructions to comply with plain language guidance — A randomized experiment
+Keywords: Drug overdose; Health literacy; Medication errors; Pediatrics; Survey and questionnaires
+Abstract: Objective Patient instructions are generally written by clinicians. However, clinician-centered language is challenging for patients to understand; in the case of pediatric medication instructions, consequences can be serious. Using examples of clinician-written medication instructions from an electronic health record, we conducted an experiment to determine whether parental misinterpretations would be reduced by instructions that followed best practices for plain language. Methods We selected examples of dosing instructions from after-visit summaries in a commercial electronic health record. A demographically diverse sample of parents and ad...
+
+---
+
+Year: 2024
+Citations: 8
+Type: Review
+Venue: MDM Policy and Practice
+Title: Scope, Methods, and Overview Findings for the Making Numbers Meaningful Evidence Review of Communicating Probabilities in Health: A Systematic Review
+Keywords: data graphics; health communication; numeracy; risk communication
+Abstract: Background. The format in which probabilities are presented influences comprehension and interpretation. Purpose. To develop comprehensive evidence-based guidance about how to communicate probabilities in health and to identify strengths and weaknesses in the literature. This article presents methods for the review of probability communication and is accompanied by several results articles. Data Sources. MEDLINE, Embase, CINAHL, the Cochrane Library, PsycINFO, ERIC, ACM Digital Library; hand search of 4 journals. Study Selection. Two reviewers conducted screening to identify experimental and quasi-experimental research that compared 2 or more...
+
+---
+
+Year: 2023
+Citations: 8
+Type: Article
+Venue: Journal of General Internal Medicine
+Title: Perspectives of Physicians with Experience in Nursing Home Care on Telehealth Use During the COVID-19 Public Health Emergency
+Keywords: long-term care; nursing homes; post-acute care; telehealth
+Abstract: Background: Despite expanded access to telehealth services for Medicare beneficiaries in nursing homes (NHs) during the COVID-19 public health emergency, information on physicians’ perspectives on the feasibility and challenges of telehealth provision for NH residents is lacking. Objective: To examine physicians’ perspectives on the appropriateness and challenges of providing telehealth in NHs. Participants: Medical directors or attending physicians in NHs. Approach: We conducted 35 semistructured interviews with members of the American Medical Directors Association from January 18 through January 29, 2021. Outcomes of the thematic analysis r...
+
+---
+
+Year: 2023
+Citations: 8
+Type: Article
+Venue: Telemedicine Reports
+Title: Patient and Provider Recommendations for Improved Telemedicine User Experience in Primary Care: A Multi-Center Qualitative Study
+Keywords: patients; primary care; providers; telemedicine; user experience
+Abstract: Objective: The purpose of this study was to explore telemedicine use and obtain actionable recommendations to improve telemedicine user experience from a diverse group of patients and providers. Methods: We interviewed adult patients and primary care providers (PCPs) across three National Patient-Centered Clinical Research Network (PCORnet) sites in New York City, North Carolina, and Florida. Both patients and providers could participate via phone or videoconferencing; patients could complete the interview in English or Spanish. Spanish interviews were conducted by a member of the research team who spoke Spanish fluently. Interviews were audi...
+
+---
+
+Year: 2021
+Citations: 8
+Type: Article
+Venue: Psychiatric Services
+Title: Design of a payment decision⇓support tool for coordinated specialty care for early psychosis
+Abstract: A strengthened evidence base and earmarked federal funding have spurred the implementation of coordinated specialty care (CSC) for people experiencing early psychosis. However, existing funding mechanisms are insufficient and unsustainable to support population-wide deployment of CSC. This article describes the design framework of an innovative payment model for CSC that includes a bundled case rate payment and an optional outcome-based payment. To assist CSC payer and provider organizations in designing payment systems tailored to local preferences and circumstances, the research team is developing a decision-support tool that allows users t...
+
+---
+
+Year: 2015
+Citations: 8
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Public Perspectives of Mobile Phones' Effects on Healthcare Quality and Medical Data Security and Privacy: A 2-Year Nationwide Survey
+Abstract: Given growing interest in mobile phones for health management (mHealth), we surveyed consumer perceptions of mHealth in security, privacy, and healthcare quality using national random-digit-dial telephone surveys in 2013 and 2014. In 2013, 48% thought that using a mobile phone to communicate data with a physician's electronic health record (EHR) would improve the quality of health care. By 2014, the proportion rose to 57% (p <.001). There were no similar changes in privacy concerns yet nearly two-thirds expressed privacy concerns. In 2013 alone, respondents were more likely to express privacy concerns about medical data on mobile phones than...
+
+---
+
+Year: 2015
+Citations: 8
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Smartphone Data in Rheumatoid Arthritis - What Do Rheumatologists Want?
+Abstract: OBJECTIVE: To create a relevant and clinically informative visualization of passively collected patient mobility data from smartphones of rheumatoid arthritis (RA) patients for rheumatologists.METHODS: (1) Pilot analysis of smartphone mobility data in RA; (2) Assessment of rheumatologists' needs for patient data through semi-structured interviews; and (3) Evaluation of the visual format of the RA data using scenario-based usability methods.RESULTS: We created a color-scale mobility index superimposed on a calendar to summarize the passive mobility measures from the smartphone that the rheumatologists confirmed would be clinically relevant.CON...
+
+---
+
+Year: 2011
+Citations: 8
+Type: Article
+Venue: BMC Medical Informatics and Decision Making
+Title: A new adaptive testing algorithm for shortening health literacy assessments
+Abstract: Background: Low health literacy has a detrimental effect on health outcomes, as well as ability to use online health resources. Good health literacy assessment tools must be brief to be adopted in practice; test development from the perspective of item-response theory requires pretesting on large participant populations. Our objective was to develop a novel classification method for developing brief assessment instruments that does not require pretesting on large numbers of research participants, and that would be suitable for computerized adaptive testing. Methods. We present a new algorithm that uses principles of measurement decision theor...
+
+---
+
+Year: 2009
+Citations: 8
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: GetHealthyHarlem.org: developing a web platform for health promotion and wellness driven by and for the Harlem community.
+Abstract: GetHealthyHarlem.org is a community website developed on an open-source platform to facilitate collaborative development of health content through participatory action research (PAR) principles. The website was developed to enable the Harlem community to create a shared health and wellness knowledgebase, to enable discourse about local and culturally relevant health information, and to foster social connections between community members and health promotion organizations. The site is gaining active use with more than 9,500 unique site visits in the six months since going live in November, 2008. In ongoing research studies, we are using the we...
+
+---
+
+Year: 2007
+Citations: 8
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: Healthy Harlem: empowering health consumers through social networking, tailoring and web 2.0 technologies.
+Abstract: Consumer health informatics has emerged as a strategy to inform and empower patients for self management of their health. The emergence of and explosion in use of user-generated online media (e.g.,blogs) has created new opportunities to inform and educate people about healthy living. Under a prevention research project, we are developing a website that utilizes social content collaboration mediums in conjunction with open-source technologies to create a community-driven resource that provides users with tailored health information.
+
+---
+
+Year: 2007
+Citations: 8
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: A combined qualitative method for testing an interactive risk communication tool.
+Abstract: Descriptions of health risks in words, numbers, and graphics can all cause comprehension problems. Our novel risk communication tool involves a game-like interaction to allow users to experience the probability of a health event. The underlying principles are grounded in cognitive theory, but laboratory demonstrations do not guarantee usefulness in the real world. To help us create software on the basis of the theory, we have developed a qualitative method incorporating elements of focus groups and scenario-based usability testing in a community-based participatory research setting in Harlem, NY. In this procedure, a facilitator mediates disc...
+
+---
+
+Year: 2025
+Citations: 7
+Type: Article
+Venue: Diabetes Care
+Title: Large Language Model GPT-4 Compared to Endocrinologist Responses on Initial Choice of Glucose-Lowering Medication Under Conditions of Clinical Uncertainty
+Abstract: OBJECTIVE To explore how the commercially available large language model (LLM) GPT-4 compares to endocrinologists when addressing medical questions when there is uncertainty regarding the best answer. RESEARCH DESIGN AND METHODS This study compared responses from GPT-4 to responses from 31 endocrinolo-gists outcome was the choice between metformin and other treatments. RESULTS With a simple prompt, GPT-4 chose metformin in 12% (95% CI 7.9–17%) of responses, compared with 31% (95% CI 23–39%) of endocrinologist responses. After modifying the prompt to encourage metformin use, the selection of metformin by GPT-4 increased to 25% (95% CI 22–28%)....
+
+---
+
+Year: 2024
+Citations: 7
+Type: Article
+Venue: American Journal of Managed Care
+Title: Navigating Privacy and Security in Telemedicine for Primary Care
+Abstract: OBJECTIVE: To examine patient and provider perspectives on privacy and security considerations in telemedicine during the COVID-19 pandemic. STUDY DESIGN: Qualitative study with patients and providers from primary care practices in 3 National Patient-Centered Clinical Research Network sites in New York, New York; North Carolina; and Florida. METHODS: Semistructured interviews were conducted, audio recorded, transcribed verbatim, and coded using an inductive process. Data related to privacy and information security were analyzed. RESULTS: Sixty-five patients and 21 providers participated. Patients and providers faced technology-related securit...
+
+---
+
+Year: 2018
+Citations: 7
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: The need for guidance and consistency in adolescent privacy policies: a survey of CMIOs
+Abstract: Research examining whether and how adolescent patients should gain access to their electronic health records is gaining momentum. We conducted a survey to explore diversity in adolescent privacy policies and identify common approaches in health information technology management for adolescent patients. Through descriptive analyses of survey data, we found a wide range of institutional policies regarding adolescent patient privacy, and large variations in health IT executives' baseline knowledge of access policies. A majority of respondents agreed that formal guidelines pertaining to adolescent health record privacy would be helpful. Responden...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Research Themes:**
+
+* **Patient-centered care**: Many papers focus on improving patient engagement, empowerment, and understanding of health information, including the use of plain language, patient portals, and patient-reported outcomes (e.g., Ancker et al., 2016; Ancker et al., 2018; Ancker et al., 2020).
+* **Health information technology (HIT)**: Papers discuss the implementation, evaluation, and impact of HIT in various settings, including electronic health records (EHRs), health information exchange, and telemedicine (e.g., Ancker et al., 2013a; Ancker et al., 2013b; Ancker et al., 2023c).
+* **Health literacy and communication**: Studies investigate ways to improve health literacy, including the use of plain language, visualizations, and patient-centered communication (e.g., Ancker et al., 2006; Ancker et al., 2017; Ancker et al., 2022).
+* **Data science and analytics**: Papers explore the application of data
+
+Chunk 4:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Ancker_Jessica_55916074200
+
+Publication records (each record is one paper):
+Year: 2004
+Citations: 7
+Type: Article
+Venue: Journal of the Association of Nurses in AIDS Care
+Title: Successful techniques for retaining a cohort of infants and children born to HIV-infected women: The prospective P2C2 HIV study
+Keywords: AIDS; Pediatric HIV; Retention
+Abstract: Retaining subjects from disadvantaged populations in long-term studies is necessary to obtain high-quality data. This article presents cumulative retention rates from a 5-year prospective cohort study, the Pediatric Pulmonary and Cardiovascular Complications of Vertically Transmitted HIV Infection study. It also presents results of a cross-sectional qualitative survey about factors that induced caregivers to stay in the study. Although the repeated study visits were long and uncomfortable, cumulative retention among the 298 HIV-infected children was 80%. Incentives considered important by the caregivers included phone contact with nurse coord...
+
+---
+
+Year: 2023
+Citations: 6
+Type: Article
+Venue: Academic Medicine
+Title: A Qualitative Study on Using Telemedicine for Precepting and Teaching in the Academic Setting
+Abstract: Purpose To examine the impact of telemedicine use on precepting and teaching among preceptors and patients during the COVID-19 pandemic. Method The authors conducted a secondary analysis of a qualitative study focusing on providers' and patients' experiences with and attitudes toward telemedicine at 4 academic health centers. Teaching and precepting were emergent codes from the data and organized into themes. Themes were mapped to domains from the 2009 Consolidated Framework for Implementation Research (CFIR), a framework that assists with effective implementation and consists of 5 domains: intervention characteristics, outer settings, inner...
+
+---
+
+Year: 2023
+Citations: 6
+Type: Article
+Venue: Journal for Healthcare Quality
+Title: Provider and Patient Experiences of Delays in Primary Care During the Early COVID-19 Pandemic
+Keywords: healthcare delays; pandemic; primary care; qualitative research; telemedicine
+Abstract: Background: The necessary suspension of nonacute services by healthcare systems early in the COVID-19 pandemic was predicted to cause delays in routine care in the United States, with potentially serious consequences for chronic disease management. However, limited work has examined provider or patient perspectives about care delays and their implications for care quality in future healthcare emergencies. Objective: This study explores primary care provider (PCP) and patient experiences with healthcare delays during the COVID-19 pandemic. Methods: PCPs and patients were recruited from four large healthcare systems in three states. Participant...
+
+---
+
+Year: 2022
+Citations: 6
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Improving Cancer Care Communication: Identifying Sociodemographic Differences in Patient Portal Secure Messages Not Authored by the Patient
+Abstract: [No abstract available]
+
+---
+
+Year: 2022
+Citations: 6
+Type: Article
+Venue: Yearbook of Medical Informatics
+Title: Provocations for Reimagining Informatics Approaches to Health Equity
+Keywords: community engagement; Health disparity; health equity; health informatics; social determinants of health
+Abstract: As the informatics community commits to the goal of advancing health equity, it is essential that we openly critique our current approaches and reimagine the ways in which we design, implement, evaluate, and advocate for policies related to informatics interventions. In this paper, we present five provocations as a starting point for building more conscientious informatics practice in service of this goal: 1) Health informatics interventions can create an illusion of impactful action without significant material benefits for marginalized patients, families, and communities; 2) Health informatics interventions target the wrong stakeholders, th...
+
+---
+
+Year: 2022
+Citations: 6
+Type: Article
+Venue: JCO clinical cancer informatics
+Title: Identifying Nonpatient Authors of Patient Portal Secure Messages in Oncology: A Proof-of-Concept Demonstration of Natural Language Processing Methods
+Abstract: PURPOSE: Patient portal secure messages are not always authored by the patient account holder. Understanding who authored the message is particularly important in an oncology setting where symptom reporting is crucial to patient treatment. Natural language processing has the potential to detect messages not authored by the patient automatically. METHODS: Patient portal secure messages from the Memorial Sloan Kettering Cancer Center were retrieved and manually annotated as a predicted unregistered proxy (ie, not written by the patient) or a presumed patient. After randomly splitting the annotated messages into training and test sets in a 70:30...
+
+---
+
+Year: 2020
+Citations: 6
+Type: Article
+Venue: JAMIA Open
+Title: Organizational characteristics and perceptions of clinical event notification services in healthcare settings: A study of health information exchange
+Keywords: health information exchange; health information technology; healthcare organizations
+Abstract: Objective: Event notification systems are an approach to health information exchange (HIE) that notifies end-users of patient interactions with the healthcare system through real-time automated alerts. We examined associations between organizational capabilities and perceptions of event notification system use. Materials and Methods: We surveyed representatives (n = 196) from healthcare organizations (n = 96) that subscribed to 1 of 3 Health Information Organizations' event notification services in New York City (response rate = 27%). The survey was conducted in Fall 2017 and Winter 2018. Surveys measured respondent characteristics, perceived...
+
+---
+
+Year: 2019
+Citations: 6
+Type: Article
+Venue: JAMIA Open
+Title: Usage of query-based health information exchange after event notifications
+Keywords: Ambulatory care facilities; Clinical information systems; Health information exchange
+Abstract: Objectives: This study sought to quantify the association between event notifications and subsequent query-based health information exchange (HIE) use among end users of three different community health information organizations. Materials and Methods: Using system-log data merged with user characteristics, regression-adjusted estimates were used to describe the association between event notifications and subsequent query-based HIE usage. Results: Approximately 5% of event notifications were associated with query-based HIE usage within 30 days. In adjusted models, odds of query-based HIE usage following an event notification were higher for o...
+
+---
+
+Year: 2015
+Citations: 6
+Type: Article
+Venue: Medical Reference Services Quarterly
+Title: Integrating an Informationist Into Graduate Education: Case Study With Preliminary Results
+Keywords: Course-integrated instruction; educational collaborative partnership; individual consultations; information literacy; information mentoring; informationists; research skills
+Abstract: An informationist taught, consulted, and mentored graduate students enrolled in a graduate research project course in Health Informatics. An observational cohort study was conducted to determine the effect of an early (first term) and continued (subsequent term) exposure of course-integrated instruction, individual consultations, information resource mentoring, and educational collaboration partnership on the development of information literacy, research skills, and integrative competencies in graduate students. Student progress was assessed by survey, class performance, and faculty feedback. The course-integrated lectures, consultations, men...
+
+---
+
+Year: 2011
+Citations: 6
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: Developing an online and in-person HIT workforce training program using a team-based learning approach.
+Abstract: Workforce training in health information technology (HIT) is in demand as electronic health record adoption becomes a nationwide priority. Columbia University and Weill Cornell Medical College worked together to develop a 6-month ONC-supported certificate course. To identify relevant skills and knowledge, we conducted a needs assessment that included: interviews and focus groups with potential employers and current HIT employees; an analysis of both published literature on competencies and actual job listings; and the development of a diverse operations-oriented curriculum advisory committee, which help to synthesize the findings into 6 core...
+
+---
+
+Year: 2025
+Citations: 5
+Type: Note
+Venue: JAMA Network Open
+Title: Trusting Health Care Systems to Use Artificial Intelligence
+Abstract: [No abstract available]
+
+---
+
+Year: 2025
+Citations: 5
+Type: Review
+Venue: BMJ Oncology
+Title: Advancing cancer care through digital access in the USA: a state-of-the-art review of patient portals in oncology
+Keywords: Health Services Research
+Abstract: Patient portal use among patients with cancer has increased significantly in recent years. This state-of-the-art review seeks to address and analyse literature involving patient portal use by patients with cancer and their care partners. In this review, we queried articles from PubMed published between January 2018 and April 2024 that describe recent trends and the current presence of portals in cancer care for patients, proxy users and/or care partners. We searched for articles addressing three overarching themes: (1) trends and disparities in portal adoption and use among patients with cancer, (2) use of specific portal components and funct...
+
+---
+
+Year: 2024
+Citations: 5
+Type: Review
+Venue: MDM Policy and Practice
+Title: How Point (Single-Probability) Tasks Are Affected by Probability Format, Part 2: A Making Numbers Meaningful Systematic Review
+Keywords: data graphics; health communication; health literacy; numeracy; risk communication; risk perception
+Abstract: Background. The Making Numbers Meaningful review is intended to create guidance on the effect of data presentation format on comprehension of numbers in health. Purpose. This article (one of a series) covers research studying so-called “point tasks,” in which a reader examines materials to obtain information about single probabilities. The current article presents evidence on the effects of data presentation format on probability perceptions and feelings, health behaviors and behavioral intentions, trust, preference, and discrimination outcomes. Data Sources. MEDLINE, Embase, CINAHL, the Cochrane Library, PsycINFO, ERIC, ACM Digital Library;...
+
+---
+
+Year: 2024
+Citations: 5
+Type: Review
+Venue: MDM Policy and Practice
+Title: How Point (Single-Probability) Tasks Are Affected by Probability Format, Part 1: A Making Numbers Meaningful Systematic Review
+Keywords: data graphics; health communication; health literacy; numeracy; risk communication; risk perception
+Abstract: Background. To create guidance on the effect of data presentation format on communication of health numbers, the Making Numbers Meaningful project undertook a systematic review. Purpose. This article (one of a series) covers research studying so-called “point tasks,” in which a reader examines stimuli to obtain information about single probabilities. The current article presents the evidence on the effects of data presentation format on multiple outcomes: identification and recall, contrast, categorization, and computation. Data Sources. MEDLINE, Embase, CINAHL, the Cochrane Library, PsycINFO, ERIC, ACM Digital Library; hand search of 4 journ...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Article
+Venue: Annals of Family Medicine
+Title: The telemedicine experience in primary care practices in the united states: Insights from practice leaders
+Keywords: COVID-19 pandemic; East Coast; Primary care; Primary health care; Telemedicine
+Abstract: PURPOSE The need to rapidly implement telemedicine in primary care during the coronavirus disease 2019 (COVID-19) pandemic was addressed differently by various practices. Using qualitative data from semistructured interviews with primary care practice leaders, we aimed to report commonly shared experiences and unique perspectives regarding telemedicine implementation and evolution/maturation since March 2020. METHODS We administered a semistructured, 25-minute, virtual interview with 25 primary care practice leaders from 2 health systems in 2 states (New York and Florida) included in PCORnet, the Patient-Centered Outcomes Research Institute c...
+
+---
+
+Year: 2023
+Citations: 5
+Type: Article
+Venue: Quality Management in Health Care
+Title: Comparing Hospital Length of Stay Risk-Adjustment Models in US Value-Based Physician Payments
+Keywords: disparities; hospital; quality; socioeconomic; value-based
+Abstract: Backgroung and Objectives: Under the Affordable Care Act, the US Centers for Medicare & Medicaid Services created the Physician Value-Based Payment Modifier Program and its successor, the Merit-Based Incentive Payment System, to tie physician payments to quality and cost. The addition of hospital length of stay (LOS) to these value-based physician payment models reflects its increasing importance as a metric of health care cost and efficiency and its association with adverse health outcomes. This study compared the Centers for Medicare & Medicaid Services-endorsed LOS risk-adjustment methodology with a novel methodology that accounts for pre-...
+
+---
+
+Year: 2025
+Citations: 4
+Type: Review
+Venue: MDM Policy and Practice
+Title: How Difference Tasks Are Affected by Probability Format, Part 2: A Making Numbers Meaningful Systematic Review
+Keywords: data graphics; health communication; health literacy; numeracy; risk communication; risk perception
+Abstract: Background. To evaluate the effect of data presentation format on communication of health probabilities, the Making Numbers Meaningful team undertook a systematic review. Purpose. This article presents evidence about difference tasks, in which a reader examines information to evaluate differences between probabilities, such as the effect of a therapy on the chance of recurrence. This article covers the effect of format on 5 outcomes: 1) perceptions of or feelings about effectiveness, 2) behavioral intentions or behaviors, 3) trust, 4) preference for the format, and 5) discrimination. Data Sources. MEDLINE, Embase, CINAHL, the Cochrane Library...
+
+---
+
+Year: 2024
+Citations: 4
+Type: Review
+Venue: Journal of the American Medical Informatics Association
+Title: Insufficient evidence for interactive or animated graphics for communicating probability
+Keywords: animated visualization; graphics; health behavior; interactive visualization; risk communication
+Abstract: Objectives: We sought to analyze interactive visualizations and animations of health probability data (such as chances of disease or side effects) that have been studied in head-to-head comparisons with either static graphics or numerical communications. Materials and Methods: Secondary analysis of a large systematic review on ways to communicate numbers in health. Results: We group the research to show that 4 types of animated or interactive visualizations have been studied by multiple researchers: those that simulate experience of probabilistic events; those that demonstrate the randomness of those events; those that reduce information over...
+
+---
+
+Year: 2023
+Citations: 4
+Type: Article
+Venue: BMC Health Services Research
+Title: Development of a novel instrument to characterize telemedicine programs in primary care
+Keywords: COVID - 19 pandemic; Primary care; Survey development; Telemedicine
+Abstract: Background: Given the rapid deployment of telemedicine at the onset of the COVID - 19 pandemic, updated assessment methods are needed to study and characterize telemedicine programs. We developed a novel semi - structured survey instrument to systematically describe the characteristics and implementation processes of telemedicine programs in primary care. Methods: In the context of a larger study aiming to describe telemedicine programs in primary care, a survey was developed in 3 iterative steps: 1) literature review to obtain a list of telemedicine features, facilitators, and barriers; 2) application of three evaluation frameworks; and 3) s...
+
+---
+
+Year: 2023
+Citations: 4
+Type: Note
+Venue: Journal of General Internal Medicine
+Title: An Urgent Need for Guidelines for Telemedicine Use
+Abstract: [No abstract available]
+
+---
+
+Year: 2023
+Citations: 4
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Assessing Usability and Ambulatory Clinical Staff Satisfaction with Two Electronic Health Records
+Keywords: electronic health records; job satisfaction; medical informatics applications; user-centered design
+Abstract: Background?A growing body of literature has linked usability limitations within electronic health records (EHRs) to adverse outcomes which may in turn affect EHR system transitions. NewYork-Presbyterian Hospital, Columbia University College of Physicians and Surgeons (CU), and Weill Cornell Medical College (WC) are a tripartite organization with large academic medical centers that initiated a phased transition of their EHRs to one system, EpicCare. Objectives?This article characterizes usability perceptions stratified by provider roles by surveying WC ambulatory clinical staff already utilizing EpicCare and CU ambulatory clinical staff util...
+
+---
+
+Year: 2022
+Citations: 4
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Clinician Acceptance of Order Sets for Pain Management: A Survey in Two Urban Hospitals
+Keywords: clinical decision support; electronic health records; opioid; order sets; technology acceptance
+Abstract: Background Order sets are a clinical decision support (CDS) tool in computerized provider order entry systems. Order set use has been associated with improved quality of care. Particularly related to opioids and pain management, order sets have been shown to standardize and reduce the prescription of opioids. However, clinician-level barriers often limit the uptake of this CDS modality. Objective To identify the barriers to order sets adoption, we surveyed clinicians on their training, knowledge, and perceptions related to order sets for pain management. Methods We distributed a cross-sectional survey between October 2020 and April 2021 to cl...
+
+---
+
+Year: 2021
+Citations: 4
+Type: Article
+Venue: BMJ Surgery, Interventions, and Health Technologies
+Title: Perceptions of partial gland ablation for prostate cancer among men on active surveillance: A qualitative study
+Keywords: access; active surveillance; and evaluation; health care quality; minimally invasive surgical procedures; prostate ablation devices; urology devices
+Abstract: Objectives Partial gland ablation (PGA) therapy is an emerging treatment modality that targets specific areas of biopsy-proven prostate cancer (PCa) to minimize treatment-related morbidity by sparing benign prostate. This qualitative study aims to explore and characterize perceptions and attitudes toward PGA in men with very-low-risk, low-risk, and favorable intermediate-risk PCa on active surveillance (AS). Design 92 men diagnosed with very-low-risk, low-risk, and favorable intermediate-risk PCa on AS were invited to participate in semistructured telephone interviews on PGA. Setting Single tertiary care center located in New York City. Parti...
+
+---
+
+Year: 2014
+Citations: 4
+Type: Article
+Venue: Theoretical Issues in Ergonomics Science
+Title: Characterising the effect of interoperability on healthcare work: a novel framework
+Keywords: Ambulatory practices; Electronic health records; Health information exchange; Interoperability; User-centred design
+Abstract: Successful design and implementation of interoperable health IT requires an understanding of specific technological capabilities of systems, as well as how these systems impact clinical workflow. Several existing frameworks classify interoperability levels, but none focus on the impact on clinical work, particularly at the task level. A synthesis of existing interoperability frameworks from select interoperability frameworks in the literature about both medical and non-medical systems is presented and a new, 7-level framework in order to characterise the effect of varying levels of interoperability on the users’ work based upon qualitative da...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Review
+Venue: MDM Policy and Practice
+Title: How Difference Tasks Are Affected by Probability Format, Part 1: A Making Numbers Meaningful Systematic Review
+Keywords: Decision Aids; Evidence Synthesis; Health Literacy; Numeracy; Physician-Patient Communication; Risk Communication; Risk Perception; Shared Decision Making; Systematic Reviews
+Abstract: Background. To develop guidance on the effect of data presentation format on communication of health probabilities, the Making Numbers Meaningful project undertook a systematic review. Purpose. This article, one in a series, covers evidence about “difference tasks,” in which a reader examines a stimulus to evaluate differences between probabilities, such as the effect of a risk factor or therapy on the chance of a disease. This article covers the effect of format on 4 outcomes: 1) identifying a probability difference (identification) or recalling it (recall), 2) identifying the largest or smallest of a set of probability differences (contrast...
+
+---
+
+Year: 2024
+Citations: 3
+Type: Article
+Venue: Health Policy and Technology
+Title: Telemedicine decision-making in primary care during the COVID-19 pandemic: Balancing patient agency and provider expertise
+Keywords: Decision-making; Pandemic; Patient-provider communication; Primary care; Qualitative research; Telemedicine
+Abstract: Objectives: The COVID-19 pandemic precipitated the expansion of telemedicine use worldwide, introducing a new dimension of healthcare decision-making – choosing a visit format – not previously experienced by most patients or providers. To date, the pandemic's impact on decisions about using telemedicine versus in-person visits in primary care has not been fully explored. The purpose of this study was to examine patient and provider accounts of decision-making about the choice between telemedicine and in-person care during the COVID-19 pandemic. Methods: Primary care providers and patients were recruited from four healthcare systems across thr...
+
+---
+
+Year: 2023
+Citations: 3
+Type: Article
+Venue: BMJ Evidence-Based Medicine
+Title: Decision architecture randomisation: extremely efficient clinical trials that preserve clinician and patient choice?
+Keywords: Information technology
+Abstract: [No abstract available]
+
+---
+
+Year: 2023
+Citations: 3
+Type: Review
+Venue: Journal of the American Medical Informatics Association
+Title: Engaging the next generation of physician-informaticians through early exposure to the field: Successes and challenges associated with starting a novel clinical informatics interes...
+Keywords: clinical informatics; information technology; medical students; special interest groups
+Abstract: Clinical informatics remains underappreciated among medical students in part due to a lack of integration into undergraduate medical education (UME). New developments in the study and practice of medicine are traditionally introduced via formal integration into undergraduate medical curricula. While this path has certain advantages, curricular changes are slow and may fail to showcase the breadth of clinical informatics activities. Less formal and more flexible approaches can circumvent these drawbacks. Interest groups (IGs), which are organized through the Association of American Medical College Careers in Medicine (CiM) program, exemplify t...
+
+---
+
+Year: 2022
+Citations: 3
+Type: Article
+Venue: Journal of the American Medical Informatics Association
+Title: Design and evaluation of a Women in American Medical Informatics Association (AMIA) leadership program
+Keywords: equity; gender; informatics; leadership
+Abstract: The objective is to report on the design and evaluation of the inaugural Women in AMIA Leadership Program. A year-long leadership curriculum was developed. Survey responses were summarized with descriptive statistics and quotes selected. Twenty-four scholars participated in the program. There was a significant increase in perceived achievement of learning objectives after the program (P <. 0001). The largest improvement was in leadership confidence and presence in work interactions (modal answer Neutral in presurvey from 21 responses rose to Agree in postsurvey from 24 responses). Most (92% of 13) scholars clarified leadership vision and goal...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Review
+Venue: MDM Policy and Practice
+Title: How Time-Trend Tasks Are Affected by Probability Format: A Making Numbers Meaningful Systematic Review
+Keywords: decision aids; evidence synthesis; numeracy; risk communication; risk perception; shared decision making; systematic review
+Abstract: Background. To develop guidance on the effects of format on communication of health probabilities, the Making Numbers Meaningful team conducted a systematic review. Purpose. This article (one of a series) covers research on time-trend tasks, in which participants evaluate stimuli for information about probability trends, such as changing chances of cancer recurrence over time. Data Sources. MEDLINE, Embase, CINAHL, the Cochrane Library, PsycINFO, ERIC, ACM Digital Library; hand search of 4 journals. Study Selection. We conducted independent dual screening to identify experimental or quasi-experimental research comparing 2 or more formats for...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Review
+Venue: MDM Policy and Practice
+Title: How Synthesis Tasks Are Affected by Probability Format: : A Making Numbers Meaningful Systematic Review
+Keywords: decision aids; evidence synthesis; numeracy; risk communication; risk perception; shared decision making; systematic review
+Abstract: Background. To develop guidance on the effect of data presentation format on communication of health probabilities, the Making Numbers Meaningful project undertook a systematic review. Purpose. This article, one in a series, covers evidence about a “synthesis task,” in which readers examine stimuli to synthesize information about multiple features of health options, such as chances of both harm and benefit for a treatment. This article presents evidence of the effect of format on perceptual, cognitive, affective, and behavioral outcomes. Data Sources. MEDLINE, Embase, CINAHL, the Cochrane Library, PsycINFO, ERIC, ACM Digital Library; hand sea...
+
+---
+
+Year: 2024
+Citations: 2
+Type: Article
+Venue: Journal of Medical Internet Research
+Title: Understanding Symptom Self-Monitoring Needs Among Postpartum Black Patients: Qualitative Interview Study
+Keywords: Black; death; decision support; design need; ethnic; health equity; information need; informational need; maternal; maternal mortality; maternity; mental health; mHealth; mobile he...
+Abstract: Background: Pregnancy-related death is on the rise in the United States, and there are significant disparities in outcomes for Black patients. Most solutions that address pregnancy-related death are hospital based, which rely on patients recognizing symptoms and seeking care from a health system, an area where many Black patients have reported experiencing bias. There is a need for patient-centered solutions that support and encourage postpartum people to seek care for severe symptoms. Objective: We aimed to determine the design needs for a mobile health (mHealth) patient-reported outcomes and decision-support system to assist Black patients...
+
+---
+
+Year: 2023
+Citations: 2
+Type: Letter
+Venue: Journal of Ambulatory Care Management
+Title: COVID-19 Vaccine Hesitancy in a Predominantly Minority Population and Trust in Primary Care Physicians as a Potential Solution
+Abstract: [No abstract available]
+
+---
+
+Year: 2020
+Citations: 2
+Type: Article
+Venue: JAMIA Open
+Title: Using electronic health records for population health sciences: A case study to evaluate the associations between changes in left ventricular ejection fraction and the built enviro...
+Keywords: Built environment; Cardiovascular diseases; Electronic health records; Geographic information system; Public health informatics
+Abstract: Objective: Electronic health record (EHR) data linked with address-based metrics using geographic information systems (GIS) are emerging data sources in population health studies. This study examined this approach through a case study on the associations between changes in ejection fraction (EF) and the built environment among heart failure (HF) patients. Materials and Methods: We identified 1287 HF patients with at least 2 left ventricular EF measurements that are minimally 1 year apart. EHR data were obtained at an academic medical center in New York for patients who visited between 2012 and 2017. Longitudinal clinical information was linke...
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+*   **Retention and Engagement:** Studies on strategies for retaining participants in longitudinal studies, including the use of incentives and caregiver engagement (2004)
+*   **Telemedicine and Remote Healthcare:** Research on the impact of telemedicine on healthcare delivery, including its use in primary care, oncology, and other specialties (2023, 2023, 2023, 2023, 2023)
+*   **Healthcare Disparities and Equity:** Investigations into health disparities, including the impact of telemedicine on access to care, and the development of tools to promote health equity (2022, 2022, 2022, 2023)
+*   **Health Information Exchange and Technology:** Studies on the use of health information exchange, electronic health records, and other technologies to improve healthcare delivery and outcomes (2019, 2020, 2022, 2023)
+*   **Patient-Centered Care and Decision-Making:** Research on patient-centered care, including the use of patient portals, decision support tools, and other technologies
+
+Chunk 5:
+system
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a careful research analyst summarizing an author's publications.
+Hard rules:
+- Use ONLY the evidence provided.
+- Do NOT invent institutions, grants, methods, awards, roles, or claims.
+- If something is unknown, omit it.
+Output format:
+1) 4–8 bullet points of recurring research themes (methods + application areas).
+2) 2–4 bullet points describing timeline/evolution (early vs recent directions) if years allow.
+3) 1 sentence summarizing the overall research identity.user
+
+Author ID: Ancker_Jessica_55916074200
+
+Publication records (each record is one paper):
+Year: 2018
+Citations: 2
+Type: Erratum
+Venue: Health Policy and Technology
+Title: Corrigendum to “Patient Access to Electronic Health Records: Differences Across Ten Countries” [Health Policy and Technology, 7 (2018), 44–56] (S2211883717300722) (10.1016/j.hlpt.2...
+Abstract: The authors regret an error in the original author list and can confirm this should appear as above. The authors would like to apologise for any inconvenience caused. © 2018 Fellowship of Postgraduate Medicine
+
+---
+
+Year: 2015
+Citations: 2
+Type: Article
+Venue: Journal of General Internal Medicine
+Title: Capsule Commentary on Weeks et al., “Provider Perceptions of the Electronic Health Record Incentive Programs: A Survey of Eligible Professionals Who Have and Have Not Attested to M...
+Abstract: [No abstract available]
+
+---
+
+Year: 2012
+Citations: 2
+Type: Conference paper
+Venue: Studies in Health Technology and Informatics
+Title: Promoting generic medication prescribing by order interface redesign: Small change, large impact
+Keywords: Drug substitution; Generic drugs; Interface redesign; Order entry systems
+Abstract: Prescription drugs are a significant component of the ever increasing health care costs. We describe the effects on generic medication prescribing behavior achieved through redesign of the order entry interface of our institutions ambulatory electronic health record. The redesign involved custom programming that automatically substituted brand medications with their generic equivalents and only allowed continuation with the brand medication if the clinician made an extra mouse click selecting "dispense as written". We conducted a before-after retrospective study around the time of the redesign and witnessed a net 36.9% percentage increase in...
+
+---
+
+Year: 2004
+Citations: 2
+Type: Letter
+Venue: Controlled Clinical Trials
+Title: Assessing patient comprehension of informed consent forms [3] (multiple letters)
+Abstract: [No abstract available]
+
+---
+
+Year: 2025
+Citations: 1
+Type: Review
+Venue: Medical Decision Making
+Title: Evidence on Methods for Communicating Health-Related Probabilities: Comparing the Making Numbers Meaningful Systematic Review to the 2021 IPDAS Evidence Paper Recommendations
+Keywords: data visualization; health communication; patient education as topic; Risk
+Abstract: Purpose: To summarize the degree to which evidence from our recent Making Numbers Meaningful (MNM) systematic review of the effects of data presentation format on communication of health numbers supports recommendations from the 2021 International Patient Decision Aids Standards (IPDAS) Collaboration papers on presenting probabilities. Methods: The MNM review generated 1,119 distinct findings (derived from 316 papers) related to communication of probabilities to patients or other lay audiences, classifying each finding by its relation to audience task, type of stimulus (data and data presentation format), and up to 10 distinct sets of outcome...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Article
+Venue: Medical Decision Making
+Title: How to Report Research on the Communication of Health-Related Numbers: The Research on Communicating Numbers (ReCoN) Guidelines
+Keywords: health communication; health literacy; numeric communication; reporting guidelines; risk communication; scholarly communication
+Abstract: Background: Research with lay audiences (e.g., patients, the public) can inform the communication of health-related numerical information. However, a recent systematic review (Making Numbers Meaningful) highlighted several common issues in the literature that impair readers’ ability to evaluate and replicate these studies. Purpose: To create a set of guidelines for reporting research regarding the research on communicating numbers to lay audiences for health-related purposes. Reporting Recommendations: We present 6 common reporting issues from research on communicating numbers that pertain to the background motivating the study, experimental...
+
+---
+
+Year: 2025
+Citations: 1
+Type: Editorial
+Venue: MDM Policy and Practice
+Title: How to Make Sense of the Making Numbers Meaningful Systematic Review
+Abstract: [No abstract available]
+
+---
+
+Year: 2024
+Citations: 1
+Type: Review
+Venue: Journal of the American Medical Directors Association
+Title: Impact of Extreme Weather Events on Health Outcomes of Nursing Home Residents Receiving Post-Acute Care and Long-Term Care: A Scoping Review
+Keywords: Climate change; health outcomes; hospitalization; mortality; nursing homes; older adults
+Abstract: Objectives: To systematically examine the evidence of the association between extreme weather events (EWEs) and adverse health outcomes among short-stay patients undergoing post-acute care (PAC) and long-stay residents in nursing homes (NHs). Design: This is a scoping review. The findings were reported using the Preferred Reporting Items for Systematic Review and Meta-Analysis Extension for Scoping Reviews checklist. Settings and Participants: Studies published on short-stay PAC and long-stay residents in NHs. Methods: A literature search was performed in 6 databases. Studies retrieved were screened for eligibility against predefined inclusio...
+
+---
+
+Year: 2024
+Citations: 1
+Type: Article
+Venue: PLOS Digital Health
+Title: Aspiring to clinical significance: Insights from developing and evaluating a machine learning model to predict emergency department return visit admissions
+Abstract: Return visit admissions (RVA), which are instances where patients discharged from the emergency department (ED) rapidly return and require hospital admission, have been associated with quality issues and adverse outcomes. We developed and validated a machine learning model to predict 72-hour RVA using electronic health records (EHR) data. Study data were extracted from EHR data in 2019 from three urban EDs. The development and independent validation datasets included 62,154 patients from two EDs and 73,453 patients from one ED, respectively. Multiple machine learning algorithms were evaluated, including deep significance clustering (DICE), re...
+
+---
+
+Year: 2023
+Citations: 1
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Designing Support to help Health Communication Professionals Convey Numbers Clearly to the Public - A Needs Assessment and Formative Usability Evaluation
+Abstract: Communicating health-related probabilities to patients and the public presents challenges, although multiple studies have demonstrated that we can promote comprehension and appropriate application of numbers by matching presentation formats (e.g., percentage, bar charts, icon arrays) to communication goal (e.g., improving recall, decreasing worry, taking action). We used this literature to create goal-driven, evidence-based guidance to support health communicators in conveying probabilities. We then conducted semi-structured interviews with 39 health communicators to understand: communicators' goals for expressing probabilities, formats they...
+
+---
+
+Year: 2021
+Citations: 1
+Type: Article
+Venue: BMC Research Notes
+Title: Lower objectively and subjectively assessed numeracy are both associated with poorer self-rated health
+Keywords: Health communication; Health status; Numeracy; Social determinants of health
+Abstract: Objective: To compare an objective with a subjective numeracy assessment for association with self-reported health status, where numeracy refers to “the degree to which individuals have the capacity to access, process, interpret, communicate, and act on numerical, quantitative, graphical, biostatistical, and probabilistic health information needed to make effective health decisions” Results: We completed a secondary analysis of two population-based surveys, the Empire State Poll (n = 763) and the Program for the International Assessment of Adult Competencies (PIAAC; n = 2609). The first survey assessed numeracy with a 3-item subjective instru...
+
+---
+
+Year: 2015
+Citations: 1
+Type: Article
+Venue: Journal of Ambulatory Care Management
+Title: Patient-Centered Medical Homes: Observable Types Derived from National Recognition Assessment Scores
+Keywords: Cluster analysis; evaluation; medical homes; patient-centered care; primary health care
+Abstract: The patient-centered medical home (PCMH) is a strategy to transform primary care delivery organizations. However, PCMHs take on many forms and can "look different." To better understand the activities of organizations undertaking this strategy, we sought to identify discernible PCMH types using cluster analyses. From a sample of level 3 National Committee for Quality Assurance PCMHs, We extracted 3 types of PCMHs: information-focused, efficiency-focused, and high-scoring. Our findings confirm that the PCMH is not a uniform intervention. Characterizing PCMHs with particular areas of focus has implications for understanding the transformation p...
+
+---
+
+Year: 2014
+Citations: 1
+Type: Article
+Venue: Journal of Evaluation in Clinical Practice
+Title: Effect of a state-based incentive programme on the use of electronic health records
+Keywords: Doctors; Electronic health records; Incentives; Meaningful use; Programme evaluation; Public policy
+Abstract: Rationale, aims and objectives: In 2004, New York passed the Health Care Efficiency and Affordability Law for New Yorkers (HEAL NY) Capital Grants Program, which was the largest state-based investment in health information technology adoption in the United States. We sought to evaluate the effects of this programme on electronic health records (EHR) usage. Methods: We undertook a case-control study of health care providers who had signed up with a regional extension centre, some of whom had also received HEAL funding through programmes intended to support EHR adoption. The outcome of interest was achievement of Medicare or Medicaid Meaningful...
+
+---
+
+Year: 2013
+Citations: 1
+Type: Book chapter
+Venue: The Reality of Precaution: Comparing Risk Regulation in the United States and Europe
+Title: Risk perceptions and risk attitudes in the United States and Europe
+Abstract: [No abstract available]
+
+---
+
+Year: 2011
+Citations: 1
+Type: Conference paper
+Venue: Proceedings of the Human Factors and Ergonomics Society
+Title: Health information technology: Can there be meaningful use without meaningful design?
+Abstract: Given the rising costs of health care, the current focus on improving patient safety, and the goals of reducing barriers to efficient healthcare access, there is a strong and rapid push towards the implementation of health information systems in a variety of health care contexts. This panel brings together individuals with experiences spanning human factors and system safety research, medical informatics, and clinical practice to provide a set of diverse but complementary viewpoints on what it will take to successfully, safely, and meaningfully design and implement health information systems. Copyright 2011 by Human Factors and Ergonomics Soc...
+
+---
+
+Year: 2010
+Citations: 1
+Type: Book chapter
+Venue: Public Health in the 21st Century: Volume 1-3
+Title: Health Information Technology and Public Health
+Abstract: [No abstract available]
+
+---
+
+Year: 2009
+Citations: 1
+Type: Article
+Venue: Nature Medicine
+Title: Praying to the power of p
+Abstract: [No abstract available]
+
+---
+
+Year: 2005
+Citations: 1
+Type: Article
+Venue: Behavioral and Brain Sciences
+Title: Towards a taxonomy of modes of moral decision-making
+Abstract: Sunstein advocates a more systematic approach to the study of moral decision-making, namely the heuristics-and-biases paradigm. We offer two concerns and suggest that a focus on decision processes can add value. Recent research on decision modes suggest that it is useful to distinguish between the qualitative differences in the ways in which moral decisions can be made when they are not made by reflective, consequentialist reasoning.
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: JAMA Network Open
+Title: Large Language Models and Communication of Medical Probabilities
+Abstract: [No abstract available]
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Evaluating Clinical Staff Perceptions of EHR Usability, Satisfaction, and Adaptation to a New EHR: A Multisite, Pre-Post Implementation Study
+Keywords: burnout; cognitive support; electronic health records and systems; implementation and deployment; interface usability; user satisfaction
+Abstract: Background The adoption of electronic health records (EHRs) into clinical practice has changed clinical workflows and, in some cases, increased documentation burden and clinician burnout. Identifying factors associated with perceived EHR usability after the implementation of a new EHR may guide efforts to reduce burden and burnout. Objectives This study measured: (1) group-level perceptions of EHR usability pre- and postimplementation of a new EHR; (2) adaptation to the new EHR; and (3) the effects of clinical role, setting, and specialty on these measures. Methods Pre- and postimplementation surveys were sent to clinical staff at two academi...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Diabetes Research and Clinical Practice
+Title: Bedtime sliding scale insulin is unnecessary for hospitalized patients with bedtime glucose < 300 mg/dL: A nudge-based quasi-experiment
+Abstract: Aims: Bedtime rapid-acting insulin is commonly given to hospitalized patients with moderate hyperglycemia. Its effectiveness has been evaluated in one randomized controlled trial (RCT), the results of which might not generalize to specific populations such as cancer patients. Methods: An order set encouraging use of rapid-acting bedtime insulin was replaced with one defaulting to rapid-acting bedtime insulin only for glucoses ≥300 mg/dL, deployed over a two-month period in which approximately half of providers were arbitrarily assigned to the new order set. Analysis assessed the effect of the new order set on whether a less-aggressive bedtime...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of the American Pharmacists Association
+Title: Comparative effectiveness of buprenorphine adherence with telemedicine vs. in-person for rural and urban patients
+Abstract: Background: Policy changes during the COVID-19 pandemic allowed buprenorphine to be prescribed for opioid use disorder via telemedicine without an in-person visit. A recently proposed change will limit buprenorphine access to 30 days without an in-person visit. Given that people living in rural areas may be disproportionally impacted by this change, we sought to better understand how buprenorphine adherence may be impacted by requiring in-person visits. Objective: Compare buprenorphine adherence after telemedicine to adherence after in-person visits for patients who live in rural and urban areas. Methods: In this retrospective cohort study, w...
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: Journal of General Internal Medicine
+Title: Pregnant Patients are Less Likely to Disclose Substance USE if They Perceive Stigma in Their Clinic Notes
+Abstract: [No abstract available]
+
+---
+
+Year: 2025
+Citations: 0
+Type: Article
+Venue: BMJ Evidence-Based Medicine
+Title: Accurate is not enough: select formats for communicating probabilities to achieve specific outcomes
+Keywords: Clinical Decision-Making; Evidence-Based Practice; Quality of Health Care
+Abstract: [No abstract available]
+
+---
+
+Year: 2024
+Citations: 0
+Type: Article
+Venue: Applied Clinical Informatics
+Title: Sociodemographic Differences in Perspectives on Postpartum Symptom Reporting
+Keywords: obstetrics; patient-reported outcomes; symptom information
+Abstract: Objective The overall goal of this work is to create a patient-reported outcome (PRO) and decision support system to help postpartum patients determine when to seek care for concerning symptoms. In this case study, we assessed differences in perspectives for application design needs based on race, ethnicity, and preferred language. Methods A sample of 446 participants who reported giving birth in the past 12 months was recruited from an existing survey panel. We sampled participants from four self-reported demographic groups: (1) English-speaking panel, Black/African American race, non-Hispanic ethnicity; (2) Spanish-speaking panel, Hispanic-...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Article
+Venue: Telemedicine and e-Health
+Title: Patient Experiences with and Preferences for Telemedicine Relative to In-Person Care During the COVID-19 Pandemic
+Keywords: patient satisfaction; patient-clinician communication; telemedicine
+Abstract: Introduction: Although telemedicine emerged during the COVID-19 pandemic as a critical mode of health care delivery, there may be differences in the perceived ease of patient-clinician communication and quality of care for telemedicine versus in-person visits, as well as variation in perceptions across patient subgroups. We examined patients’ experiences with and preferences for telemedicine relative to in-person care, based on their most recent visit. Methods: We conducted a survey of 2,668 adults in a large academic health care system in November 2021. The survey captured patients’ reasons for their most recent visit, perceptions on patient...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Clinician Perspectives on a Predictive Model for Recommending Opioid Use Disorder Treatment
+Abstract: Background: Predictive models that have been made available as clinical decision support systems have not always been used. Objectives: This qualitative study aimed to identify factors that might impact the uptake of a predictive model recommending either methadone or buprenorphine as medication for opioid use disorder (MOUD) in the inpatient setting. Methods: We conducted semi-structured interviews with clinicians who prescribe MOUD and performed a combined deductive and inductive content analysis using a socio-technical model. Results: Thirteen clinicians were interviewed. Non-specialists trusted their specialist peers to lead MOUD decision...
+
+---
+
+Year: 2024
+Citations: 0
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Behavior Shifts in Patient Portal Usage During and After Policy Changes Around Test Result Delivery and Notification
+Abstract: Because of the 21st Century Cures Act, many health systems now release all test results into patient portals immediately. To investigate if changes in access to test results shifted patient portal usage, we used data from the electronic health record to evaluate how patients behaved after this policy change and a subsequent policy adjustment requiring patients to opt in for notifications about new test results. We found that following institutional compliance with the Cures Act, proportions of patients who scheduled a new appointment and messaged their clinician after accessing a new test result increased, both by 4.5%. After removing automat...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Review
+Venue: American Journal of Managed Care
+Title: Building Research Capacity in Primary Care Practices That Serve Predominantly Racial and Ethnic Minority Populations
+Abstract: Primary care research represents only 1% of all federally funded projects. However, innovation in primary care is central to advancing health care delivery. Indeed, leaders in health care innovation recently called for primary care payment reform proposals to be tested in accountable care organizations (ACOs) consisting of independent practices (ie, practices not owned by hospitals). Yet these same practices may have less experience with the kind of systematic innovation that leads to generalizable insights, because what little funding is available for primary care research is mostly awarded to large academic medical centers. In this commenta...
+
+---
+
+Year: 2023
+Citations: 0
+Type: Book chapter
+Venue: Clinical Decision Support and beyond: Progress and Opportunities in Knowledge-Enhanced Hea...
+Title: The promise of patient-directed decision support
+Keywords: Clinical decision support; Digital technology; Health literacy; Mobile health; Patient engagement; Self-management; Shared decision-making
+Abstract: Clinical decision support, focused on providing timely information to clinicians to support evidence-based decision-making, has been a major theme of informatics research. By contrast, patient-directed decision support (support directed toward patients) has attracted less attention in the field. Patient-directed decision support involves supporting patients and their caregivers, with or without their care teams, in health-related decisions and actions. Information alone is not sufficient to support patient decisions: information about a decision must be accompanied by methods of eliciting patient values and preferences, guidance about how to...
+
+---
+
+Year: 2018
+Citations: 0
+Type: Article
+Venue: AMIA... Annual Symposium proceedings. AMIA Symposium
+Title: Augmenting community-level social determinants of health data with individual-level survey data
+Abstract: Social determinants of health (SDH) such as education and socioeconomic status are strongly associated with health and health outcomes. Incorporating SDH variables into clinical data sets could therefore improve the accuracy of predictive analytics, but individual-level SDH are rarely available and must be inferred from community-level data. We propose a method for doing so leveraging the joint probability distribution of the basic demographics available from the patient's clinical record and known community-level SDH. We demonstrate the method using two data sets, the New York City (NYC) subset of the US census data and the NYC Health and Nu...
+
+---
+
+Year: 2015
+Citations: 0
+Type: Conference paper
+Venue: Studies in Health Technology and Informatics
+Title: Use of Self-Service Query Tools Varies by Experience and Research Knowledge
+Keywords: Expert and Novice Users; Query Tools
+Abstract: The lack of understanding of user experience with self-service query tools is a barrier to designing effective query tools and is what propelled this study. User actions were documented and transformed into networks of actions for qualitative analysis. Proficient use of self-service query tools requires significant technical experience. To decrease the user learning curve, additional user education is necessary for novice users. © 2015 IMIA and IOS Press.
+
+---
+
+Year: 2008
+Citations: 0
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: A vector space method to quantify agreement in qualitative data.
+Abstract: Interrater agreement in qualitative research is rarely quantified. We present a new method for assessing interrater agreement in the coding of focus group transcripts, based on vector space methods. We also demonstrate similarities between this vector method and two previously published interrater agreement methods. Using these methods, we showed that interrater agreement for the qualitative data was quite low, attributable in part to the subjective nature of the codes and in part to the very large number of possible codes. These methods of assessing interrater agreement have the potential to be useful in determining and improving reliability...
+
+---
+
+Year: 2006
+Citations: 0
+Type: Article
+Venue: AMIA... Annual Symposium proceedings / AMIA Symposium. AMIA Symposium
+Title: Risk and experience: effects of experiential learning and patient characteristics in interpretation of dynamic risk graphics.
+Abstract: ABSTRACT: Risks can be explained to patients in narratives, numbers, or graphs. All these methods depend upon description. However, decisions from description differ systematically from decisions about risks that are experienced through activities such as drawing cards from a deck. We have developed a dynamic graphic interface that provides a virtual experience of event probabilities, with potential applications in patient education and decision support.
+
+Task: Extract themes and any evidence-based evolution over time.assistant
+
+**Recurring research themes:**
+
+*   **Health Communication**: Many publications focus on effective communication of health-related information, including probabilities, risks, and numbers, to patients and the public. Examples include the "Making Numbers Meaningful" systematic review, the "Research on Communicating Numbers (ReCoN)" guidelines, and articles on communicating health-related probabilities and risks.
+*   **Electronic Health Records (EHRs)**: Several publications explore the use and impact of EHRs, including their adoption, usability, and effects on clinician behavior. Examples include studies on EHR usability, the impact of EHRs on clinician burnout, and the use of EHRs to predict emergency department return visits.
+*   **Patient-Centered Care**: Some publications focus on patient-centered approaches to healthcare, including patient-directed decision support, patient engagement, and shared decision-making. Examples include articles on patient-directed decision support, patient engagement, and the importance of considering patient values and preferences.
+*   **Risk Perception and Attitudes**: A few publications examine risk perception and attitudes, including the comparison
+
+Now synthesize into a 1–2 paragraph bio describing (1) evolution of research focus and (2) primary areas of expertise.assistant
+
+Jessica Ancker is a researcher with a focus on health informatics, patient-centered care, and effective communication of health-related information. Her research has evolved over time to prioritize the development of evidence-based guidance for health communicators, the creation of patient-centered tools and technologies, and the exploration of the impact of electronic health records (EHRs) on clinician behavior and patient outcomes. Her work has spanned various areas, including health communication, EHRs, patient-centered care, and risk perception and attitudes.
+
+Ancker's primary areas of expertise include health communication, patient-centered care, and EHRs. She has conducted extensive research on the effective communication of health-related information, including probabilities, risks, and numbers, to patients and the public. Her work has also focused on the development of patient-centered tools and technologies, such as patient-directed decision support systems and patient portals. Additionally, she has explored the impact of EHRs on clinician behavior and patient outcomes, including the effects of EHR usability on clinician burnout and the use of EHRs to predict emergency department return visits.
