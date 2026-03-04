@@ -1,0 +1,29 @@
+# LLM outputs
+
+author_expertise_txt/*
+
+!author_expertise_txt/.gitkeep
+
+
+
+# large generated files
+
+outputs/*.json
+
+outputs/*.txt
+
+
+
+# python environment
+
+.venv/
+
+__pycache__/
+
+
+
+# model downloads
+
+*.bin
+
+*.safetensors
