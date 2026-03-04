@@ -7,6 +7,8 @@ tokenizers>=0.19,<1
 safetensors>=0.4,<1
 huggingface_hub>=0.23,<1
 hf-xet>=1,<2
+protobuf>=4.25,<6
+sentencepiece>=0.2,<1
 
 # Torch: do NOT hard-pin here unless you control the CUDA wheel source.
 # Install torch separately (see note below), then leave it out OR keep a loose bound:
