@@ -1,3 +1,34 @@
+# virtual environments
+
+.venv*/
+
+venv*/
+
+
+
+# python cache
+
+__pycache__/
+
+*.pyc
+
+
+
+# generated pipeline outputs
+
+author_expertise_txt/
+
+outputs/
+
+site/
+
+
+
+# large intermediate files
+
+*.log
+
+
 echo ".venv311/" >> .gitignore
 
 echo ".venv*/" >> .gitignore
