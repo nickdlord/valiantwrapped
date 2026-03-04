@@ -1,3 +1,43 @@
+# virtual environments
+
+.venv*/
+
+venv*/
+
+
+
+# python cache
+
+__pycache__/
+
+*.pyc
+
+
+
+# generated pipeline outputs
+
+author_expertise_txt/
+
+outputs/
+
+site/
+
+
+
+# large intermediate files
+
+*.log
+
+
+echo ".venv311/" >> .gitignore
+
+echo ".venv*/" >> .gitignore
+
+echo "__pycache__/" >> .gitignore
+
+echo "*.pyc" >> .gitignore
+
+
 # LLM outputs
 
 author_expertise_txt/*
@@ -27,3 +67,12 @@ __pycache__/
 *.bin
 
 *.safetensors
+
+.venv*/
+
+venv*/
+
+__pycache__/
+
+*.pyc
+
