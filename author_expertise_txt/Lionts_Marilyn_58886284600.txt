@@ -1,17 +1,18 @@
 THEMES:
+- **Deep Learning Applications**:
+- Utilization of deep learning techniques in various fields such as Raman spectroscopy, medical imaging, and histopathology.
+- Application of convolutional neural networks (CNN), transformers, and ensemble learning in these domains.
 - **Medical Imaging and Diagnostics**:
-- Application of deep learning techniques in medical imaging (Raman spectroscopy, histopathology)
-- Development of new methods for image analysis (instance segmentation, registration, reconstruction)
+- Development of methods for accurate diagnosis and analysis of medical images, including histopathology and Raman spectroscopy.
+- Focus on improving accuracy and efficiency in medical image processing and interpretation.
 - **Healthcare and Disease Surveillance**:
-- Importance of large-scale epidemiological data for effective disease surveillance systems
-- Use of distributed data for survival analysis and disease monitoring
-- **Artificial Intelligence and Machine Learning**:
-- Utilization of foundation models in healthcare applications (kidney pathology, disease diagnosis)
-- Application of ensemble learning and transfer learning in medical image analysis
-- **Data Management and Sharing**:
-- Challenges and solutions for efficient data sharing in medical image analysis (dataset distillation, pattern recognition)
+- Importance of effective disease surveillance systems for public health outcomes and quality of care.
+- Need for large-scale epidemiological data and multi-site data integration in disease surveillance.
+- **Artificial Intelligence in Healthcare**:
+- Potential of artificial intelligence (AI) in addressing healthcare challenges, including digital pathology and disease diagnosis.
+- Evaluation of AI foundation models in various medical applications, including kidney pathology and histopathology.
 
 SUMMARY:
-Marilyn Lionts is a researcher with a multifaceted background in Medical Imaging and Diagnostics, Healthcare and Disease Surveillance, Artificial Intelligence and Machine Learning, and Data Management and Sharing. Her work has primarily focused on applying deep learning techniques to improve medical imaging outcomes, particularly in Raman spectroscopy and histopathology. She has also developed innovative methods for instance segmentation, registration, and reconstruction in medical images.
+Marilyn Lionts is a researcher with a diverse background in applying cutting-edge technologies to improve healthcare outcomes. Her work has primarily focused on leveraging deep learning techniques across various fields, including Raman spectroscopy, medical imaging, and histopathology. Over time, her research interests have evolved from an initial emphasis on developing novel methods for accurate diagnosis and analysis of medical images to exploring the broader potential of artificial intelligence in healthcare.
 
-Over time, Marilyn's research has evolved to encompass various aspects of healthcare and disease surveillance, including the importance of large-scale epidemiological data for effective disease monitoring systems and the use of distributed data for survival analysis. Additionally, she has explored the application of artificial intelligence and machine learning in healthcare, leveraging foundation models in kidney pathology and disease diagnosis, as well as ensemble learning and transfer learning in medical image analysis. Her work also touches on the challenges and solutions for efficient data sharing in medical image analysis, such as dataset distillation and pattern recognition.
+With a strong expertise in deep learning applications, Marilyn's primary areas of specialization include medical imaging and diagnostics, where she has developed innovative approaches to improve accuracy and efficiency in medical image processing and interpretation. Additionally, she has investigated the importance of effective disease surveillance systems for public health outcomes and quality of care, highlighting the need for large-scale epidemiological data and multi-site data integration. Her work has also delved into the evaluation of artificial intelligence foundation models in various medical applications, including kidney pathology and histopathology.

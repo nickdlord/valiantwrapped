@@ -2,17 +2,16 @@ THEMES:
 - **Edamame Research**:
 - Investigation of physical and chemical properties of edamame
 - Analysis of chemical compositions of edamame genotypes grown in different locations
-- Development of calibrations for sugar content in ground soybean seed (edamame)
+- Development of near-infrared reflectance spectroscopy calibration for sugar content in edamame/soybean seeds
+- Study of consumer demand and willingness to pay for fresh, local, organic, and "on-the-stalk" edamame
 - **Spectroscopy-based Methods**:
 - Application of spectroscopy-based machine learning techniques to predict optimal harvest time
-- Calibration of near-infrared reflectance spectroscopy for sugar content in ground soybean seed
-- **Food Quality and Nutrition**:
-- Examination of physical and chemical properties related to nutrition
-- Investigation of consumer demand and willingness to pay for fresh, local, organic, and "on-the-stalk" edamame
-- **Agricultural Applications**:
-- Determination of optimal harvest time for edamame
+- Development of near-infrared reflectance spectroscopy calibration for sugar content in ground soybean seed
+- **Food/Nutrition**:
+- Investigation of nutrition-related aspects of edamame, including its potential health benefits
+- **A
 
 SUMMARY:
-Dr. [Last Name] is a researcher with a diverse background in food science and agriculture. Their work has primarily focused on edamame, exploring its physical and chemical properties, as well as its nutritional value. Over time, their research has evolved to encompass various aspects of edamame production, including the development of calibration methods for sugar content in ground soybean seeds.
+Dr. Nick is a researcher with a strong background in food science and spectroscopy. His work has primarily focused on edamame, exploring various aspects of this nutritious legume. Initially, his research centered on understanding the physical and chemical properties of edamame, as well as analyzing the chemical compositions of different edamame genotypes grown in diverse locations.
 
-Their expertise spans multiple areas, including spectroscopy-based methods for predicting optimal harvest times and calibrating near-infrared reflectance spectroscopy for sugar content analysis. Additionally, they have investigated consumer preferences and willingness to pay for locally sourced, organic, and "on-the-stalk" edamame. With a strong foundation in agricultural applications, Dr. [Last Name]'s work aims to improve the quality and efficiency of edamame production and consumption.
+Over time, Dr. Nick's research evolved to incorporate spectroscopy-based methods, applying these techniques to develop calibrations for sugar content in both edamame and soybean seeds. He also investigated the application of spectroscopy-based machine learning to predict optimal harvest times. Furthermore, he examined the nutritional aspects of edamame, including its potential health benefits and consumer preferences for locally sourced, organic, and "on-the-stalk" edamame products. As a result, Dr. Nick has established himself as an expert in the fields of edamame research, spectroscopy-based methods, and food/nutrition.

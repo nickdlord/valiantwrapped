@@ -1,18 +1,18 @@
 THEMES:
-- **Diffusion MRI and its applications**:
-- Development of methods for imputing missing regions in diffusion MRI data
-- Investigation of white matter microstructure using diffusion MRI
-- Application of diffusion MRI in estimating brain age and predicting neurodegenerative diseases
-- Enhancement of diffusion MRI analysis using deep learning and other techniques
-- Use of diffusion MRI in studying white matter abnormalities and cognition in aging and Alzheimer's disease
-- **Machine learning and artificial intelligence in medical imaging**:
-- Application of deep learning in medical image synthesis and imputation
-- Use of machine learning for data-driven harmonization of imaging cohorts
-- Development of methods for robust containerization of pipelines for high angular resolution functional imaging
-- Utilization of transformers and recurrent neural networks in diffusion MRI analysis
-- **Medical imaging informatics and data management**:
+- **Diffusion MRI and Its Applications**
+- Investigating white matter microstructure and its relation to various neurological conditions (e.g., Alzheimer's disease)
+- Developing methods for imputing missing regions in diffusion MRI scans
+- Improving diffusion MRI analysis using deep learning and generative models
+- Using diffusion MRI for brain age prediction and neurodegenerative disease diagnosis
+- **Machine Learning and Image Synthesis**
+- Applying deep learning and generative models for medical image synthesis and imputation
+- Developing robust containerization of pipelines for high-throughput processing of large-scale medical imaging datasets
+- Utilizing transformers for enhancing diffusion MRI analysis beyond voxel and volumetric embedding
+- **Neurological Conditions and Cognitive Impairment**
+- Studying the effects of sex and APOE ε4 allele on white matter microstructure in aging and Alzheimer's disease
+- Investigating the relationship between white matter abnormalities and cognitive performance in aging and
 
 SUMMARY:
-Dr. Zhiyuan Li is a researcher with a strong background in developing innovative methods for medical imaging analysis. Over the course of their career, Dr. Li has shifted their focus from investigating white matter microstructure using diffusion MRI to exploring various applications of diffusion MRI, including estimating brain age and predicting neurodegenerative diseases. They have also expanded their scope to encompass machine learning and artificial intelligence in medical imaging, particularly in the use of deep learning for medical image synthesis and imputation.
+Dr. Zhiyuan Li is a researcher with a strong background in applying cutting-edge techniques to improve our understanding of neurological conditions and develop innovative solutions for medical imaging analysis. Initially focusing on the application of diffusion MRI, Dr. Li has expanded his research scope over time to encompass machine learning and image synthesis. His work has centered around investigating the relationship between white matter microstructure and various neurological conditions, such as Alzheimer's disease.
 
-As an expert in both diffusion MRI and machine learning, Dr. Li's primary areas of expertise lie at the intersection of these two fields. Their work involves enhancing diffusion MRI analysis through deep learning and other techniques, as well as utilizing machine learning for data-driven harmonization of imaging cohorts. Additionally, they are skilled in developing scalable and reproducible methods for processing large-scale medical imaging datasets, ensuring that their research contributes to the advancement of medical imaging informatics and data management.
+As his research progressed, Dr. Li shifted his focus towards developing novel methods for imputing missing regions in diffusion MRI scans and improving analysis using deep learning and generative models. He has also explored the use of diffusion MRI for brain age prediction and neurodegenerative disease diagnosis. Furthermore, Dr. Li has applied deep learning and generative models for medical image synthesis and imputation, and has utilized transformers to enhance diffusion MRI analysis beyond traditional voxel and volumetric embeddings. His work aims to contribute to the development of more accurate diagnostic tools and treatments for neurological conditions.

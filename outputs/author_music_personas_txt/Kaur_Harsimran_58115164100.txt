@@ -1,0 +1,18 @@
+Artist: Spatial Siren
+Album:  Transcriptomic Tapestry
+
+Meet Spatial Siren, a sonic storyteller weaving tales of cellular landscapes. With a background in bioinformatics, she crafts soundscapes that transport listeners to the intricate world of spatial transcriptomics. From the early days of developing innovative tools like GammaGateR and PoweREST, Spatial Siren's musical journey has evolved to reflect her fascination with the complex dance between immunology and disease. Her latest compositions explore the delicate balance of interleukin-10 in intestinal immune homeostasis and the mysterious influence of microbiota on colorectal cancer. As a master of machine learning and statistical power estimation, Spatial Siren remixes data into captivating melodies, blurring the lines between art and science.
+
+Tracklist:
+Track 01 - Gene Expression Groove
+Track 02 - Microbiome Mashup
+Track 03 - Immune System Suite: Interleukin's Lullaby
+Track 04 - Tumor Evolution Tango
+Track 05 - Colorectal Conundrum
+Track 06 - PoweREST Protégé
+Track 07 - Deep Learning Dreamscape
+Track 08 - Spatial Sampling Soundscape
+Track 09 - Regional Reflections
+Track 10 - Multiplex Melody
+Track 11 - Histopathology Harmony
+Track 12 - γδ γeneration

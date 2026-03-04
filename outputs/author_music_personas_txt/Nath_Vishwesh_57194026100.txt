@@ -1,0 +1,18 @@
+Artist: Vishwa Vibes
+Album:  Echoes in the Scanner
+
+Vishwa Vibes weaves together intricate patterns with precision and artistry. Starting out as a solo performer, they perfected the harmony of pixels, crafting novel arrangements of deep learning models to dissect and define medical images. As their sound evolved, so did their style, incorporating fresh techniques like Swin UNETR and HyperSegNAS. Now, they're leading a dynamic ensemble, pushing the boundaries of diffusion MRI and white matter analysis. With each note, Vishwa Vibes showcases their mastery of neural networks, blending convolutional and recurrent melodies. Their symphony of innovation echoes through the halls of medical image analysis.
+
+Tracklist:
+Track 01 - Cutting Through the Noise
+Track 02 - Reverb Revival
+Track 03 - Fiber Frenzy
+Track 04 - Split Decision
+Track 05 - Remixing Reality
+Track 06 - Synthetics
+Track 07 - Uncertainty Principle
+Track 08 - Slice of Life
+Track 09 - Hyperfocus
+Track 10 - Echo Location
+Track 11 - B0utiful Distortion
+Track 12 - Convolutions
