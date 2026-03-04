@@ -7,7 +7,7 @@ import html as html_lib  # NEW: for escaping text safely
 # INPUT FILES
 # ----------------------------
 
-SUMMARY_FILE = "author_summary_2025_present.csv"
+SUMMARY_FILE = "author_summary_2025_present_test.csv"
 PERSONA_FILE = "outputs/author_music_personas.csv"
 EXPERTISE_DIR = "author_expertise_txt"
 
@@ -139,7 +139,7 @@ def generate_author_page(author_label: str):
 
     if summary_row.empty:
         build_report.append(
-            (author_label, "missing_summary_row_in_author_summary_2025_present"))
+            (author_label, "missing_summary_row_in_author_summary_2025_present_test"))
         summary_html = "<p>No summary data available.</p>"
     else:
         row = summary_row.iloc[0]
