@@ -1,51 +1,131 @@
 #!/usr/bin/env python3
 """
-generate_album_covers.py
+generate_album_covers.py (SCALABLE / 103+ AUTHORS)
 
-Creates fictional album cover art from persona TXT files using:
-1) meta-llama/Meta-Llama-3.1-8B-Instruct -> summarize persona bio into a 5–10 word theme
-2) black-forest-labs/FLUX.1-dev -> generate album artwork
+Goals:
+- Avoid GPU OOM on A6000 by keeping Llama on CPU and using FLUX with CPU offload.
+- Resume safely (skip already-generated images).
+- Write themes incrementally to CSV (checkpointing).
+- Per-author try/except so one failure doesn't kill the whole run.
+- Log errors to outputs/album_covers/errors.csv
+- Optional: seed per author for reproducible covers.
+- Optional: allocator setting to reduce fragmentation (printed guidance).
 
-Input:
-    /home/lordnd/valiant_wrapped/valiantwrapped/outputs/author_music_personas_txt/*.txt
+Inputs:
+  /home/lordnd/valiant_wrapped/valiantwrapped/outputs/author_music_personas_txt/*.txt
 
-Output:
-    outputs/album_covers/*.png
+Outputs:
+  outputs/album_covers/<author_label>.png
+  outputs/album_covers/themes.csv
+  outputs/album_covers/errors.csv
 
-Image size: 1536 x 1536
+Recommended run (A6000):
+  export PYTORCH_ALLOC_CONF=expandable_segments:True
+  python generate_album_covers.py
 """
 
 import os
-import glob
 import re
-import torch
+import gc
+import glob
+import time
+import csv
+from datetime import datetime
+from typing import Dict, Tuple, Optional
 
+import torch
+import pandas as pd
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from diffusers import FluxPipeline
 
-# ----------------------------
-# PATH SETTINGS
-# ----------------------------
+# ------------------------------------------------
+# CONFIG
+# ------------------------------------------------
 
 INPUT_DIR = "/home/lordnd/valiant_wrapped/valiantwrapped/outputs/author_music_personas_txt"
 OUTPUT_DIR = "outputs/album_covers"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+THEME_CSV = os.path.join(OUTPUT_DIR, "themes.csv")
+ERROR_CSV = os.path.join(OUTPUT_DIR, "errors.csv")
 
-# ----------------------------
-# MODEL SETTINGS
-# ----------------------------
-
+# Models
 LLM_MODEL = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 IMAGE_MODEL = "black-forest-labs/FLUX.1-dev"
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+# Image settings
+WIDTH = 1536
+HEIGHT = 1536
+NUM_STEPS = 28
+GUIDANCE = 4.0
 
-# ----------------------------
-# HELPERS
-# ----------------------------
+# Scalability / stability toggles
+# Skip if outputs/album_covers/<author>.png exists
+RESUME_SKIP_EXISTING_IMAGES = True
+# If themes.csv exists, reuse and only compute missing
+REUSE_EXISTING_THEMES_CSV = True
+# Append each theme immediately (checkpoint)
+SAVE_THEMES_INCREMENTALLY = True
+USE_CPU_OFFLOAD_FOR_FLUX = True             # Most stable on A6000 for long runs
+ENABLE_ATTENTION_SLICING = True             # Slight VRAM reduction
+SEED_PER_AUTHOR = True                      # Reproducible images per author_label
+
+# Theme generation behavior
+THEME_MAX_NEW_TOKENS = 22
+THEME_TEMPERATURE = 0.6
+
+# For robustness
+MAX_RETRIES_PER_AUTHOR = 2                  # Retries for image generation only
+RETRY_SLEEP_SECONDS = 3
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+# ------------------------------------------------
+# UTILITIES
+# ------------------------------------------------
 
 
-def extract_fields(text: str, fallback_artist: str):
+def now_iso() -> str:
+    return datetime.now().isoformat(timespec="seconds")
+
+
+def append_row_csv(path: str, fieldnames, row: Dict):
+    file_exists = os.path.exists(path)
+    with open(path, "a", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        if not file_exists:
+            w.writeheader()
+        w.writerow(row)
+
+
+def load_existing_themes() -> pd.DataFrame:
+    if os.path.exists(THEME_CSV):
+        return pd.read_csv(THEME_CSV)
+    return pd.DataFrame(columns=["author_label", "artist", "album", "theme"])
+
+
+def theme_exists(df: pd.DataFrame, author_label: str) -> bool:
+    if df.empty:
+        return False
+    return (df["author_label"] == author_label).any()
+
+
+def normalize_theme(theme: str) -> str:
+    theme = (theme or "").strip()
+    # Remove common "assistant" chatter if any slips through
+    theme = re.split(r"\b(i chose|was not chosen|because|note:)\b",
+                     theme, flags=re.I)[0].strip()
+    theme = theme.splitlines()[0].strip()
+    theme = theme.strip(" \"'`.,:;—-")
+    theme = re.sub(r"\s+", " ", theme)
+    if not theme:
+        theme = "bold modern experimental album cover"
+    return theme
+
+
+# ------------------------------------------------
+# FIELD EXTRACTION (ROBUST)
+# ------------------------------------------------
+
+def extract_fields(text: str, fallback_artist: str) -> Tuple[str, str, str]:
     """
     Robust extraction for loosely formatted persona TXT files.
 
@@ -54,12 +134,10 @@ def extract_fields(text: str, fallback_artist: str):
       - album:  falls back to "Untitled Album"
       - bio:    falls back to full text (minus obvious tracklist section if present)
     """
-
     t = (text or "").strip()
     t_norm = re.sub(r"\r\n", "\n", t)
 
     def find_labeled_value(labels):
-        # Matches: "Label: value" on one line
         for lab in labels:
             m = re.search(
                 rf"(?im)^\s*{re.escape(lab)}\s*:\s*(.+?)\s*$", t_norm)
@@ -67,102 +145,134 @@ def extract_fields(text: str, fallback_artist: str):
                 return m.group(1).strip()
         return None
 
-    # Artist (lots of common variants)
+    # Artist
     artist = find_labeled_value([
         "artist_name", "artist name", "artist",
         "band_name", "band name", "band",
         "stage name", "stage_name", "project", "act"
     ])
-
-    # Also catch: "Artist Name - X" or "Artist Name — X"
     if not artist:
         m = re.search(
             r"(?im)^\s*(artist name|band name|artist|band)\s*[-—]\s*(.+?)\s*$", t_norm)
         if m:
             artist = m.group(2).strip()
-
     if not artist:
         artist = fallback_artist
 
-    # Album title
+    # Album
     album = find_labeled_value([
         "album_title", "album title", "album",
         "record", "release", "debut album", "lp", "ep"
     ])
-
     if not album:
         m = re.search(
             r"(?im)^\s*(album title|album|record|release)\s*[-—]\s*(.+?)\s*$", t_norm)
         if m:
             album = m.group(2).strip()
-
     if not album:
         album = "Untitled Album"
 
-    # Bio
+    # Bio (prefer labeled block; otherwise everything except tracklist)
     bio = None
-
-    # Labeled bio block, if present
     m = re.search(r"(?is)^\s*(persona_bio|bio|biography)\s*:\s*(.+)$", t_norm)
     if m:
         bio = m.group(2).strip()
-
-    # If no labeled bio, use everything except obvious tracklist section
     if not bio:
-        # Split off tracklist section if present via heading lines like "Tracklist:" or "Tracks:"
         parts = re.split(r"(?im)^\s*(tracklist|tracks|songs)\s*:\s*$", t_norm)
-        if len(parts) > 1:
-            bio = parts[0].strip()
-        else:
-            bio = t_norm
-
-    if not bio.strip():
+        bio = parts[0].strip() if parts else t_norm
+    if not (bio or "").strip():
         bio = t_norm
 
     return artist, album, bio
 
 
-def generate_theme(bio: str) -> str:
-    """
-    Use the LLM to condense the bio into a 5–10 word theme suitable for an image prompt.
-    Returns ONLY the theme.
-    """
+# ------------------------------------------------
+# PHASE 1 — THEME GENERATION (LLAMA ON CPU)
+# ------------------------------------------------
+
+def load_llama_cpu():
+    print("Loading Llama on CPU...")
+    tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
+    model = AutoModelForCausalLM.from_pretrained(
+        LLM_MODEL,
+        torch_dtype=torch.float16,
+        device_map={"": "cpu"},
+    )
+    return tokenizer, model
+
+
+def generate_theme(tokenizer, model, bio: str) -> str:
     prompt = (
-        "Summarize the following fictional musician biography into a short 5-10 word theme "
-        "describing the aesthetic or concept.\n\n"
+        "Summarize the following fictional musician biography into a short 5-10 word visual theme for album artwork.\n"
+        "Return ONLY the theme words (no quotes, no extra commentary).\n\n"
         f"Biography:\n{bio}\n\n"
-        "Return ONLY the theme (no quotes, no extra text).\n"
         "Theme:"
     )
 
-    inputs = tokenizer(prompt, return_tensors="pt").to(DEVICE)
-    outputs = llm_model.generate(
+    inputs = tokenizer(prompt, return_tensors="pt")  # stays on CPU
+    outputs = model.generate(
         **inputs,
-        max_new_tokens=24,
-        temperature=0.7,
+        max_new_tokens=THEME_MAX_NEW_TOKENS,
+        temperature=THEME_TEMPERATURE,
         do_sample=True,
         eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=tokenizer.eos_token_id,
     )
-    full = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-    # Extract the part after "Theme:"
-    theme = full.split("Theme:")[-1].strip()
-
-    # Safety cleanup if the model adds extra lines
-    theme = theme.splitlines()[0].strip()
-
-    # Hard fallback
-    if not theme:
-        theme = "bold modern experimental album cover"
-
-    return theme
+    decoded = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    raw = decoded.split("Theme:")[-1].strip()
+    return normalize_theme(raw)
 
 
-def generate_album_art(artist: str, album: str, theme: str):
-    """
-    Generate a 1536x1536 album cover image using FLUX.
-    """
-    prompt = (
+def unload_llama(tokenizer, model):
+    print("Unloading Llama...")
+    del model
+    del tokenizer
+    gc.collect()
+    # Llama is on CPU, but clear CUDA cache anyway before FLUX
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+
+# ------------------------------------------------
+# PHASE 2 — IMAGE GENERATION (FLUX)
+# ------------------------------------------------
+
+def load_flux_pipeline():
+    if not torch.cuda.is_available():
+        raise RuntimeError(
+            "CUDA is not available. FLUX generation requires a GPU node.")
+
+    print("Loading FLUX pipeline...")
+
+    # Speedups on Ampere (A6000)
+    torch.backends.cuda.matmul.allow_tf32 = True
+    torch.backends.cudnn.allow_tf32 = True
+
+    pipe = FluxPipeline.from_pretrained(
+        IMAGE_MODEL,
+        torch_dtype=torch.bfloat16,
+    )
+
+    if USE_CPU_OFFLOAD_FOR_FLUX:
+        # Most stable for long runs; reduces VRAM peaks substantially.
+        pipe.enable_model_cpu_offload()
+    else:
+        pipe = pipe.to("cuda")
+
+    if ENABLE_ATTENTION_SLICING:
+        pipe.enable_attention_slicing()
+
+    return pipe
+
+
+def author_seed(author_label: str) -> int:
+    # Stable hash -> deterministic seed
+    # Keep in 32-bit range for torch.Generator
+    return abs(hash(author_label)) % (2**31 - 1)
+
+
+def build_image_prompt(artist: str, album: str, theme: str) -> str:
+    return (
         f"Album cover artwork for the fictional music artist {artist}. "
         f"Album title: {album}. "
         f"Theme: {theme}. "
@@ -171,84 +281,193 @@ def generate_album_art(artist: str, album: str, theme: str):
         "professional graphic design, square album art."
     )
 
-    image = pipe(
+
+def generate_cover(pipe, artist: str, album: str, theme: str, seed: Optional[int] = None):
+    prompt = build_image_prompt(artist, album, theme)
+
+    generator = None
+    if SEED_PER_AUTHOR and seed is not None:
+        generator = torch.Generator(device="cuda").manual_seed(seed)
+
+    return pipe(
         prompt,
-        height=1536,
-        width=1536,
-        guidance_scale=4.0,
-        num_inference_steps=30,
+        height=HEIGHT,
+        width=WIDTH,
+        guidance_scale=GUIDANCE,
+        num_inference_steps=NUM_STEPS,
+        generator=generator,
     ).images[0]
 
-    return image
+
+# ------------------------------------------------
+# MAIN
+# ------------------------------------------------
+
+def main():
+    print("\n=== VALIANT Wrapped: Album Cover Generation (Scalable) ===\n")
+    if torch.cuda.is_available():
+        props = torch.cuda.get_device_properties(0)
+        print(
+            f"GPU: {props.name} | VRAM: {props.total_memory / (1024**3):.2f} GiB")
+    else:
+        print("GPU: not detected (this will fail during FLUX load).")
+
+    if os.environ.get("PYTORCH_ALLOC_CONF", "") == "":
+        print("\nTip: For long runs, consider:")
+        print("  export PYTORCH_ALLOC_CONF=expandable_segments:True\n")
+
+    persona_files = sorted(glob.glob(os.path.join(INPUT_DIR, "*.txt")))
+    print(f"Found {len(persona_files)} persona files in {INPUT_DIR}\n")
+
+    # --------------------------
+    # PHASE 1: THEMES (CPU)
+    # --------------------------
+    print("PHASE 1: Themes (CPU)\n")
+
+    existing_df = load_existing_themes() if REUSE_EXISTING_THEMES_CSV else pd.DataFrame(
+        columns=["author_label", "artist", "album", "theme"]
+    )
+    existing_map = {}
+    if not existing_df.empty:
+        for _, r in existing_df.iterrows():
+            existing_map[str(r["author_label"])] = {
+                "artist": str(r["artist"]),
+                "album": str(r["album"]),
+                "theme": str(r["theme"]),
+            }
+        print(f"Loaded {len(existing_map)} existing themes from {THEME_CSV}\n")
+
+    tokenizer, llama = load_llama_cpu()
+
+    # We'll append themes incrementally for safety
+    theme_fieldnames = ["author_label", "artist", "album", "theme"]
+
+    for file_path in persona_files:
+        filename = os.path.basename(file_path)
+        author_label = os.path.splitext(filename)[0]
+
+        if author_label in existing_map:
+            continue  # already have theme
+
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                text = f.read()
+
+            artist, album, bio = extract_fields(
+                text, fallback_artist=author_label)
+            if not (bio or "").strip():
+                raise ValueError("Empty bio after parsing")
+
+            theme = generate_theme(tokenizer, llama, bio)
+
+            row = {"author_label": author_label,
+                   "artist": artist, "album": album, "theme": theme}
+            existing_map[author_label] = {
+                "artist": artist, "album": album, "theme": theme}
+
+            if SAVE_THEMES_INCREMENTALLY:
+                append_row_csv(THEME_CSV, theme_fieldnames, row)
+
+            print(f"[theme] {author_label} -> {theme}")
+
+        except Exception as e:
+            append_row_csv(
+                ERROR_CSV,
+                ["timestamp", "stage", "author_label", "error"],
+                {"timestamp": now_iso(), "stage": "theme",
+                 "author_label": author_label, "error": repr(e)},
+            )
+            print(f"[ERROR][theme] {author_label}: {e}")
+
+    # If we didn't write incrementally, write full themes at end
+    if not SAVE_THEMES_INCREMENTALLY:
+        df_out = pd.DataFrame(
+            [{"author_label": k, **v} for k, v in existing_map.items()],
+            columns=["author_label", "artist", "album", "theme"],
+        ).sort_values("author_label")
+        df_out.to_csv(THEME_CSV, index=False)
+        print(f"\nSaved themes to {THEME_CSV}\n")
+    else:
+        print(f"\nThemes checkpointed to {THEME_CSV}\n")
+
+    unload_llama(tokenizer, llama)
+
+    # --------------------------
+    # PHASE 2: IMAGES (GPU)
+    # --------------------------
+    print("\nPHASE 2: Album Covers (GPU)\n")
+
+    # Load themes (source of truth)
+    themes_df = pd.read_csv(THEME_CSV)
+    print(f"Loaded {len(themes_df)} themes from {THEME_CSV}\n")
+
+    pipe = load_flux_pipeline()
+
+    for _, row in themes_df.iterrows():
+        author_label = str(row["author_label"])
+        artist = str(row["artist"])
+        album = str(row["album"])
+        theme = str(row["theme"])
+
+        out_path = os.path.join(OUTPUT_DIR, f"{author_label}.png")
+
+        if RESUME_SKIP_EXISTING_IMAGES and os.path.exists(out_path):
+            print(f"[skip] {author_label} (already exists)")
+            continue
+
+        seed = author_seed(author_label) if SEED_PER_AUTHOR else None
+
+        attempt = 0
+        while attempt <= MAX_RETRIES_PER_AUTHOR:
+            try:
+                attempt += 1
+                print(f"[img] {author_label} (attempt {attempt})")
+                img = generate_cover(pipe, artist, album, theme, seed=seed)
+                img.save(out_path)
+                print(f"      saved -> {out_path}")
+                break
+
+            except torch.OutOfMemoryError as e:
+                # Clear cache and retry with slightly safer settings
+                append_row_csv(
+                    ERROR_CSV,
+                    ["timestamp", "stage", "author_label", "error"],
+                    {"timestamp": now_iso(), "stage": "image_oom",
+                     "author_label": author_label, "error": repr(e)},
+                )
+                print(f"[OOM] {author_label}: {e}")
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                gc.collect()
+
+                # On retry, reduce steps a bit (time saver; slight VRAM/activation relief)
+                global NUM_STEPS
+                if NUM_STEPS > 22:
+                    NUM_STEPS = 22
+                    print("      reducing num_inference_steps to 22 and retrying...")
+
+                if attempt > MAX_RETRIES_PER_AUTHOR:
+                    print("      giving up after retries.")
+                else:
+                    time.sleep(RETRY_SLEEP_SECONDS)
+
+            except Exception as e:
+                append_row_csv(
+                    ERROR_CSV,
+                    ["timestamp", "stage", "author_label", "error"],
+                    {"timestamp": now_iso(), "stage": "image",
+                     "author_label": author_label, "error": repr(e)},
+                )
+                print(f"[ERROR][img] {author_label}: {e}")
+                if attempt > MAX_RETRIES_PER_AUTHOR:
+                    print("      giving up after retries.")
+                else:
+                    time.sleep(RETRY_SLEEP_SECONDS)
+
+    print("\nDone. Covers are in outputs/album_covers/\n")
+    if os.path.exists(ERROR_CSV):
+        print(f"Any failures were logged to: {ERROR_CSV}")
 
 
-# ----------------------------
-# LOAD LLM (theme generator)
-# ----------------------------
-
-print("Loading Llama model...")
-
-tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
-llm_model = AutoModelForCausalLM.from_pretrained(
-    LLM_MODEL,
-    torch_dtype=torch.float16,
-    device_map="auto"
-)
-
-# ----------------------------
-# LOAD IMAGE MODEL (FLUX optimized for GPU)
-# ----------------------------
-
-print("Loading FLUX image model...")
-
-# Faster matrix ops on Ampere+ GPUs (A6000/A100)
-torch.backends.cuda.matmul.allow_tf32 = True
-torch.backends.cudnn.allow_tf32 = True
-
-pipe = FluxPipeline.from_pretrained(
-    IMAGE_MODEL,
-    torch_dtype=torch.bfloat16
-).to(DEVICE)
-
-# Slight VRAM reduction, stable default
-pipe.enable_attention_slicing()
-
-# ----------------------------
-# MAIN LOOP
-# ----------------------------
-
-persona_files = sorted(glob.glob(os.path.join(INPUT_DIR, "*.txt")))
-print(f"Found {len(persona_files)} persona files")
-
-for file_path in persona_files:
-    filename = os.path.basename(file_path)
-    # used for fallback artist and output name
-    base = os.path.splitext(filename)[0]
-    output_name = base + ".png"
-
-    print(f"\nProcessing {filename}")
-
-    with open(file_path, "r", encoding="utf-8") as f:
-        text = f.read()
-
-    artist, album, bio = extract_fields(text, fallback_artist=base)
-
-    if not bio or not bio.strip():
-        print("Skipping (empty file)")
-        continue
-
-    # Create prompt theme via LLM
-    theme = generate_theme(bio)
-    print("Artist:", artist)
-    print("Album:", album)
-    print("Theme:", theme)
-
-    # Generate image
-    image = generate_album_art(artist, album, theme)
-
-    # Save
-    save_path = os.path.join(OUTPUT_DIR, output_name)
-    image.save(save_path)
-    print("Saved:", save_path)
-
-print("\nDone generating album covers!")
+if __name__ == "__main__":
+    main()
