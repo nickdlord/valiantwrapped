@@ -37,6 +37,7 @@ build_report = []
 # NORMALIZATION HELPERS
 # ----------------------------
 
+
 def canonical_author_label(value: str) -> str:
     """
     Convert values like:
@@ -115,40 +116,48 @@ def format_tracklist(tracklist) -> str:
     return f'<div class="tracklist">\n{"".join(items)}\n</div>'
 
 
-def copy_album_cover_to_site(author_label: str) -> tuple[bool, str]:
+def copy_album_cover_to_site(author_label: str):
     """
-    Copies outputs/album_covers/<author_label>.png into site/assets/album_covers/.
-    Returns (copied_or_exists, relative_web_path) if present, else (False, "").
+    Copies outputs/album_covers/<author_label>.(png|jpg|jpeg|webp)
+    into site/assets/album_covers/ as PNG/JPG/etc.
+    Returns (ok, relative_web_path, details).
     """
-    filename = f"{author_label}.png"
-    src = ALBUM_COVERS_SRC_DIR / filename
-    dst = ASSET_DIR / filename
+    exts = [".png", ".jpg", ".jpeg", ".webp"]
 
-    if not src.exists():
-        return False, ""
+    src = None
+    for ext in exts:
+        candidate = ALBUM_COVERS_SRC_DIR / f"{author_label}{ext}"
+        if candidate.exists():
+            src = candidate
+            break
 
-    # Copy only if missing or older
+    if src is None:
+        return False, "", f"no cover found for {author_label} in {ALBUM_COVERS_SRC_DIR}"
+
+    dst = ASSET_DIR / src.name
+
     try:
         if (not dst.exists()) or (src.stat().st_mtime > dst.stat().st_mtime):
             shutil.copy2(src, dst)
     except Exception as e:
-        build_report.append((author_label, "album_cover_copy_failed", str(e)))
-        return False, ""
+        return False, "", f"copy failed: {e}"
 
-    # Relative from author page: authors/<file>.html -> ../assets/album_covers/<file>.png
-    return True, f"../assets/album_covers/{html_lib.escape(filename)}"
+    # verify destination exists
+    if not dst.exists():
+        return False, "", f"copy reported success but dst missing: {dst}"
+
+    rel = f"../assets/album_covers/{html_lib.escape(dst.name)}"
+    return True, rel, "ok"
 
 
 def album_cover_html(author_label: str, artist_name: str, album_title: str) -> str:
-    """
-    Returns HTML block for album cover. If missing, returns a small placeholder note.
-    """
-    ok, rel_path = copy_album_cover_to_site(author_label)
+    ok, rel_path, details = copy_album_cover_to_site(author_label)
     if not ok:
-        build_report.append((author_label, "missing_album_cover", f"expected {ALBUM_COVERS_SRC_DIR / (author_label + '.png')}"))
+        build_report.append((author_label, "missing_album_cover", details))
         return "<p class='footer-note'>Album cover art not available yet.</p>"
 
-    alt = html_lib.escape(f"Album cover for {artist_name} — {album_title}".strip(" —"))
+    alt = html_lib.escape(
+        f"Album cover for {artist_name} — {album_title}".strip(" —"))
     return f"""
       <div class="cover-wrap">
         <img class="album-cover" src="{rel_path}" alt="{alt}" loading="lazy">
@@ -159,15 +168,20 @@ def album_cover_html(author_label: str, artist_name: str, album_title: str) -> s
 # PRE-NORMALIZE KEYS
 # ----------------------------
 
-summary_df["author_label"] = summary_df["author_file"].apply(canonical_author_label)
+
+summary_df["author_label"] = summary_df["author_file"].apply(
+    canonical_author_label)
 
 if "author_label" not in persona_df.columns:
     raise ValueError("Persona CSV is missing required column: author_label")
 
-persona_df["author_label"] = persona_df["author_label"].apply(canonical_author_label)
+persona_df["author_label"] = persona_df["author_label"].apply(
+    canonical_author_label)
 
-summary_by_label = {row["author_label"]: row for _, row in summary_df.iterrows() if row.get("author_label")}
-persona_by_label = {row["author_label"]: row for _, row in persona_df.iterrows() if row.get("author_label")}
+summary_by_label = {row["author_label"]: row for _,
+                    row in summary_df.iterrows() if row.get("author_label")}
+persona_by_label = {row["author_label"]: row for _,
+                    row in persona_df.iterrows() if row.get("author_label")}
 
 # ----------------------------
 # HTML STYLE (Spotify Wrapped-ish)
@@ -418,6 +432,7 @@ h1{
 # PAGE GENERATION
 # ----------------------------
 
+
 def generate_author_page(author_label: str):
     author_label = canonical_author_label(author_label)
     first, last = parse_author_name(author_label)
@@ -425,7 +440,8 @@ def generate_author_page(author_label: str):
     # -------- Summary --------
     row = summary_by_label.get(author_label)
     if row is None:
-        build_report.append((author_label, "missing_summary_row", f"searched label={author_label}"))
+        build_report.append(
+            (author_label, "missing_summary_row", f"searched label={author_label}"))
         pub = ""
         cit = ""
         top_journal = ""
@@ -471,7 +487,8 @@ def generate_author_page(author_label: str):
     # -------- Persona --------
     p = persona_by_label.get(author_label)
     if p is None:
-        build_report.append((author_label, "missing_persona_row", f"searched label={author_label}"))
+        build_report.append(
+            (author_label, "missing_persona_row", f"searched label={author_label}"))
         persona_html = "<p class='footer-note'>No persona generated.</p>"
     else:
         status_val = str(p.get("status", "")).strip()
@@ -482,10 +499,12 @@ def generate_author_page(author_label: str):
         album_title_raw = str(p.get("album_title", "") or "")
 
         artist_name = html_lib.escape(artist_name_raw)
-        persona_bio = html_lib.escape(str(p.get("persona_bio", "") or "")).replace("\n", "<br>")
+        persona_bio = html_lib.escape(
+            str(p.get("persona_bio", "") or "")).replace("\n", "<br>")
         album_title = html_lib.escape(album_title_raw)
 
-        cover_block = album_cover_html(author_label, artist_name_raw, album_title_raw)
+        cover_block = album_cover_html(
+            author_label, artist_name_raw, album_title_raw)
         tracklist_html = format_tracklist(p.get("tracklist", ""))
 
         persona_html = f"""
@@ -606,7 +625,8 @@ index_html = f"""
 # BUILD REPORT
 # ----------------------------
 
-report_df = pd.DataFrame(build_report, columns=["author_label", "issue", "details"])
+report_df = pd.DataFrame(build_report, columns=[
+                         "author_label", "issue", "details"])
 report_path = SITE_DIR / "build_report.csv"
 report_df.to_csv(report_path, index=False, encoding="utf-8")
 
