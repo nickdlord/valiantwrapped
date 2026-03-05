@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Kim • VALIANT Wrapped</title>
+
+<style>
+:root{
+  --bg1:#f6f8ff;
+  --bg2:#eef3ff;
+
+  --card:#ffffff;
+  --card2:#f3f6ff;
+
+  --text:#1e293b;
+  --muted:#64748b;
+
+  --accent:#c5b358;      /* Vanderbilt gold */
+  --accent2:#6366f1;     /* spring purple */
+
+  --shadow:0 10px 25px rgba(0,0,0,.08);
+  --radius:18px;
+}
+
+* { box-sizing: border-box; }
+
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin:0;
+  color:var(--text);
+
+  background:
+    radial-gradient(900px 600px at 10% 10%, rgba(99,102,241,.10), transparent 60%),
+    radial-gradient(900px 600px at 90% 20%, rgba(197,179,88,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+}
+
+.container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 44px 20px 60px;
+}
+
+.hero{
+  position: relative;
+  padding:28px;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg, #ffffff, #f4f7ff);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:var(--shadow);
+  overflow: hidden;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  right:-140px;
+  top:-140px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle at center, rgba(56,189,248,.30), transparent 60%);
+  transform: rotate(20deg);
+}
+
+.kicker{
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+h1{
+  font-size: 44px;
+  margin: 8px 0 6px;
+  line-height: 1.05;
+}
+
+.subtitle{
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0;
+  max-width: 70ch;
+}
+
+.section{
+  margin-top:22px;
+  padding:22px;
+  border-radius:var(--radius);
+  background:var(--card);
+  border:1px solid rgba(0,0,0,.05);
+  box-shadow:var(--shadow);
+}
+
+.section h2{
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: 26px;
+  letter-spacing: .01em;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Make Top Journal / Top Paper main text white */
+.card .small b {
+  color: var(--text);
+}
+
+/* Keep the rest of the small text muted */
+.card .small {
+  color: var(--muted);
+}
+
+.card{
+  background:var(--card2);
+  border:1px solid rgba(0,0,0,.05);
+  border-radius:16px;
+  padding:16px;
+}
+
+.card .label{
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.card .value{
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.card .small b{
+  color:var(--text);
+  font-weight:700;
+}
+
+.pill{
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(56,189,248,.14);
+  border: 1px solid rgba(56,189,248,.25);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.album-card{
+  border-radius: var(--radius);
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(167,139,250,.12));
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.artist{
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 0 10px;
+}
+
+.bio{
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.album-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.album-title span{
+  color: var(--accent2);
+}
+
+/* Album cover block (Spotify-ish) */
+.cover-wrap{
+  display:flex;
+  justify-content:center;
+  margin: 14px 0 14px;
+}
+
+.album-cover{
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.25);
+}
+
+/* Placeholder that prevents broken image icons */
+.cover-placeholder{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin: 14px 0 14px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed rgba(100,116,139,.5);
+  color: var(--muted);
+  background: rgba(255,255,255,.35);
+  font-weight: 650;
+}
+
+.tracklist{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.12);
+}
+
+.track-row{
+  display:flex;
+  gap: 14px;
+  padding: 12px 14px;
+  align-items:center;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.track-row:last-child{ border-bottom: none; }
+
+.track-num{
+  width: 44px;
+  color: rgba(255,255,255,.65);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.track-title{
+  font-weight: 650;
+}
+
+.footer-note{
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 760px){
+  .grid{ grid-template-columns: 1fr; }
+  h1{ font-size: 36px; }
+  .album-cover{ width: 320px; }
+}
+</style>
+
+</head>
+
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div class="kicker">VALIANT Wrapped • 2025–2026</div>
+    <h1>Michael Kim</h1>
+    <p class="subtitle">
+      A year-in-review snapshot of publications, citations, and a fictional musical persona inspired by your work.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>2025–2026 Stats</h2>
+    
+    <div class="grid">
+      <div class="card">
+        <div class="label">Publications (2025–Present)</div>
+        <div class="value">25</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Citations (2025–Present)</div>
+        <div class="value">25</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Top Journal</div>
+        <div class="small"><b>Progress in Biomedical Optics and Imaging - Proceedings of SPIE</b></div>
+      </div>
+
+      <div class="card">
+        <div class="label">Top Paper</div>
+        <div class="small"><b>Sex and APOE ε4 allele differences in longitudinal white matter microstructure in multiple cohorts of aging and Alzheimer&#x27;s disease</b><br>
+        <span class="pill">Citations: 7</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="section">
+    <h2>Your Musical Persona</h2>
+    <p class="footer-note">
+      People like you are what make our discovery center so vibrant and unique.
+      To celebrate your work, we created a fictional musical persona inspired by your publishing history.
+    </p>
+    
+        <div class="album-card">
+          <div class="artist">MRI Maverick</div>
+          <p class="bio">A seasoned sound engineer turned sonic cartographer, Michael &quot;Mixx&quot; Kim navigates the frequencies of the human brain. With a keen ear for detail and a passion for innovation, Mixx has crafted a discography that echoes the complexities of diffusion MRI. From the fluid dynamics of reverb-drenched landscapes to the precision cuts of machine learning-inspired remixes, his work is a testament to the intersection of art and science. With a career spanning multiple genres and modalities, Mixx has developed a unique style that blends the organic and the synthetic. As a master of sonic harmonization and registration, he expertly weaves together disparate threads to create a rich tapestry of sound. His latest opus is a reflection of his continued exploration of the brain&#x27;s intricate structures and functions.</p>
+
+          <div class="album-title">Album: <span>Harmonies of the Brain</span></div>
+
+          
+      <div class="cover-wrap">
+        <img class="album-cover" src="../assets/album_covers/Kim_Michael_58290603100.png" alt="Album cover for MRI Maverick — Harmonies of the Brain" loading="lazy">
+      </div>
+    
+
+          <div class="tracklist">
+
+            <div class="track-row">
+                <div class="track-num">01</div>
+                <div class="track-title">Diffusion Daze</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">02</div>
+                <div class="track-title">Tractography Tango</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">03</div>
+                <div class="track-title">Microscopic Movements</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">04</div>
+                <div class="track-title">Scanner Variations</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">05</div>
+                <div class="track-title">Motion Sickness</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">06</div>
+                <div class="track-title">Voxel Vibes</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">07</div>
+                <div class="track-title">Learning Curve</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">08</div>
+                <div class="track-title">Registration Rhapsody</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">09</div>
+                <div class="track-title">Harmonic Homage</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">10</div>
+                <div class="track-title">Brainwave Broadcast</div>
+            </div>
+            
+            <div class="track-row">
+                <div class="track-num">11</div>
+                <div class="track-title">Synapse Sessions</div>
+            </div>
+            
+</div>
+        </div>
+        
+  </div>
+
+  <div class="section">
+    <h2>Thank You</h2>
+    <p class="footer-note">
+      Thank you for being part of our discovery center and for contributing to another incredible year of innovation and collaboration.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

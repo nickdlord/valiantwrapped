@@ -41,13 +41,15 @@ AUTHOR_DIR = DOCS_DIR / "authors"
 # Assets (covers + browse UI)
 ASSETS_DIR = DOCS_DIR / "assets"
 COVERS_DIR = ASSETS_DIR / "album_covers"     # keeps your current cover location
-BROWSE_ASSET_DIR = ASSETS_DIR                # where styles.css + app.js will live
+# where styles.css + app.js will live
+BROWSE_ASSET_DIR = ASSETS_DIR
 
 DATA_DIR = DOCS_DIR / "data"                 # authors.json goes here
 
 # ----------------------------
 # REBUILD (SAFE MODE)
 # ----------------------------
+
 
 def rebuild_docs_folder():
     if DOCS_DIR.exists():
@@ -56,6 +58,7 @@ def rebuild_docs_folder():
     COVERS_DIR.mkdir(parents=True, exist_ok=True)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     BROWSE_ASSET_DIR.mkdir(parents=True, exist_ok=True)
+
 
 rebuild_docs_folder()
 
@@ -72,8 +75,10 @@ build_report = []  # list of (author_label, issue, details)
 # HELPERS
 # ----------------------------
 
+
 def now_iso() -> str:
     return datetime.now().isoformat(timespec="seconds")
+
 
 def canonical_author_label(value: str) -> str:
     """
@@ -94,16 +99,19 @@ def canonical_author_label(value: str) -> str:
         s = s[:-4]
     return s.strip()
 
+
 def parse_author_name(label: str):
     parts = label.split("_")
     last = parts[0] if len(parts) > 0 else ""
     first = parts[1] if len(parts) > 1 else ""
     return first, last
 
+
 def display_name_from_label(label: str) -> str:
     first, last = parse_author_name(label)
     name = f"{first} {last}".strip()
     return name if name else label
+
 
 def safe_split_themes(x) -> list[str]:
     """
@@ -132,6 +140,7 @@ def safe_split_themes(x) -> list[str]:
     else:
         parts = [p.strip() for p in s.split(",")]
     return [p for p in parts if p]
+
 
 def format_tracklist(tracklist) -> str:
     if tracklist is None or (isinstance(tracklist, float) and pd.isna(tracklist)):
@@ -162,14 +171,15 @@ def format_tracklist(tracklist) -> str:
         safe = html_lib.escape(t)
         items.append(
             f"""
-            <div class="track-row">
-                <div class="track-num">{i:02d}</div>
-                <div class="track-title">{safe}</div>
+            <div class="track-row2">
+                <div class="track-num2">{i:02d}</div>
+                <div class="track-title2">{safe}</div>
             </div>
             """
         )
 
-    return f'<div class="tracklist">\n{"".join(items)}\n</div>'
+    return f'<div class="tracklist2">\n{"".join(items)}\n</div>'
+
 
 def find_album_cover_source(author_label: str) -> Path | None:
     """
@@ -182,6 +192,7 @@ def find_album_cover_source(author_label: str) -> Path | None:
             return p
     return None
 
+
 def ensure_album_cover_in_docs(author_label: str) -> tuple[bool, str, str]:
     """
     Ensures cover exists in docs/assets/album_covers/ (copies if needed).
@@ -193,7 +204,8 @@ def ensure_album_cover_in_docs(author_label: str) -> tuple[bool, str, str]:
     """
     src = find_album_cover_source(author_label)
     if src is None:
-        build_report.append((author_label, "missing_album_cover", f"no file in {ALBUM_COVERS_SRC_DIR}"))
+        build_report.append(
+            (author_label, "missing_album_cover", f"no file in {ALBUM_COVERS_SRC_DIR}"))
         return False, "", ""
 
     dst = COVERS_DIR / src.name
@@ -206,7 +218,8 @@ def ensure_album_cover_in_docs(author_label: str) -> tuple[bool, str, str]:
         return False, "", ""
 
     if not dst.exists():
-        build_report.append((author_label, "album_cover_copy_missing_dst", str(dst)))
+        build_report.append(
+            (author_label, "album_cover_copy_missing_dst", str(dst)))
         return False, "", ""
 
     # From docs/authors/<author>.html to docs/assets/album_covers/<file>
@@ -215,18 +228,21 @@ def ensure_album_cover_in_docs(author_label: str) -> tuple[bool, str, str]:
     rel_root = f"assets/album_covers/{html_lib.escape(dst.name)}"
     return True, rel_author, rel_root
 
+
 def album_cover_block(author_label: str, artist_name_raw: str, album_title_raw: str) -> str:
-    ok, rel_from_author, _rel_from_root = ensure_album_cover_in_docs(author_label)
+    ok, rel_from_author, _rel_from_root = ensure_album_cover_in_docs(
+        author_label)
     if not ok:
         return """
-        <div class="cover-placeholder">
-          Album cover art not available yet.
+        <div class="cover-wrap2">
+          <div class="cover-placeholder2">Album cover art not available yet.</div>
         </div>
         """
-    alt = html_lib.escape(f"Album cover for {artist_name_raw} — {album_title_raw}".strip(" —"))
+    alt = html_lib.escape(
+        f"Album cover for {artist_name_raw} — {album_title_raw}".strip(" —"))
     return f"""
-      <div class="cover-wrap">
-        <img class="album-cover" src="{rel_from_author}" alt="{alt}" loading="lazy">
+      <div class="cover-wrap2">
+        <img class="album-cover2" src="{rel_from_author}" alt="{alt}" loading="lazy">
       </div>
     """
 
@@ -234,12 +250,15 @@ def album_cover_block(author_label: str, artist_name_raw: str, album_title_raw: 
 # PRE-NORMALIZE KEYS
 # ----------------------------
 
-summary_df["author_label"] = summary_df["author_file"].apply(canonical_author_label)
+
+summary_df["author_label"] = summary_df["author_file"].apply(
+    canonical_author_label)
 
 if "author_label" not in persona_df.columns:
     raise ValueError("Persona CSV is missing required column: author_label")
 
-persona_df["author_label"] = persona_df["author_label"].apply(canonical_author_label)
+persona_df["author_label"] = persona_df["author_label"].apply(
+    canonical_author_label)
 
 summary_by_label = {
     row["author_label"]: row
@@ -256,255 +275,224 @@ persona_by_label = {
 # HTML STYLE (author pages)
 # ----------------------------
 
-PAGE_STYLE = """
+# ----------------------------
+# HTML STYLE (author pages)
+# Use the SAME stylesheet as the index page (docs/assets/styles.css)
+# ----------------------------
+
+AUTHOR_PAGE_HEAD = """
+<link rel="stylesheet" href="../assets/styles.css" />
 <style>
-:root{
-  --bg1:#f6f8ff;
-  --bg2:#eef3ff;
-
-  --card:#ffffff;
-  --card2:#f3f6ff;
-
-  --text:#1e293b;
-  --muted:#64748b;
-
-  --accent:#c5b358;      /* Vanderbilt gold */
-  --accent2:#6366f1;     /* spring purple */
-
-  --shadow:0 10px 25px rgba(0,0,0,.08);
-  --radius:18px;
-}
-
-* { box-sizing: border-box; }
-
-body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  margin:0;
-  color:var(--text);
-
-  background:
-    radial-gradient(900px 600px at 10% 10%, rgba(99,102,241,.10), transparent 60%),
-    radial-gradient(900px 600px at 90% 20%, rgba(197,179,88,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-}
-
-.container{
-  max-width: 980px;
+/* Author-page specific layout tweaks layered on top of the shared Spotify theme */
+.author-wrap{
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 44px 20px 60px;
+  padding: 24px 18px 60px;
 }
 
-.hero{
-  position: relative;
-  padding:28px;
-  border-radius:var(--radius);
-  background:linear-gradient(135deg, #ffffff, #f4f7ff);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:var(--shadow);
-  overflow: hidden;
+.topnav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 14px;
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  right:-140px;
-  top:-140px;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle at center, rgba(56,189,248,.30), transparent 60%);
-  transform: rotate(20deg);
-}
-
-.kicker{
+.backlink{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
   color: var(--muted);
-  font-weight: 600;
-  letter-spacing: .04em;
+  padding:10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+}
+.backlink:hover{
+  color: var(--text);
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
+}
+
+.hero2{
+  padding: 18px;
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+  box-shadow: var(--shadow);
+}
+
+.kicker2{
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: .08em;
   text-transform: uppercase;
   font-size: 12px;
 }
 
-h1{
-  font-size: 44px;
-  margin: 8px 0 6px;
+.h1{
+  font-size: 42px;
+  margin: 10px 0 6px;
   line-height: 1.05;
+  font-weight: 900;
 }
 
-.subtitle{
+.subtitle2{
   color: var(--muted);
-  font-size: 15px;
   margin: 0;
-  max-width: 70ch;
+  max-width: 80ch;
 }
 
-.section{
-  margin-top:22px;
-  padding:22px;
-  border-radius:var(--radius);
-  background:var(--card);
-  border:1px solid rgba(0,0,0,.05);
-  box-shadow:var(--shadow);
+.section2{
+  margin-top: 14px;
+  padding: 18px;
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
 }
 
-.section h2{
-  margin: 0 0 14px;
-  color: var(--accent);
-  font-size: 26px;
-  letter-spacing: .01em;
+.section2 h2{
+  margin: 0 0 14px 0;
+  font-size: 20px;
+  font-weight: 900;
 }
 
-.grid{
+/* Stats grid (reuse card styles from index page) */
+.stats-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
 }
 
-/* Make Top Journal / Top Paper main text white */
-.card .small b {
-  color: var(--text);
+.stat{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius2);
+  padding: 14px;
 }
 
-/* Keep the rest of the small text muted */
-.card .small {
-  color: var(--muted);
-}
-
-.card{
-  background:var(--card2);
-  border:1px solid rgba(0,0,0,.05);
-  border-radius:16px;
-  padding:16px;
-}
-
-.card .label{
+.stat .label{
   color: var(--muted);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.card .value{
-  font-size: 26px;
   font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-.card .small b{
-  color:var(--text);
-  font-weight:700;
+.stat .value{
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: 900;
 }
 
-.pill{
-  display:inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(56,189,248,.14);
-  border: 1px solid rgba(56,189,248,.25);
-  color: var(--accent);
+.stat .small{
+  margin-top: 10px;
+  color: var(--text);
   font-weight: 700;
+  line-height: 1.35;
+}
+
+.pill2{
+  display:inline-block;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,208,111,0.35);
+  background: rgba(36,208,111,0.12);
+  color: var(--text);
+  font-weight: 800;
   font-size: 12px;
 }
 
-.album-card{
-  border-radius: var(--radius);
-  padding: 18px;
-  background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(167,139,250,.12));
-  border: 1px solid rgba(255,255,255,.10);
+/* Album card */
+.album-card2{
+  border-radius: var(--radius2);
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(135deg, rgba(36,208,111,0.10), rgba(44,44,255,0.06), rgba(255,44,122,0.06));
 }
 
-.artist{
+.artist2{
   font-size: 22px;
   font-weight: 900;
   margin: 0 0 10px;
 }
 
-.bio{
+.bio2{
+  margin: 0 0 14px;
   color: var(--muted);
   line-height: 1.55;
-  margin: 0 0 14px;
 }
 
-.album-title{
+.album-title2{
   display:flex;
   align-items:center;
   gap:10px;
-  margin: 0 0 12px;
-  font-size: 18px;
   font-weight: 900;
+  margin: 0 0 12px;
 }
 
-.album-title span{
-  color: var(--accent2);
+.album-title2 span{
+  color: var(--text);
+  opacity: .92;
 }
 
-/* Album cover block (Spotify-ish) */
-.cover-wrap{
+/* Cover + placeholder */
+.cover-wrap2{
   display:flex;
   justify-content:center;
   margin: 14px 0 14px;
 }
-
-.album-cover{
+.album-cover2{
   width: 340px;
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
-  box-shadow: 0 18px 45px rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(255,255,255,.25);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: var(--shadow);
+  background: rgba(255,255,255,0.06);
 }
-
-/* Placeholder that prevents broken image icons */
-.cover-placeholder{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin: 14px 0 14px;
-  padding: 16px;
-  border-radius: 16px;
-  border: 1px dashed rgba(100,116,139,.5);
+.cover-placeholder2{
+  width: 340px;
+  max-width: 100%;
+  border-radius: 18px;
+  border: 1px dashed rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.03);
   color: var(--muted);
-  background: rgba(255,255,255,.35);
-  font-weight: 650;
+  padding: 18px;
+  text-align:center;
+  font-weight: 800;
 }
 
-.tracklist{
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.12);
+/* Tracklist matches dark theme */
+.tracklist2{
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.25);
 }
-
-.track-row{
+.track-row2{
   display:flex;
-  gap: 14px;
+  gap:14px;
   padding: 12px 14px;
   align-items:center;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-
-.track-row:last-child{ border-bottom: none; }
-
-.track-num{
-  width: 44px;
-  color: rgba(255,255,255,.65);
-  font-weight: 800;
+.track-row2:last-child{ border-bottom:none; }
+.track-num2{
+  width:44px;
+  color: rgba(242,242,242,.55);
+  font-weight: 900;
   font-variant-numeric: tabular-nums;
 }
-
-.track-title{
-  font-weight: 650;
+.track-title2{
+  font-weight: 700;
 }
 
-.footer-note{
+.footer-note2{
   color: var(--muted);
   line-height: 1.5;
-}
-
-@media (max-width: 760px){
-  .grid{ grid-template-columns: 1fr; }
-  h1{ font-size: 36px; }
-  .album-cover{ width: 320px; }
 }
 </style>
 """
@@ -513,6 +501,7 @@ h1{
 # AUTHOR PAGE GENERATION
 # ----------------------------
 
+
 def generate_author_page(author_label: str):
     author_label = canonical_author_label(author_label)
     first, last = parse_author_name(author_label)
@@ -520,7 +509,8 @@ def generate_author_page(author_label: str):
     # -------- Summary --------
     row = summary_by_label.get(author_label)
     if row is None:
-        build_report.append((author_label, "missing_summary_row", f"searched label={author_label}"))
+        build_report.append(
+            (author_label, "missing_summary_row", f"searched label={author_label}"))
         pub = ""
         cit = ""
         top_journal = ""
@@ -565,7 +555,8 @@ def generate_author_page(author_label: str):
     # -------- Persona --------
     p = persona_by_label.get(author_label)
     if p is None:
-        build_report.append((author_label, "missing_persona_row", f"searched label={author_label}"))
+        build_report.append(
+            (author_label, "missing_persona_row", f"searched label={author_label}"))
         persona_html = "<p class='footer-note'>No persona generated.</p>"
     else:
         status_val = str(p.get("status", "")).strip()
@@ -576,10 +567,12 @@ def generate_author_page(author_label: str):
         album_title_raw = str(p.get("album_title", "") or "")
 
         artist_name = html_lib.escape(artist_name_raw)
-        persona_bio = html_lib.escape(str(p.get("persona_bio", "") or "")).replace("\n", "<br>")
+        persona_bio = html_lib.escape(
+            str(p.get("persona_bio", "") or "")).replace("\n", "<br>")
         album_title = html_lib.escape(album_title_raw)
 
-        cover_block = album_cover_block(author_label, artist_name_raw, album_title_raw)
+        cover_block = album_cover_block(
+            author_label, artist_name_raw, album_title_raw)
         tracklist_html = format_tracklist(p.get("tracklist", ""))
 
         persona_html = f"""
@@ -602,50 +595,62 @@ def generate_author_page(author_label: str):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{first} {last} • VALIANT Wrapped</title>
-{PAGE_STYLE}
+{AUTHOR_PAGE_HEAD}
 </head>
 
 <body>
-<div class="container">
+  <div class="author-wrap">
 
-  <div class="hero">
-    <div class="kicker">VALIANT Wrapped • 2025–2026</div>
-    <h1>{first} {last}</h1>
-    <p class="subtitle">
-      A year-in-review snapshot of publications, citations, and a fictional musical persona inspired by your work.
-    </p>
+    <div class="topnav">
+      <a class="backlink" href="../index.html">← Back to Browse</a>
+      <div class="kicker2">VALIANT Wrapped • 2025–2026</div>
+    </div>
+
+    <div class="hero2">
+      <div class="kicker2">Author Profile</div>
+      <div class="h1">{html_lib.escape(f"{first} {last}".strip())}</div>
+      <p class="subtitle2">
+        A year-in-review snapshot of publications, citations, and a fictional musical persona inspired by this author’s work.
+      </p>
+    </div>
+
+    <div class="section2">
+      <h2>2025–2026 Stats</h2>
+      {summary_html.replace('class="grid"', 'class="stats-grid"')
+                   .replace('class="card"', 'class="stat"')
+                   .replace('class="pill"', 'class="pill2"')}
+    </div>
+
+    <div class="section2">
+      <h2>Your Musical Persona</h2>
+      <p class="footer-note2">
+        To celebrate this author’s work, we created a fictional musical persona inspired by their publishing history.
+      </p>
+      {persona_html
+       .replace('class="album-card"', 'class="album-card2"')
+       .replace('class="artist"', 'class="artist2"')
+       .replace('class="bio"', 'class="bio2"')
+       .replace('class="album-title"', 'class="album-title2"')}
+    </div>
+
+    <div class="section2">
+      <h2>Thank You</h2>
+      <p class="footer-note2">
+        Thank you for being part of our discovery center and for contributing to another year of innovation and collaboration.
+      </p>
+    </div>
+
   </div>
-
-  <div class="section">
-    <h2>2025–2026 Stats</h2>
-    {summary_html}
-  </div>
-
-  <div class="section">
-    <h2>Your Musical Persona</h2>
-    <p class="footer-note">
-      People like you are what make our discovery center so vibrant and unique.
-      To celebrate your work, we created a fictional musical persona inspired by your publishing history.
-    </p>
-    {persona_html}
-  </div>
-
-  <div class="section">
-    <h2>Thank You</h2>
-    <p class="footer-note">
-      Thank you for being part of our discovery center and for contributing to another incredible year of innovation and collaboration.
-    </p>
-  </div>
-
-</div>
 </body>
 </html>
 """
-    (AUTHOR_DIR / f"{author_label}.html").write_text(page_html, encoding="utf-8")
+    (AUTHOR_DIR / f"{author_label}.html").write_text(page_html,
+                                                     encoding="utf-8")
 
 # ----------------------------
 # GENERATE AUTHOR PAGES
 # ----------------------------
+
 
 authors = summary_df["author_label"].dropna().astype(str).unique()
 for author_label in authors:
@@ -908,9 +913,11 @@ function fillThemeFilter(authors) {
 })();
 """
 
+
 def write_browse_assets():
     (BROWSE_ASSET_DIR / "styles.css").write_text(BROWSE_CSS.strip() + "\n", encoding="utf-8")
     (BROWSE_ASSET_DIR / "app.js").write_text(BROWSE_JS.strip() + "\n", encoding="utf-8")
+
 
 def build_authors_json(authors_list: list[str]):
     """
@@ -921,7 +928,8 @@ def build_authors_json(authors_list: list[str]):
       - cover assets if present (copied into docs/assets/album_covers)
     """
     # Optional themes columns you might have (supports several likely names)
-    theme_cols = [c for c in ["themes", "theme_list", "research_themes", "top_themes"] if c in summary_df.columns]
+    theme_cols = [c for c in ["themes", "theme_list",
+                              "research_themes", "top_themes"] if c in summary_df.columns]
 
     records = []
     for a in authors_list:
@@ -935,8 +943,10 @@ def build_authors_json(authors_list: list[str]):
 
         # summary fields
         row = summary_by_label.get(a, {})
-        top_journal = row.get("top_journal_2025_present", "") if isinstance(row, dict) else row.get("top_journal_2025_present", "")
-        top_paper = row.get("top_paper_title_2025_present", "") if isinstance(row, dict) else row.get("top_paper_title_2025_present", "")
+        top_journal = row.get("top_journal_2025_present", "") if isinstance(
+            row, dict) else row.get("top_journal_2025_present", "")
+        top_paper = row.get("top_paper_title_2025_present", "") if isinstance(
+            row, dict) else row.get("top_paper_title_2025_present", "")
 
         # themes (optional)
         themes = []
@@ -972,10 +982,13 @@ def build_authors_json(authors_list: list[str]):
             "cover_url": cover_url
         })
 
-    records.sort(key=lambda r: (r.get("display_name") or r.get("author_label") or "").lower())
+    records.sort(key=lambda r: (r.get("display_name")
+                 or r.get("author_label") or "").lower())
 
     out_path = DATA_DIR / "authors.json"
-    out_path.write_text(json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    out_path.write_text(json.dumps(
+        records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
 
 def write_browse_index():
     index_html = f"""<!doctype html>
@@ -1033,6 +1046,7 @@ def write_browse_index():
 """
     (DOCS_DIR / "index.html").write_text(index_html, encoding="utf-8")
 
+
 # write browse UI assets + authors.json + index.html
 write_browse_assets()
 build_authors_json(list(authors))
@@ -1043,7 +1057,8 @@ write_browse_index()
 # ----------------------------
 
 report_path = DOCS_DIR / "build_report.csv"
-report_df = pd.DataFrame(build_report, columns=["author_label", "issue", "details"])
+report_df = pd.DataFrame(build_report, columns=[
+                         "author_label", "issue", "details"])
 report_df.to_csv(report_path, index=False, encoding="utf-8")
 
 print("Site generation complete.")

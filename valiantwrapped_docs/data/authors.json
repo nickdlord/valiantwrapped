@@ -1,0 +1,79 @@
+[
+  {
+    "author_label": "Krishnan_Aravind_58195099100",
+    "display_name": "Aravind Krishnan",
+    "artist_name": "Krish the Scanner",
+    "album_title": "Signal from the Scanner",
+    "themes": [],
+    "top_journal": "Progress in Biomedical Optics and Imaging - Proceedings of SPIE",
+    "top_paper": "Performance of Lung Cancer Prediction Models for Screening-detected, Incidental, and Biopsied Pulmonary Nodules",
+    "profile_url": "authors/Krishnan_Aravind_58195099100.html",
+    "cover_url": "assets/album_covers/Krishnan_Aravind_58195099100.png"
+  },
+  {
+    "author_label": "Landman_Bennett_16679175200",
+    "display_name": "Bennett Landman",
+    "artist_name": "Bennett Brainwave",
+    "album_title": "Signal-to-Soul",
+    "themes": [],
+    "top_journal": "Progress in Biomedical Optics and Imaging - Proceedings of SPIE",
+    "top_paper": "Segment Anything Model (SAM) for Digital Pathology: Assess Zero-shot Segmentation on Whole Slide Imaging",
+    "profile_url": "authors/Landman_Bennett_16679175200.html",
+    "cover_url": "assets/album_covers/Landman_Bennett_16679175200.png"
+  },
+  {
+    "author_label": "Teixeira_da_Silva_Hucke_Andre_59173658700",
+    "display_name": "da Teixeira",
+    "artist_name": "Droplet de la Tierra",
+    "album_title": "Rhythms of Resilience",
+    "themes": [],
+    "top_journal": "",
+    "top_paper": "",
+    "profile_url": "authors/Teixeira_da_Silva_Hucke_Andre_59173658700.html",
+    "cover_url": "assets/album_covers/Teixeira_da_Silva_Hucke_Andre_59173658700.png"
+  },
+  {
+    "author_label": "Rudravaram_Gaurav_57442300300",
+    "display_name": "Gaurav Rudravaram",
+    "artist_name": "ReverbRaven",
+    "album_title": "Echoes in Motion",
+    "themes": [],
+    "top_journal": "Progress in Biomedical Optics and Imaging - Proceedings of SPIE",
+    "top_paper": "Cleaning Robots: A Review of Sensor Technologies and Intelligent Control Strategies for Cleaning",
+    "profile_url": "authors/Rudravaram_Gaurav_57442300300.html",
+    "cover_url": "assets/album_covers/Rudravaram_Gaurav_57442300300.png"
+  },
+  {
+    "author_label": "Schilling_Kurt_56192036700",
+    "display_name": "Kurt Schilling",
+    "artist_name": "MRI Maestro Kurt Wave",
+    "album_title": "Fibers of Connection",
+    "themes": [],
+    "top_journal": "Magnetic Resonance Imaging",
+    "top_paper": "White Matter Geometry Confounds Diffusion Tensor Imaging Along Perivascular Space (DTI-ALPS) Measures",
+    "profile_url": "authors/Schilling_Kurt_56192036700.html",
+    "cover_url": "assets/album_covers/Schilling_Kurt_56192036700.png"
+  },
+  {
+    "author_label": "Kim_Michael_58290603100",
+    "display_name": "Michael Kim",
+    "artist_name": "MRI Maverick",
+    "album_title": "Harmonies of the Brain",
+    "themes": [],
+    "top_journal": "Progress in Biomedical Optics and Imaging - Proceedings of SPIE",
+    "top_paper": "Sex and APOE ε4 allele differences in longitudinal white matter microstructure in multiple cohorts of aging and Alzheimer's disease",
+    "profile_url": "authors/Kim_Michael_58290603100.html",
+    "cover_url": "assets/album_covers/Kim_Michael_58290603100.png"
+  },
+  {
+    "author_label": "Lord_Nick_57218632790",
+    "display_name": "Nick Lord",
+    "artist_name": "Soyboy Symphony",
+    "album_title": "Harvest Hues and Rhapsody of Roots",
+    "themes": [],
+    "top_journal": "",
+    "top_paper": "",
+    "profile_url": "authors/Lord_Nick_57218632790.html",
+    "cover_url": "assets/album_covers/Lord_Nick_57218632790.png"
+  }
+]
