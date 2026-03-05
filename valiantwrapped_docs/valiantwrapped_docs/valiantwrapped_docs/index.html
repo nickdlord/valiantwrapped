@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VALIANT Wrapped — Browse</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brandText">
+          <div class="brandTitle">VALIANT Wrapped</div>
+          <div class="brandSub">Browse profiles</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="navItem active" href="index.html">Home</a>
+        <a class="navItem" href="#" onclick="return false;">Browse</a>
+        <a class="navItem" href="#" onclick="return false;">About</a>
+      </nav>
+
+      <div class="sidebarFooter">
+        <div class="hint">
+          Generated: 2026-03-05T13:55:23<br>
+          Published folder: /panfs/accrepfs.vampire/home/lordnd/valiant_wrapped/valiantwrapped/docs
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <input id="search" class="search" placeholder="Search authors, themes, albums…" />
+        <select id="themeFilter" class="filter">
+          <option value="">All themes</option>
+        </select>
+      </header>
+
+      <section class="section">
+        <div class="sectionTitle">Authors</div>
+        <div id="grid" class="grid"></div>
+        <div id="empty" class="empty hidden">No matches. Try a different search.</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
