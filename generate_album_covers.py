@@ -1,27 +1,31 @@
 #!/usr/bin/env python3
 """
-generate_album_covers.py (SCALABLE / 103+ AUTHORS)
+generate_album_covers.py (SCALABLE / A6000 / NO CPU OFFLOAD / 1024x1024)
 
-Goals:
-- Avoid GPU OOM on A6000 by keeping Llama on CPU and using FLUX with CPU offload.
-- Resume safely (skip already-generated images).
-- Write themes incrementally to CSV (checkpointing).
-- Per-author try/except so one failure doesn't kill the whole run.
-- Log errors to outputs/album_covers/errors.csv
-- Optional: seed per author for reproducible covers.
-- Optional: allocator setting to reduce fragmentation (printed guidance).
+Two-phase pipeline designed for 103+ authors on ACCRE:
 
-Inputs:
-  /home/lordnd/valiant_wrapped/valiantwrapped/outputs/author_music_personas_txt/*.txt
+PHASE 1 (CPU)
+ - Parse persona TXT files
+ - Use Llama 3.1 on CPU to create short visual themes
+ - Save/append themes to outputs/album_covers/themes.csv (checkpoint)
+
+PHASE 2 (GPU)
+ - Unload Llama
+ - Load FLUX fully on GPU (NO CPU offload)
+ - Generate 1024x1024 album covers, one at a time
+ - Resume safely (skip existing images)
+ - Per-author retries + error logging to outputs/album_covers/errors.csv
+
+Input:
+    /home/lordnd/valiant_wrapped/valiantwrapped/outputs/author_music_personas_txt/*.txt
 
 Outputs:
-  outputs/album_covers/<author_label>.png
-  outputs/album_covers/themes.csv
-  outputs/album_covers/errors.csv
+    outputs/album_covers/<author_label>.png
+    outputs/album_covers/themes.csv
+    outputs/album_covers/errors.csv
 
-Recommended run (A6000):
+Recommended long-run env var:
   export PYTORCH_ALLOC_CONF=expandable_segments:True
-  python generate_album_covers.py
 """
 
 import os
@@ -51,9 +55,9 @@ ERROR_CSV = os.path.join(OUTPUT_DIR, "errors.csv")
 LLM_MODEL = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 IMAGE_MODEL = "black-forest-labs/FLUX.1-dev"
 
-# Image settings
-WIDTH = 1536
-HEIGHT = 1536
+# Image settings (reduced for stability)
+WIDTH = 1024
+HEIGHT = 1024
 NUM_STEPS = 28
 GUIDANCE = 4.0
 
@@ -64,15 +68,15 @@ RESUME_SKIP_EXISTING_IMAGES = True
 REUSE_EXISTING_THEMES_CSV = True
 # Append each theme immediately (checkpoint)
 SAVE_THEMES_INCREMENTALLY = True
-USE_CPU_OFFLOAD_FOR_FLUX = True             # Most stable on A6000 for long runs
-ENABLE_ATTENTION_SLICING = True             # Slight VRAM reduction
+# Slight VRAM reduction, safe default
+ENABLE_ATTENTION_SLICING = True
 SEED_PER_AUTHOR = True                      # Reproducible images per author_label
 
 # Theme generation behavior
 THEME_MAX_NEW_TOKENS = 22
 THEME_TEMPERATURE = 0.6
 
-# For robustness
+# Robustness
 MAX_RETRIES_PER_AUTHOR = 2                  # Retries for image generation only
 RETRY_SLEEP_SECONDS = 3
 
@@ -102,20 +106,28 @@ def load_existing_themes() -> pd.DataFrame:
     return pd.DataFrame(columns=["author_label", "artist", "album", "theme"])
 
 
-def theme_exists(df: pd.DataFrame, author_label: str) -> bool:
-    if df.empty:
-        return False
-    return (df["author_label"] == author_label).any()
-
-
 def normalize_theme(theme: str) -> str:
+    """
+    Aggressively sanitize LLM output to keep prompts clean.
+    """
     theme = (theme or "").strip()
-    # Remove common "assistant" chatter if any slips through
-    theme = re.split(r"\b(i chose|was not chosen|because|note:)\b",
-                     theme, flags=re.I)[0].strip()
+
+    # Keep only first line
     theme = theme.splitlines()[0].strip()
+
+    # Drop parentheticals and anything after common "option" wording
+    theme = re.sub(r"\(.*?\)", "", theme).strip()
+    theme = re.split(r"\s+\bor\b\s+", theme, maxsplit=1, flags=re.I)[0].strip()
+
+    # Remove common chatter if it slips through
+    theme = re.split(
+        r"\b(i chose|was not chosen|because|note:|return only)\b", theme, flags=re.I)[0].strip()
+
+    # Strip quotes/punct and collapse spaces
     theme = theme.strip(" \"'`.,:;—-")
-    theme = re.sub(r"\s+", " ", theme)
+    theme = re.sub(r"[^\w\s-]", "", theme)
+    theme = re.sub(r"\s+", " ", theme).strip()
+
     if not theme:
         theme = "bold modern experimental album cover"
     return theme
@@ -172,7 +184,7 @@ def extract_fields(text: str, fallback_artist: str) -> Tuple[str, str, str]:
     if not album:
         album = "Untitled Album"
 
-    # Bio (prefer labeled block; otherwise everything except tracklist)
+    # Bio
     bio = None
     m = re.search(r"(?is)^\s*(persona_bio|bio|biography)\s*:\s*(.+)$", t_norm)
     if m:
@@ -209,7 +221,7 @@ def generate_theme(tokenizer, model, bio: str) -> str:
         "Theme:"
     )
 
-    inputs = tokenizer(prompt, return_tensors="pt")  # stays on CPU
+    inputs = tokenizer(prompt, return_tensors="pt")  # CPU
     outputs = model.generate(
         **inputs,
         max_new_tokens=THEME_MAX_NEW_TOKENS,
@@ -228,21 +240,20 @@ def unload_llama(tokenizer, model):
     del model
     del tokenizer
     gc.collect()
-    # Llama is on CPU, but clear CUDA cache anyway before FLUX
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
 
 
 # ------------------------------------------------
-# PHASE 2 — IMAGE GENERATION (FLUX)
+# PHASE 2 — IMAGE GENERATION (FLUX ON GPU, NO OFFLOAD)
 # ------------------------------------------------
 
-def load_flux_pipeline():
+def load_flux_pipeline_gpu():
     if not torch.cuda.is_available():
         raise RuntimeError(
             "CUDA is not available. FLUX generation requires a GPU node.")
 
-    print("Loading FLUX pipeline...")
+    print("Loading FLUX pipeline (GPU-only, no CPU offload)...")
 
     # Speedups on Ampere (A6000)
     torch.backends.cuda.matmul.allow_tf32 = True
@@ -251,13 +262,7 @@ def load_flux_pipeline():
     pipe = FluxPipeline.from_pretrained(
         IMAGE_MODEL,
         torch_dtype=torch.bfloat16,
-    )
-
-    if USE_CPU_OFFLOAD_FOR_FLUX:
-        # Most stable for long runs; reduces VRAM peaks substantially.
-        pipe.enable_model_cpu_offload()
-    else:
-        pipe = pipe.to("cuda")
+    ).to("cuda")
 
     if ENABLE_ATTENTION_SLICING:
         pipe.enable_attention_slicing()
@@ -266,8 +271,6 @@ def load_flux_pipeline():
 
 
 def author_seed(author_label: str) -> int:
-    # Stable hash -> deterministic seed
-    # Keep in 32-bit range for torch.Generator
     return abs(hash(author_label)) % (2**31 - 1)
 
 
@@ -305,6 +308,7 @@ def generate_cover(pipe, artist: str, album: str, theme: str, seed: Optional[int
 
 def main():
     print("\n=== VALIANT Wrapped: Album Cover Generation (Scalable) ===\n")
+
     if torch.cuda.is_available():
         props = torch.cuda.get_device_properties(0)
         print(
@@ -313,7 +317,7 @@ def main():
         print("GPU: not detected (this will fail during FLUX load).")
 
     if os.environ.get("PYTORCH_ALLOC_CONF", "") == "":
-        print("\nTip: For long runs, consider:")
+        print("\nTip (optional): For long runs, consider:")
         print("  export PYTORCH_ALLOC_CONF=expandable_segments:True\n")
 
     persona_files = sorted(glob.glob(os.path.join(INPUT_DIR, "*.txt")))
@@ -327,7 +331,7 @@ def main():
     existing_df = load_existing_themes() if REUSE_EXISTING_THEMES_CSV else pd.DataFrame(
         columns=["author_label", "artist", "album", "theme"]
     )
-    existing_map = {}
+    existing_map: Dict[str, Dict[str, str]] = {}
     if not existing_df.empty:
         for _, r in existing_df.iterrows():
             existing_map[str(r["author_label"])] = {
@@ -339,7 +343,6 @@ def main():
 
     tokenizer, llama = load_llama_cpu()
 
-    # We'll append themes incrementally for safety
     theme_fieldnames = ["author_label", "artist", "album", "theme"]
 
     for file_path in persona_files:
@@ -347,7 +350,7 @@ def main():
         author_label = os.path.splitext(filename)[0]
 
         if author_label in existing_map:
-            continue  # already have theme
+            continue  # already themed
 
         try:
             with open(file_path, "r", encoding="utf-8") as f:
@@ -379,7 +382,7 @@ def main():
             )
             print(f"[ERROR][theme] {author_label}: {e}")
 
-    # If we didn't write incrementally, write full themes at end
+    # If not writing incrementally, write full themes at end
     if not SAVE_THEMES_INCREMENTALLY:
         df_out = pd.DataFrame(
             [{"author_label": k, **v} for k, v in existing_map.items()],
@@ -397,11 +400,14 @@ def main():
     # --------------------------
     print("\nPHASE 2: Album Covers (GPU)\n")
 
-    # Load themes (source of truth)
     themes_df = pd.read_csv(THEME_CSV)
     print(f"Loaded {len(themes_df)} themes from {THEME_CSV}\n")
 
-    pipe = load_flux_pipeline()
+    pipe = load_flux_pipeline_gpu()
+
+    created = 0
+    skipped = 0
+    failed = 0
 
     for _, row in themes_df.iterrows():
         author_label = str(row["author_label"])
@@ -413,22 +419,26 @@ def main():
 
         if RESUME_SKIP_EXISTING_IMAGES and os.path.exists(out_path):
             print(f"[skip] {author_label} (already exists)")
+            skipped += 1
             continue
 
         seed = author_seed(author_label) if SEED_PER_AUTHOR else None
 
         attempt = 0
+        success = False
         while attempt <= MAX_RETRIES_PER_AUTHOR:
+            attempt += 1
             try:
-                attempt += 1
                 print(f"[img] {author_label} (attempt {attempt})")
                 img = generate_cover(pipe, artist, album, theme, seed=seed)
                 img.save(out_path)
                 print(f"      saved -> {out_path}")
+                created += 1
+                success = True
                 break
 
             except torch.OutOfMemoryError as e:
-                # Clear cache and retry with slightly safer settings
+                # Clear cache and retry with safer settings
                 append_row_csv(
                     ERROR_CSV,
                     ["timestamp", "stage", "author_label", "error"],
@@ -440,7 +450,7 @@ def main():
                     torch.cuda.empty_cache()
                 gc.collect()
 
-                # On retry, reduce steps a bit (time saver; slight VRAM/activation relief)
+                # On retry, reduce steps for a bit more headroom
                 global NUM_STEPS
                 if NUM_STEPS > 22:
                     NUM_STEPS = 22
@@ -463,6 +473,14 @@ def main():
                     print("      giving up after retries.")
                 else:
                     time.sleep(RETRY_SLEEP_SECONDS)
+
+        if not success:
+            failed += 1
+
+    print("\n=== Summary ===")
+    print(f"Created: {created}")
+    print(f"Skipped: {skipped}")
+    print(f"Failed : {failed}")
 
     print("\nDone. Covers are in outputs/album_covers/\n")
     if os.path.exists(ERROR_CSV):
