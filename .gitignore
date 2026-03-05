@@ -1,78 +1,27 @@
-# virtual environments
-
+# --- virtual environments ---
 .venv*/
-
 venv*/
-
-
-
-# python cache
-
-__pycache__/
-
-*.pyc
-
-
-
-# generated pipeline outputs
-
-author_expertise_txt/
-
-outputs/
-
-site/
-
-
-
-# large intermediate files
-
-*.log
-
-
-echo ".venv311/" >> .gitignore
-
-echo ".venv*/" >> .gitignore
-
-echo "__pycache__/" >> .gitignore
-
-echo "*.pyc" >> .gitignore
-
-
-# LLM outputs
-
-author_expertise_txt/*
-
-!author_expertise_txt/.gitkeep
-
-
-
-# large generated files
-
-outputs/*.json
-
-outputs/*.txt
-
-
-
-# python environment
-
 .venv/
 
+# --- python cache ---
 __pycache__/
-
-
-
-# model downloads
-
-*.bin
-
-*.safetensors
-
-.venv*/
-
-venv*/
-
-__pycache__/
-
 *.pyc
 
+# --- model downloads / large weights ---
+*.bin
+*.safetensors
+
+# --- logs ---
+*.log
+
+# --- generated pipeline outputs (keep out of git) ---
+author_expertise_txt/
+outputs/
+site/
+
+# --- GitHub Pages publish folder (KEEP TRACKED) ---
+!docs/
+!docs/**
+
+# optional: keep an empty folder if needed
+!docs/.gitkeep
