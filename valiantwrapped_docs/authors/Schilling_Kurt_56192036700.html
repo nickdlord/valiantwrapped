@@ -5,382 +5,350 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kurt Schilling • VALIANT Wrapped</title>
 
+<link rel="stylesheet" href="../assets/styles.css" />
 <style>
-:root{
-  --bg1:#f6f8ff;
-  --bg2:#eef3ff;
-
-  --card:#ffffff;
-  --card2:#f3f6ff;
-
-  --text:#1e293b;
-  --muted:#64748b;
-
-  --accent:#c5b358;      /* Vanderbilt gold */
-  --accent2:#6366f1;     /* spring purple */
-
-  --shadow:0 10px 25px rgba(0,0,0,.08);
-  --radius:18px;
-}
-
-* { box-sizing: border-box; }
-
-body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  margin:0;
-  color:var(--text);
-
-  background:
-    radial-gradient(900px 600px at 10% 10%, rgba(99,102,241,.10), transparent 60%),
-    radial-gradient(900px 600px at 90% 20%, rgba(197,179,88,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-}
-
-.container{
-  max-width: 980px;
+/* Author-page specific layout tweaks layered on top of the shared Spotify theme */
+.author-wrap{
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 44px 20px 60px;
+  padding: 24px 18px 60px;
 }
 
-.hero{
-  position: relative;
-  padding:28px;
-  border-radius:var(--radius);
-  background:linear-gradient(135deg, #ffffff, #f4f7ff);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:var(--shadow);
-  overflow: hidden;
+.topnav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 14px;
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  right:-140px;
-  top:-140px;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle at center, rgba(56,189,248,.30), transparent 60%);
-  transform: rotate(20deg);
-}
-
-.kicker{
+.backlink{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
   color: var(--muted);
-  font-weight: 600;
-  letter-spacing: .04em;
+  padding:10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+}
+.backlink:hover{
+  color: var(--text);
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
+}
+
+.hero2{
+  padding: 18px;
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+  box-shadow: var(--shadow);
+}
+
+.kicker2{
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: .08em;
   text-transform: uppercase;
   font-size: 12px;
 }
 
-h1{
-  font-size: 44px;
-  margin: 8px 0 6px;
+.h1{
+  font-size: 42px;
+  margin: 10px 0 6px;
   line-height: 1.05;
+  font-weight: 900;
 }
 
-.subtitle{
+.subtitle2{
   color: var(--muted);
-  font-size: 15px;
   margin: 0;
-  max-width: 70ch;
+  max-width: 80ch;
 }
 
-.section{
-  margin-top:22px;
-  padding:22px;
-  border-radius:var(--radius);
-  background:var(--card);
-  border:1px solid rgba(0,0,0,.05);
-  box-shadow:var(--shadow);
+.section2{
+  margin-top: 14px;
+  padding: 18px;
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
 }
 
-.section h2{
-  margin: 0 0 14px;
-  color: var(--accent);
-  font-size: 26px;
-  letter-spacing: .01em;
+.section2 h2{
+  margin: 0 0 14px 0;
+  font-size: 20px;
+  font-weight: 900;
 }
 
-.grid{
+/* Stats grid (reuse card styles from index page) */
+.stats-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
 }
 
-/* Make Top Journal / Top Paper main text white */
-.card .small b {
-  color: var(--text);
+.stat{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius2);
+  padding: 14px;
 }
 
-/* Keep the rest of the small text muted */
-.card .small {
-  color: var(--muted);
-}
-
-.card{
-  background:var(--card2);
-  border:1px solid rgba(0,0,0,.05);
-  border-radius:16px;
-  padding:16px;
-}
-
-.card .label{
+.stat .label{
   color: var(--muted);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.card .value{
-  font-size: 26px;
   font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-.card .small b{
-  color:var(--text);
-  font-weight:700;
+.stat .value{
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: 900;
 }
 
-.pill{
-  display:inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(56,189,248,.14);
-  border: 1px solid rgba(56,189,248,.25);
-  color: var(--accent);
+.stat .small{
+  margin-top: 10px;
+  color: var(--text);
   font-weight: 700;
+  line-height: 1.35;
+}
+
+.pill2{
+  display:inline-block;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,208,111,0.35);
+  background: rgba(36,208,111,0.12);
+  color: var(--text);
+  font-weight: 800;
   font-size: 12px;
 }
 
-.album-card{
-  border-radius: var(--radius);
-  padding: 18px;
-  background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(167,139,250,.12));
-  border: 1px solid rgba(255,255,255,.10);
+/* Album card */
+.album-card2{
+  border-radius: var(--radius2);
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(135deg, rgba(36,208,111,0.10), rgba(44,44,255,0.06), rgba(255,44,122,0.06));
 }
 
-.artist{
+.artist2{
   font-size: 22px;
   font-weight: 900;
   margin: 0 0 10px;
 }
 
-.bio{
+.bio2{
+  margin: 0 0 14px;
   color: var(--muted);
   line-height: 1.55;
-  margin: 0 0 14px;
 }
 
-.album-title{
+.album-title2{
   display:flex;
   align-items:center;
   gap:10px;
-  margin: 0 0 12px;
-  font-size: 18px;
   font-weight: 900;
+  margin: 0 0 12px;
 }
 
-.album-title span{
-  color: var(--accent2);
+.album-title2 span{
+  color: var(--text);
+  opacity: .92;
 }
 
-/* Album cover block (Spotify-ish) */
-.cover-wrap{
+/* Cover + placeholder */
+.cover-wrap2{
   display:flex;
   justify-content:center;
   margin: 14px 0 14px;
 }
-
-.album-cover{
+.album-cover2{
   width: 340px;
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
-  box-shadow: 0 18px 45px rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(255,255,255,.25);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: var(--shadow);
+  background: rgba(255,255,255,0.06);
 }
-
-/* Placeholder that prevents broken image icons */
-.cover-placeholder{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin: 14px 0 14px;
-  padding: 16px;
-  border-radius: 16px;
-  border: 1px dashed rgba(100,116,139,.5);
+.cover-placeholder2{
+  width: 340px;
+  max-width: 100%;
+  border-radius: 18px;
+  border: 1px dashed rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.03);
   color: var(--muted);
-  background: rgba(255,255,255,.35);
-  font-weight: 650;
+  padding: 18px;
+  text-align:center;
+  font-weight: 800;
 }
 
-.tracklist{
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.12);
+/* Tracklist matches dark theme */
+.tracklist2{
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.25);
 }
-
-.track-row{
+.track-row2{
   display:flex;
-  gap: 14px;
+  gap:14px;
   padding: 12px 14px;
   align-items:center;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-
-.track-row:last-child{ border-bottom: none; }
-
-.track-num{
-  width: 44px;
-  color: rgba(255,255,255,.65);
-  font-weight: 800;
+.track-row2:last-child{ border-bottom:none; }
+.track-num2{
+  width:44px;
+  color: rgba(242,242,242,.55);
+  font-weight: 900;
   font-variant-numeric: tabular-nums;
 }
-
-.track-title{
-  font-weight: 650;
+.track-title2{
+  font-weight: 700;
 }
 
-.footer-note{
+.footer-note2{
   color: var(--muted);
   line-height: 1.5;
-}
-
-@media (max-width: 760px){
-  .grid{ grid-template-columns: 1fr; }
-  h1{ font-size: 36px; }
-  .album-cover{ width: 320px; }
 }
 </style>
 
 </head>
 
 <body>
-<div class="container">
+  <div class="author-wrap">
 
-  <div class="hero">
-    <div class="kicker">VALIANT Wrapped • 2025–2026</div>
-    <h1>Kurt Schilling</h1>
-    <p class="subtitle">
-      A year-in-review snapshot of publications, citations, and a fictional musical persona inspired by your work.
-    </p>
-  </div>
+    <div class="topnav">
+      <a class="backlink" href="../index.html">← Back to Browse</a>
+      <div class="kicker2">VALIANT Wrapped • 2025–2026</div>
+    </div>
 
-  <div class="section">
-    <h2>2025–2026 Stats</h2>
-    
-    <div class="grid">
-      <div class="card">
+    <div class="hero2">
+      <div class="kicker2">Author Profile</div>
+      <div class="h1">Kurt Schilling</div>
+      <p class="subtitle2">
+        A year-in-review snapshot of publications, citations, and a fictional musical persona inspired by this author’s work.
+      </p>
+    </div>
+
+    <div class="section2">
+      <h2>2025–2026 Stats</h2>
+      
+    <div class="stats-grid">
+      <div class="stat">
         <div class="label">Publications (2025–Present)</div>
         <div class="value">41</div>
       </div>
 
-      <div class="card">
+      <div class="stat">
         <div class="label">Citations (2025–Present)</div>
         <div class="value">51</div>
       </div>
 
-      <div class="card">
+      <div class="stat">
         <div class="label">Top Journal</div>
         <div class="small"><b>Magnetic Resonance Imaging</b></div>
       </div>
 
-      <div class="card">
+      <div class="stat">
         <div class="label">Top Paper</div>
         <div class="small"><b>White Matter Geometry Confounds Diffusion Tensor Imaging Along Perivascular Space (DTI-ALPS) Measures</b><br>
-        <span class="pill">Citations: 10</span>
+        <span class="pill2">Citations: 10</span>
         </div>
       </div>
     </div>
     
-  </div>
+    </div>
 
-  <div class="section">
-    <h2>Your Musical Persona</h2>
-    <p class="footer-note">
-      People like you are what make our discovery center so vibrant and unique.
-      To celebrate your work, we created a fictional musical persona inspired by your publishing history.
-    </p>
-    
-        <div class="album-card">
-          <div class="artist">MRI Maestro Kurt Wave</div>
-          <p class="bio">A master conductor orchestrates the harmony of human connections, layering soundscapes that resonate with the intricacies of white matter microstructure. With a brush stroke of innovation, Kurt Wave weaves sonic tapestries that traverse the realms of brain connectivity, where the echoes of experience leave their mark. His music is a symphony of light and shadow, an exploration of the invisible pathways that tie us together. Through the lens of diffusion MRI, he probes the depths of the human experience, uncovering hidden patterns and textures that inform and inspire.</p>
+    <div class="section2">
+      <h2>Your Musical Persona</h2>
+      <p class="footer-note2">
+        To celebrate this author’s work, we created a fictional musical persona inspired by their publishing history.
+      </p>
+      
+        <div class="album-card2">
+          <div class="artist2">MRI Maestro Kurt Wave</div>
+          <p class="bio2">A master conductor orchestrates the harmony of human connections, layering soundscapes that resonate with the intricacies of white matter microstructure. With a brush stroke of innovation, Kurt Wave weaves sonic tapestries that traverse the realms of brain connectivity, where the echoes of experience leave their mark. His music is a symphony of light and shadow, an exploration of the invisible pathways that tie us together. Through the lens of diffusion MRI, he probes the depths of the human experience, uncovering hidden patterns and textures that inform and inspire.</p>
 
-          <div class="album-title">Album: <span>Fibers of Connection</span></div>
+          <div class="album-title2">Album: <span>Fibers of Connection</span></div>
 
           
-      <div class="cover-wrap">
-        <img class="album-cover" src="../assets/album_covers/Schilling_Kurt_56192036700.png" alt="Album cover for MRI Maestro Kurt Wave — Fibers of Connection" loading="lazy">
+      <div class="cover-wrap2">
+        <img class="album-cover2" src="../assets/album_covers/Schilling_Kurt_56192036700.png" alt="Album cover for MRI Maestro Kurt Wave — Fibers of Connection" loading="lazy">
       </div>
     
 
-          <div class="tracklist">
+          <div class="tracklist2">
 
-            <div class="track-row">
-                <div class="track-num">01</div>
-                <div class="track-title">White Matter Waltz</div>
+            <div class="track-row2">
+                <div class="track-num2">01</div>
+                <div class="track-title2">White Matter Waltz</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">02</div>
-                <div class="track-title">Diffusion Dusk</div>
+            <div class="track-row2">
+                <div class="track-num2">02</div>
+                <div class="track-title2">Diffusion Dusk</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">03</div>
-                <div class="track-title">Tractography Tango</div>
+            <div class="track-row2">
+                <div class="track-num2">03</div>
+                <div class="track-title2">Tractography Tango</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">04</div>
-                <div class="track-title">Gray Matter Glow</div>
+            <div class="track-row2">
+                <div class="track-num2">04</div>
+                <div class="track-title2">Gray Matter Glow</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">05</div>
-                <div class="track-title">The Reverb Revolution</div>
+            <div class="track-row2">
+                <div class="track-num2">05</div>
+                <div class="track-title2">The Reverb Revolution</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">06</div>
-                <div class="track-title">Fiber Fusion</div>
+            <div class="track-row2">
+                <div class="track-num2">06</div>
+                <div class="track-title2">Fiber Fusion</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">07</div>
-                <div class="track-title">Brainwave Breakdown</div>
+            <div class="track-row2">
+                <div class="track-num2">07</div>
+                <div class="track-title2">Brainwave Breakdown</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">08</div>
-                <div class="track-title">Connectivity Chaos Theory</div>
+            <div class="track-row2">
+                <div class="track-num2">08</div>
+                <div class="track-title2">Connectivity Chaos Theory</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">09</div>
-                <div class="track-title">Harmonizing Histories</div>
+            <div class="track-row2">
+                <div class="track-num2">09</div>
+                <div class="track-title2">Harmonizing Histories</div>
             </div>
             
-            <div class="track-row">
-                <div class="track-num">10</div>
-                <div class="track-title">Signal Sleuths</div>
+            <div class="track-row2">
+                <div class="track-num2">10</div>
+                <div class="track-title2">Signal Sleuths</div>
             </div>
             
 </div>
         </div>
         
-  </div>
+    </div>
 
-  <div class="section">
-    <h2>Thank You</h2>
-    <p class="footer-note">
-      Thank you for being part of our discovery center and for contributing to another incredible year of innovation and collaboration.
-    </p>
-  </div>
+    <div class="section2">
+      <h2>Thank You</h2>
+      <p class="footer-note2">
+        Thank you for being part of our discovery center and for contributing to another year of innovation and collaboration.
+      </p>
+    </div>
 
-</div>
+  </div>
 </body>
 </html>
