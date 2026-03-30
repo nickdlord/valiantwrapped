@@ -1,0 +1,11 @@
+flask>=3.0
+werkzeug>=3.0
+pandas>=2.0
+transformers>=4.40
+torch
+accelerate
+sentencepiece
+protobuf
+diffusers>=0.30
+safetensors
+Pillow

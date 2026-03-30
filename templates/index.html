@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VALIANT Wrapped Studio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="kicker">VALIANT Wrapped • Localhost Studio</div>
+      <h1>Create Individual Wrapped Pages</h1>
+      <p class="subtitle">
+        Upload one or more Scopus CSV exports, run a single or batch pipeline, preview author pages,
+        and download a manifest to share with your team.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Upload Scopus CSV Files</h2>
+
+      <div class="upload-card">
+        <label class="upload-dropzone" for="csvFiles">
+          <input id="csvFiles" type="file" accept=".csv" multiple>
+          <div class="upload-dropzone-inner">
+            <div class="upload-icon">⬆</div>
+            <div class="upload-title">Drop Scopus CSV files here or click to browse</div>
+            <div class="upload-subtitle">Upload one file for yourself, or multiple files for a team or friend group.</div>
+          </div>
+        </label>
+
+        <div class="upload-summary" id="uploadSummary">
+          No files selected yet.
+        </div>
+
+        <div class="run-controls">
+          <div class="mode-group">
+            <label class="mode-option">
+              <input type="radio" name="runMode" value="auto" checked>
+              <span>Auto</span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="runMode" value="single">
+              <span>Single Run</span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="runMode" value="batch">
+              <span>Batch Run</span>
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button id="runBtn" class="primary-btn">Run Wrapped Pipeline</button>
+            <button id="manifestBtn" class="secondary-btn" disabled>Download Manifest</button>
+            <a id="zipBtn" class="secondary-btn link-btn disabled-link" href="#" download>Download Results ZIP</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Run Status</h2>
+
+      <div class="status-grid">
+        <div class="card">
+          <div class="label">Status</div>
+          <div class="value status-value" id="statusValue">Idle</div>
+        </div>
+
+        <div class="card">
+          <div class="label">Mode</div>
+          <div class="value status-small" id="modeValue">—</div>
+        </div>
+
+        <div class="card full-span">
+          <div class="label">Current Step</div>
+          <div class="status-step" id="currentStep">Waiting for upload</div>
+
+          <div class="progress-shell">
+            <div class="progress-bar" id="progressBar" style="width:0%"></div>
+          </div>
+          <div class="progress-meta" id="progressMeta">0%</div>
+        </div>
+      </div>
+
+      <div class="log-shell">
+        <div class="label">Pipeline Log</div>
+        <pre id="logOutput">No pipeline has run yet.</pre>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Generated Pages</h2>
+      <div id="resultsEmpty" class="footer-note">
+        When your run finishes, author pages will appear here.
+      </div>
+
+      <div id="resultsArea" class="results-layout hidden">
+        <div class="results-sidebar">
+          <div class="label">Author Pages</div>
+          <div id="resultList" class="result-list"></div>
+        </div>
+
+        <div class="results-preview">
+          <div class="label">Preview</div>
+          <iframe id="previewFrame" title="Author Page Preview"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
