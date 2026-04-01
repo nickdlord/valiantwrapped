@@ -1,21 +1,36 @@
 #!/usr/bin/env python3
 """
-author_expertise_llama31_2.py (REWRITTEN)
+author_expertise_llama31_2.py
 
-Per-author Scopus CSV -> (A) recurring research themes + (B) 1–2 paragraph summary
-using meta-llama/Meta-Llama-3.1-8B-Instruct on a GPU (Transformers).
+Supports two input modes:
 
-Key changes vs your original:
-- Output CSV contains ONLY: author_id, author_file, themes, summary
-- Per-author TXT (optional) contains ONLY themes + summary
-- Prompts explicitly forbid listing paper titles/citations/bibliographies
-- Generation decoding returns ONLY generated tokens (prevents prompt/“assistant” leakage)
-- Reduce max tokens increased to reduce cutoffs
-- Input records are lighter (shorter abstracts) to save tokens
+1) TXT summary mode
+   Input from scopus2txtsummary.py:
+   - single mode via --input-file
+   - batch mode via --input-dir
+   The script reads per-author TXT summaries and generates:
+   - recurring research themes
+   - 1–2 paragraph research summary
 
-Run:
-  python author_expertise_llama31_2.py --input-dir author_csvs
+2) CSV mode
+   Legacy support for per-author Scopus CSV files:
+   - single mode via --input-file
+   - batch mode via --input-dir
+
+Outputs:
+- optional CSV with author_id, author_file, themes, summary
+- optional per-author TXT files with themes + summary
 """
+
+from typing import List, Tuple
+from pathlib import Path
+import sys
+
+# Force UTF-8 console output to avoid Windows cp1252 crashes on emojis
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 
 import argparse
 import glob
@@ -58,7 +73,7 @@ def clean_text(x: object) -> str:
 
 def truncate(s: str, max_chars: int) -> str:
     s = clean_text(s)
-    return s if len(s) <= max_chars else (s[:max_chars] + "...")
+    return s if len(s) <= max_chars else (s[:max_chars].rstrip() + "...")
 
 
 def safe_int_series(s: pd.Series) -> pd.Series:
@@ -72,6 +87,90 @@ def load_csv(path: str) -> pd.DataFrame:
         return pd.read_csv(path, dtype=str, encoding="latin-1", low_memory=False)
 
 
+def load_text(path: str) -> str:
+    for enc in ("utf-8", "latin-1", "cp1252"):
+        try:
+            with open(path, "r", encoding=enc) as f:
+                return f.read()
+        except UnicodeDecodeError:
+            continue
+    with open(path, "r", encoding="utf-8", errors="replace") as f:
+        return f.read()
+
+
+def resolve_input_paths(input_file: str, input_dir: str, allowed_exts: Tuple[str, ...]) -> List[str]:
+    if bool(input_file) == bool(input_dir):
+        raise ValueError("Provide exactly one of --input-file or --input-dir")
+
+    if input_file:
+        p = Path(input_file)
+
+        # Normal success path
+        if p.exists():
+            ext = p.suffix.lower()
+            if ext not in allowed_exts:
+                raise ValueError(
+                    f"Unsupported input file type: {ext}. Allowed: {allowed_exts}")
+            return [str(p)]
+
+        # Fallback 1: look for same stem in parent directory with allowed extensions
+        parent = p.parent
+        stem = p.stem.lower()
+        if parent.exists():
+            matches = []
+            for ext in allowed_exts:
+                for candidate in parent.glob(f"*{ext}"):
+                    if candidate.stem.lower() == stem:
+                        matches.append(candidate)
+
+            if len(matches) == 1:
+                print(
+                    f"[WARN] Input file not found exactly; using matched file: {matches[0]}")
+                return [str(matches[0])]
+
+            # Fallback 2: if exactly one supported file exists in folder, use it
+            folder_candidates = []
+            for ext in allowed_exts:
+                folder_candidates.extend(parent.glob(f"*{ext}"))
+
+            if len(folder_candidates) == 1:
+                print(
+                    f"[WARN] Input file not found exactly; using only file in folder: {folder_candidates[0]}")
+                return [str(folder_candidates[0])]
+
+        raise FileNotFoundError(f"Input file not found: {input_file}")
+
+    # Directory mode
+    pdir = Path(input_dir)
+    if not pdir.exists():
+        raise FileNotFoundError(f"Input directory not found: {input_dir}")
+
+    paths: List[Path] = []
+    for ext in allowed_exts:
+        paths.extend(sorted(pdir.glob(f"*{ext}")))
+
+    if not paths:
+        raise FileNotFoundError(
+            f"No supported input files found in: {input_dir} (looked for {allowed_exts})"
+        )
+
+    return [str(p) for p in paths]
+
+
+def infer_mode_from_paths(paths: List[str]) -> str:
+    exts = {os.path.splitext(p)[1].lower() for p in paths}
+    if exts == {".txt"}:
+        return "txt"
+    if exts == {".csv"}:
+        return "csv"
+    raise ValueError(
+        f"Mixed input types are not supported in one run. Found extensions: {sorted(exts)}"
+    )
+
+
+# ----------------------------
+# CSV processing helpers
+# ----------------------------
 def build_paper_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, str]]:
     cols = df.columns
     year_col = pick_existing_col(cols, YEAR_COLS)
@@ -105,10 +204,6 @@ def build_paper_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, str]]:
 
 
 def format_record(row: pd.Series, abstract_chars: int) -> str:
-    """
-    Compact single-paper record for the model.
-    Keep it tight to save tokens.
-    """
     year = int(row["_year"]) if row.get("_year") is not None else -1
     cites = int(row["_cites"]) if row.get("_cites") is not None else 0
 
@@ -136,6 +231,37 @@ def format_record(row: pd.Series, abstract_chars: int) -> str:
     return "\n".join(parts)
 
 
+def build_evidence_from_csv(path: str, max_papers: int, abstract_chars: int) -> Tuple[str, List[str]]:
+    df = load_csv(path)
+    if df.empty:
+        return "No publications were found in the provided export.", []
+
+    df2, _ = build_paper_frame(df)
+    df2 = df2.sort_values(["_cites", "_year"], ascending=[
+                          False, False]).head(max_papers)
+
+    record_strings = [format_record(
+        r, abstract_chars=abstract_chars) for _, r in df2.iterrows()]
+    return "\n\n---\n\n".join(record_strings), record_strings
+
+
+# ----------------------------
+# TXT processing helpers
+# ----------------------------
+def parse_txt_summary_file(path: str) -> Tuple[str, str]:
+    raw = load_text(path)
+    author_id = os.path.splitext(os.path.basename(path))[0]
+
+    m = re.search(r"AUTHOR_ID:\s*(.+)", raw)
+    if m:
+        author_id = clean_text(m.group(1))
+
+    return author_id, raw.strip()
+
+
+# ----------------------------
+# Chunking / output parsing
+# ----------------------------
 def chunk_records(records: List[str], tokenizer, max_input_tokens: int) -> List[List[str]]:
     chunks: List[List[str]] = []
     current: List[str] = []
@@ -163,11 +289,38 @@ def chunk_records(records: List[str], tokenizer, max_input_tokens: int) -> List[
     return chunks
 
 
+def chunk_long_text(text: str, tokenizer, max_input_tokens: int) -> List[str]:
+    paragraphs = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    if not paragraphs:
+        paragraphs = [text.strip()] if text.strip() else [""]
+
+    chunks: List[str] = []
+    current_parts: List[str] = []
+    current_tokens = 0
+
+    for para in paragraphs:
+        para_tokens = len(tokenizer.encode(para, add_special_tokens=False)) + 8
+
+        if para_tokens > max_input_tokens:
+            para = truncate(para, 3000)
+            para_tokens = len(tokenizer.encode(
+                para, add_special_tokens=False)) + 8
+
+        if current_parts and (current_tokens + para_tokens > max_input_tokens):
+            chunks.append("\n\n".join(current_parts))
+            current_parts = [para]
+            current_tokens = para_tokens
+        else:
+            current_parts.append(para)
+            current_tokens += para_tokens
+
+    if current_parts:
+        chunks.append("\n\n".join(current_parts))
+
+    return chunks
+
+
 def parse_theme_bullets(text: str) -> List[str]:
-    """
-    Extract bullet lines from model output; keep only theme bullets.
-    Accepts -, *, •, or numbered formats.
-    """
     lines = [clean_text(x) for x in text.splitlines()]
     bullets = []
     for ln in lines:
@@ -175,7 +328,7 @@ def parse_theme_bullets(text: str) -> List[str]:
             ln = re.sub(r"^(\-|\*|•|\d+\)|\d+\.)\s+", "", ln).strip()
             if ln:
                 bullets.append(ln)
-    # de-dup while preserving order
+
     seen = set()
     out = []
     for b in bullets:
@@ -207,7 +360,7 @@ def make_map_messages(author_id: str, chunk_text: str) -> List[Dict[str, str]]:
     )
     user = (
         f"Author ID: {author_id}\n\n"
-        "Publication records (each record is one paper):\n"
+        "Publication evidence:\n"
         f"{chunk_text}\n\n"
         "Task: Identify recurring research themes (methods + application areas)."
     )
@@ -224,7 +377,7 @@ def make_reduce_messages(author_id: str, themes: List[str], evidence_notes: str)
         "- Do NOT invent facts.\n"
         "- Do NOT list paper titles, DOIs, or citations.\n"
         "- Write 1–2 paragraphs, 120–220 words total.\n"
-        "- Must include (a) evolution of research focus over time IF supported by years, and "
+        "- Must include (a) evolution of research focus over time IF supported by evidence, and "
         "(b) primary areas of expertise.\n"
         "- Plain-language, professional tone.\n"
     )
@@ -248,15 +401,11 @@ def generate_chat(
     top_p: float,
     repetition_penalty: float,
 ) -> str:
-    """
-    Robust generation:
-    - Decode only newly generated tokens to avoid prompt/role leakage.
-    - Set pad_token_id to eos_token_id to silence warnings.
-    """
     import torch
 
     prompt = tokenizer.apply_chat_template(
-        messages, tokenize=False, add_generation_prompt=True)
+        messages, tokenize=False, add_generation_prompt=True
+    )
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
     with torch.no_grad():
@@ -278,25 +427,164 @@ def generate_chat(
 
 
 # ----------------------------
+# Per-author processing
+# ----------------------------
+def process_txt_input(
+    path: str,
+    tokenizer,
+    model,
+    max_input_tokens: int,
+    map_max_new: int,
+    reduce_max_new: int,
+    temperature: float,
+    top_p: float,
+    repetition_penalty: float,
+) -> Dict[str, str]:
+    fname = os.path.basename(path)
+    author_id, source_text = parse_txt_summary_file(path)
+
+    chunks = chunk_long_text(source_text, tokenizer, max_input_tokens)
+
+    theme_candidates: List[str] = []
+    evidence_notes_parts: List[str] = []
+
+    for i, chunk_text in enumerate(chunks, start=1):
+        messages = make_map_messages(author_id, chunk_text)
+        chunk_out = generate_chat(
+            model,
+            tokenizer,
+            messages,
+            max_new_tokens=map_max_new,
+            temperature=temperature,
+            top_p=top_p,
+            repetition_penalty=repetition_penalty,
+        )
+        evidence_notes_parts.append(f"Chunk {i} themes:\n{chunk_out}")
+        theme_candidates.extend(parse_theme_bullets(chunk_out))
+
+    themes = theme_candidates[:12]
+    evidence_notes = "\n\n".join(evidence_notes_parts)
+
+    reduce_messages = make_reduce_messages(author_id, themes, evidence_notes)
+    final_summary = generate_chat(
+        model,
+        tokenizer,
+        reduce_messages,
+        max_new_tokens=reduce_max_new,
+        temperature=temperature,
+        top_p=top_p,
+        repetition_penalty=repetition_penalty,
+    )
+
+    return {
+        "author_id": author_id,
+        "author_file": fname,
+        "themes": "; ".join(themes),
+        "summary": final_summary,
+    }
+
+
+def process_csv_input(
+    path: str,
+    tokenizer,
+    model,
+    max_papers: int,
+    max_input_tokens: int,
+    map_max_new: int,
+    reduce_max_new: int,
+    temperature: float,
+    top_p: float,
+    repetition_penalty: float,
+    abstract_chars: int,
+) -> Dict[str, str]:
+    fname = os.path.basename(path)
+    author_id = os.path.splitext(fname)[0]
+
+    evidence_text, record_strings = build_evidence_from_csv(
+        path, max_papers, abstract_chars)
+
+    if not record_strings:
+        return {
+            "author_id": author_id,
+            "author_file": fname,
+            "themes": "",
+            "summary": "No publications were found in the provided export.",
+        }
+
+    chunks = chunk_records(record_strings, tokenizer, max_input_tokens)
+
+    theme_candidates: List[str] = []
+    evidence_notes_parts: List[str] = []
+
+    for i, chunk in enumerate(chunks, start=1):
+        chunk_text = "\n\n---\n\n".join(chunk)
+        messages = make_map_messages(author_id, chunk_text)
+        chunk_out = generate_chat(
+            model,
+            tokenizer,
+            messages,
+            max_new_tokens=map_max_new,
+            temperature=temperature,
+            top_p=top_p,
+            repetition_penalty=repetition_penalty,
+        )
+        evidence_notes_parts.append(f"Chunk {i} themes:\n{chunk_out}")
+        theme_candidates.extend(parse_theme_bullets(chunk_out))
+
+    themes = theme_candidates[:12]
+    evidence_notes = "\n\n".join(evidence_notes_parts)
+
+    reduce_messages = make_reduce_messages(author_id, themes, evidence_notes)
+    final_summary = generate_chat(
+        model,
+        tokenizer,
+        reduce_messages,
+        max_new_tokens=reduce_max_new,
+        temperature=temperature,
+        top_p=top_p,
+        repetition_penalty=repetition_penalty,
+    )
+
+    return {
+        "author_id": author_id,
+        "author_file": fname,
+        "themes": "; ".join(themes),
+        "summary": final_summary,
+    }
+
+
+# ----------------------------
 # Main
 # ----------------------------
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--input-dir", default="author_csvs",
-                    help="Folder containing per-author CSV files")
-    ap.add_argument(
-        "--output-csv", default="author_expertise_summaries.csv", help="Output CSV path")
+
+    # New flexible input handling
+    ap.add_argument("--input-file", default="",
+                    help="Path to one input file (.txt or .csv)")
+    ap.add_argument("--input-dir", default="",
+                    help="Folder containing input files (.txt or .csv)")
+
+    # Keep backward compatibility
+    ap.add_argument("--output-dir", default="",
+                    help="Alias for --output-txt-dir")
     ap.add_argument(
         "--output-txt-dir",
         default="author_expertise_txt",
         help="Folder for per-author .txt outputs; set to empty string to disable",
     )
     ap.add_argument(
+        "--output-csv",
+        default="author_expertise_summaries.csv",
+        help="Output CSV path; set to empty string to disable",
+    )
+
+    ap.add_argument(
         "--model-id", default="meta-llama/Meta-Llama-3.1-8B-Instruct")
     ap.add_argument("--max-papers", type=int, default=250,
-                    help="Cap papers per author (keeps runtime predictable)")
+                    help="Cap papers per author")
     ap.add_argument("--max-input-tokens", type=int,
-                    default=6000, help="Max tokens sent per chunk")
+                    default=6000, help="Max tokens per chunk")
     ap.add_argument("--map-max-new", type=int, default=200,
                     help="Max new tokens for map step")
     ap.add_argument("--reduce-max-new", type=int, default=512,
@@ -306,8 +594,17 @@ def main() -> None:
     ap.add_argument("--top-p", type=float, default=0.9)
     ap.add_argument("--repetition-penalty", type=float, default=1.1)
     ap.add_argument("--abstract-chars", type=int, default=260,
-                    help="Max chars of abstract per paper record (token saver)")
+                    help="Max abstract chars per paper")
     args = ap.parse_args()
+
+    allowed_exts = (".txt", ".csv")
+    paths = resolve_input_paths(args.input_file, args.input_dir, allowed_exts)
+    input_mode = infer_mode_from_paths(paths)
+
+    output_txt_dir = args.output_dir.strip(
+    ) if args.output_dir else args.output_txt_dir.strip()
+    if output_txt_dir:
+        os.makedirs(output_txt_dir, exist_ok=True)
 
     from transformers import AutoModelForCausalLM, AutoTokenizer
     import torch
@@ -327,110 +624,64 @@ def main() -> None:
         device_map="auto",
     )
 
-    paths = sorted(glob.glob(os.path.join(args.input_dir, "*.csv")))
-    if not paths:
-        raise FileNotFoundError(f"No CSV files found in: {args.input_dir}")
-
-    output_txt_dir = args.output_txt_dir.strip() if args.output_txt_dir else ""
-    if output_txt_dir:
-        os.makedirs(output_txt_dir, exist_ok=True)
-
-    results = []
+    results: List[Dict[str, str]] = []
 
     for path in paths:
-        fname = os.path.basename(path)
-        author_id = os.path.splitext(fname)[0]
-        print(f"\n--- Processing {author_id} ---")
+        print(f"\n--- Processing {os.path.basename(path)} ---")
 
-        df = load_csv(path)
-        if df.empty:
-            summary = "No publications were found in the provided export."
-            themes = []
-            results.append(
-                {"author_id": author_id, "author_file": fname, "themes": "", "summary": summary})
-            if output_txt_dir:
-                with open(os.path.join(output_txt_dir, f"{author_id}.txt"), "w", encoding="utf-8") as f:
-                    f.write("THEMES:\n")
-                    f.write("(none)\n\n")
-                    f.write("SUMMARY:\n")
-                    f.write(summary + "\n")
-            continue
-
-        df2, _ = build_paper_frame(df)
-
-        # Sort: citations desc, then year desc; cap papers
-        df2 = df2.sort_values(["_cites", "_year"], ascending=[
-                              False, False]).head(args.max_papers)
-
-        record_strings = [format_record(
-            r, abstract_chars=args.abstract_chars) for _, r in df2.iterrows()]
-        chunks = chunk_records(record_strings, tokenizer,
-                               args.max_input_tokens)
-
-        # MAP: themes per chunk (tight output)
-        theme_candidates: List[str] = []
-        evidence_notes_parts: List[str] = []
-
-        for i, chunk in enumerate(chunks, start=1):
-            chunk_text = "\n\n---\n\n".join(chunk)
-            messages = make_map_messages(author_id, chunk_text)
-            chunk_out = generate_chat(
-                model,
-                tokenizer,
-                messages,
-                max_new_tokens=args.map_max_new,
+        if input_mode == "txt":
+            result = process_txt_input(
+                path=path,
+                tokenizer=tokenizer,
+                model=model,
+                max_input_tokens=args.max_input_tokens,
+                map_max_new=args.map_max_new,
+                reduce_max_new=args.reduce_max_new,
                 temperature=args.temperature,
                 top_p=args.top_p,
                 repetition_penalty=args.repetition_penalty,
             )
-            evidence_notes_parts.append(f"Chunk {i} themes:\n{chunk_out}")
-            theme_candidates.extend(parse_theme_bullets(chunk_out))
+        else:
+            result = process_csv_input(
+                path=path,
+                tokenizer=tokenizer,
+                model=model,
+                max_papers=args.max_papers,
+                max_input_tokens=args.max_input_tokens,
+                map_max_new=args.map_max_new,
+                reduce_max_new=args.reduce_max_new,
+                temperature=args.temperature,
+                top_p=args.top_p,
+                repetition_penalty=args.repetition_penalty,
+                abstract_chars=args.abstract_chars,
+            )
 
-        # Consolidate themes (keep top N unique)
-        themes = theme_candidates[:12]
-
-        # REDUCE: 1–2 paragraphs (use themes + minimal evidence)
-        evidence_notes = "\n\n".join(evidence_notes_parts)
-        reduce_messages = make_reduce_messages(
-            author_id, themes, evidence_notes)
-        final_summary = generate_chat(
-            model,
-            tokenizer,
-            reduce_messages,
-            max_new_tokens=args.reduce_max_new,
-            temperature=args.temperature,
-            top_p=args.top_p,
-            repetition_penalty=args.repetition_penalty,
-        )
-
-        themes_str = "; ".join(themes)  # CSV-friendly
-
-        # OUTPUT: ONLY themes + summary
-        results.append(
-            {
-                "author_id": author_id,
-                "author_file": fname,
-                "themes": themes_str,
-                "summary": final_summary,
-            }
-        )
+        results.append(result)
 
         if output_txt_dir:
-            with open(os.path.join(output_txt_dir, f"{author_id}.txt"), "w", encoding="utf-8") as f:
+            out_path = os.path.join(
+                output_txt_dir, f"{result['author_id']}.txt")
+            with open(out_path, "w", encoding="utf-8") as f:
                 f.write("THEMES:\n")
-                if themes:
-                    for t in themes:
-                        f.write(f"- {t}\n")
+                if result["themes"].strip():
+                    for t in result["themes"].split("; "):
+                        if t.strip():
+                            f.write(f"- {t.strip()}\n")
                 else:
                     f.write("(none)\n")
                 f.write("\nSUMMARY:\n")
-                f.write(final_summary + "\n")
+                f.write(result["summary"].strip() + "\n")
+            print(f"✅ Wrote: {out_path}")
 
-    out_df = pd.DataFrame(results)
-    out_df.to_csv(args.output_csv, index=False, encoding="utf-8")
-    print(f"\n✅ Wrote: {args.output_csv}")
+    if args.output_csv.strip():
+        out_df = pd.DataFrame(results)
+        out_df.to_csv(args.output_csv, index=False, encoding="utf-8")
+        print(f"✅ Wrote: {args.output_csv}")
+
     if output_txt_dir:
-        print(f"✅ Wrote per-author txt files to: {output_txt_dir}/")
+        print(f"✅ Wrote per-author txt files to: {output_txt_dir}")
+    else:
+        print("Done.")
 
 
 if __name__ == "__main__":
