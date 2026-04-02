@@ -2,151 +2,90 @@
 """
 run_valiantwrapped_pipeline.py
 
-Run the full TXT-based VALIANT Wrapped pipeline in either:
-- single mode
-- batch mode
+One command runner that chains the TXT-based pipeline end-to-end and optionally
+deletes intermediate TXT folders after they are no longer needed.
 
 Pipeline:
-1. scopus2txtsummary.py          (CSV -> summary TXT)
-2. author_expertise_llama31_2.py (summary TXT -> expertise TXT)
-3. author_persona_llama31.py     (expertise TXT -> persona TXT)
-4. generate_album_covers.py      (persona TXT -> album cover image)
-5. generate_valiantwrapped_site_noindex.py (TXT + images -> HTML)
+1) scopus2txtsummary.py        CSV  -> summary TXT
+2) author_expertise_llama31_2.py  summary TXT -> expertise TXT
+3) author_persona_llama31.py   expertise TXT -> persona TXT
+4) generate_album_covers.py    persona TXT -> PNG covers
 
-Optional:
-- --cleanup-intermediate removes intermediate TXT folders after final outputs are generated
+Example:
+  python run_valiantwrapped_pipeline.py \
+    --input-file author_csvs/Landman_Bennett_16679175200.csv \
+    --work-dir /tmp/valiantwrapped_run \
+    --cleanup-intermediate
 """
 
 import argparse
-import os
 import shutil
 import subprocess
 import sys
+from pathlib import Path
 
+def run_cmd(cmd):
+    print("\n$ " + " ".join(str(x) for x in cmd))
+    subprocess.run(cmd, check=True)
 
-def run(cmd):
-    print("\n" + "=" * 80)
-    print("RUNNING:")
-    print(" ".join(cmd))
-    print("=" * 80 + "\n")
-    result = subprocess.run(cmd)
-    if result.returncode != 0:
-        raise SystemExit(result.returncode)
-
-
-def author_label_from_path(path: str) -> str:
-    return os.path.splitext(os.path.basename(path))[0]
-
-
-def cleanup_folder(path: str):
-    if os.path.isdir(path):
+def remove_dir(path: Path):
+    if path.exists():
         shutil.rmtree(path)
-        print(f"í·¹ Deleted intermediate folder: {path}")
-
+        print(f"Deleted: {path}")
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["single", "batch"], required=True)
-
-    ap.add_argument("--input-file", default="", help="Single Scopus CSV input file")
-    ap.add_argument("--input-dir", default="", help="Folder of Scopus CSV input files")
-
+    ap.add_argument("--input-file", default="")
+    ap.add_argument("--input-dir", default="")
+    ap.add_argument("--work-dir", default="outputs/pipeline_run")
+    ap.add_argument("--python-bin", default=sys.executable)
     ap.add_argument("--year-cutoff", type=int, default=2025)
-
-    ap.add_argument("--summary-dir", default="outputs/summary_txt")
-    ap.add_argument("--expertise-dir", default="outputs/expertise_txt")
-    ap.add_argument("--persona-dir", default="outputs/personas_txt")
-    ap.add_argument("--album-covers-dir", default="outputs/album_covers")
-    ap.add_argument("--docs-dir", default="docs")
-    ap.add_argument("--base-url", default="")
-
-    ap.add_argument("--text-model", default="meta-llama/Meta-Llama-3.1-8B-Instruct")
-    ap.add_argument("--image-model", default="black-forest-labs/FLUX.1-dev")
-
-    ap.add_argument(
-        "--cleanup-intermediate",
-        action="store_true",
-        help="Delete intermediate TXT output folders after final outputs are generated",
-    )
-
+    ap.add_argument("--keep-summary-txt", action="store_true")
+    ap.add_argument("--keep-expertise-txt", action="store_true")
+    ap.add_argument("--keep-persona-txt", action="store_true")
+    ap.add_argument("--cleanup-intermediate", action="store_true")
     args = ap.parse_args()
-    py = sys.executable
 
-    if args.mode == "single":
-        if not args.input_file:
-            raise ValueError("--input-file is required for single mode")
-        if not args.input_file.lower().endswith(".csv"):
-            raise ValueError("--input-file must be a Scopus CSV file")
-        author_label = author_label_from_path(args.input_file)
-        scopus_input_flag = ["--input-file", args.input_file]
-        summary_input_flag = ["--input-file", os.path.join(args.summary_dir, f"{author_label}.txt")]
-        expertise_input_flag = ["--input-file", os.path.join(args.expertise_dir, f"{author_label}.txt")]
-        persona_input_flag = ["--input-file", os.path.join(args.persona_dir, f"{author_label}.txt")]
+    if bool(args.input_file) == bool(args.input_dir):
+        raise ValueError("Provide exactly one of --input-file or --input-dir")
+
+    root = Path(__file__).resolve().parent
+    work = Path(args.work_dir)
+    summary_dir = work / "summary_txt"
+    expertise_dir = work / "expertise_txt"
+    persona_dir = work / "persona_txt"
+    cover_dir = work / "album_covers"
+    work.mkdir(parents=True, exist_ok=True)
+
+    scopus_cmd = [args.python_bin, str(root / "scopus2txtsummary.py"), "--output-dir", str(summary_dir), "--year-cutoff", str(args.year_cutoff)]
+    expertise_cmd = [args.python_bin, str(root / "author_expertise_llama31_2.py"), "--output-dir", str(expertise_dir), "--output-csv", ""]
+    persona_cmd = [args.python_bin, str(root / "author_persona_llama31.py"), "--output-dir", str(persona_dir), "--output-csv", ""]
+    covers_cmd = [args.python_bin, str(root / "generate_album_covers.py"), "--output-dir", str(cover_dir)]
+
+    if args.input_file:
+        scopus_cmd += ["--input-file", args.input_file]
     else:
-        if not args.input_dir:
-            raise ValueError("--input-dir is required for batch mode")
-        scopus_input_flag = ["--input-dir", args.input_dir]
-        summary_input_flag = ["--input-dir", args.summary_dir]
-        expertise_input_flag = ["--input-dir", args.expertise_dir]
-        persona_input_flag = ["--input-dir", args.persona_dir]
-        author_label = ""
+        scopus_cmd += ["--input-dir", args.input_dir]
 
-    # Step 1: CSV -> summary TXT
-    run([
-        py, "scopus2txtsummary.py",
-        *scopus_input_flag,
-        "--output-dir", args.summary_dir,
-        "--year-cutoff", str(args.year_cutoff),
-    ])
+    expertise_cmd += ["--input-dir", str(summary_dir)]
+    persona_cmd += ["--input-dir", str(expertise_dir)]
+    covers_cmd += ["--input-dir", str(persona_dir)]
 
-    # Step 2: summary TXT -> expertise TXT
-    run([
-        py, "author_expertise_llama31_2.py",
-        *summary_input_flag,
-        "--output-dir", args.expertise_dir,
-        "--model-id", args.text_model,
-    ])
+    run_cmd(scopus_cmd)
+    run_cmd(expertise_cmd)
+    run_cmd(persona_cmd)
+    run_cmd(covers_cmd)
 
-    # Step 3: expertise TXT -> persona TXT
-    run([
-        py, "author_persona_llama31.py",
-        *expertise_input_flag,
-        "--output-dir", args.persona_dir,
-        "--model-id", args.text_model,
-    ])
-
-    # Step 4: persona TXT -> album covers
-    run([
-        py, "generate_album_covers.py",
-        *persona_input_flag,
-        "--output-dir", args.album_covers_dir,
-        "--llm-model", args.text_model,
-        "--image-model", args.image_model,
-    ])
-
-    # Step 5: build HTML pages
-    site_cmd = [
-        py, "generate_valiantwrapped_site_noindex.py",
-        "--summary-dir", args.summary_dir,
-        "--persona-dir", args.persona_dir,
-        "--album-covers-dir", args.album_covers_dir,
-        "--docs-dir", args.docs_dir,
-    ]
-    if args.base_url:
-        site_cmd.extend(["--base-url", args.base_url])
-    if args.mode == "single":
-        site_cmd.extend(["--author-label", author_label])
-
-    run(site_cmd)
-
-    # Optional cleanup
     if args.cleanup_intermediate:
-        cleanup_folder(args.summary_dir)
-        cleanup_folder(args.expertise_dir)
-        cleanup_folder(args.persona_dir)
+        if not args.keep_summary_txt:
+            remove_dir(summary_dir)
+        if not args.keep_expertise_txt:
+            remove_dir(expertise_dir)
+        if not args.keep_persona_txt:
+            remove_dir(persona_dir)
 
-    print("\nâœ… Pipeline complete.")
-
+    print("\nPipeline completed successfully.")
+    print(f"Final album covers: {cover_dir}")
 
 if __name__ == "__main__":
     main()

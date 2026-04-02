@@ -133,13 +133,15 @@ def build_zip(run: RunState) -> str:
         if docs_dir.exists():
             for p in docs_dir.rglob("*"):
                 if p.is_file():
-                    zf.write(p, arcname=str(Path("docs") / p.relative_to(docs_dir)))
+                    zf.write(p, arcname=str(
+                        Path("docs") / p.relative_to(docs_dir)))
         if covers_dir.exists():
             for p in covers_dir.rglob("*"):
                 if p.is_file():
                     zf.write(
                         p,
-                        arcname=str(Path("outputs") / "album_covers" / p.relative_to(covers_dir)),
+                        arcname=str(Path("outputs") / "album_covers" /
+                                    p.relative_to(covers_dir)),
                     )
     run.zip_path = str(zip_path)
     return str(zip_path)
@@ -173,13 +175,15 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
 
     try:
         run.status = "running"
-        run.mode_effective = "single" if len(uploaded_files) == 1 and run.mode_requested != "batch" else "batch"
+        run.mode_effective = "single" if len(
+            uploaded_files) == 1 and run.mode_requested != "batch" else "batch"
         if run.mode_requested == "single":
             run.mode_effective = "single"
         if run.mode_requested == "batch":
             run.mode_effective = "batch"
 
-        run.author_labels = [safe_author_label_from_name(p.name) for p in uploaded_files]
+        run.author_labels = [safe_author_label_from_name(
+            p.name) for p in uploaded_files]
 
         set_step(run, 1, "Preparing uploads")
         append_log(run, f"Run ID: {run.run_id}")
@@ -211,7 +215,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
 
         set_step(run, 3, "Step 2/5 · Generating expertise summaries")
         expertise_input = (
-            ["--input-file", str(Path(run.summary_dir) / f"{author_label}.txt")]
+            ["--input-file", str(Path(run.summary_dir) /
+                                 f"{author_label}.txt")]
             if run.mode_effective == "single"
             else ["--input-dir", run.summary_dir]
         )
@@ -229,7 +234,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
 
         set_step(run, 4, "Step 3/5 · Creating music personas")
         persona_input = (
-            ["--input-file", str(Path(run.expertise_dir) / f"{author_label}.txt")]
+            ["--input-file", str(Path(run.expertise_dir) /
+                                 f"{author_label}.txt")]
             if run.mode_effective == "single"
             else ["--input-dir", run.expertise_dir]
         )
@@ -247,7 +253,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
 
         set_step(run, 5, "Step 4/5 · Generating album covers")
         cover_input = (
-            ["--input-file", str(Path(run.persona_dir) / f"{author_label}.txt")]
+            ["--input-file", str(Path(run.persona_dir) /
+                                 f"{author_label}.txt")]
             if run.mode_effective == "single"
             else ["--input-dir", run.persona_dir]
         )
@@ -279,7 +286,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
         if run.mode_effective == "single":
             site_cmd.extend(["--author-label", author_label])
 
-        run_subprocess(run, site_cmd, "generate_valiantwrapped_site_noindex.py")
+        run_subprocess(
+            run, site_cmd, "generate_valiantwrapped_site_noindex.py")
 
         collect_result_pages(run)
         build_zip(run)
@@ -357,7 +365,8 @@ def api_run():
     with RUNS_LOCK:
         RUNS[run_id] = run
 
-    t = threading.Thread(target=execute_pipeline, args=(run, saved_paths), daemon=True)
+    t = threading.Thread(target=execute_pipeline,
+                         args=(run, saved_paths), daemon=True)
     t.start()
 
     return jsonify(
@@ -428,7 +437,8 @@ def api_manifest(run_id: str):
         if proc.stdout:
             append_log(run, proc.stdout.strip())
         if proc.returncode != 0:
-            raise RuntimeError(f"Manifest generation failed with exit code {proc.returncode}.")
+            raise RuntimeError(
+                f"Manifest generation failed with exit code {proc.returncode}.")
         run.manifest_path = str(manifest_path)
     except Exception as e:
         return jsonify({"ok": False, "error": str(e)}), 500
@@ -470,4 +480,4 @@ def serve_generated_docs(run_id: str, subpath: str):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5000)
