@@ -426,6 +426,41 @@ def generate_chat(
     return text
 
 
+
+def load_model_and_tokenizer(model_id: str, allow_cpu_fallback: bool = False):
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    import torch
+
+    print(f"Loading model: {model_id}")
+    tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=True)
+
+    has_cuda = torch.cuda.is_available()
+    if not has_cuda and not allow_cpu_fallback:
+        raise RuntimeError(
+            "No CUDA GPU detected for author_expertise_llama31_2.py. "
+            "This script defaults to GPU-only because loading an 8B model on CPU/RAM "
+            "often gets the process killed (exit code -9). "
+            "Run it inside a GPU allocation or pass --allow-cpu-fallback if you really want CPU mode."
+        )
+
+    if has_cuda:
+        major = torch.cuda.get_device_capability(0)[0]
+        dtype = torch.bfloat16 if major >= 8 else torch.float16
+        device_map = 'auto'
+        print(f"CUDA detected: {torch.cuda.get_device_name(0)} | dtype={dtype}")
+    else:
+        dtype = torch.float16
+        device_map = {'': 'cpu'}
+        print('CUDA not detected. Falling back to CPU mode; this may be slow and memory-intensive.')
+
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id,
+        dtype=dtype,
+        device_map=device_map,
+        low_cpu_mem_usage=True,
+    )
+    return tokenizer, model
+
 # ----------------------------
 # Per-author processing
 # ----------------------------
@@ -595,6 +630,8 @@ def main() -> None:
     ap.add_argument("--repetition-penalty", type=float, default=1.1)
     ap.add_argument("--abstract-chars", type=int, default=260,
                     help="Max abstract chars per paper")
+    ap.add_argument("--allow-cpu-fallback", action="store_true",
+                    help="Allow CPU mode if no CUDA GPU is visible. Not recommended for 8B models.")
     args = ap.parse_args()
 
     allowed_exts = (".txt", ".csv")
@@ -606,22 +643,9 @@ def main() -> None:
     if output_txt_dir:
         os.makedirs(output_txt_dir, exist_ok=True)
 
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-    import torch
-
-    print(f"Loading model: {args.model_id}")
-    tokenizer = AutoTokenizer.from_pretrained(args.model_id, use_fast=True)
-
-    if torch.cuda.is_available():
-        major = torch.cuda.get_device_capability(0)[0]
-        dtype = torch.bfloat16 if major >= 8 else torch.float16
-    else:
-        dtype = torch.float32
-
-    model = AutoModelForCausalLM.from_pretrained(
+    tokenizer, model = load_model_and_tokenizer(
         args.model_id,
-        torch_dtype=dtype,
-        device_map="auto",
+        allow_cpu_fallback=args.allow_cpu_fallback,
     )
 
     results: List[Dict[str, str]] = []
