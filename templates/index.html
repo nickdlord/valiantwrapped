@@ -10,15 +10,40 @@
   <div class="container">
     <div class="hero">
       <div class="kicker">VALIANT Wrapped • Localhost Studio</div>
-      <h1>Create Individual Wrapped Pages</h1>
+      <h1>Turn Your Research Into a Hallucination Worth Sharing</h1>
       <p class="subtitle">
-        Upload one or more Scopus CSV exports, run a single or batch pipeline, preview author pages,
-        and download a manifest to share with your team.
+        We all know AI hallucinates—so why not go all the way? Upload your Scopus export and watch it remix
+        your publication history into a fictional music persona, album, and shareable Wrapped-style experience.
       </p>
     </div>
 
     <div class="section">
       <h2>Upload Scopus CSV Files</h2>
+
+      <div class="identity-card">
+        <div class="label">Who is this for?</div>
+        <div class="identity-grid">
+          <div class="field-group">
+            <label for="firstName">First Name <span class="mini">(required for single mode)</span></label>
+            <input id="firstName" name="first_name" type="text" placeholder="Andre" autocomplete="given-name">
+          </div>
+
+          <div class="field-group">
+            <label for="lastName">Last Name <span class="mini">(required for single mode)</span></label>
+            <input id="lastName" name="last_name" type="text" placeholder="da Silva Hucke" autocomplete="family-name">
+          </div>
+
+          <div class="field-group">
+            <label for="scopusId">Scopus ID <span class="mini">(required for single mode)</span></label>
+            <input id="scopusId" name="scopus_id" type="text" inputmode="numeric" placeholder="57218632790" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="field-note">
+          For a single upload, these fields define the author label used across the pipeline. Multi-word last names
+          such as <em>da Silva Hucke</em> or hyphenated names such as <em>Gardner-Johnson</em> are supported.
+        </div>
+      </div>
 
       <div class="upload-card">
         <label class="upload-dropzone" for="csvFiles">
@@ -51,8 +76,9 @@
           </div>
 
           <div class="button-row">
-            <button id="runBtn" class="primary-btn">Run Wrapped Pipeline</button>
-            <button id="manifestBtn" class="secondary-btn" disabled>Download Manifest</button>
+            <button id="runBtn" class="primary-btn" type="button">Run Wrapped Pipeline</button>
+            <button id="stopBtn" class="danger-btn" type="button" disabled>STOP / KILL RUN</button>
+            <button id="manifestBtn" class="secondary-btn" type="button" disabled>Download Manifest</button>
             <a id="zipBtn" class="secondary-btn link-btn disabled-link" href="#" download>Download Results ZIP</a>
           </div>
         </div>
@@ -95,6 +121,12 @@
       <div id="resultsEmpty" class="footer-note">
         When your run finishes, author pages will appear here.
       </div>
+
+      <div id="shareMessage" class="footer-note hidden">
+        PNG download is available below for you to share on social media of your choice.
+      </div>
+
+      <div id="shareDownloads" class="share-downloads hidden"></div>
 
       <div id="resultsArea" class="results-layout hidden">
         <div class="results-sidebar">
