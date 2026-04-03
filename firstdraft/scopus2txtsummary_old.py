@@ -10,18 +10,8 @@ Supports:
 - single mode via --input-file
 - batch mode via --input-dir
 
-For single-author GUI runs, you can optionally pass:
-- --first-name
-- --last-name
-- --scopus-id
-
-When provided together, those fields determine the canonical AUTHOR_ID and
-output filename using the pipeline's label format:
-  Last_First_ScopusID
-
-Multi-word surnames are preserved within the "Last" portion by converting
-internal spaces to hyphens, e.g.:
-  "da Silva Hucke" -> "da-Silva-Hucke_Andre_12345678900"
+Output:
+- one TXT file per author in --output-dir
 """
 
 import sys
@@ -34,7 +24,7 @@ import re
 import glob
 import argparse
 from pathlib import Path
-from typing import List, Tuple, Optional
+from typing import List, Tuple
 import pandas as pd
 
 YEAR_COLS = ["Year", "Publication Year", "Pub. Year"]
@@ -45,34 +35,28 @@ CITES_COLS = ["Cited by", "Citations", "Citation count"]
 KEYWORD_COLS = ["Author Keywords", "Indexed Keywords", "Keywords"]
 DOCTYPE_COLS = ["Document Type", "Doc Type", "Type"]
 
-
 def pick_existing_col(df_cols, candidates):
     for c in candidates:
         if c in df_cols:
             return c
     return None
 
-
 def safe_int_series(s):
     return pd.to_numeric(s, errors="coerce").fillna(0).astype(int)
-
 
 def clean_text(x):
     s = "" if x is None else str(x)
     return re.sub(r"\s+", " ", s).strip()
 
-
 def truncate(s: str, max_chars: int) -> str:
     s = clean_text(s)
     return s if len(s) <= max_chars else s[:max_chars].rstrip() + "..."
-
 
 def load_csv(path: Path) -> pd.DataFrame:
     try:
         return pd.read_csv(path, dtype=str, encoding="utf-8", low_memory=False)
     except UnicodeDecodeError:
         return pd.read_csv(path, dtype=str, encoding="latin-1", low_memory=False)
-
 
 def resolve_input_paths(input_file: str, input_dir: str) -> List[Path]:
     if bool(input_file) == bool(input_dir):
@@ -89,53 +73,6 @@ def resolve_input_paths(input_file: str, input_dir: str) -> List[Path]:
     if not paths:
         raise FileNotFoundError(f"No CSV files found in: {pdir}")
     return paths
-
-
-def normalize_scopus_id(value: str) -> str:
-    return "".join(ch for ch in str(value or "") if ch.isdigit())
-
-
-def normalize_name_component(value: str) -> str:
-    value = clean_text(value)
-    value = value.replace("_", " ")
-    value = "-".join(part for part in value.split(" ") if part)
-    value = "".join(ch for ch in value if ch.isalnum() or ch == "-")
-    value = value.strip("-")
-    value = "-".join(part for part in value.split("-") if part)
-    return value
-
-
-def build_author_label(first_name: str, last_name: str, scopus_id: str) -> str:
-    first = normalize_name_component(first_name)
-    last = normalize_name_component(last_name)
-    sid = normalize_scopus_id(scopus_id)
-    if not first:
-        raise ValueError("First name is required when using --first-name/--last-name/--scopus-id.")
-    if not last:
-        raise ValueError("Last name is required when using --first-name/--last-name/--scopus-id.")
-    if not sid:
-        raise ValueError("Scopus ID must contain digits when using --first-name/--last-name/--scopus-id.")
-    return f"{last}_{first}_{sid}"
-
-
-def resolve_author_id(
-    path: Path,
-    first_name: str = "",
-    last_name: str = "",
-    scopus_id: str = "",
-) -> str:
-    has_identity_inputs = any([clean_text(first_name), clean_text(last_name), clean_text(scopus_id)])
-    if not has_identity_inputs:
-        return path.stem
-
-    if not all([clean_text(first_name), clean_text(last_name), normalize_scopus_id(scopus_id)]):
-        raise ValueError(
-            "If any identity fields are provided, you must provide all three: "
-            "--first-name, --last-name, and --scopus-id."
-        )
-
-    return build_author_label(first_name, last_name, scopus_id)
-
 
 def format_record(row: pd.Series, abstract_chars: int) -> str:
     year = int(row["_year"]) if row.get("_year") is not None else -1
@@ -161,34 +98,13 @@ def format_record(row: pd.Series, abstract_chars: int) -> str:
         lines.append(f"Abstract: {abstract}")
     return "\n".join(lines)
 
-
-def summarize_one_file(
-    path: Path,
-    year_cutoff: int,
-    abstract_chars: int,
-    author_id_override: Optional[str] = None,
-    first_name: str = "",
-    last_name: str = "",
-    scopus_id: str = "",
-) -> Tuple[str, str]:
+def summarize_one_file(path: Path, year_cutoff: int, abstract_chars: int) -> Tuple[str, str]:
     filename = path.name
-    author_id = author_id_override or resolve_author_id(path, first_name, last_name, scopus_id)
+    author_id = path.stem
     df = load_csv(path)
-
-    header = [
-        f"AUTHOR_ID: {author_id}",
-        f"SOURCE_FILE: {filename}",
-    ]
-    if clean_text(first_name):
-        header.append(f"FIRST_NAME: {clean_text(first_name)}")
-    if clean_text(last_name):
-        header.append(f"LAST_NAME: {clean_text(last_name)}")
-    if normalize_scopus_id(scopus_id):
-        header.append(f"SCOPUS_ID: {normalize_scopus_id(scopus_id)}")
-    header_block = "\n".join(header)
-
     if df.empty:
-        return author_id, f"""{header_block}
+        return author_id, f"""AUTHOR_ID: {author_id}
+SOURCE_FILE: {filename}
 
 METRICS:
 Publications ({year_cutoff}-Present): 0
@@ -210,35 +126,25 @@ PUBLICATION_RECORDS:
     if year_col is None:
         raise ValueError(f"{filename}: Could not find a Year column.")
     if cites_col is None:
-        df["_citations"] = 0
-        cites_col = "_citations"
+        df["_citations"] = 0; cites_col = "_citations"
     if journal_col is None:
-        df["_journal_fallback"] = ""
-        journal_col = "_journal_fallback"
+        df["_journal_fallback"] = ""; journal_col = "_journal_fallback"
     if title_col is None:
-        df["_title_fallback"] = ""
-        title_col = "_title_fallback"
+        df["_title_fallback"] = ""; title_col = "_title_fallback"
     if abstract_col is None:
-        df["_abstract_fallback"] = ""
-        abstract_col = "_abstract_fallback"
+        df["_abstract_fallback"] = ""; abstract_col = "_abstract_fallback"
     if keyword_col is None:
-        df["_keywords_fallback"] = ""
-        keyword_col = "_keywords_fallback"
+        df["_keywords_fallback"] = ""; keyword_col = "_keywords_fallback"
     if doctype_col is None:
-        df["_doctype_fallback"] = ""
-        doctype_col = "_doctype_fallback"
+        df["_doctype_fallback"] = ""; doctype_col = "_doctype_fallback"
 
-    df["_year"] = safe_int_series(df[year_col])
-    df["_cites"] = safe_int_series(df[cites_col])
-    df["_title"] = df[title_col].fillna("")
-    df["_abstract"] = df[abstract_col].fillna("")
-    df["_journal"] = df[journal_col].fillna("")
-    df["_keywords"] = df[keyword_col].fillna("")
+    df["_year"] = safe_int_series(df[year_col]); df["_cites"] = safe_int_series(df[cites_col])
+    df["_title"] = df[title_col].fillna(""); df["_abstract"] = df[abstract_col].fillna("")
+    df["_journal"] = df[journal_col].fillna(""); df["_keywords"] = df[keyword_col].fillna("")
     df["_doctype"] = df[doctype_col].fillna("")
     df_recent = df[df["_year"] >= year_cutoff].copy()
 
-    pub_count = int(len(df_recent))
-    cite_count = int(df_recent["_cites"].sum())
+    pub_count = int(len(df_recent)); cite_count = int(df_recent["_cites"].sum())
     top_journal = ""
     if pub_count > 0:
         journal_stats = (
@@ -247,8 +153,7 @@ PUBLICATION_RECORDS:
             .sort_values(["pub_count", "cite_sum"], ascending=[False, False])
         )
         top_journal = clean_text(journal_stats.iloc[0][journal_col]) if not journal_stats.empty else ""
-    top_paper_title = ""
-    top_paper_cites = 0
+    top_paper_title = ""; top_paper_cites = 0
     if pub_count > 0:
         df_recent_sorted = df_recent.sort_values(["_cites", "_year"], ascending=[False, False])
         top_paper_title = clean_text(df_recent_sorted.iloc[0][title_col])
@@ -256,7 +161,8 @@ PUBLICATION_RECORDS:
 
     df_records = df.sort_values(["_cites", "_year"], ascending=[False, False]).copy()
     records_text = "\n\n---\n\n".join(format_record(r, abstract_chars) for _, r in df_records.iterrows()) if len(df_records) else "(none)"
-    text = f"""{header_block}
+    text = f"""AUTHOR_ID: {author_id}
+SOURCE_FILE: {filename}
 
 METRICS:
 Publications ({year_cutoff}-Present): {pub_count}
@@ -270,7 +176,6 @@ PUBLICATION_RECORDS:
 """
     return author_id, text
 
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input-file", default="")
@@ -278,39 +183,16 @@ def main():
     ap.add_argument("--output-dir", default="outputs/summary_txt")
     ap.add_argument("--year-cutoff", type=int, default=2025)
     ap.add_argument("--abstract-chars", type=int, default=400)
-    ap.add_argument("--first-name", default="", help="Optional GUI-supplied first name for single-file runs")
-    ap.add_argument("--last-name", default="", help="Optional GUI-supplied last name for single-file runs")
-    ap.add_argument("--scopus-id", default="", help="Optional GUI-supplied Scopus ID for single-file runs")
     args = ap.parse_args()
 
     paths = resolve_input_paths(args.input_file, args.input_dir)
-    output_dir = Path(args.output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    identity_override = None
-    if args.input_file and any([clean_text(args.first_name), clean_text(args.last_name), clean_text(args.scopus_id)]):
-        identity_override = resolve_author_id(
-            Path(args.input_file),
-            args.first_name,
-            args.last_name,
-            args.scopus_id,
-        )
+    output_dir = Path(args.output_dir); output_dir.mkdir(parents=True, exist_ok=True)
 
     for path in paths:
-        per_file_override = identity_override if args.input_file else None
-        author_id, text = summarize_one_file(
-            path,
-            args.year_cutoff,
-            args.abstract_chars,
-            author_id_override=per_file_override,
-            first_name=args.first_name if args.input_file else "",
-            last_name=args.last_name if args.input_file else "",
-            scopus_id=args.scopus_id if args.input_file else "",
-        )
+        author_id, text = summarize_one_file(path, args.year_cutoff, args.abstract_chars)
         out_path = output_dir / f"{author_id}.txt"
         out_path.write_text(text.strip() + "\n", encoding="utf-8")
         print(f"Wrote: {out_path}")
-
 
 if __name__ == "__main__":
     main()
