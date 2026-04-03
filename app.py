@@ -226,6 +226,7 @@ PAGE_HTML = """
 
   <script>
     let currentRunId = null;
+    alert("inline JS loaded");
     let statusTimer = null;
 
     const form = document.getElementById('runForm');
@@ -505,13 +506,15 @@ def cancel_run_process(run: RunState) -> None:
         return
     try:
         if os.name == "nt":
-            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         else:
             os.killpg(pid, 15)
     except ProcessLookupError:
         pass
     except Exception as exc:
-        append_log(run, f"WARN: could not terminate process group cleanly: {exc}")
+        append_log(
+            run, f"WARN: could not terminate process group cleanly: {exc}")
 
 
 def run_subprocess(run: RunState, cmd: list[str], label: str) -> None:
@@ -568,7 +571,8 @@ def run_subprocess(run: RunState, cmd: list[str], label: str) -> None:
             append_log(run, "\n".join(captured))
 
         if proc.returncode != 0:
-            raise RuntimeError(f"{label} failed with exit code {proc.returncode}.")
+            raise RuntimeError(
+                f"{label} failed with exit code {proc.returncode}.")
     finally:
         run.current_pid = None
         try:
@@ -588,14 +592,17 @@ def build_zip(run: RunState) -> str:
         if docs_dir.exists():
             for p in docs_dir.rglob("*"):
                 if p.is_file():
-                    zf.write(p, arcname=str(Path("docs") / p.relative_to(docs_dir)))
+                    zf.write(p, arcname=str(
+                        Path("docs") / p.relative_to(docs_dir)))
         if covers_dir.exists():
             for p in covers_dir.rglob("*"):
                 if p.is_file():
-                    zf.write(p, arcname=str(Path("outputs") / "album_covers" / p.relative_to(covers_dir)))
+                    zf.write(p, arcname=str(Path("outputs") /
+                             "album_covers" / p.relative_to(covers_dir)))
         if social_dir.exists():
             for p in social_dir.rglob("*.png"):
-                zf.write(p, arcname=str(Path("outputs") / "social_cards" / p.relative_to(social_dir)))
+                zf.write(p, arcname=str(Path("outputs") /
+                         "social_cards" / p.relative_to(social_dir)))
     run.zip_path = str(zip_path)
     return str(zip_path)
 
@@ -608,7 +615,8 @@ def collect_result_pages(run: RunState) -> list[dict]:
 
     for html_path in sorted(author_dir.glob("*.html")):
         author_label = html_path.stem
-        first, last, scopus_id, display_name = display_name_from_label(author_label)
+        first, last, scopus_id, display_name = display_name_from_label(
+            author_label)
         rows.append(
             {
                 "author_label": author_label,
@@ -668,7 +676,8 @@ def read_summary_stats(run: RunState, author_label: str) -> dict[str, str]:
 def rounded_image(img: Image.Image, radius: int) -> Image.Image:
     mask = Image.new("L", img.size, 0)
     mask_draw = ImageDraw.Draw(mask)
-    mask_draw.rounded_rectangle((0, 0, img.size[0], img.size[1]), radius=radius, fill=255)
+    mask_draw.rounded_rectangle(
+        (0, 0, img.size[0], img.size[1]), radius=radius, fill=255)
     out = Image.new("RGBA", img.size)
     out.paste(img, (0, 0), mask)
     return out
@@ -723,7 +732,8 @@ def generate_social_card(run: RunState, author_label: str) -> Path:
     if out_path.exists():
         return out_path
 
-    first, last, scopus_id, display_name = display_name_from_label(author_label)
+    first, last, scopus_id, display_name = display_name_from_label(
+        author_label)
     stats = read_summary_stats(run, author_label)
     artist_name, album_title = read_persona_fields(run, author_label)
 
@@ -740,7 +750,8 @@ def generate_social_card(run: RunState, author_label: str) -> Path:
 
     draw.ellipse((780, -90, 1220, 330), fill=(124, 58, 237, 90))
     draw.ellipse((880, 250, 1280, 640), fill=(6, 182, 212, 70))
-    draw.rounded_rectangle((36, 36, 1164, 594), radius=34, outline=(255, 255, 255, 36), width=1)
+    draw.rounded_rectangle((36, 36, 1164, 594), radius=34,
+                           outline=(255, 255, 255, 36), width=1)
 
     title_font = load_font(54, bold=True)
     subtitle_font = load_font(22, bold=False)
@@ -749,9 +760,12 @@ def generate_social_card(run: RunState, author_label: str) -> Path:
     small_font = load_font(18, bold=False)
     kicker_font = load_font(20, bold=True)
 
-    draw.text((52, 48), "VALIANT WRAPPED", font=kicker_font, fill=(210, 220, 240, 230))
-    draw.text((52, 82), display_name, font=title_font, fill=(255, 255, 255, 255))
-    draw.text((52, 148), "Your research, reimagined as an AI-generated music persona.", font=subtitle_font, fill=(217, 226, 242, 230))
+    draw.text((52, 48), "VALIANT WRAPPED",
+              font=kicker_font, fill=(210, 220, 240, 230))
+    draw.text((52, 82), display_name, font=title_font,
+              fill=(255, 255, 255, 255))
+    draw.text((52, 148), "Your research, reimagined as an AI-generated music persona.",
+              font=subtitle_font, fill=(217, 226, 242, 230))
 
     # Album cover
     cover_path = None
@@ -766,33 +780,45 @@ def generate_social_card(run: RunState, author_label: str) -> Path:
             cover = rounded_image(cover, 26)
             canvas.alpha_composite(cover, (58, 226))
         except Exception:
-            draw.rounded_rectangle((58, 226, 388, 556), radius=26, fill=(255, 255, 255, 25), outline=(255, 255, 255, 60))
-            draw.text((96, 376), "Album art\nunavailable", font=body_font, fill=(235, 241, 255, 220))
+            draw.rounded_rectangle((58, 226, 388, 556), radius=26, fill=(
+                255, 255, 255, 25), outline=(255, 255, 255, 60))
+            draw.text((96, 376), "Album art\nunavailable",
+                      font=body_font, fill=(235, 241, 255, 220))
     else:
-        draw.rounded_rectangle((58, 226, 388, 556), radius=26, fill=(255, 255, 255, 25), outline=(255, 255, 255, 60))
-        draw.text((96, 376), "Album art\nunavailable", font=body_font, fill=(235, 241, 255, 220))
+        draw.rounded_rectangle((58, 226, 388, 556), radius=26, fill=(
+            255, 255, 255, 25), outline=(255, 255, 255, 60))
+        draw.text((96, 376), "Album art\nunavailable",
+                  font=body_font, fill=(235, 241, 255, 220))
 
     # Text block
     x0 = 430
     y0 = 230
-    draw.text((x0, y0), artist_name or "Fictional artist persona", font=body_font, fill=(255, 255, 255, 255))
+    draw.text((x0, y0), artist_name or "Fictional artist persona",
+              font=body_font, fill=(255, 255, 255, 255))
     if album_title:
-        draw.text((x0, y0 + 46), f"Album: {album_title}", font=subtitle_font, fill=(197, 179, 88, 255))
+        draw.text((x0, y0 + 46), f"Album: {album_title}",
+                  font=subtitle_font, fill=(197, 179, 88, 255))
 
     stat_box_y = y0 + 110
     stat_fill = (255, 255, 255, 20)
     stat_outline = (255, 255, 255, 40)
     boxes = [
-        (x0, stat_box_y, x0 + 190, stat_box_y + 92, "Publications", stats.get("publications") or "—"),
-        (x0 + 206, stat_box_y, x0 + 396, stat_box_y + 92, "Citations", stats.get("citations") or "—"),
+        (x0, stat_box_y, x0 + 190, stat_box_y + 92,
+         "Publications", stats.get("publications") or "—"),
+        (x0 + 206, stat_box_y, x0 + 396, stat_box_y +
+         92, "Citations", stats.get("citations") or "—"),
     ]
     for left, top, right, bottom, label, value in boxes:
-        draw.rounded_rectangle((left, top, right, bottom), radius=18, fill=stat_fill, outline=stat_outline)
-        draw.text((left + 16, top + 14), label, font=small_font, fill=(201, 210, 228, 230))
-        draw.text((left + 16, top + 42), str(value), font=body_font, fill=(255, 255, 255, 255))
+        draw.rounded_rectangle((left, top, right, bottom),
+                               radius=18, fill=stat_fill, outline=stat_outline)
+        draw.text((left + 16, top + 14), label,
+                  font=small_font, fill=(201, 210, 228, 230))
+        draw.text((left + 16, top + 42), str(value),
+                  font=body_font, fill=(255, 255, 255, 255))
 
     journal = stats.get("top_journal") or ""
-    journal_lines = wrap_text(draw, f"Top Journal: {journal}" if journal else "Top Journal: —", subtitle_font, 660, 2)
+    journal_lines = wrap_text(
+        draw, f"Top Journal: {journal}" if journal else "Top Journal: —", subtitle_font, 660, 2)
     y = stat_box_y + 128
     for line in journal_lines:
         draw.text((x0, y), line, font=subtitle_font, fill=(227, 233, 246, 235))
@@ -810,7 +836,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
 
     try:
         run.status = "running"
-        run.mode_effective = "single" if len(uploaded_files) == 1 and run.mode_requested != "batch" else "batch"
+        run.mode_effective = "single" if len(
+            uploaded_files) == 1 and run.mode_requested != "batch" else "batch"
         if run.mode_requested == "single":
             run.mode_effective = "single"
         if run.mode_requested == "batch":
@@ -818,8 +845,10 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
 
         if run.mode_effective == "single":
             if not (run.first_name and run.last_name and run.scopus_id):
-                raise RuntimeError("First name, last name, and Scopus ID are required for single-author runs.")
-            author_label = run.primary_author_label or build_author_label(run.first_name, run.last_name, run.scopus_id)
+                raise RuntimeError(
+                    "First name, last name, and Scopus ID are required for single-author runs.")
+            author_label = run.primary_author_label or build_author_label(
+                run.first_name, run.last_name, run.scopus_id)
             input_flag = ["--input-file", str(uploaded_files[0])]
             run.author_labels = [author_label]
         else:
@@ -859,7 +888,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
                            else ["--input-dir", run.summary_dir])
         run_subprocess(
             run,
-            [python_exe, "author_expertise_llama31_2.py", *expertise_input, "--output-dir", run.expertise_dir],
+            [python_exe, "author_expertise_llama31_2.py", *
+                expertise_input, "--output-dir", run.expertise_dir],
             "author_expertise_llama31_2.py",
         )
 
@@ -869,7 +899,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
                          else ["--input-dir", run.expertise_dir])
         run_subprocess(
             run,
-            [python_exe, "author_persona_llama31.py", *persona_input, "--output-dir", run.persona_dir],
+            [python_exe, "author_persona_llama31.py", *
+                persona_input, "--output-dir", run.persona_dir],
             "author_persona_llama31.py",
         )
 
@@ -879,7 +910,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
                        else ["--input-dir", run.persona_dir])
         run_subprocess(
             run,
-            [python_exe, "generate_album_covers.py", *cover_input, "--output-dir", run.album_covers_dir],
+            [python_exe, "generate_album_covers.py", *
+                cover_input, "--output-dir", run.album_covers_dir],
             "generate_album_covers.py",
         )
 
@@ -894,7 +926,8 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
         ]
         if run.mode_effective == "single":
             site_cmd.extend(["--author-label", author_label])
-        run_subprocess(run, site_cmd, "generate_valiantwrapped_site_noindex.py")
+        run_subprocess(
+            run, site_cmd, "generate_valiantwrapped_site_noindex.py")
 
         collect_result_pages(run)
         build_zip(run)
@@ -955,7 +988,8 @@ def api_run():
         if not first_name or not last_name or not scopus_id:
             return jsonify({"ok": False, "error": "First name, last name, and Scopus ID are required for single-author runs."}), 400
         try:
-            primary_author_label = build_author_label(first_name, last_name, scopus_id)
+            primary_author_label = build_author_label(
+                first_name, last_name, scopus_id)
         except ValueError as exc:
             return jsonify({"ok": False, "error": str(exc)}), 400
 
@@ -1008,7 +1042,8 @@ def api_run():
     with RUNS_LOCK:
         RUNS[run_id] = run
 
-    t = threading.Thread(target=execute_pipeline, args=(run, saved_paths), daemon=True)
+    t = threading.Thread(target=execute_pipeline,
+                         args=(run, saved_paths), daemon=True)
     t.start()
 
     return jsonify({"ok": True, "run_id": run_id, "mode_requested": mode_requested})
@@ -1108,7 +1143,8 @@ def api_manifest(run_id: str):
 
     try:
         proc = subprocess.run(
-            [python_exe, "build_author_url_manifest.py", "--authors-dir", str(docs_authors), "--output-file", str(manifest_path)],
+            [python_exe, "build_author_url_manifest.py", "--authors-dir",
+                str(docs_authors), "--output-file", str(manifest_path)],
             cwd=str(BASE_DIR),
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
@@ -1119,7 +1155,8 @@ def api_manifest(run_id: str):
         if proc.stdout:
             append_log(run, proc.stdout.strip())
         if proc.returncode != 0:
-            raise RuntimeError(f"Manifest generation failed with exit code {proc.returncode}.")
+            raise RuntimeError(
+                f"Manifest generation failed with exit code {proc.returncode}.")
         run.manifest_path = str(manifest_path)
     except Exception as e:
         return jsonify({"ok": False, "error": str(e)}), 500
