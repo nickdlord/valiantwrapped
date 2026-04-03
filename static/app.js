@@ -5,8 +5,13 @@ let latestManifestUrl = "";
 const csvFiles = document.getElementById("csvFiles");
 const uploadSummary = document.getElementById("uploadSummary");
 const runBtn = document.getElementById("runBtn");
+const stopBtn = document.getElementById("stopBtn");
 const manifestBtn = document.getElementById("manifestBtn");
 const zipBtn = document.getElementById("zipBtn");
+
+const firstNameInput = document.getElementById("firstName");
+const lastNameInput = document.getElementById("lastName");
+const scopusIdInput = document.getElementById("scopusId");
 
 const statusValue = document.getElementById("statusValue");
 const modeValue = document.getElementById("modeValue");
@@ -20,6 +25,8 @@ const resultsArea = document.getElementById("resultsArea");
 const resultList = document.getElementById("resultList");
 const previewFrame = document.getElementById("previewFrame");
 
+const shareMessage = document.getElementById("shareMessage");
+
 function selectedRunMode() {
   const checked = document.querySelector('input[name="runMode"]:checked');
   return checked ? checked.value : "auto";
@@ -27,24 +34,29 @@ function selectedRunMode() {
 
 function updateUploadSummary() {
   const files = Array.from(csvFiles.files || []);
+  const first = firstNameInput.value.trim();
+  const last = lastNameInput.value.trim();
+  const scopus = scopusIdInput.value.trim();
+
+  const lines = [];
+
+  if (first || last || scopus) {
+    lines.push(`Author: ${first} ${last} (${scopus || "No ID"})`);
+    lines.push("");
+  }
+
   if (!files.length) {
-    uploadSummary.textContent = "No files selected yet.";
+    lines.push("No files selected yet.");
+    uploadSummary.textContent = lines.join("\n");
     return;
   }
 
-  const lines = [];
   lines.push(`${files.length} file(s) selected`);
   lines.push("");
-  files.slice(0, 12).forEach((f, idx) => {
+
+  files.slice(0, 10).forEach((f, idx) => {
     lines.push(`${idx + 1}. ${f.name}`);
   });
-  if (files.length > 12) {
-    lines.push(`...and ${files.length - 12} more`);
-  }
-
-  const autoMode = files.length === 1 ? "single" : "batch";
-  lines.push("");
-  lines.push(`Auto mode would run as: ${autoMode}`);
 
   uploadSummary.textContent = lines.join("\n");
 }
@@ -65,9 +77,9 @@ function resetResults() {
   resultList.innerHTML = "";
   previewFrame.src = "";
   manifestBtn.disabled = true;
-  latestManifestUrl = "";
   zipBtn.href = "#";
   zipBtn.classList.add("disabled-link");
+  shareMessage.classList.add("hidden");
 }
 
 function renderResults(resultPages) {
@@ -81,6 +93,8 @@ function renderResults(resultPages) {
   resultList.innerHTML = "";
 
   resultPages.forEach((row, idx) => {
+    const wrapper = document.createElement("div");
+
     const btn = document.createElement("button");
     btn.className = "result-item";
     btn.type = "button";
@@ -88,12 +102,35 @@ function renderResults(resultPages) {
       <div class="result-name">${row.display_name || row.author_label}</div>
       <div class="result-meta">Scopus ID: ${row.scopus_id || "—"}</div>
     `;
+
     btn.addEventListener("click", () => {
       document.querySelectorAll(".result-item").forEach(el => el.classList.remove("active"));
       btn.classList.add("active");
       previewFrame.src = row.page_url;
     });
-    resultList.appendChild(btn);
+
+    const shareBtn = document.createElement("button");
+    shareBtn.className = "secondary-btn";
+    shareBtn.textContent = "Share to Social";
+
+    shareBtn.addEventListener("click", async () => {
+      shareMessage.classList.remove("hidden");
+
+      // placeholder (backend PNG route will plug in here)
+      const link = document.createElement("a");
+      link.textContent = "Download PNG (coming soon)";
+      link.href = "#";
+      link.className = "primary-btn";
+
+      shareMessage.innerHTML = `
+        <p><strong>PNG download is available below for you to share on social media of your choice!</strong></p>
+      `;
+      shareMessage.appendChild(link);
+    });
+
+    wrapper.appendChild(btn);
+    wrapper.appendChild(shareBtn);
+    resultList.appendChild(wrapper);
 
     if (idx === 0) {
       btn.classList.add("active");
@@ -104,23 +141,30 @@ function renderResults(resultPages) {
 
 async function startRun() {
   const files = Array.from(csvFiles.files || []);
+  const first = firstNameInput.value.trim();
+  const last = lastNameInput.value.trim();
+  const scopus = scopusIdInput.value.trim();
+
   if (!files.length) {
-    alert("Please upload at least one Scopus CSV file.");
+    alert("Please upload a CSV file.");
+    return;
+  }
+
+  if (files.length === 1 && (!first || !last || !scopus)) {
+    alert("First name, last name, and Scopus ID are required for single runs.");
     return;
   }
 
   resetResults();
   setBusy(true);
   setStatus("Starting", "running");
-  modeValue.textContent = "—";
-  currentStep.textContent = "Preparing run…";
-  progressBar.style.width = "0%";
-  progressMeta.textContent = "0%";
-  logOutput.textContent = "Submitting files…";
 
   const fd = new FormData();
-  files.forEach(file => fd.append("files", file));
+  files.forEach(f => fd.append("files", f));
   fd.append("run_mode", selectedRunMode());
+  fd.append("first_name", first);
+  fd.append("last_name", last);
+  fd.append("scopus_id", scopus);
 
   const resp = await fetch("/api/run", {
     method: "POST",
@@ -128,10 +172,11 @@ async function startRun() {
   });
 
   const data = await resp.json();
+
   if (!resp.ok || !data.ok) {
     setBusy(false);
     setStatus("Error", "error");
-    logOutput.textContent = data.error || "Unable to start run.";
+    logOutput.textContent = data.error || "Failed to start run.";
     return;
   }
 
@@ -148,7 +193,6 @@ async function pollStatus() {
   if (!resp.ok || !data.ok) {
     setBusy(false);
     setStatus("Error", "error");
-    logOutput.textContent = data.error || "Unable to fetch status.";
     return;
   }
 
@@ -156,7 +200,7 @@ async function pollStatus() {
   currentStep.textContent = data.current_step || "Running";
   progressBar.style.width = `${data.progress_pct || 0}%`;
   progressMeta.textContent = `${data.progress_pct || 0}%`;
-  logOutput.textContent = (data.logs || []).join("\n\n") || "No logs yet.";
+  logOutput.textContent = (data.logs || []).join("\n\n");
 
   if (data.status === "running" || data.status === "queued") {
     setStatus("Running", "running");
@@ -177,7 +221,18 @@ async function pollStatus() {
     }
   } else {
     setStatus("Error", "error");
-    currentStep.textContent = data.error || "Pipeline failed.";
+  }
+}
+
+async function stopRun() {
+  if (!currentRunId) return;
+
+  try {
+    await fetch(`/api/stop/${currentRunId}`, { method: "POST" });
+    alert("Run stopped.");
+    location.reload();
+  } catch (err) {
+    alert("Stop failed (route may not exist yet).");
   }
 }
 
@@ -188,11 +243,12 @@ async function generateManifest() {
   const resp = await fetch(`/api/manifest/${currentRunId}`, {
     method: "POST",
   });
+
   const data = await resp.json();
 
   if (!resp.ok || !data.ok) {
     manifestBtn.disabled = false;
-    alert(data.error || "Manifest generation failed.");
+    alert(data.error || "Manifest failed.");
     return;
   }
 
@@ -202,7 +258,12 @@ async function generateManifest() {
 }
 
 csvFiles.addEventListener("change", updateUploadSummary);
+firstNameInput.addEventListener("input", updateUploadSummary);
+lastNameInput.addEventListener("input", updateUploadSummary);
+scopusIdInput.addEventListener("input", updateUploadSummary);
+
 runBtn.addEventListener("click", startRun);
+stopBtn.addEventListener("click", stopRun);
 manifestBtn.addEventListener("click", generateManifest);
 
 updateUploadSummary();
