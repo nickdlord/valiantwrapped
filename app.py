@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-"""
-app.py
-
-Localhost GUI for VALIANT Wrapped.
-"""
 from __future__ import annotations
 
 import os
@@ -17,15 +12,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from flask import (
-    Flask,
-    jsonify,
-    request,
-    send_file,
-    send_from_directory,
-    abort,
-    render_template_string,
-)
+from flask import Flask, jsonify, request, send_file, send_from_directory, abort, render_template_string
 from werkzeug.utils import secure_filename
 from PIL import Image, ImageDraw, ImageFont
 
@@ -34,9 +21,13 @@ RUNS_ROOT = Path(tempfile.gettempdir()) / "valiantwrapped_gui_runs"
 RUNS_ROOT.mkdir(parents=True, exist_ok=True)
 ALLOWED_EXTENSIONS = {".csv"}
 
+PIPELINE_RUNNER = BASE_DIR / "run_valiantwrapped_per_author.py"
+SCOPUS_DB = BASE_DIR / "scopusexportALL_02252026.csv"
+SITE_SCRIPT = BASE_DIR / "generate_valiantwrapped_site_noindex_updated.py"
+
 app = Flask(__name__)
 
-PAGE_HTML = r"""
+PAGE_HTML = r'''
 <!doctype html>
 <html lang="en">
 <head>
@@ -46,7 +37,7 @@ PAGE_HTML = r"""
   <style>
     :root{
       --bg1:#0b1020; --bg2:#171c34; --card:#ffffff; --card2:#f5f7ff; --ink:#12203a;
-      --muted:#64748b; --accent:#7c3aed; --accent2:#06b6d4; --gold:#c5b358; --danger:#dc2626;
+      --muted:#64748b; --accent:#7c3aed; --accent2:#06b6d4; --gold:#22c55e; --danger:#dc2626;
       --ok:#16a34a; --shadow:0 16px 40px rgba(0,0,0,.18); --radius:22px;
     }
     *{box-sizing:border-box}
@@ -68,7 +59,7 @@ PAGE_HTML = r"""
     }
     .hero::after{
       content:""; position:absolute; right:-140px; top:-140px; width:320px; height:320px;
-      background:radial-gradient(circle at center, rgba(197,179,88,.28), transparent 62%);
+      background:radial-gradient(circle at center, rgba(34,197,94,.28), transparent 62%);
       pointer-events:none;
     }
     .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:#cbd5e1;}
@@ -112,7 +103,6 @@ PAGE_HTML = r"""
     .share-note{margin-top:10px; color:#155e75; background:#ecfeff; border:1px solid #a5f3fc; border-radius:14px; padding:10px 12px; display:none}
     .share-note.show{display:block}
     .mini{font-size:12px; color:#64748b}
-    .hidden{display:none}
     @media (max-width: 980px){.layout{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}h1{font-size:38px}}
   </style>
 </head>
@@ -121,14 +111,14 @@ PAGE_HTML = r"""
     <section class="hero">
       <div class="eyebrow">VALIANT Wrapped</div>
       <h1>Turn your research record into a gloriously over-the-top AI music persona.</h1>
-      <p class="lead">We all know AI hallucinates a little — so why not let it go all the way? Upload your Scopus export, spin it into stats, album art, and a fictional artist identity, then download a social-ready card built for sharing.</p>
+      <p class="lead">Upload one or more Scopus exports, generate stats, album art, and fictional artist identities, then open the finished pages and social cards right here.</p>
       <div class="hook">Academic output, but make it album-drop energy.</div>
     </section>
 
     <div class="layout">
       <section class="panel">
         <h2>Start a run</h2>
-        <p class="subtle">For single-author runs, enter the name exactly how you want it encoded into the pipeline label. Multi-word last names are supported.</p>
+        <p class="subtle">Single-author mode uses the fields below to rename the uploaded CSV into the canonical pipeline label. Batch mode keeps uploaded filenames.</p>
         <form id="runForm" enctype="multipart/form-data">
           <div class="grid3">
             <div class="field">
@@ -151,7 +141,7 @@ PAGE_HTML = r"""
               <option value="single">Single author</option>
               <option value="batch">Batch</option>
             </select>
-            <div class="hint">Single mode uses the fields above to create the canonical author label. Batch mode ignores them.</div>
+            <div class="hint">Auto selects single mode for one file and batch mode for multiple files.</div>
           </div>
           <div class="field">
             <label for="files">Scopus CSV upload</label>
@@ -233,13 +223,19 @@ PAGE_HTML = r"""
         runBtn.disabled = false;
       }
 
-      function renderResults(resultPages, runId) {
+      function renderResults(resultPages, runId, zipUrl, manifestUrl) {
+        let html = '';
+        if (zipUrl || manifestUrl) {
+          html += '<div class="result-card"><div class="result-title">Downloads</div><div class="result-actions" style="margin-top:10px;">';
+          if (zipUrl) html += '<a class="btn secondary" href="' + zipUrl + '">Download ZIP</a>';
+          if (manifestUrl) html += '<a class="btn secondary" href="' + manifestUrl + '">Download manifest</a>';
+          html += '</div></div>';
+        }
         if (!resultPages || !resultPages.length) {
-          resultsEl.innerHTML = '';
+          resultsEl.innerHTML = html;
           return;
         }
-
-        let html = '<h2 style="margin:0 0 2px; color:#0f172a;">Results</h2>';
+        html += '<h2 style="margin:0 0 2px; color:#0f172a;">Results</h2>';
         for (const row of resultPages) {
           const label = esc(row.author_label || '');
           const safeId = 'share-note-' + label.replace(/[^A-Za-z0-9_-]/g, '_');
@@ -307,7 +303,7 @@ PAGE_HTML = r"""
         progressBar.style.width = String(data.progress_pct || 0) + '%';
         logsEl.textContent = (data.logs || []).join('\n\n') || 'Working...';
         logsEl.scrollTop = logsEl.scrollHeight;
-        renderResults(data.result_pages || [], data.run_id);
+        renderResults(data.result_pages || [], data.run_id, data.zip_download_url, data.manifest_download_url);
 
         if (['success', 'error', 'cancelled'].includes(data.status)) {
           clearPolling();
@@ -324,21 +320,17 @@ PAGE_HTML = r"""
           alert('A run is already active. Stop it or reset the page before starting another.');
           return;
         }
-
         const files = filesInput.files;
         if (!files || files.length === 0) {
           alert('Please upload at least one CSV file.');
           return;
         }
-
         const fd = new FormData();
         fd.append('first_name', document.getElementById('first_name').value || '');
         fd.append('last_name', document.getElementById('last_name').value || '');
         fd.append('scopus_id', document.getElementById('scopus_id').value || '');
         fd.append('run_mode', document.getElementById('run_mode').value || 'auto');
-        for (const file of files) {
-          fd.append('files', file);
-        }
+        for (const file of files) fd.append('files', file);
 
         runBtn.disabled = true;
         killBtn.disabled = true;
@@ -388,18 +380,14 @@ PAGE_HTML = r"""
         }
         resetUiOnly();
       });
-
-      console.log('VALIANT Wrapped inline JS initialized');
     })();
   </script>
 </body>
 </html>
-"""
-
+'''
 
 def allowed_file(filename: str) -> bool:
     return Path(filename).suffix.lower() in ALLOWED_EXTENSIONS
-
 
 def slug_piece(value: str) -> str:
     s = re.sub(r"\s+", " ", (value or "").strip())
@@ -409,7 +397,6 @@ def slug_piece(value: str) -> str:
     s = re.sub(r"-+", "-", s).strip("-")
     return s
 
-
 def build_author_label(first_name: str, last_name: str, scopus_id: str) -> str:
     first = slug_piece(first_name)
     last = slug_piece(last_name)
@@ -418,8 +405,7 @@ def build_author_label(first_name: str, last_name: str, scopus_id: str) -> str:
         raise ValueError("First name, last name, and Scopus ID are required.")
     return f"{last}_{first}_{sid}"
 
-
-def display_name_from_label(label: str) -> tuple[str, str, str, str]:
+def display_name_from_label(label: str):
     parts = str(label).split("_")
     last = parts[0] if len(parts) > 0 else ""
     first = parts[1] if len(parts) > 1 else ""
@@ -429,7 +415,6 @@ def display_name_from_label(label: str) -> tuple[str, str, str, str]:
     display_name = f"{pretty_first} {pretty_last}".strip() or label
     return pretty_first, pretty_last, scopus_id, display_name
 
-
 @dataclass
 class RunState:
     run_id: str
@@ -437,18 +422,20 @@ class RunState:
     mode_effective: str = ""
     status: str = "queued"
     step_index: int = 0
-    step_total: int = 6
+    step_total: int = 3
     current_step: str = "Queued"
     progress_pct: int = 0
     error: str = ""
     logs: list[str] = field(default_factory=list)
     work_dir: str = ""
     uploads_dir: str = ""
+    outputs_root: str = ""
     summary_dir: str = ""
     expertise_dir: str = ""
     persona_dir: str = ""
     album_covers_dir: str = ""
     docs_dir: str = ""
+    reports_dir: str = ""
     zip_path: str = ""
     manifest_path: str = ""
     author_labels: list[str] = field(default_factory=list)
@@ -461,24 +448,19 @@ class RunState:
     social_cards_dir: str = ""
     current_pid: Optional[int] = None
 
-
-RUNS: dict[str, RunState] = {}
+RUNS = {}
 RUNS_LOCK = threading.Lock()
-
 
 def append_log(run: RunState, text: str) -> None:
     run.logs.append(text)
-
 
 def set_step(run: RunState, idx: int, label: str) -> None:
     run.step_index = idx
     run.current_step = label
     run.progress_pct = int((idx - 1) / run.step_total * 100)
 
-
 def finalize_progress(run: RunState) -> None:
     run.progress_pct = 100
-
 
 def cancel_run_process(run: RunState) -> None:
     pid = run.current_pid
@@ -494,27 +476,18 @@ def cancel_run_process(run: RunState) -> None:
     except Exception as exc:
         append_log(run, f"WARN: could not terminate process group cleanly: {exc}")
 
-
 def run_subprocess(run: RunState, cmd: list[str], label: str) -> None:
     if run.cancel_requested:
         raise RuntimeError("Run cancelled by user.")
     append_log(run, f"$ {' '.join(cmd)}")
-    popen_kwargs = {
-        "cwd": str(BASE_DIR),
-        "stdout": subprocess.PIPE,
-        "stderr": subprocess.STDOUT,
-        "text": True,
-        "encoding": "utf-8",
-        "errors": "replace",
-        "bufsize": 1,
-    }
+    popen_kwargs = {"cwd": str(BASE_DIR), "stdout": subprocess.PIPE, "stderr": subprocess.STDOUT, "text": True, "encoding": "utf-8", "errors": "replace", "bufsize": 1}
     if os.name == "nt":
         popen_kwargs["creationflags"] = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
     else:
         popen_kwargs["preexec_fn"] = os.setsid
     proc = subprocess.Popen(cmd, **popen_kwargs)
     run.current_pid = proc.pid
-    captured: list[str] = []
+    captured = []
     try:
         assert proc.stdout is not None
         while True:
@@ -548,31 +521,25 @@ def run_subprocess(run: RunState, cmd: list[str], label: str) -> None:
         except Exception:
             pass
 
-
 def build_zip(run: RunState) -> str:
     zip_path = Path(run.work_dir) / "valiantwrapped_results.zip"
-    docs_dir = Path(run.docs_dir)
-    covers_dir = Path(run.album_covers_dir)
-    social_dir = Path(run.social_cards_dir)
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
-        if docs_dir.exists():
-            for p in docs_dir.rglob("*"):
-                if p.is_file():
-                    zf.write(p, arcname=str(Path("docs") / p.relative_to(docs_dir)))
-        if covers_dir.exists():
-            for p in covers_dir.rglob("*"):
-                if p.is_file():
-                    zf.write(p, arcname=str(Path("outputs") / "album_covers" / p.relative_to(covers_dir)))
-        if social_dir.exists():
-            for p in social_dir.rglob("*.png"):
-                zf.write(p, arcname=str(Path("outputs") / "social_cards" / p.relative_to(social_dir)))
+        for root_dir, arc_prefix in [
+            (Path(run.docs_dir), Path("docs")),
+            (Path(run.album_covers_dir), Path("outputs") / "album_covers"),
+            (Path(run.reports_dir), Path("pipeline_reports")),
+            (Path(run.social_cards_dir), Path("outputs") / "social_cards"),
+        ]:
+            if root_dir.exists():
+                for p in root_dir.rglob("*"):
+                    if p.is_file():
+                        zf.write(p, arcname=str(arc_prefix / p.relative_to(root_dir)))
     run.zip_path = str(zip_path)
     return str(zip_path)
 
-
-def collect_result_pages(run: RunState) -> list[dict]:
+def collect_result_pages(run: RunState):
     author_dir = Path(run.docs_dir) / "authors"
-    rows: list[dict] = []
+    rows = []
     if not author_dir.exists():
         return rows
     for html_path in sorted(author_dir.glob("*.html")):
@@ -589,17 +556,13 @@ def collect_result_pages(run: RunState) -> list[dict]:
     run.result_pages = rows
     return rows
 
-
-def read_persona_fields(run: RunState, author_label: str) -> tuple[str, str]:
+def read_persona_fields(run: RunState, author_label: str):
     persona_path = Path(run.persona_dir) / f"{author_label}.txt"
     artist_name = ""
     album_title = ""
     if not persona_path.exists():
         return artist_name, album_title
-    try:
-        text = persona_path.read_text(encoding="utf-8", errors="replace")
-    except Exception:
-        return artist_name, album_title
+    text = persona_path.read_text(encoding="utf-8", errors="replace")
     for line in text.splitlines():
         if not artist_name:
             m = re.match(r"^\s*Artist\s*:\s*(.+)$", line, flags=re.I)
@@ -611,26 +574,20 @@ def read_persona_fields(run: RunState, author_label: str) -> tuple[str, str]:
                 album_title = m.group(1).strip()
     return artist_name, album_title
 
-
-def read_summary_stats(run: RunState, author_label: str) -> dict[str, str]:
-    summary_path = Path(run.summary_dir) / f"{author_label}.txt"
+def read_summary_stats(run: RunState, author_label: str):
+    report_csv = Path(run.reports_dir) / "author_summary_selected.csv"
     stats = {"publications": "", "citations": "", "top_journal": ""}
-    if not summary_path.exists():
-        return stats
-    text = summary_path.read_text(encoding="utf-8", errors="replace")
-    patterns = {
-        "publications": [r"^\s*Publications\s*\([^\)]*\)\s*:\s*(.+)$", r"^\s*Publications\s*:\s*(.+)$"],
-        "citations": [r"^\s*Citations\s*\([^\)]*\)\s*:\s*(.+)$", r"^\s*Citations\s*:\s*(.+)$"],
-        "top_journal": [r"^\s*Top\s+Journal\s*:\s*(.+)$"],
-    }
-    for key, pats in patterns.items():
-        for pat in pats:
-            m = re.search(pat, text, flags=re.I | re.M)
-            if m:
-                stats[key] = m.group(1).strip()
-                break
+    if report_csv.exists():
+        import csv as _csv
+        with open(report_csv, newline="", encoding="utf-8") as f:
+            reader = _csv.DictReader(f)
+            for row in reader:
+                if str(row.get("author_id", "")).strip() == author_label:
+                    stats["publications"] = str(row.get("pub_count_2025_present", "")).strip()
+                    stats["citations"] = str(row.get("citation_count_2025_present", "")).strip()
+                    stats["top_journal"] = str(row.get("top_journal_2025_present", "")).strip()
+                    return stats
     return stats
-
 
 def rounded_image(img: Image.Image, radius: int) -> Image.Image:
     mask = Image.new("L", img.size, 0)
@@ -639,29 +596,21 @@ def rounded_image(img: Image.Image, radius: int) -> Image.Image:
     out.paste(img, (0, 0), mask)
     return out
 
-
-def load_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
+def load_font(size: int, bold: bool = False):
     candidates = []
     if bold:
-        candidates.extend([
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-            "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf",
-        ])
-    candidates.extend([
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf",
-    ])
+        candidates.extend(["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf"])
+    candidates.extend(["/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf"])
     for path in candidates:
         if Path(path).exists():
             return ImageFont.truetype(path, size=size)
     return ImageFont.load_default()
 
-
-def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont, max_width: int, max_lines: int) -> list[str]:
+def wrap_text(draw: ImageDraw.ImageDraw, text: str, font, max_width: int, max_lines: int):
     words = text.split()
     if not words:
         return []
-    lines: list[str] = []
+    lines = []
     current = words[0]
     for word in words[1:]:
         candidate = current + " " + word
@@ -674,14 +623,7 @@ def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont, m
                 break
     if len(lines) < max_lines:
         lines.append(current)
-    if len(lines) > max_lines:
-        lines = lines[:max_lines]
-    if len(lines) == max_lines and draw.textlength(lines[-1], font=font) > max_width:
-        while lines[-1] and draw.textlength(lines[-1] + "…", font=font) > max_width:
-            lines[-1] = lines[-1][:-1]
-        lines[-1] += "…"
-    return lines
-
+    return lines[:max_lines]
 
 def generate_social_card(run: RunState, author_label: str) -> Path:
     Path(run.social_cards_dir).mkdir(parents=True, exist_ok=True)
@@ -717,26 +659,16 @@ def generate_social_card(run: RunState, author_label: str) -> Path:
             cover_path = candidate
             break
     if cover_path:
-        try:
-            cover = Image.open(cover_path).convert("RGBA").resize((330, 330))
-            cover = rounded_image(cover, 26)
-            canvas.alpha_composite(cover, (58, 226))
-        except Exception:
-            draw.rounded_rectangle((58, 226, 388, 556), radius=26, fill=(255, 255, 255, 25), outline=(255, 255, 255, 60))
-            draw.text((96, 376), "Album art\nunavailable", font=body_font, fill=(235, 241, 255, 220))
-    else:
-        draw.rounded_rectangle((58, 226, 388, 556), radius=26, fill=(255, 255, 255, 25), outline=(255, 255, 255, 60))
-        draw.text((96, 376), "Album art\nunavailable", font=body_font, fill=(235, 241, 255, 220))
+        cover = Image.open(cover_path).convert("RGBA").resize((330, 330))
+        cover = rounded_image(cover, 26)
+        canvas.alpha_composite(cover, (58, 226))
     x0 = 430
     y0 = 230
     draw.text((x0, y0), artist_name or "Fictional artist persona", font=body_font, fill=(255, 255, 255, 255))
     if album_title:
-        draw.text((x0, y0 + 46), f"Album: {album_title}", font=subtitle_font, fill=(197, 179, 88, 255))
+        draw.text((x0, y0 + 46), f"Album: {album_title}", font=subtitle_font, fill=(34, 197, 94, 255))
     stat_box_y = y0 + 110
-    boxes = [
-        (x0, stat_box_y, x0 + 190, stat_box_y + 92, "Publications", stats.get("publications") or "—"),
-        (x0 + 206, stat_box_y, x0 + 396, stat_box_y + 92, "Citations", stats.get("citations") or "—"),
-    ]
+    boxes = [(x0, stat_box_y, x0 + 190, stat_box_y + 92, "Publications", stats.get("publications") or "—"), (x0 + 206, stat_box_y, x0 + 396, stat_box_y + 92, "Citations", stats.get("citations") or "—")]
     for left, top, right, bottom, label, value in boxes:
         draw.rounded_rectangle((left, top, right, bottom), radius=18, fill=(255, 255, 255, 20), outline=(255, 255, 255, 40))
         draw.text((left + 16, top + 14), label, font=small_font, fill=(201, 210, 228, 230))
@@ -752,53 +684,46 @@ def generate_social_card(run: RunState, author_label: str) -> Path:
     canvas.convert("RGB").save(out_path, format="PNG")
     return out_path
 
-
-def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
+def execute_pipeline(run: RunState, uploaded_files):
     python_exe = os.environ.get("PYTHON", os.sys.executable)
     try:
+        if not PIPELINE_RUNNER.exists():
+            raise RuntimeError(f"Pipeline runner not found: {PIPELINE_RUNNER}")
+        if not SCOPUS_DB.exists():
+            raise RuntimeError(f"Scopus database not found: {SCOPUS_DB}")
+        if not SITE_SCRIPT.exists():
+            raise RuntimeError(f"Site script not found: {SITE_SCRIPT}")
         run.status = "running"
         run.mode_effective = "single" if len(uploaded_files) == 1 and run.mode_requested != "batch" else "batch"
         if run.mode_requested == "single":
             run.mode_effective = "single"
         if run.mode_requested == "batch":
             run.mode_effective = "batch"
-        if run.mode_effective == "single":
-            if not (run.first_name and run.last_name and run.scopus_id):
-                raise RuntimeError("First name, last name, and Scopus ID are required for single-author runs.")
-            author_label = run.primary_author_label or build_author_label(run.first_name, run.last_name, run.scopus_id)
-            input_flag = ["--input-file", str(uploaded_files[0])]
-            run.author_labels = [author_label]
-        else:
-            input_flag = ["--input-dir", run.uploads_dir]
-            author_label = ""
-            run.author_labels = [Path(p).stem for p in uploaded_files]
         set_step(run, 1, "Preparing uploads")
         append_log(run, f"Run ID: {run.run_id}")
         append_log(run, f"Requested mode: {run.mode_requested}")
         append_log(run, f"Effective mode: {run.mode_effective}")
         append_log(run, f"Uploaded files: {len(uploaded_files)}")
         if run.mode_effective == "single":
+            author_label = run.primary_author_label or build_author_label(run.first_name, run.last_name, run.scopus_id)
+            run.author_labels = [author_label]
             append_log(run, f"Canonical author label: {author_label}")
-        set_step(run, 2, "Step 1/5 · Reading Scopus CSVs")
-        scopus_cmd = [python_exe, "scopus2txtsummary.py", *input_flag, "--output-dir", run.summary_dir, "--year-cutoff", "2025"]
-        if run.mode_effective == "single":
-            scopus_cmd.extend(["--first-name", run.first_name, "--last-name", run.last_name, "--scopus-id", run.scopus_id])
-        run_subprocess(run, scopus_cmd, "scopus2txtsummary.py")
-        set_step(run, 3, "Step 2/5 · Generating expertise summaries")
-        expertise_input = (["--input-file", str(Path(run.summary_dir) / f"{author_label}.txt")] if run.mode_effective == "single" else ["--input-dir", run.summary_dir])
-        run_subprocess(run, [python_exe, "author_expertise_llama31_2.py", *expertise_input, "--output-dir", run.expertise_dir], "author_expertise_llama31_2.py")
-        set_step(run, 4, "Step 3/5 · Creating music personas")
-        persona_input = (["--input-file", str(Path(run.expertise_dir) / f"{author_label}.txt")] if run.mode_effective == "single" else ["--input-dir", run.expertise_dir])
-        run_subprocess(run, [python_exe, "author_persona_llama31.py", *persona_input, "--output-dir", run.persona_dir], "author_persona_llama31.py")
-        set_step(run, 5, "Step 4/5 · Generating album covers")
-        cover_input = (["--input-file", str(Path(run.persona_dir) / f"{author_label}.txt")] if run.mode_effective == "single" else ["--input-dir", run.persona_dir])
-        run_subprocess(run, [python_exe, "generate_album_covers.py", *cover_input, "--output-dir", run.album_covers_dir], "generate_album_covers.py")
-        set_step(run, 6, "Step 5/5 · Building HTML pages")
-        site_cmd = [python_exe, "generate_valiantwrapped_site_noindex.py", "--summary-dir", run.summary_dir, "--persona-dir", run.persona_dir, "--album-covers-dir", run.album_covers_dir, "--docs-dir", run.docs_dir]
-        if run.mode_effective == "single":
-            site_cmd.extend(["--author-label", author_label])
-        run_subprocess(run, site_cmd, "generate_valiantwrapped_site_noindex.py")
+            selected_file = Path(run.work_dir) / "selected_authors.txt"
+            selected_file.write_text(f"{author_label}\n", encoding="utf-8")
+        else:
+            selected_file = None
+            run.author_labels = [Path(p).stem for p in uploaded_files]
+        set_step(run, 2, "Running pipeline runner")
+        cmd = [python_exe, str(PIPELINE_RUNNER), "--project-root", str(BASE_DIR), "--author-csv-dir", str(Path(run.uploads_dir)), "--summary-txt-dir", str(Path(run.summary_dir)), "--expertise-txt-dir", str(Path(run.expertise_dir)), "--persona-txt-dir", str(Path(run.persona_dir)), "--album-covers-dir", str(Path(run.album_covers_dir)), "--docs-dir", str(Path(run.docs_dir)), "--reports-dir", str(Path(run.reports_dir)), "--scopus-db", str(SCOPUS_DB), "--site-script", str(SITE_SCRIPT), "--skip-existing"]
+        if selected_file is not None:
+            cmd.extend(["--selected-authors-file", str(selected_file)])
+        run_subprocess(run, cmd, "run_valiantwrapped_per_author.py")
+        set_step(run, 3, "Collecting outputs")
         collect_result_pages(run)
+        for candidate in [Path(run.docs_dir) / "author_page_urls.csv", Path(run.reports_dir) / "pipeline_author_report.csv", Path(run.reports_dir) / "author_summary_selected.csv"]:
+            if candidate.exists():
+                run.manifest_path = str(candidate)
+                break
         build_zip(run)
         if run.cancel_requested:
             run.status = "cancelled"
@@ -820,11 +745,9 @@ def execute_pipeline(run: RunState, uploaded_files: list[Path]) -> None:
     finally:
         run.current_pid = None
 
-
 @app.route("/")
 def index():
     return render_template_string(PAGE_HTML)
-
 
 @app.route("/api/run", methods=["POST"])
 def api_run():
@@ -847,29 +770,26 @@ def api_run():
         mode_requested = "batch"
     primary_author_label = ""
     if mode_requested == "single":
-        if not first_name or not last_name or not scopus_id:
-            return jsonify({"ok": False, "error": "First name, last name, and Scopus ID are required for single-author runs."}), 400
         try:
             primary_author_label = build_author_label(first_name, last_name, scopus_id)
         except ValueError as exc:
             return jsonify({"ok": False, "error": str(exc)}), 400
     run_id = uuid.uuid4().hex[:12]
     work_dir = RUNS_ROOT / run_id
-    uploads_dir = work_dir / "uploads"
-    outputs_dir = work_dir / "outputs"
-    summary_dir = outputs_dir / "summary_txt"
-    expertise_dir = outputs_dir / "expertise_txt"
-    persona_dir = outputs_dir / "personas_txt"
-    album_covers_dir = outputs_dir / "album_covers"
-    social_cards_dir = outputs_dir / "social_cards"
+    uploads_dir = work_dir / "author_csvs"
+    outputs_root = work_dir / "outputs"
+    summary_dir = outputs_root / "summary_txt"
+    expertise_dir = outputs_root / "author_expertise_txt"
+    persona_dir = outputs_root / "author_music_personas_txt"
+    album_covers_dir = outputs_root / "album_covers"
+    social_cards_dir = outputs_root / "social_cards"
     docs_dir = work_dir / "docs"
-    for p in [uploads_dir, summary_dir, expertise_dir, persona_dir, album_covers_dir, social_cards_dir, docs_dir]:
+    reports_dir = work_dir / "pipeline_reports"
+    for p in [uploads_dir, summary_dir, expertise_dir, persona_dir, album_covers_dir, social_cards_dir, docs_dir, reports_dir]:
         p.mkdir(parents=True, exist_ok=True)
-    saved_paths: list[Path] = []
+    saved_paths = []
     for idx, f in enumerate(files, start=1):
         filename = secure_filename(f.filename)
-        if not filename:
-            continue
         if mode_requested == "single":
             filename = f"{primary_author_label}.csv"
         elif (uploads_dir / filename).exists():
@@ -879,51 +799,19 @@ def api_run():
         out_path = uploads_dir / filename
         f.save(out_path)
         saved_paths.append(out_path)
-    run = RunState(
-        run_id=run_id,
-        mode_requested=mode_requested,
-        work_dir=str(work_dir),
-        uploads_dir=str(uploads_dir),
-        summary_dir=str(summary_dir),
-        expertise_dir=str(expertise_dir),
-        persona_dir=str(persona_dir),
-        album_covers_dir=str(album_covers_dir),
-        docs_dir=str(docs_dir),
-        social_cards_dir=str(social_cards_dir),
-        first_name=first_name,
-        last_name=last_name,
-        scopus_id=scopus_id,
-        primary_author_label=primary_author_label,
-    )
+    run = RunState(run_id=run_id, mode_requested=mode_requested, work_dir=str(work_dir), uploads_dir=str(uploads_dir), outputs_root=str(outputs_root), summary_dir=str(summary_dir), expertise_dir=str(expertise_dir), persona_dir=str(persona_dir), album_covers_dir=str(album_covers_dir), docs_dir=str(docs_dir), reports_dir=str(reports_dir), social_cards_dir=str(social_cards_dir), first_name=first_name, last_name=last_name, scopus_id=scopus_id, primary_author_label=primary_author_label)
     with RUNS_LOCK:
         RUNS[run_id] = run
     t = threading.Thread(target=execute_pipeline, args=(run, saved_paths), daemon=True)
     t.start()
     return jsonify({"ok": True, "run_id": run_id, "mode_requested": mode_requested})
 
-
 @app.route("/api/status/<run_id>")
 def api_status(run_id: str):
     run = RUNS.get(run_id)
     if not run:
         return jsonify({"ok": False, "error": "Run not found."}), 404
-    return jsonify({
-        "ok": True,
-        "run_id": run.run_id,
-        "status": run.status,
-        "mode_requested": run.mode_requested,
-        "mode_effective": run.mode_effective,
-        "step_index": run.step_index,
-        "step_total": run.step_total,
-        "current_step": run.current_step,
-        "progress_pct": run.progress_pct,
-        "error": run.error,
-        "logs": run.logs[-200:],
-        "result_pages": run.result_pages,
-        "zip_download_url": f"/api/download-zip/{run.run_id}" if run.zip_path else "",
-        "manifest_download_url": f"/api/manifest/{run.run_id}" if run.manifest_path else "",
-    })
-
+    return jsonify({"ok": True, "run_id": run.run_id, "status": run.status, "mode_requested": run.mode_requested, "mode_effective": run.mode_effective, "step_index": run.step_index, "step_total": run.step_total, "current_step": run.current_step, "progress_pct": run.progress_pct, "error": run.error, "logs": run.logs[-200:], "result_pages": run.result_pages, "zip_download_url": f"/api/download-zip/{run.run_id}" if run.zip_path else "", "manifest_download_url": f"/api/download-manifest/{run.run_id}" if run.manifest_path else ""})
 
 @app.route("/api/cancel/<run_id>", methods=["POST"])
 def api_cancel(run_id: str):
@@ -937,7 +825,6 @@ def api_cancel(run_id: str):
     cancel_run_process(run)
     return jsonify({"ok": True, "status": "cancelling"})
 
-
 @app.route("/api/social-card/<run_id>/<path:author_label>", methods=["POST"])
 def api_social_card(run_id: str, author_label: str):
     run = RUNS.get(run_id)
@@ -949,12 +836,8 @@ def api_social_card(run_id: str, author_label: str):
     known = {row["author_label"] for row in run.result_pages}
     if author_label not in known:
         return jsonify({"ok": False, "error": "Author result not found for this run."}), 404
-    try:
-        out_path = generate_social_card(run, author_label)
-    except Exception as exc:
-        return jsonify({"ok": False, "error": f"Could not generate social card: {exc}"}), 500
+    out_path = generate_social_card(run, author_label)
     return jsonify({"ok": True, "download_url": f"/api/download-social-card/{run_id}/{author_label}", "path": str(out_path)})
-
 
 @app.route("/api/download-social-card/<run_id>/<path:author_label>")
 def api_download_social_card(run_id: str, author_label: str):
@@ -964,34 +847,8 @@ def api_download_social_card(run_id: str, author_label: str):
     author_label = Path(author_label).name
     path = Path(run.social_cards_dir) / f"{author_label}.png"
     if not path.exists():
-        try:
-            path = generate_social_card(run, author_label)
-        except Exception:
-            abort(404)
+        path = generate_social_card(run, author_label)
     return send_file(path, as_attachment=True)
-
-
-@app.route("/api/manifest/<run_id>", methods=["POST", "GET"])
-def api_manifest(run_id: str):
-    run = RUNS.get(run_id)
-    if not run:
-        return jsonify({"ok": False, "error": "Run not found."}), 404
-    docs_authors = Path(run.docs_dir) / "authors"
-    if not docs_authors.exists():
-        return jsonify({"ok": False, "error": "No generated author pages found yet."}), 400
-    manifest_path = Path(run.docs_dir) / "author_url_manifest.csv"
-    python_exe = os.environ.get("PYTHON", os.sys.executable)
-    try:
-        proc = subprocess.run([python_exe, "build_author_url_manifest.py", "--authors-dir", str(docs_authors), "--output-file", str(manifest_path)], cwd=str(BASE_DIR), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
-        if proc.stdout:
-            append_log(run, proc.stdout.strip())
-        if proc.returncode != 0:
-            raise RuntimeError(f"Manifest generation failed with exit code {proc.returncode}.")
-        run.manifest_path = str(manifest_path)
-    except Exception as e:
-        return jsonify({"ok": False, "error": str(e)}), 500
-    return jsonify({"ok": True, "download_url": f"/api/download-manifest/{run.run_id}"})
-
 
 @app.route("/api/download-manifest/<run_id>")
 def api_download_manifest(run_id: str):
@@ -1000,14 +857,12 @@ def api_download_manifest(run_id: str):
         abort(404)
     return send_file(run.manifest_path, as_attachment=True)
 
-
 @app.route("/api/download-zip/<run_id>")
 def api_download_zip(run_id: str):
     run = RUNS.get(run_id)
     if not run or not run.zip_path or not Path(run.zip_path).exists():
         abort(404)
     return send_file(run.zip_path, as_attachment=True)
-
 
 @app.route("/runs/<run_id>/docs/<path:subpath>")
 def serve_generated_docs(run_id: str, subpath: str):
@@ -1019,7 +874,6 @@ def serve_generated_docs(run_id: str, subpath: str):
     if not target.exists():
         abort(404)
     return send_from_directory(docs_dir, subpath)
-
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
