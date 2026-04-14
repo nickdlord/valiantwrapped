@@ -4,12 +4,13 @@ from __future__ import annotations
 import argparse
 import csv
 import html as html_lib
+import json
 import os
 import re
 import shutil
 from datetime import datetime
 from pathlib import Path
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 
 import pandas as pd
 
@@ -102,6 +103,119 @@ def copy_album_cover_into_docs(album_covers_src_dir: Path, asset_dir: Path, auth
         build_report.append((author_label, "album_cover_copy_missing_dst", str(dst)))
         return False, ""
     return True, f"../assets/album_covers/{html_lib.escape(dst.name)}"
+
+
+def _clean_block(text: str) -> str:
+    return text.strip().strip('"').strip("'").strip()
+
+
+def _extract_field(text: str, labels: List[str]) -> str:
+    for label in labels:
+        pattern = rf"(?ims)^\s*{re.escape(label)}\s*[:\-]\s*(.+?)(?=^\s*[A-Za-z][A-Za-z /_-]*\s*[:\-]|\Z)"
+        m = re.search(pattern, text)
+        if m:
+            return _clean_block(m.group(1))
+    return ""
+
+
+def _extract_tracklist(text: str) -> str:
+    block = _extract_field(text, ["tracklist", "tracks", "song list"])
+    if block:
+        return block
+
+    lines = []
+    capture = False
+    for line in text.splitlines():
+        stripped = line.strip()
+        if re.match(r"(?i)^\s*(tracklist|tracks|song list)\s*[:\-]?\s*$", stripped):
+            capture = True
+            continue
+        if capture:
+            if re.match(r"^[A-Za-z][A-Za-z /_-]*\s*[:\-]\s*", stripped):
+                break
+            if stripped:
+                lines.append(stripped)
+    return "\n".join(lines).strip()
+
+
+def parse_persona_txt(path: Path) -> Dict[str, str]:
+    text = path.read_text(encoding="utf-8", errors="replace")
+    data = {
+        "author_label": canonical_author_label(path.name),
+        "artist_name": "",
+        "album_title": "",
+        "persona_bio": "",
+        "tracklist": "",
+        "status": "ok",
+    }
+
+    # Try JSON first in case the txt is serialized structured output.
+    stripped = text.strip()
+    if stripped.startswith("{") and stripped.endswith("}"):
+        try:
+            obj = json.loads(stripped)
+            for key in data:
+                if key in obj and obj[key] is not None:
+                    data[key] = str(obj[key]).strip()
+            if data["tracklist"] and isinstance(obj.get("tracklist"), list):
+                data["tracklist"] = "\n".join(str(x).strip() for x in obj["tracklist"] if str(x).strip())
+            return data
+        except Exception:
+            pass
+
+    data["artist_name"] = _extract_field(text, ["artist_name", "artist name", "artist", "stage name"])
+    data["album_title"] = _extract_field(text, ["album_title", "album title", "album"])
+    data["persona_bio"] = _extract_field(text, ["persona_bio", "persona bio", "bio", "artist bio", "description"])
+    data["tracklist"] = _extract_tracklist(text)
+
+    # Fallbacks for numbered/song lines anywhere in the file.
+    if not data["tracklist"]:
+        song_lines = []
+        for line in text.splitlines():
+            s = line.strip()
+            if re.match(r"^(\d+\.\s+.+|[-*]\s+.+|track\s*\d+\s*[-:].+)$", s, flags=re.IGNORECASE):
+                song_lines.append(s)
+        if song_lines:
+            data["tracklist"] = "\n".join(song_lines)
+
+    if not any([data["artist_name"], data["album_title"], data["persona_bio"], data["tracklist"]]):
+        data["status"] = "parse_failed"
+    return data
+
+
+def load_persona_rows(persona_file: Path | None, persona_dir: Path | None, build_report: List[Tuple[str, str, str]]) -> Dict[str, Dict[str, str]]:
+    persona_by_label: Dict[str, Dict[str, str]] = {}
+
+    if persona_file:
+        if not persona_file.exists():
+            raise FileNotFoundError(f"Persona CSV not found: {persona_file}")
+        persona_df = pd.read_csv(persona_file)
+        if "author_label" not in persona_df.columns:
+            raise ValueError("Persona CSV is missing required column: author_label")
+        persona_df["author_label"] = persona_df["author_label"].apply(canonical_author_label)
+        persona_by_label = {
+            row["author_label"]: row
+            for _, row in persona_df.iterrows()
+            if row.get("author_label")
+        }
+        return persona_by_label
+
+    if persona_dir:
+        if not persona_dir.exists():
+            raise FileNotFoundError(f"Persona TXT directory not found: {persona_dir}")
+        txt_files = sorted(persona_dir.glob("*.txt"))
+        if not txt_files:
+            raise FileNotFoundError(f"No persona TXT files found in: {persona_dir}")
+        for path in txt_files:
+            parsed = parse_persona_txt(path)
+            label = canonical_author_label(parsed.get("author_label", path.name))
+            parsed["author_label"] = label
+            if parsed.get("status") == "parse_failed":
+                build_report.append((label, "persona_txt_parse_failed", str(path)))
+            persona_by_label[label] = parsed
+        return persona_by_label
+
+    raise ValueError("Either --persona-file or --persona-dir is required")
 
 
 PAGE_STYLE = '''
@@ -298,7 +412,8 @@ def generate_index_page(author_labels, docs_dir):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--summary-file", required=True)
-    ap.add_argument("--persona-file", required=True)
+    ap.add_argument("--persona-file", default="")
+    ap.add_argument("--persona-dir", default="")
     ap.add_argument("--expertise-dir", required=True)
     ap.add_argument("--scopus-db", default="")
     ap.add_argument("--album-covers-dir", required=True)
@@ -307,12 +422,16 @@ def main():
     args = ap.parse_args()
 
     summary_file = Path(args.summary_file).resolve()
-    persona_file = Path(args.persona_file).resolve()
+    persona_file = Path(args.persona_file).resolve() if args.persona_file else None
+    persona_dir = Path(args.persona_dir).resolve() if args.persona_dir else None
     expertise_dir = Path(args.expertise_dir).resolve()
     album_covers_src_dir = Path(args.album_covers_dir).resolve()
     docs_dir = Path(args.docs_dir).resolve()
     author_dir = docs_dir / "authors"
     asset_dir = docs_dir / "assets" / "album_covers"
+
+    if not summary_file.exists():
+        raise FileNotFoundError(f"Summary CSV not found: {summary_file}")
 
     if docs_dir.exists():
         shutil.rmtree(docs_dir)
@@ -320,18 +439,14 @@ def main():
     asset_dir.mkdir(parents=True, exist_ok=True)
 
     summary_df = pd.read_csv(summary_file)
-    persona_df = pd.read_csv(persona_file)
-
     summary_df["author_label"] = summary_df["author_id"].apply(canonical_author_label) if "author_id" in summary_df.columns else summary_df["author_file"].apply(canonical_author_label)
-    if "author_label" not in persona_df.columns:
-        raise ValueError("Persona CSV is missing required column: author_label")
-    persona_df["author_label"] = persona_df["author_label"].apply(canonical_author_label)
+
+    build_report: List[Tuple[str, str, str]] = []
+    persona_by_label = load_persona_rows(persona_file, persona_dir, build_report)
 
     summary_by_label = {row["author_label"]: row for _, row in summary_df.iterrows() if row.get("author_label")}
-    persona_by_label = {row["author_label"]: row for _, row in persona_df.iterrows() if row.get("author_label")}
     author_labels = sorted(set(summary_by_label.keys()) | set(persona_by_label.keys()))
 
-    build_report = []
     for author_label in author_labels:
         generate_author_page(author_label, summary_by_label.get(author_label), persona_by_label.get(author_label), expertise_dir, album_covers_src_dir, author_dir, asset_dir, build_report)
 
