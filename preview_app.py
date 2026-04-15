@@ -3,8 +3,9 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Optional
+import re
 
-from flask import Flask, abort, render_template_string, send_from_directory
+from flask import Flask, abort, redirect, render_template_string, send_from_directory
 
 BASE_DIR = Path(__file__).resolve().parent
 DOCS_DIR = BASE_DIR / "docs"
@@ -13,7 +14,7 @@ REPORTS_DIR = BASE_DIR / "pipeline_reports"
 
 app = Flask(__name__)
 
-PAGE_HTML = '''
+PAGE_HTML = """
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,9 +23,9 @@ PAGE_HTML = '''
   <title>VALIANT Wrapped Preview</title>
   <style>
     :root{
-      --bg:#0a0f14; --bg2:#101820; --card:#121b23; --card2:#17232d;
-      --ink:#ecf3f8; --muted:#99a9b8; --line:#233341;
-      --green:#1ed760; --green2:#18b34e; --blue:#5cc8ff;
+      --bg:#0a0a0a; --bg2:#101010; --card:#121212; --card2:#181818;
+      --ink:#f5f5f5; --muted:#b3b3b3; --line:#2a2a2a;
+      --green:#1db954; --green2:#1ed760;
       --shadow:0 16px 40px rgba(0,0,0,.28); --radius:20px;
     }
     *{box-sizing:border-box}
@@ -32,15 +33,15 @@ PAGE_HTML = '''
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(900px 420px at 10% 0%, rgba(30,215,96,.14), transparent 60%),
-        radial-gradient(900px 420px at 100% 10%, rgba(92,200,255,.10), transparent 60%),
+        radial-gradient(900px 420px at 10% 0%, rgba(29,185,84,.14), transparent 60%),
+        radial-gradient(900px 420px at 100% 10%, rgba(29,185,84,.08), transparent 60%),
         linear-gradient(180deg,var(--bg),var(--bg2));
       color:var(--ink); min-height:100vh;
     }
     .wrap{max-width:1200px; margin:0 auto; padding:28px 20px 56px;}
     .hero{
       border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      background:linear-gradient(135deg, rgba(29,185,84,.14), rgba(255,255,255,.02));
       border-radius:28px; padding:28px; box-shadow:var(--shadow);
     }
     .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:#c6d2dd;}
@@ -48,7 +49,7 @@ PAGE_HTML = '''
     .lead{margin:0; color:#d4dde6; max-width:74ch; line-height:1.6;}
     .toolbar{margin-top:20px; display:grid; grid-template-columns:1fr auto auto; gap:12px; align-items:center;}
     input[type="search"]{
-      width:100%; border:1px solid var(--line); background:#0d151c; color:var(--ink);
+      width:100%; border:1px solid var(--line); background:#0d0d0d; color:var(--ink);
       border-radius:14px; padding:14px 16px; font-size:15px; outline:none;
     }
     .btn{
@@ -58,9 +59,9 @@ PAGE_HTML = '''
     }
     .btn:hover{transform:translateY(-1px)}
     .btn.green{background:linear-gradient(135deg,var(--green),var(--green2)); color:#04130a;}
-    .btn.ghost{background:#13202a; color:#d8e3ec; border:1px solid var(--line);}
+    .btn.ghost{background:#161616; color:#d8e3ec; border:1px solid var(--line);}
     .meta{margin-top:18px; display:flex; flex-wrap:wrap; gap:12px; color:var(--muted); font-size:13px;}
-    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--line); background:#101920; border-radius:999px;}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--line); background:#101010; border-radius:999px;}
     .grid{margin-top:24px; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px;}
     .card{
       background:linear-gradient(180deg, var(--card), var(--card2));
@@ -72,7 +73,7 @@ PAGE_HTML = '''
     .small{font-size:12px; color:var(--muted); margin-top:10px; word-break:break-all;}
     .empty{
       margin-top:24px; padding:24px; border:1px dashed var(--line); border-radius:20px;
-      background:#0f171e; color:var(--muted);
+      background:#0f0f0f; color:var(--muted);
     }
     .footer{margin-top:28px; color:var(--muted); font-size:13px;}
     @media (max-width:980px){.grid{grid-template-columns:1fr 1fr}.toolbar{grid-template-columns:1fr}}
@@ -84,7 +85,7 @@ PAGE_HTML = '''
     <section class="hero">
       <div class="eyebrow">VALIANT Wrapped Preview</div>
       <h1>Browse generated author pages</h1>
-      <p class="lead">This preview app reads the HTML pages already generated in <code>docs/authors</code>. It does not rerun the pipeline.</p>
+      <p class="lead">This preview app reads the HTML pages already generated in <code>docs/authors/&lt;slug&gt;/index.html</code>. It does not rerun the pipeline.</p>
       <div class="toolbar">
         <input id="searchBox" type="search" placeholder="Search by author name, label, or Scopus ID..." />
         {% if report_url %}<a class="btn ghost" href="{{ report_url }}">Open pipeline report</a>{% endif %}
@@ -110,14 +111,14 @@ PAGE_HTML = '''
               <a class="btn green" href="{{ a.page_url }}" target="_blank" rel="noopener">Open page</a>
               <a class="btn ghost" href="{{ a.page_url }}">Open here</a>
             </div>
-            <div class="small">{{ a.filename }}</div>
+            <div class="small">{{ a.slug }}/index.html</div>
           </article>
         {% endfor %}
       </section>
     {% else %}
       <div class="empty">
         No author HTML pages were found in <code>{{ authors_dir }}</code>.
-        Make sure your site generator has written files to <code>docs/authors/</code>.
+        Make sure your site generator has written files to <code>docs/authors/&lt;slug&gt;/index.html</code>.
       </div>
     {% endif %}
 
@@ -140,17 +141,19 @@ PAGE_HTML = '''
   </script>
 </body>
 </html>
-'''
+"""
 
 def display_name_from_label(label: str):
     parts = str(label).split("_")
-    last = parts[0] if len(parts) > 0 else ""
-    first = parts[1] if len(parts) > 1 else ""
-    scopus_id = parts[-1] if len(parts) > 2 else ""
-    pretty_first = first.replace("-", " ")
-    pretty_last = last.replace("-", " ")
-    display_name = f"{pretty_first} {pretty_last}".strip() or label
-    return pretty_first, pretty_last, scopus_id, display_name
+    scopus_id = parts[-1] if len(parts) >= 3 and parts[-1].isdigit() else ""
+    name_parts = parts[:-1] if scopus_id else parts
+    if len(name_parts) >= 2:
+        last = name_parts[0].replace("-", " ")
+        first = " ".join(p.replace("-", " ") for p in name_parts[1:])
+        display_name = f"{first} {last}".strip()
+    else:
+        display_name = label.replace("_", " ").replace("-", " ")
+    return scopus_id, display_name
 
 def find_report_url() -> Optional[str]:
     for path in [REPORTS_DIR / "pipeline_author_report.csv", REPORTS_DIR / "pipeline_summary.txt"]:
@@ -158,20 +161,71 @@ def find_report_url() -> Optional[str]:
             return f"/reports/{path.name}"
     return None
 
+def load_authors_json_map():
+    path = DOCS_DIR / "data" / "authors.json"
+    if not path.exists():
+        return {}
+    try:
+        import json
+        data = json.loads(path.read_text(encoding="utf-8"))
+        out = {}
+        for row in data:
+            label = str(row.get("author_label", "")).strip()
+            if label:
+                out[label] = row
+        return out
+    except Exception:
+        return {}
+
 def collect_authors():
     rows = []
     if not AUTHORS_DIR.exists():
         return rows
-    for html_path in sorted(AUTHORS_DIR.glob("*.html")):
-        author_label = html_path.stem
-        _, _, scopus_id, display_name = display_name_from_label(author_label)
+
+    authors_json_map = load_authors_json_map()
+
+    for author_dir in sorted([p for p in AUTHORS_DIR.iterdir() if p.is_dir()]):
+        index_path = author_dir / "index.html"
+        if not index_path.exists():
+            continue
+
+        label = ""
+        meta = None
+
+        # Prefer matching from authors.json using href slug if possible
+        for candidate_label, candidate in authors_json_map.items():
+            href = str(candidate.get("href", "")).strip("/")
+            if href.endswith(author_dir.name):
+                label = candidate_label
+                meta = candidate
+                break
+
+        if not label:
+            # Fallback: try to infer from title or directory name
+            label = author_dir.name
+            meta = {}
+
+        scopus_id = ""
+        display_name = ""
+
+        if meta:
+            scopus_id = str(meta.get("scopus_id", "")).strip()
+            display_name = str(meta.get("display_name", "")).strip()
+
+        if not display_name:
+            inferred_id, inferred_name = display_name_from_label(label)
+            display_name = inferred_name
+            scopus_id = scopus_id or inferred_id
+
         rows.append({
-            "author_label": author_label,
+            "author_label": label,
             "display_name": display_name,
             "scopus_id": scopus_id,
-            "filename": html_path.name,
-            "page_url": f"/authors/{html_path.name}",
+            "slug": author_dir.name,
+            "page_url": f"/authors/{author_dir.name}/",
         })
+
+    rows.sort(key=lambda x: x["display_name"].lower())
     return rows
 
 @app.route("/")
@@ -188,12 +242,17 @@ def index():
 def refresh():
     return index()
 
-@app.route("/authors/<path:filename>")
-def serve_author_page(filename: str):
-    path = AUTHORS_DIR / filename
-    if not path.exists():
+@app.route("/authors/<slug>/")
+def serve_author_page(slug: str):
+    author_dir = AUTHORS_DIR / slug
+    index_path = author_dir / "index.html"
+    if not index_path.exists():
         abort(404)
-    return send_from_directory(AUTHORS_DIR, filename)
+    return send_from_directory(author_dir, "index.html")
+
+@app.route("/authors/<slug>/index.html")
+def serve_author_page_index(slug: str):
+    return serve_author_page(slug)
 
 @app.route("/reports/<path:filename>")
 def serve_report(filename: str):
@@ -209,6 +268,13 @@ def serve_assets(subpath: str):
     if not target.exists():
         abort(404)
     return send_from_directory(assets_dir, subpath)
+
+@app.route("/index.html")
+def serve_site_home():
+    home = DOCS_DIR / "index.html"
+    if not home.exists():
+        abort(404)
+    return send_from_directory(DOCS_DIR, "index.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5001)
