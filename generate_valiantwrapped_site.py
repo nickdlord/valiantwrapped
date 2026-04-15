@@ -298,54 +298,7 @@ def parse_metrics_csv(path: Path) -> Dict[str, Metrics]:
 
 
 # -----------------------------------------------------------------------------
-# Optional master export splitting
-# -----------------------------------------------------------------------------
-def split_master_scopus(master_csv: Path, output_dir: Path) -> List[Path]:
-    """
-    Split a center-wide Scopus export into per-author CSVs based on Author(s) ID.
-
-    Naming convention produced: Unknown_Author_<scopusid>.csv when a precise author
-    name cannot be resolved from the row-level data. This is intentionally conservative.
-
-    For most VALIANT Wrapped workflows, the preferred per-author naming convention is
-    created earlier in the pipeline. This helper exists so the script can still bootstrap
-    author_csvs from the master export when requested.
-    """
-    ensure_dir(output_dir)
-    df = _read_csv_flexible(master_csv)
-    author_id_col = pick_existing_col(df.columns, AUTHOR_ID_COLS)
-    author_name_col = pick_existing_col(df.columns, AUTHOR_NAME_COLS)
-
-    if not author_id_col:
-        raise ValueError(
-            "Could not split master Scopus export because no author-id column was found."
-        )
-
-    grouped_rows: Dict[str, List[int]] = {}
-    label_for_id: Dict[str, str] = {}
-
-    for idx, row in df.iterrows():
-        author_ids = re.findall(r"\d+", clean_text(row.get(author_id_col, "")))
-        if not author_ids:
-            continue
-        for author_id in author_ids:
-            grouped_rows.setdefault(author_id, []).append(idx)
-            if author_id not in label_for_id:
-                label_for_id[author_id] = _guess_label_from_row(row, author_id, author_name_col)
-
-    written_paths: List[Path] = []
-    for author_id, indices in grouped_rows.items():
-        subset = df.iloc[indices].drop_duplicates().copy()
-        label = label_for_id.get(author_id) or f"Unknown_Author_{author_id}"
-        out_path = output_dir / f"{label}.csv"
-        subset.to_csv(out_path, index=False, encoding="utf-8")
-        written_paths.append(out_path)
-
-    return sorted(written_paths)
-
-
-# -----------------------------------------------------------------------------
-# Internal helpers for splitting and loading
+# Internal helpers for loading
 # -----------------------------------------------------------------------------
 def _read_csv_flexible(path: Path) -> pd.DataFrame:
     try:
@@ -1271,8 +1224,7 @@ def build_site(
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser(description="Build the VALIANT Wrapped static website.")
     ap.add_argument("--master-scopus-csv", default="", help="Optional master Scopus export in project root.")
-    ap.add_argument("--split-master-to-author-csvs", action="store_true", help="If set, split the master export into author_csvs/ before site generation.")
-    ap.add_argument("--author-csv-dir", default="author_csvs", help="Directory for per-author CSVs if splitting is requested.")
+    ap.add_argument("--author-csv-dir", default="author_csvs", help="Directory containing pre-split per-author CSV files.")
     ap.add_argument("--metrics-csv", default="author_summary_2025_present.csv")
     ap.add_argument("--expertise-dir", default="author_expertise_txt")
     ap.add_argument("--persona-dir", default="outputs/author_music_personas_txt")
