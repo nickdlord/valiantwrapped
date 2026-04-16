@@ -570,7 +570,7 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
 
     <main class="main-panel">
       <section class="hero author-hero">
-        <div class="hero-copy">
+        <div class="hero-copy hero-copy-only">
           <div class="eyebrow">{html_escape(project_title)}</div>
           <h1>{html_escape(author.display_name)}</h1>
           <div id="publications" class="hero-stats-block">
@@ -583,7 +583,6 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
             </div>
           </div>
         </div>
-        <div class="hero-art">{cover_markup(author, depth_prefix='../../')}</div>
       </section>
 
       <section id="persona" class="content-card">
@@ -750,6 +749,7 @@ a { color: inherit; text-decoration: none; }
   padding: 38px; box-shadow: var(--shadow);
 }
 .author-hero { display: block; }
+.hero-copy-only { max-width: 100%; }
 .hero-no-art .hero-copy { max-width: 980px; }
 .hero-copy { max-width: 850px; }
 .hero-stats-block { margin-top: 22px; }
