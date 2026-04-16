@@ -684,7 +684,7 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
         track_y += row_h
 
     # Encore text anchored in the lower-right corner so it never blocks the tracklist
-    encore_text = 'Thanks for being part of VALIANT. We’re already queued up for what you drop next.'
+    encore_text = '"Thanks for an amazing and productive year with VALIANT. We can\'t wait to see what next year sounds like."'
     encore_max_width = 500
     encore_font = fit_font_for_multiline(
         draw, encore_text, encore_max_width, 28, min_size=20, bold=True, max_lines=2)
