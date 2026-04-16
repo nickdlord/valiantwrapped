@@ -650,10 +650,17 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
         draw_multiline_block(draw, line, track_font, (235, 235, 235), 758, track_y + 6, 488, line_gap=2, max_lines=1)
         track_y += row_h
 
-    # Encore text under tracklist instead of blocking album cover
+    # Encore text anchored in the lower-right corner so it never blocks the tracklist
     encore_text = 'What a year — and we are so ready for the encore.'
-    encore_font = fit_font_for_multiline(draw, encore_text, 540, 28, min_size=20, bold=True, max_lines=2)
-    draw_multiline_block(draw, encore_text, encore_font, (245, 245, 245), 730, 1170, 540, line_gap=4, max_lines=2)
+    encore_max_width = 500
+    encore_font = fit_font_for_multiline(draw, encore_text, encore_max_width, 28, min_size=20, bold=True, max_lines=2)
+    encore_lines = wrap_text_for_draw(draw, encore_text, encore_font, encore_max_width)
+    encore_line_bbox = draw.textbbox((0, 0), 'Ag', font=encore_font)
+    encore_line_h = encore_line_bbox[3] - encore_line_bbox[1]
+    encore_text_h = len(encore_lines) * encore_line_h + max(0, len(encore_lines) - 1) * 4
+    encore_x = size - 84 - encore_max_width
+    encore_y = size - 84 - encore_text_h
+    draw_multiline_block(draw, encore_text, encore_font, (245, 245, 245), encore_x, encore_y, encore_max_width, line_gap=4, max_lines=2)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     card.save(output_path, format='PNG')
