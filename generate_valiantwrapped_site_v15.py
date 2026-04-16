@@ -522,9 +522,8 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
     album_path = cover_src_dir / author.cover_filename if author.cover_filename else None
     portrait_path = musician_headshot_src_dir / author.musician_portrait_filename if author.musician_portrait_filename else None
 
-    portrait = add_round_corners(open_and_fill_square(portrait_path, 240), 28)
-    album = add_round_corners(open_and_fill_square(album_path, 380), 34)
-    card.paste(portrait, (96, 152), portrait)
+    portrait = add_round_corners(open_and_fill_square(portrait_path, 220), 28)
+    album = add_round_corners(open_and_fill_square(album_path, 460), 34)
 
     font_brand = load_font(34, bold=True)
     font_eyebrow = load_font(25, bold=True)
@@ -540,46 +539,47 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
     share_bbox = draw.textbbox((0, 0), share_label, font=font_small)
     draw.text((size - 96 - (share_bbox[2] - share_bbox[0]), 86), share_label, font=font_small, fill=(188, 188, 188))
 
-    title_left = 372
-    title_top = 142
-    title_width = 760
-    display_font = fit_font_for_multiline(draw, author.display_name, title_width, 68, min_size=36, bold=True, max_lines=2)
+    title_left = 96
+    title_top = 156
+    title_width = 1200
+    display_font = fit_font_for_multiline(draw, author.display_name, title_width, 72, min_size=36, bold=True, max_lines=2)
     title_end_y = draw_multiline_block(draw, author.display_name, display_font, (248, 248, 248), title_left, title_top, title_width, line_gap=4, max_lines=2)
 
-    subtitle_font = load_font(23, bold=False)
-    subtitle_text = 'Your VALIANT Wrapped stage entrance'
-    subtitle_y = title_end_y + 6
-    draw.text((title_left, subtitle_y), subtitle_text, font=subtitle_font, fill=(174, 174, 174))
-
-    artist_box_top = max(228, subtitle_y + 28)
-    artist_box_bottom = 680
-    artist_box = (360, artist_box_top, 1304, artist_box_bottom)
+    artist_box_top = max(286, title_end_y + 26)
+    artist_box_bottom = 720
+    artist_box = (86, artist_box_top, 1314, artist_box_bottom)
     draw.rounded_rectangle(artist_box, radius=34, fill=(18, 18, 18), outline=(52, 52, 52), width=2)
-    draw.text((388, artist_box_top + 26), 'YOUR MUSICAL ALTER EGO', font=font_section, fill=(30, 215, 96))
+    draw.text((118, artist_box_top + 28), 'YOUR MUSICAL ALTER EGO', font=font_section, fill=(30, 215, 96))
 
+    portrait_x = 1060
+    portrait_y = artist_box_top + 74
+    card.paste(portrait, (portrait_x, portrait_y), portrait)
+
+    text_left = 118
+    text_width = 900
     artist_name = author.persona.artist_name or 'Still waiting on the stage name reveal'
-    artist_name_font = fit_font_for_multiline(draw, artist_name, 620, 56, min_size=28, bold=True, max_lines=2)
-    artist_name_y = artist_box_top + 70
-    artist_name_end = draw_multiline_block(draw, artist_name, artist_name_font, (245, 245, 245), 388, artist_name_y, 620, line_gap=4, max_lines=2)
+    artist_name_font = fit_font_for_multiline(draw, artist_name, text_width, 56, min_size=28, bold=True, max_lines=2)
+    artist_name_y = artist_box_top + 76
+    artist_name_end = draw_multiline_block(draw, artist_name, artist_name_font, (245, 245, 245), text_left, artist_name_y, text_width, line_gap=4, max_lines=2)
 
-    draw.text((388, artist_name_end + 10), 'Bio', font=load_font(20, bold=True), fill=(30, 215, 96))
+    draw.text((text_left, artist_name_end + 10), 'Bio', font=load_font(20, bold=True), fill=(30, 215, 96))
     bio_text = author.persona.bio or 'This artist bio is fashionably late, but the research still made the lineup.'
-    bio_font = fit_font_for_multiline(draw, bio_text, 620, 20, min_size=13, bold=False, max_lines=10)
+    bio_font = fit_font_for_multiline(draw, bio_text, text_width, 22, min_size=13, bold=False, max_lines=10)
     bio_start_y = artist_name_end + 42
-    bio_lines = wrap_text_for_draw(draw, bio_text, bio_font, 620)
-    reserved_bio_bottom = artist_box_bottom - 134
+    bio_lines = wrap_text_for_draw(draw, bio_text, bio_font, text_width)
+    reserved_bio_bottom = artist_box_bottom - 132
     while bio_lines:
         line_bbox = draw.textbbox((0, 0), 'Ag', font=bio_font)
         line_h = line_bbox[3] - line_bbox[1]
         total_h = len(bio_lines) * line_h + max(0, len(bio_lines) - 1) * 3
         if bio_start_y + total_h <= reserved_bio_bottom or getattr(bio_font, 'size', 13) <= 13:
             break
-        bio_font = load_font(max(13, getattr(bio_font, 'size', 20) - 1), bold=False)
-        bio_lines = wrap_text_for_draw(draw, bio_text, bio_font, 620)
+        bio_font = load_font(max(13, getattr(bio_font, 'size', 22) - 1), bold=False)
+        bio_lines = wrap_text_for_draw(draw, bio_text, bio_font, text_width)
 
     bio_y = bio_start_y
     for line in bio_lines:
-        draw.text((388, bio_y), line, font=bio_font, fill=(208, 208, 208))
+        draw.text((text_left, bio_y), line, font=bio_font, fill=(208, 208, 208))
         bbox = draw.textbbox((0, 0), line, font=bio_font)
         bio_y += (bbox[3] - bbox[1]) + 3
 
@@ -589,7 +589,7 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
         ('Citations', str(author.metrics.citation_count) if author.metrics.citation_count > 0 else '—'),
         ('Top cites', str(author.metrics.top_paper_citations) if author.metrics.top_paper_citations > 0 else '—'),
     ]
-    stat_x = 388
+    stat_x = text_left
     stat_gap = 152
     for idx, (label, value) in enumerate(stats):
         left = stat_x + idx * stat_gap
@@ -599,44 +599,48 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
         draw.text((left + 14, stat_y + 39), label, font=font_stat_label, fill=(173, 173, 173))
 
     journal = clean_text(author.metrics.top_journal) or 'Still warming up'
-    draw.text((878, stat_y + 5), 'Favorite journal', font=font_stat_label, fill=(173, 173, 173))
-    journal_font = fit_font_for_multiline(draw, journal, 300, 20, min_size=15, bold=False, max_lines=2)
-    draw_multiline_block(draw, journal, journal_font, (238, 238, 238), 878, stat_y + 26, 300, line_gap=3, max_lines=2)
+    draw.text((610, stat_y + 5), 'Favorite journal', font=font_stat_label, fill=(173, 173, 173))
+    journal_font = fit_font_for_multiline(draw, journal, 380, 20, min_size=15, bold=False, max_lines=2)
+    draw_multiline_block(draw, journal, journal_font, (238, 238, 238), 610, stat_y + 26, 380, line_gap=3, max_lines=2)
 
-    lower_box = (70, 708, 1330, 1148)
+    lower_box = (70, 748, 1330, 1186)
     draw.rounded_rectangle(lower_box, radius=38, fill=(17, 17, 17), outline=(52, 52, 52), width=2)
-    left_panel = (88, 746, 676, 1110)
-    right_panel = (716, 746, 1276, 1110)
+    left_panel = (88, 808, 700, 1148)
+    right_panel = (730, 808, 1276, 1148)
     draw.rounded_rectangle(left_panel, radius=32, fill=(21, 21, 21))
     draw.rounded_rectangle(right_panel, radius=32, fill=(21, 21, 21))
 
-    draw.text((96, 720), 'NOW SPINNING', font=font_section, fill=(30, 215, 96))
-    draw.text((736, 720), 'TRACKLIST', font=font_section, fill=(30, 215, 96))
-
-    card.paste(album, (108, 766), album)
+    heading_y = 764
+    label_font = load_font(24, bold=True)
+    label_width = draw.textbbox((0, 0), 'Latest Album:', font=label_font)[2]
+    draw.text((96, heading_y), 'Latest Album:', font=label_font, fill=(30, 215, 96))
     album_title = author.persona.album_title or 'Untitled drop'
-    album_title_font = fit_font_for_multiline(draw, album_title, 150, 34, min_size=18, bold=True, max_lines=4)
-    draw_multiline_block(draw, album_title, album_title_font, (242, 242, 242), 508, 786, 138, line_gap=3, max_lines=4)
-    draw.text((508, 938), 'Latest album', font=font_stat_label, fill=(173, 173, 173))
+    album_title_font = fit_font_for_multiline(draw, album_title, 520, 36, min_size=20, bold=True, max_lines=2)
+    draw_multiline_block(draw, album_title, album_title_font, (242, 242, 242), 96 + label_width + 16, heading_y - 4, 520, line_gap=2, max_lines=2)
+    draw.text((734, heading_y), 'TRACKLIST', font=font_section, fill=(30, 215, 96))
+
+    album_x = 110
+    album_y = 840
+    card.paste(album, (album_x, album_y), album)
 
     tracks = list(author.persona.tracklist[:8]) if author.persona.tracklist else []
     if not tracks:
         tracks = ['No tracklist found. Even fictional artists miss deadlines sometimes.']
-    track_y = 772
+    track_y = 820
     row_h = 42
     for i, track in enumerate(tracks, start=1):
         prefix = f'{i:02d}. ' if author.persona.tracklist else ''
         line = prefix + clean_text(track)
-        draw.rounded_rectangle((734, track_y, 1258, track_y + row_h - 6), radius=18, fill=(30, 30, 30))
-        track_font = fit_font_for_multiline(draw, line, 486, 19, min_size=14, bold=False, max_lines=1)
-        draw_multiline_block(draw, line, track_font, (235, 235, 235), 754, track_y + 6, 486, line_gap=2, max_lines=1)
+        draw.rounded_rectangle((748, track_y, 1258, track_y + row_h - 6), radius=18, fill=(30, 30, 30))
+        track_font = fit_font_for_multiline(draw, line, 468, 19, min_size=14, bold=False, max_lines=1)
+        draw_multiline_block(draw, line, track_font, (235, 235, 235), 768, track_y + 6, 468, line_gap=2, max_lines=1)
         track_y += row_h
 
-    footer_top = 1182
+    footer_top = 1210
     footer_bottom = size - 90
     draw.rounded_rectangle((70, footer_top, size - 70, footer_bottom), radius=30, fill=(23, 23, 23), outline=(52, 52, 52), width=2)
     encore_text = 'Thanks for an amazing and productive year. We can’t wait for the encore.'
-    encore_font = fit_font_for_multiline(draw, encore_text, 1180, 36, min_size=24, bold=True, max_lines=2)
+    encore_font = fit_font_for_multiline(draw, encore_text, 1180, 38, min_size=24, bold=True, max_lines=2)
     draw_multiline_block(draw, encore_text, encore_font, (245, 245, 245), 98, footer_top + 28, 1180, line_gap=6, max_lines=2)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
