@@ -49,7 +49,8 @@ def list_author_csvs(author_csv_dir: Path) -> Dict[str, Path]:
 
 def stage_log_paths(reports_dir: Path, author_label: str, stage_name: str) -> tuple[Path, Path]:
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_author = canonical_author_label(author_label) if author_label else "__global__"
+    safe_author = canonical_author_label(
+        author_label) if author_label else "__global__"
     return (
         reports_dir / "logs" / f"{stamp}_{safe_author}_{stage_name}.out",
         reports_dir / "logs" / f"{stamp}_{safe_author}_{stage_name}.err",
@@ -103,8 +104,10 @@ def album_cover_path(album_covers_dir: Path, author: str) -> Path:
 @dataclass
 class AuthorRun:
     author_label: str
-    stage_status: Dict[str, str] = field(default_factory=lambda: {s: "not_started" for s in STAGES})
-    stage_detail: Dict[str, str] = field(default_factory=lambda: {s: "" for s in STAGES})
+    stage_status: Dict[str, str] = field(
+        default_factory=lambda: {s: "not_started" for s in STAGES})
+    stage_detail: Dict[str, str] = field(
+        default_factory=lambda: {s: "" for s in STAGES})
 
     def mark(self, stage: str, status: str, detail: str = "") -> None:
         self.stage_status[stage] = status
@@ -129,7 +132,8 @@ def write_consolidated_report(path: Path, authors: Dict[str, AuthorRun]) -> None
         w.writeheader()
         for label in sorted(authors):
             row = authors[label]
-            out = {"author_label": label, "overall_status": row.overall_status()}
+            out = {"author_label": label,
+                   "overall_status": row.overall_status()}
             for stage in STAGES:
                 out[f"{stage}_status"] = row.stage_status[stage]
                 out[f"{stage}_detail"] = row.stage_detail[stage]
@@ -147,8 +151,10 @@ def run_global_metrics(
     if skip_existing and cached_copy.exists():
         return cached_copy
 
-    stdout_path, stderr_path = stage_log_paths(reports_dir, "__global__", "author_scopusmetrics")
-    returncode = run_subprocess([python_exe, str(metrics_script)], stdout_path, stderr_path, cwd=project_root)
+    stdout_path, stderr_path = stage_log_paths(
+        reports_dir, "__global__", "author_scopusmetrics")
+    returncode = run_subprocess(
+        [python_exe, str(metrics_script)], stdout_path, stderr_path, cwd=project_root)
     generated = project_root / "author_summary_2025_present.csv"
     if returncode != 0 or not generated.exists():
         raise RuntimeError(
@@ -186,13 +192,16 @@ def run_per_author_pipeline(
     if skip_existing and summary_path.exists():
         row.mark("summary_txt", "skipped_existing", str(summary_path))
     else:
-        stdout_path, stderr_path = stage_log_paths(reports_dir, author, "summary_txt")
-        cmd = [python_exe, str(scopus2txt_script), "--input-file", str(csv_path), "--output-dir", str(summary_txt_dir)]
+        stdout_path, stderr_path = stage_log_paths(
+            reports_dir, author, "summary_txt")
+        cmd = [python_exe, str(scopus2txt_script), "--input-file",
+               str(csv_path), "--output-dir", str(summary_txt_dir)]
         rc = run_subprocess(cmd, stdout_path, stderr_path, cwd=project_root)
         if rc == 0 and summary_path.exists():
             row.mark("summary_txt", "built", str(summary_path))
         else:
-            row.mark("summary_txt", "failed", f"See {stdout_path.name} / {stderr_path.name}")
+            row.mark("summary_txt", "failed",
+                     f"See {stdout_path.name} / {stderr_path.name}")
             for s in ["expertise_txt", "persona_txt", "album_cover"]:
                 row.mark(s, "blocked", "upstream failure at summary_txt")
             return
@@ -201,9 +210,11 @@ def run_per_author_pipeline(
     if skip_existing and expertise_path.exists():
         row.mark("expertise_txt", "skipped_existing", str(expertise_path))
     else:
-        per_author_csv = reports_dir / "per_author_csv" / "expertise" / f"{author}.csv"
+        per_author_csv = reports_dir / "per_author_csv" / \
+            "expertise" / f"{author}.csv"
         ensure_dir(per_author_csv.parent)
-        stdout_path, stderr_path = stage_log_paths(reports_dir, author, "expertise_txt")
+        stdout_path, stderr_path = stage_log_paths(
+            reports_dir, author, "expertise_txt")
         cmd = [
             python_exe,
             str(expertise_script),
@@ -215,7 +226,8 @@ def run_per_author_pipeline(
         if rc == 0 and expertise_path.exists():
             row.mark("expertise_txt", "built", str(expertise_path))
         else:
-            row.mark("expertise_txt", "failed", f"See {stdout_path.name} / {stderr_path.name}")
+            row.mark("expertise_txt", "failed",
+                     f"See {stdout_path.name} / {stderr_path.name}")
             for s in ["persona_txt", "album_cover"]:
                 row.mark(s, "blocked", "upstream failure at expertise_txt")
             return
@@ -224,9 +236,11 @@ def run_per_author_pipeline(
     if skip_existing and persona_path.exists():
         row.mark("persona_txt", "skipped_existing", str(persona_path))
     else:
-        per_author_csv = reports_dir / "per_author_csv" / "persona" / f"{author}.csv"
+        per_author_csv = reports_dir / \
+            "per_author_csv" / "persona" / f"{author}.csv"
         ensure_dir(per_author_csv.parent)
-        stdout_path, stderr_path = stage_log_paths(reports_dir, author, "persona_txt")
+        stdout_path, stderr_path = stage_log_paths(
+            reports_dir, author, "persona_txt")
         cmd = [
             python_exe,
             str(persona_script),
@@ -238,15 +252,18 @@ def run_per_author_pipeline(
         if rc == 0 and persona_path.exists():
             row.mark("persona_txt", "built", str(persona_path))
         else:
-            row.mark("persona_txt", "failed", f"See {stdout_path.name} / {stderr_path.name}")
-            row.mark("album_cover", "blocked", "upstream failure at persona_txt")
+            row.mark("persona_txt", "failed",
+                     f"See {stdout_path.name} / {stderr_path.name}")
+            row.mark("album_cover", "blocked",
+                     "upstream failure at persona_txt")
             return
 
     # 4) album cover
     if skip_existing and cover_path.exists():
         row.mark("album_cover", "skipped_existing", str(cover_path))
     else:
-        stdout_path, stderr_path = stage_log_paths(reports_dir, author, "album_cover")
+        stdout_path, stderr_path = stage_log_paths(
+            reports_dir, author, "album_cover")
         cmd = [
             python_exe,
             str(album_script),
@@ -258,7 +275,8 @@ def run_per_author_pipeline(
         if rc == 0 and cover_path.exists():
             row.mark("album_cover", "built", str(cover_path))
         else:
-            row.mark("album_cover", "failed", f"See {stdout_path.name} / {stderr_path.name}")
+            row.mark("album_cover", "failed",
+                     f"See {stdout_path.name} / {stderr_path.name}")
             return
 
 
@@ -268,8 +286,10 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--project-root", default=".")
     ap.add_argument("--author-csv-dir", default="author_csvs")
     ap.add_argument("--summary-txt-dir", default="outputs/summary_txt")
-    ap.add_argument("--expertise-txt-dir", default="outputs/author_expertise_txt")
-    ap.add_argument("--persona-txt-dir", default="outputs/author_music_personas_txt")
+    ap.add_argument("--expertise-txt-dir",
+                    default="outputs/author_expertise_txt")
+    ap.add_argument("--persona-txt-dir",
+                    default="outputs/author_music_personas_txt")
     ap.add_argument("--album-covers-dir", default="outputs/album_covers")
     ap.add_argument("--reports-dir", default="pipeline_reports")
     ap.add_argument("--selected-authors-file", default="")
@@ -277,7 +297,8 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--scopus-db", default="")
     ap.add_argument("--scopus2txt-script", default="scopus2txtsummary.py")
     ap.add_argument("--metrics-script", default="author_scopusmetrics.py")
-    ap.add_argument("--expertise-script", default="author_expertise_llama31_2.py")
+    ap.add_argument("--expertise-script",
+                    default="author_expertise_llama31_2.py")
     ap.add_argument("--persona-script", default="author_persona_llama31.py")
     ap.add_argument("--album-script", default="generate_album_covers.py")
     return ap
@@ -312,12 +333,14 @@ def main() -> None:
 
     selected = sorted(source_csvs.keys())
     if args.selected_authors_file:
-        selected_set = read_selected_authors((project_root / args.selected_authors_file).resolve())
+        selected_set = read_selected_authors(
+            (project_root / args.selected_authors_file).resolve())
         selected = [a for a in selected if a in selected_set]
     if not selected:
         raise ValueError("No authors selected for this run.")
 
-    authors: Dict[str, AuthorRun] = {author: AuthorRun(author) for author in selected}
+    authors: Dict[str, AuthorRun] = {
+        author: AuthorRun(author) for author in selected}
 
     meta_lines = [
         f"run_started: {now_iso()}",
@@ -328,7 +351,8 @@ def main() -> None:
         "mode: per_author_content_generation_no_site_build",
         f"outputs_ready_for_site_generation: author_summary_2025_present.csv, {expertise_txt_dir}, {persona_txt_dir}, {album_covers_dir}",
     ]
-    (reports_dir / "run_metadata.txt").write_text("\n".join(meta_lines) + "\n", encoding="utf-8")
+    (reports_dir / "run_metadata.txt").write_text("\n".join(meta_lines) +
+                                                  "\n", encoding="utf-8")
 
     # global metrics stage (kept because the site generator uses this later)
     cached_metrics_csv = reports_dir / "author_summary_2025_present.csv"
@@ -344,7 +368,8 @@ def main() -> None:
         )
     except Exception as exc:
         metrics_ok = False
-        (reports_dir / "metrics_stage_error.txt").write_text(str(exc) + "\n", encoding="utf-8")
+        (reports_dir / "metrics_stage_error.txt").write_text(str(exc) +
+                                                             "\n", encoding="utf-8")
 
     # per-author stages
     for idx, author in enumerate(selected, start=1):
@@ -366,7 +391,8 @@ def main() -> None:
             album_script=album_script,
             skip_existing=args.skip_existing,
         )
-        write_consolidated_report(reports_dir / "pipeline_author_report.csv", authors)
+        write_consolidated_report(
+            reports_dir / "pipeline_author_report.csv", authors)
 
     summary_lines = [
         f"Run completed: {now_iso()}",
@@ -379,16 +405,20 @@ def main() -> None:
         f"Metrics CSV available at project root: {project_root / 'author_summary_2025_present.csv'}",
         f"Cached metrics CSV copy: {cached_metrics_csv}",
     ]
-    (reports_dir / "pipeline_summary.txt").write_text("\n".join(summary_lines) + "\n", encoding="utf-8")
-    write_consolidated_report(reports_dir / "pipeline_author_report.csv", authors)
+    (reports_dir / "pipeline_summary.txt").write_text("\n".join(summary_lines) +
+                                                      "\n", encoding="utf-8")
+    write_consolidated_report(
+        reports_dir / "pipeline_author_report.csv", authors)
 
     print("Runner complete.")
     print("This script does not run site generation.")
     print("This script does not run paper recommendation.")
     if metrics_ok:
-        print(f"Metrics CSV: {project_root / 'author_summary_2025_present.csv'}")
+        print(
+            f"Metrics CSV: {project_root / 'author_summary_2025_present.csv'}")
     else:
-        print(f"Metrics stage failed. See: {reports_dir / 'metrics_stage_error.txt'}")
+        print(
+            f"Metrics stage failed. See: {reports_dir / 'metrics_stage_error.txt'}")
     print(f"Report: {reports_dir / 'pipeline_author_report.csv'}")
     print(f"Summary: {reports_dir / 'pipeline_summary.txt'}")
 
