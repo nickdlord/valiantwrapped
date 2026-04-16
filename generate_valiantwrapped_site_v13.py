@@ -441,7 +441,8 @@ def behind_the_scenes_line(author: AuthorRecord) -> str:
         "Fun fact: Doja Cat had been releasing music online for years before \"Say So\" launched her into full-on pop-star orbit.",
         "Fun fact: Billy Strings toured relentlessly in the bluegrass world before his wider breakout brought years of groundwork into the spotlight.",
     ]
-    key = clean_text(author.author_label) or clean_text(author.display_name) or "author"
+    key = clean_text(author.author_label) or clean_text(
+        author.display_name) or "author"
     idx = int(hashlib.sha256(key.encode("utf-8")).hexdigest(), 16) % len(facts)
     return facts[idx]
 
@@ -563,13 +564,17 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
 
     metric_items: List[str] = []
     if author.metrics.pub_count > 0:
-        metric_items.append(metric_chip("Papers published", str(author.metrics.pub_count)))
+        metric_items.append(metric_chip("Papers published",
+                            str(author.metrics.pub_count)))
     if author.metrics.citation_count > 0:
-        metric_items.append(metric_chip("Citations", str(author.metrics.citation_count)))
+        metric_items.append(metric_chip(
+            "Citations", str(author.metrics.citation_count)))
     if clean_text(author.metrics.top_journal):
-        metric_items.append(metric_chip("Favorite journal", author.metrics.top_journal))
+        metric_items.append(metric_chip(
+            "Favorite journal", author.metrics.top_journal))
     if author.metrics.top_paper_citations > 0:
-        metric_items.append(metric_chip("Top paper citations", str(author.metrics.top_paper_citations)))
+        metric_items.append(metric_chip(
+            "Top paper citations", str(author.metrics.top_paper_citations)))
 
     if not show_stats_grid and not show_top_paper:
         stats_html = f'<div class="come-up-line">{html_escape(behind_the_scenes_line(author))}</div>'
@@ -623,7 +628,7 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
 
       <section id="persona" class="content-card">
         <h2>Your Musical Alter Ego</h2>
-        <p class="section-copy">Generated from the themes, patterns, and publication trail in your real Scopus data — then remixed for your amusement into full stage-persona mode.</p>
+        <p class="section-copy">Generated from the themes, patterns, and publication trail in your real Scopus data — then remixed for your amusement.</p>
         <div class="persona-hero-grid">
           <div class="persona-portrait-wrap">{musician_portrait_markup(author, depth_prefix='../../')}</div>
           <div>
@@ -645,7 +650,7 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
       <section id="recommendations" class="content-card">
         <div class="section-kicker">{html_escape(SECTION_KICKERS["recommendations"])}</div>
         <h2>Recommended Papers</h2>
-        <p class="section-copy">A collection of papers from other VALIANT peers that we thought might belong in this author's intellectual queue.</p>
+        <p class="section-copy">A collection of papers from fellow VALIANT peers that we thought might belong in your intellectual queue.</p>
         <div class="recommendation-list">{recommendations_markup(author)}</div>
       </section>
 
