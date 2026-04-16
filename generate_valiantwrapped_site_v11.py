@@ -156,7 +156,6 @@ def canonical_author_label(value: object) -> str:
     return text
 
 
-
 def normalized_author_key(value: object) -> str:
     text = canonical_author_label(value)
     if not text:
@@ -166,6 +165,7 @@ def normalized_author_key(value: object) -> str:
     if parts and re.fullmatch(r"\d+", parts[-1]):
         parts = parts[:-1]
     return "_".join(part.lower() for part in parts)
+
 
 def slugify(text: str) -> str:
     text = clean_text(text).lower()
@@ -365,7 +365,8 @@ def build_lifetime_metrics_map(author_csv_dir: Path) -> Dict[str, Tuple[int, int
         pub_count = len(df.index)
         citation_count = 0
         if cite_col:
-            citation_count = int(pd.to_numeric(df[cite_col], errors="coerce").fillna(0).sum())
+            citation_count = int(pd.to_numeric(
+                df[cite_col], errors="coerce").fillna(0).sum())
 
         out[author_label] = (pub_count, citation_count)
 
@@ -471,7 +472,7 @@ def recommendations_markup(author: AuthorRecord) -> str:
                 '<article class="rec-card">'
                 f'<div class="rec-rank">#{rec.rank}</div>'
                 '<div class="rec-main">'
-                f'<h3>{html_escape(rec.title)}</h3>'
+                f'<h3>"{html_escape(rec.title)}"</h3>'
                 f'<p class="rec-meta">{html_escape(meta)}</p>'
                 '</div>'
                 f'<a class="google-btn" href="{html_escape(rec.google_url)}" target="_blank" rel="noopener noreferrer">Google it</a>'
@@ -1349,7 +1350,8 @@ def collect_authors(
 
     # Build the page list only from core record sources so normalized fallback keys
     # used for portrait/cover lookup do not create duplicate author pages.
-    source_labels = sorted(set(metrics_map) | set(lifetime_metrics_map) | set(expertise_map) | set(persona_map) | set(rec_map))
+    source_labels = sorted(set(metrics_map) | set(lifetime_metrics_map) | set(
+        expertise_map) | set(persona_map) | set(rec_map))
 
     # If none of the core text/metrics inputs are present, fall back to image-derived labels.
     if not source_labels:
@@ -1376,18 +1378,24 @@ def collect_authors(
     authors: List[AuthorRecord] = []
     for label in labels:
         normalized_label = normalized_author_key(label)
-        persona = persona_map.get(label) or persona_map.get(normalized_label, Persona())
-        recommendations, fallback = rec_map.get(label) or rec_map.get(normalized_label) or ([], "")
+        persona = persona_map.get(label) or persona_map.get(
+            normalized_label, Persona())
+        recommendations, fallback = rec_map.get(
+            label) or rec_map.get(normalized_label) or ([], "")
         cover_path = cover_map.get(label) or cover_map.get(normalized_label)
-        portrait_path = portrait_map.get(label) or portrait_map.get(normalized_label)
-        lifetime_pub_count, lifetime_citation_count = lifetime_metrics_map.get(label) or lifetime_metrics_map.get(normalized_label) or (0, 0)
+        portrait_path = portrait_map.get(
+            label) or portrait_map.get(normalized_label)
+        lifetime_pub_count, lifetime_citation_count = lifetime_metrics_map.get(
+            label) or lifetime_metrics_map.get(normalized_label) or (0, 0)
         authors.append(
             AuthorRecord(
                 author_label=label,
                 display_name=infer_display_name(label),
                 scopus_id=extract_scopus_id(label),
-                expertise_summary=expertise_map.get(label) or expertise_map.get(normalized_label, ""),
-                metrics=metrics_map.get(label) or metrics_map.get(normalized_label, Metrics()),
+                expertise_summary=expertise_map.get(
+                    label) or expertise_map.get(normalized_label, ""),
+                metrics=metrics_map.get(label) or metrics_map.get(
+                    normalized_label, Metrics()),
                 lifetime_pub_count=lifetime_pub_count,
                 lifetime_citation_count=lifetime_citation_count,
                 persona=persona,
@@ -1404,7 +1412,8 @@ def collect_authors(
     if verbose:
         print(f"[collect] metrics labels: {len(metrics_map)}")
         print(f"[collect] expertise dir: {expertise_dir}")
-        print(f"[collect] lifetime metrics labels: {len(lifetime_metrics_map)}")
+        print(
+            f"[collect] lifetime metrics labels: {len(lifetime_metrics_map)}")
         print(f"[collect] expertise labels: {len(expertise_map)}")
         print(f"[collect] persona labels: {len(persona_map)}")
         print(f"[collect] recommendation labels: {len(rec_map)}")
