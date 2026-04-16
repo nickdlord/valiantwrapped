@@ -518,13 +518,13 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
     draw = ImageDraw.Draw(card)
 
     # Background and soft wrapped-style shapes
-    draw.rounded_rectangle((34, 34, size - 34, size - 34),
+    draw.rounded_rectangle((24, 24, size - 24, size - 24),
                            radius=48, fill=(15, 15, 15))
-    draw.ellipse((1060, -180, 1650, 380), fill=(18, 92, 52))
-    draw.ellipse((840, -120, 1320, 285), fill=(36, 36, 36))
-    draw.ellipse((-190, 910, 350, 1485), fill=(42, 18, 82))
-    draw.ellipse((1040, 1070, 1520, 1580), fill=(16, 64, 34))
-    draw.rounded_rectangle((70, 70, size - 70, size - 70),
+    draw.ellipse((1080, -180, 1660, 390), fill=(18, 92, 52))
+    draw.ellipse((860, -120, 1335, 285), fill=(36, 36, 36))
+    draw.ellipse((-210, 930, 340, 1495), fill=(42, 18, 82))
+    draw.ellipse((1060, 1080, 1530, 1590), fill=(16, 64, 34))
+    draw.rounded_rectangle((54, 54, size - 54, size - 54),
                            radius=42, fill=(11, 11, 11))
 
     album_path = cover_src_dir / author.cover_filename if author.cover_filename else None
@@ -532,7 +532,7 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
         author.musician_portrait_filename if author.musician_portrait_filename else None
 
     portrait = add_round_corners(open_and_fill_square(portrait_path, 220), 28)
-    album = add_round_corners(open_and_fill_square(album_path, 500), 36)
+    album = add_round_corners(open_and_fill_square(album_path, 440), 34)
 
     font_brand = load_font(36, bold=True)
     font_eyebrow = load_font(26, bold=True)
@@ -540,18 +540,18 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
     font_stat_label = load_font(18, bold=False)
     font_section = load_font(25, bold=True)
 
-    draw.text((96, 84), project_title, font=font_brand, fill=(30, 215, 96))
-    draw.text((96, 122), 'Research, remixed.',
+    draw.text((84, 72), project_title, font=font_brand, fill=(30, 215, 96))
+    draw.text((84, 110), 'Research, remixed.',
               font=font_eyebrow, fill=(242, 242, 242))
 
     share_label = '2025 Wrapped Share Card'
     share_bbox = draw.textbbox((0, 0), share_label, font=font_small)
-    draw.text((size - 96 - (share_bbox[2] - share_bbox[0]), 86),
+    draw.text((size - 84 - (share_bbox[2] - share_bbox[0]), 76),
               share_label, font=font_small, fill=(188, 188, 188))
 
-    title_left = 96
-    title_top = 156
-    title_width = 1200
+    title_left = 84
+    title_top = 144
+    title_width = 1220
     display_font = fit_font_for_multiline(
         draw, author.display_name, title_width, 72, min_size=38, bold=True, max_lines=2)
     title_end_y = draw_multiline_block(
@@ -559,24 +559,24 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
         title_left, title_top, title_width, line_gap=4, max_lines=2
     )
 
-    # Alter ego panel
-    artist_box_top = max(286, title_end_y + 24)
-    artist_box_bottom = 748
-    artist_box = (86, artist_box_top, 1314, artist_box_bottom)
+    # Alter ego panel closer to edges
+    artist_box_top = max(278, title_end_y + 20)
+    artist_box_bottom = 740
+    artist_box = (66, artist_box_top, 1334, artist_box_bottom)
     draw.rounded_rectangle(artist_box, radius=34, fill=(17, 17, 17))
-    draw.text((118, artist_box_top + 28), 'YOUR MUSICAL ALTER EGO',
+    draw.text((94, artist_box_top + 24), 'YOUR MUSICAL ALTER EGO',
               font=font_section, fill=(30, 215, 96))
 
-    portrait_x = 1060
-    portrait_y = artist_box_top + 76
+    portrait_x = 1088
+    portrait_y = artist_box_top + 74
     card.paste(portrait, (portrait_x, portrait_y), portrait)
 
-    text_left = 118
-    text_width = 900
+    text_left = 94
+    text_width = 940
     artist_name = author.persona.artist_name or 'Still waiting on the stage name reveal'
     artist_name_font = fit_font_for_multiline(
         draw, artist_name, text_width, 56, min_size=28, bold=True, max_lines=2)
-    artist_name_y = artist_box_top + 78
+    artist_name_y = artist_box_top + 74
     artist_name_end = draw_multiline_block(
         draw, artist_name, artist_name_font, (245, 245, 245),
         text_left, artist_name_y, text_width, line_gap=4, max_lines=2
@@ -633,36 +633,36 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
                   font=font_stat_label, fill=(173, 173, 173))
 
     journal = clean_text(author.metrics.top_journal) or 'Still warming up'
-    draw.text((430, stat_y + 5), 'Favorite journal',
+    draw.text((406, stat_y + 5), 'Favorite journal',
               font=font_stat_label, fill=(173, 173, 173))
     journal_font = fit_font_for_multiline(
-        draw, journal, 560, 20, min_size=15, bold=False, max_lines=2)
+        draw, journal, 600, 20, min_size=15, bold=False, max_lines=2)
     draw_multiline_block(draw, journal, journal_font, (238, 238, 238),
-                         430, stat_y + 25, 560, line_gap=3, max_lines=2)
+                         406, stat_y + 25, 600, line_gap=3, max_lines=2)
 
-    # Album + tracklist band
-    lower_box = (70, 776, 1330, 1188)
+    # Album + tracklist band, closer to edges
+    lower_box = (54, 762, 1346, 1218)
     draw.rounded_rectangle(lower_box, radius=38, fill=(15, 15, 15))
-    left_panel = (88, 828, 676, 1150)
-    right_panel = (730, 828, 1276, 1150)
+    left_panel = (74, 818, 690, 1190)
+    right_panel = (720, 818, 1288, 1118)
     draw.rounded_rectangle(left_panel, radius=32, fill=(21, 21, 21))
     draw.rounded_rectangle(right_panel, radius=32, fill=(21, 21, 21))
 
-    heading_y = 790
+    heading_y = 776
     label_font = load_font(24, bold=True)
     label_width = draw.textbbox((0, 0), 'Latest Album:', font=label_font)[2]
-    draw.text((96, heading_y), 'Latest Album:',
+    draw.text((78, heading_y), 'Latest Album:',
               font=label_font, fill=(30, 215, 96))
     album_title = author.persona.album_title or 'Untitled drop'
     album_title_font = fit_font_for_multiline(
-        draw, album_title, 520, 36, min_size=20, bold=True, max_lines=2)
+        draw, album_title, 540, 36, min_size=20, bold=True, max_lines=2)
     draw_multiline_block(draw, album_title, album_title_font, (242, 242, 242),
-                         96 + label_width + 16, heading_y - 4, 520, line_gap=2, max_lines=2)
-    draw.text((734, heading_y), 'TRACKLIST',
+                         78 + label_width + 16, heading_y - 4, 540, line_gap=2, max_lines=2)
+    draw.text((724, heading_y), 'TRACKLIST',
               font=font_section, fill=(30, 215, 96))
 
-    album_x = 116
-    album_y = 850
+    album_x = 96
+    album_y = 846
     card.paste(album, (album_x, album_y), album)
 
     tracks = list(author.persona.tracklist[:8]
@@ -670,28 +670,28 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
     if not tracks:
         tracks = [
             'No tracklist found. Even fictional artists miss deadlines sometimes.']
-    track_y = 840
+    track_y = 836
     row_h = 42
     for i, track in enumerate(tracks, start=1):
         prefix = f'{i:02d}. ' if author.persona.tracklist else ''
         line = prefix + clean_text(track)
         draw.rounded_rectangle(
-            (748, track_y, 1258, track_y + row_h - 6), radius=18, fill=(30, 30, 30))
+            (738, track_y, 1268, track_y + row_h - 6), radius=18, fill=(30, 30, 30))
         track_font = fit_font_for_multiline(
-            draw, line, 468, 19, min_size=14, bold=False, max_lines=1)
+            draw, line, 488, 19, min_size=14, bold=False, max_lines=1)
         draw_multiline_block(draw, line, track_font, (235, 235, 235),
-                             768, track_y + 6, 468, line_gap=2, max_lines=1)
+                             758, track_y + 6, 488, line_gap=2, max_lines=1)
         track_y += row_h
 
-    footer_top = 1210
-    footer_bottom = size - 90
-    draw.rounded_rectangle(
-        (70, footer_top, size - 70, footer_bottom), radius=30, fill=(21, 21, 21))
-    encore_text = 'Thanks for being part of the sound. We\'re already queued up for what you drop next.'
+    # Encore text tucked beneath the tracklist in the lower-right corner
+    encore_text = "Thanks for being part of the sound. We're already queued up for what you drop next."
+    encore_max_width = 470
     encore_font = fit_font_for_multiline(
-        draw, encore_text, 1180, 34, min_size=22, bold=True, max_lines=3)
+        draw, encore_text, encore_max_width, 22, min_size=16, bold=True, max_lines=3)
+    encore_x = 760
+    encore_y = 1142
     draw_multiline_block(draw, encore_text, encore_font, (245, 245, 245),
-                         98, footer_top + 28, 1180, line_gap=5, max_lines=3)
+                         encore_x, encore_y, encore_max_width, line_gap=3, max_lines=3)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     card.save(output_path, format='PNG')
