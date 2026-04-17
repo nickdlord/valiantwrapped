@@ -1,551 +1,1166 @@
-import os
+#!/usr/bin/env python3
+"""
+generate_valiantwrapped_site.py
+
+Build a static Spotify-inspired VALIANT Wrapped website from outputs produced by
+previous pipeline steps.
+
+Expected inputs by default
+--------------------------
+- author_summary_2025_present.csv
+- author_expertise_txt/*.txt
+- outputs/author_music_personas_txt/*.txt
+- outputs/album_covers/*.png
+- scopusexportALL.csv (optional but recommended if generating recommendations on the fly)
+
+Output
+------
+A static site folder (default: docs/) containing:
+- index.html                browseable homepage with search
+- authors/<author>/index.html
+- data/authors.json         lightweight client-side search data
+- assets/styles.css
+- assets/app.js
+- assets/album_covers/*     copied cover art
+
+Notes
+-----
+- This script does NOT split the master Scopus export into per-author CSVs.
+- It can optionally generate paper recommendations during site generation using
+  the master Scopus export and expertise summaries.
+- Missing sections degrade gracefully.
+- Album cover failures get a witty placeholder tile instead of a broken image.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import html
+import json
+import pickle
 import re
-import pandas as pd
+import shutil
+from dataclasses import dataclass, field
 from pathlib import Path
-import html as html_lib
+from typing import Dict, List, Optional, Sequence, Tuple
 
-# ----------------------------
-# PATHS (relative to this script, not your current working directory)
-# ----------------------------
-
-BASE_DIR = Path(__file__).resolve().parent
-
-SUMMARY_FILE = BASE_DIR / "author_summary_2025_present_test.csv"
-PERSONA_FILE = BASE_DIR / "outputs" / "author_music_personas.csv"
-
-SITE_DIR = BASE_DIR / "site"
-AUTHOR_DIR = SITE_DIR / "authors"
-AUTHOR_DIR.mkdir(parents=True, exist_ok=True)
-
-# ----------------------------
-# LOAD DATA
-# ----------------------------
-
-summary_df = pd.read_csv(SUMMARY_FILE)
-persona_df = pd.read_csv(PERSONA_FILE)
-
-build_report = []
-
-# ----------------------------
-# NORMALIZATION HELPERS
-# ----------------------------
+import numpy as np
+import pandas as pd
 
 
-def canonical_author_label(value: str) -> str:
-    """
-    Convert values like:
-      'Kim_Michael_58290603100.csv'
-      'author_csvs/Kim_Michael_58290603100.csv'
-    into:
-      'Kim_Michael_58290603100'
-    """
-    if value is None or (isinstance(value, float) and pd.isna(value)):
+DEFAULT_TAGLINE = "We all know AI hallucinates — so we decided to make it sing."
+DEFAULT_CLOSER = "Thanks for an amazing and productive year. We can't wait to see what next year sounds like."
+DEFAULT_RECOMMENDATION_FALLBACK = (
+    "Our recommender listened carefully, nodded thoughtfully, and still decided this author is simply too original to match neatly."
+)
+
+TITLE_COLS = ["Title", "Document Title", "Article Title"]
+ABSTRACT_COLS = ["Abstract", "Description"]
+KEYWORD_COLS = ["Author Keywords", "Indexed Keywords", "Keywords"]
+JOURNAL_COLS = ["Source title", "Source Title", "Journal"]
+AUTHOR_ID_COLS = ["Author(s) ID", "Authors with affiliations", "Authors", "Author Names"]
+DOI_COLS = ["DOI", "doi", "DOI link"]
+LINK_COLS = ["Link", "URL", "Scopus Link", "Page link"]
+
+PLACEHOLDER_LINES = [
+    "Cover art missing.",
+    "Apparently the AI dropped the album before it dropped the cover.",
+]
+
+
+@dataclass
+class Metrics:
+    pub_count: int = 0
+    citation_count: int = 0
+    top_journal: str = ""
+    top_paper_title: str = ""
+    top_paper_citations: int = 0
+
+
+@dataclass
+class Persona:
+    artist_name: str = ""
+    album_title: str = ""
+    bio: str = ""
+    tracklist: List[str] = field(default_factory=list)
+
+
+@dataclass
+class Recommendation:
+    rank: int
+    title: str
+    google_url: str
+    score: Optional[float] = None
+    journal: str = ""
+    doi: str = ""
+    scopus_link: str = ""
+
+
+@dataclass
+class AuthorRecord:
+    author_label: str
+    display_name: str
+    scopus_id: str
+    expertise_summary: str = ""
+    metrics: Metrics = field(default_factory=Metrics)
+    persona: Persona = field(default_factory=Persona)
+    cover_filename: str = ""
+    recommendations: List[Recommendation] = field(default_factory=list)
+    recommendation_fallback: str = ""
+
+
+@dataclass
+class PaperRecord:
+    title: str
+    abstract: str
+    keywords: str
+    journal: str
+    author_ids_raw: str
+    doi: str
+    scopus_link: str
+    combined_text: str
+
+
+def clean_text(value: object) -> str:
+    if value is None:
         return ""
-    s = str(value).strip()
-    s = os.path.basename(s)            # drop any folder path
-    s = s.replace("\\", "/")
-    if s.lower().endswith(".csv"):
-        s = s[:-4]
-    if s.lower().endswith(".txt"):
-        s = s[:-4]
-    return s.strip()
+    text = str(value)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
 
-def parse_author_name(label: str):
-    parts = label.split("_")
-    last = parts[0] if len(parts) > 0 else ""
-    first = parts[1] if len(parts) > 1 else ""
-    return first, last
+def slugify(text: str) -> str:
+    text = clean_text(text).lower()
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    text = re.sub(r"-+", "-", text).strip("-")
+    return text or "author"
 
 
-def format_tracklist(tracklist) -> str:
-    """
-    Convert tracklist into a nicer HTML list.
+def pick_existing_col(cols: Sequence[str], candidates: Sequence[str]) -> Optional[str]:
+    colset = set(cols)
+    for candidate in candidates:
+        if candidate in colset:
+            return candidate
+    return None
 
-    Supports:
-    - newline-separated tracks (your current format)
-    - semicolon / pipe / comma separated
-    - numbered list
-    """
-    if tracklist is None or (isinstance(tracklist, float) and pd.isna(tracklist)):
-        return ""
 
-    raw = str(tracklist).strip()
-    if not raw:
-        return ""
-
-    # Prefer splitting by newlines first (your current format)
-    if "\n" in raw:
-        tracks = [t.strip() for t in raw.splitlines() if t.strip()]
+def infer_display_name(author_label: str) -> str:
+    parts = author_label.split("_")
+    if len(parts) >= 3 and parts[-1].isdigit():
+        name_parts = parts[:-1]
     else:
-        # Try separators
-        for sep in [";", "|", ","]:
-            if sep in raw:
-                tracks = [t.strip() for t in raw.split(sep) if t.strip()]
-                break
-        else:
-            tracks = [raw]
+        name_parts = parts
+    if len(name_parts) >= 2:
+        last = name_parts[0]
+        first = " ".join(name_parts[1:])
+        return f"{first.replace('_', ' ')} {last.replace('_', ' ')}".strip()
+    return author_label.replace("_", " ")
 
-    # Clean up common prefixes like "Track 01 -"
-    cleaned = []
-    for t in tracks:
-        t = re.sub(r"^\s*(track\s*\d+)\s*[-:]\s*", "", t, flags=re.IGNORECASE)
-        t = re.sub(r"^\s*\d+\.\s*", "", t)  # "1. ..."
-        cleaned.append(t.strip())
 
-    # Build "playlist" list
-    items = []
-    for i, t in enumerate(cleaned, start=1):
-        safe = html_lib.escape(t)
-        items.append(
-            f"""
-            <div class="track-row">
-                <div class="track-num">{i:02d}</div>
-                <div class="track-title">{safe}</div>
-            </div>
-            """
+def extract_scopus_id(author_label: str) -> str:
+    parts = author_label.split("_")
+    if parts and parts[-1].isdigit():
+        return parts[-1]
+    return ""
+
+
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def read_text_file(path: Path) -> str:
+    for enc in ("utf-8", "latin-1", "cp1252"):
+        try:
+            return path.read_text(encoding=enc)
+        except UnicodeDecodeError:
+            continue
+    return path.read_text(encoding="utf-8", errors="replace")
+
+
+def read_csv_flexible(path: Path) -> pd.DataFrame:
+    try:
+        return pd.read_csv(path, dtype=str, encoding="utf-8", low_memory=False)
+    except UnicodeDecodeError:
+        return pd.read_csv(path, dtype=str, encoding="latin-1", low_memory=False)
+
+
+def parse_expertise_txt(path: Path) -> str:
+    raw = read_text_file(path).replace("\r\n", "\n")
+    m = re.search(r"(?is)\bSUMMARY\s*:\s*(.+)$", raw)
+    if m:
+        return clean_text(m.group(1))
+    return clean_text(raw)
+
+
+def parse_persona_txt(path: Path) -> Persona:
+    raw = read_text_file(path).replace("\r\n", "\n")
+    artist = ""
+    album = ""
+    bio = ""
+    tracks: List[str] = []
+
+    m = re.search(r"(?im)^Artist:\s*(.+)$", raw)
+    if m:
+        artist = clean_text(m.group(1))
+
+    m = re.search(r"(?im)^Album:\s*(.+)$", raw)
+    if m:
+        album = clean_text(m.group(1))
+
+    m = re.search(r"(?is)^.*?^Bio:\s*(.*?)\s*^Tracklist:\s*(.*)$", raw, flags=re.MULTILINE)
+    if m:
+        bio = clean_text(m.group(1))
+        track_blob = m.group(2)
+        for line in track_blob.splitlines():
+            line = re.sub(r"^\s*(?:\d{1,2}[.)-]\s*|[-*]\s*)", "", line).strip()
+            line = clean_text(line)
+            if line:
+                tracks.append(line)
+    else:
+        m = re.search(r"(?is)^.*?^Bio:\s*(.+)$", raw, flags=re.MULTILINE)
+        if m:
+            bio = clean_text(m.group(1))
+
+    return Persona(artist_name=artist, album_title=album, bio=bio, tracklist=tracks)
+
+
+def parse_recommendations_txt(path: Path) -> Tuple[List[Recommendation], str]:
+    raw = read_text_file(path).replace("\r\n", "\n")
+    lines = raw.splitlines()
+    recommendations: List[Recommendation] = []
+    fallback = ""
+
+    current: Dict[str, str] = {}
+    current_rank: Optional[int] = None
+    current_title: str = ""
+
+    def flush_current() -> None:
+        nonlocal current, current_rank, current_title, recommendations
+        if current_rank is None or not current_title:
+            current = {}
+            current_rank = None
+            current_title = ""
+            return
+        score = None
+        if current.get("SCORE"):
+            try:
+                score = float(current["SCORE"])
+            except ValueError:
+                score = None
+        recommendations.append(
+            Recommendation(
+                rank=current_rank,
+                title=current_title,
+                google_url=current.get("GOOGLE_URL", ""),
+                score=score,
+                journal=current.get("JOURNAL", ""),
+                doi=current.get("DOI", ""),
+                scopus_link=current.get("SCOPUS_LINK", ""),
+            )
+        )
+        current = {}
+        current_rank = None
+        current_title = ""
+
+    for line in lines:
+        m = re.match(r"^(\d+)\.\s+(.+)$", line.strip())
+        if m:
+            flush_current()
+            current_rank = int(m.group(1))
+            current_title = clean_text(m.group(2))
+            continue
+
+        m = re.match(r"^\s*([A-Z_]+):\s*(.*)$", line)
+        if m and current_rank is not None:
+            current[m.group(1)] = clean_text(m.group(2))
+            continue
+
+        m = re.match(r"^FALLBACK_TEXT:\s*(.+)$", line.strip())
+        if m:
+            fallback = clean_text(m.group(1))
+
+    flush_current()
+    return recommendations, fallback
+
+
+def _safe_int(value: object) -> int:
+    try:
+        return int(float(str(value).strip()))
+    except Exception:
+        return 0
+
+
+def parse_metrics_csv(path: Path) -> Dict[str, Metrics]:
+    df = read_csv_flexible(path).fillna("")
+    out: Dict[str, Metrics] = {}
+    for _, row in df.iterrows():
+        author_label = clean_text(row.get("author_id") or row.get("author_file"))
+        author_label = author_label[:-4] if author_label.lower().endswith(".csv") else author_label
+        if not author_label:
+            continue
+        out[author_label] = Metrics(
+            pub_count=_safe_int(row.get("pub_count_2025_present")),
+            citation_count=_safe_int(row.get("citation_count_2025_present")),
+            top_journal=clean_text(row.get("top_journal_2025_present")),
+            top_paper_title=clean_text(row.get("top_paper_title_2025_present")),
+            top_paper_citations=_safe_int(row.get("top_paper_citations_2025_present")),
+        )
+    return out
+
+
+def html_escape(text: object) -> str:
+    return html.escape(clean_text(text))
+
+
+def metric_chip(label: str, value: str) -> str:
+    return (
+        '<div class="metric-chip">'
+        f'<div class="metric-label">{html_escape(label)}</div>'
+        f'<div class="metric-value">{html_escape(value)}</div>'
+        '</div>'
+    )
+
+
+def cover_markup(author: AuthorRecord, depth_prefix: str = "") -> str:
+    if author.cover_filename:
+        src = f"{depth_prefix}assets/album_covers/{author.cover_filename}"
+        alt = f"Album cover for {author.display_name}"
+        return f'<img class="album-cover" src="{html_escape(src)}" alt="{html_escape(alt)}">'
+
+    line1, line2 = PLACEHOLDER_LINES
+    return (
+        '<div class="album-cover placeholder-cover">'
+        '<div class="placeholder-vinyl"></div>'
+        f'<div class="placeholder-line">{html_escape(line1)}</div>'
+        f'<div class="placeholder-subline">{html_escape(line2)}</div>'
+        '</div>'
+    )
+
+
+def recommendations_markup(author: AuthorRecord) -> str:
+    if author.recommendations:
+        items = []
+        for rec in author.recommendations:
+            meta_parts = []
+            if rec.journal:
+                meta_parts.append(rec.journal)
+            if rec.score is not None:
+                meta_parts.append(f"Similarity {rec.score:.2f}")
+            meta = " • ".join(meta_parts)
+            items.append(
+                '<article class="rec-card">'
+                f'<div class="rec-rank">#{rec.rank}</div>'
+                '<div class="rec-main">'
+                f'<h3>{html_escape(rec.title)}</h3>'
+                f'<p class="rec-meta">{html_escape(meta)}</p>'
+                '</div>'
+                f'<a class="google-btn" href="{html_escape(rec.google_url)}" target="_blank" rel="noopener noreferrer">Google it</a>'
+                '</article>'
+            )
+        return "\n".join(items)
+
+    fallback = author.recommendation_fallback or DEFAULT_RECOMMENDATION_FALLBACK
+    return f'<div class="empty-state">{html_escape(fallback)}</div>'
+
+
+def tracklist_markup(tracks: Sequence[str]) -> str:
+    if not tracks:
+        return '<div class="empty-state">No tracklist found. Even fictional artists miss deadlines sometimes.</div>'
+    items = [f'<li>{html_escape(track)}</li>' for track in tracks]
+    return f'<ol class="tracklist">{"".join(items)}</ol>'
+
+
+def home_card_markup(author: AuthorRecord) -> str:
+    slug = slugify(author.author_label)
+    subtitle = author.persona.artist_name or "Still waiting on the stage name reveal"
+    album = author.persona.album_title or "Untitled drop"
+    return (
+        f'<a class="author-card" href="authors/{slug}/">'
+        f'{cover_markup(author)}'
+        '<div class="author-card-body">'
+        f'<div class="author-name">{html_escape(author.display_name)}</div>'
+        f'<div class="author-subtitle">{html_escape(subtitle)}</div>'
+        f'<div class="author-album">{html_escape(album)}</div>'
+        f'<div class="author-metrics-line">{author.metrics.pub_count} papers • {author.metrics.citation_count} citations</div>'
+        '</div>'
+        '</a>'
+    )
+
+
+def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, closer: str) -> str:
+    title = f"{author.display_name} — {project_title}"
+    persona_artist = author.persona.artist_name or "TBD on streaming platforms"
+    persona_album = author.persona.album_title or "Untitled Album"
+    persona_bio = author.persona.bio or "This artist bio is fashionably late, but the research still made the lineup."
+    expertise_summary = author.expertise_summary or "Expertise summary not found. The scholarship is real; the website drama is temporary."
+
+    metrics_block = "\n".join([
+        metric_chip("Papers published", str(author.metrics.pub_count)),
+        metric_chip("Citations", str(author.metrics.citation_count)),
+        metric_chip("Favorite journal", author.metrics.top_journal or "Still choosing a favorite"),
+        metric_chip("Top paper citations", str(author.metrics.top_paper_citations)),
+    ])
+
+    top_paper_line = author.metrics.top_paper_title or "No top paper was available from the current metrics file."
+
+    return f"""<!doctype html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"utf-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+  <title>{html_escape(title)}</title>
+  <link rel=\"stylesheet\" href=\"../../assets/styles.css\">
+</head>
+<body class=\"site-body\">
+  <div class=\"app-shell\">
+    <aside class=\"sidebar\">
+      <div class=\"brand\">{html_escape(project_title)}</div>
+      <div class=\"sidebar-tag\">Research, remixed.</div>
+      <nav class=\"sidebar-nav\">
+        <a href=\"../../index.html\" class=\"nav-link active\">← Back to browse</a>
+        <a href=\"#publications\" class=\"nav-link\">Publications</a>
+        <a href=\"#persona\" class=\"nav-link\">Artist persona</a>
+        <a href=\"#album\" class=\"nav-link\">Album drop</a>
+        <a href=\"#recommendations\" class=\"nav-link\">Recommended papers</a>
+        <a href=\"#closing\" class=\"nav-link\">Encore</a>
+      </nav>
+    </aside>
+
+    <main class=\"main-panel\">
+      <section class=\"hero author-hero\">
+        <div class=\"hero-copy\">
+          <div class=\"eyebrow\">{html_escape(project_title)}</div>
+          <h1>{html_escape(author.display_name)}</h1>
+          <p class=\"lede\">{html_escape(tagline)}</p>
+          <div class=\"hero-badges\">
+            <span class=\"pill\">Scopus ID: {html_escape(author.scopus_id or 'Unknown')}</span>
+            <span class=\"pill\">Artist alias: {html_escape(persona_artist)}</span>
+          </div>
+        </div>
+        <div class=\"hero-art\">{cover_markup(author, depth_prefix='../../')}</div>
+      </section>
+
+      <section id=\"publications\" class=\"content-card\">
+        <div class=\"section-kicker\">Track 01</div>
+        <h2>Publication highlights</h2>
+        <p class=\"section-copy\">2025-present only, because every Wrapped needs a season.</p>
+        <div class=\"metrics-grid\">{metrics_block}</div>
+        <div class=\"top-paper-block\">
+          <div class=\"metric-label\">Top paper</div>
+          <div class=\"top-paper-title\">{html_escape(top_paper_line)}</div>
+        </div>
+        <div class=\"summary-block\">
+          <div class=\"metric-label\">Research summary</div>
+          <p>{html_escape(expertise_summary)}</p>
+        </div>
+      </section>
+
+      <section id=\"persona\" class=\"content-card\">
+        <div class=\"section-kicker\">Track 02</div>
+        <h2>Fictional artist persona</h2>
+        <div class=\"persona-grid\">
+          <div>
+            <div class=\"metric-label\">Artist name</div>
+            <div class=\"persona-title\">{html_escape(persona_artist)}</div>
+          </div>
+          <div>
+            <div class=\"metric-label\">Album title</div>
+            <div class=\"persona-title\">{html_escape(persona_album)}</div>
+          </div>
+        </div>
+        <p>{html_escape(persona_bio)}</p>
+      </section>
+
+      <section id=\"album\" class=\"content-card album-section\">
+        <div class=\"section-kicker\">Track 03</div>
+        <h2>Album cover and tracklist</h2>
+        <div class=\"album-grid\">
+          <div class=\"album-art-wrap\">{cover_markup(author, depth_prefix='../../')}</div>
+          <div class=\"tracklist-wrap\">{tracklist_markup(author.persona.tracklist)}</div>
+        </div>
+      </section>
+
+      <section id=\"recommendations\" class=\"content-card\">
+        <div class=\"section-kicker\">Track 04</div>
+        <h2>Recommended papers from around the center</h2>
+        <p class=\"section-copy\">Closest matches from other VALIANT authors, with one-click lookup buttons.</p>
+        <div class=\"recommendation-list\">{recommendations_markup(author)}</div>
+      </section>
+
+      <section id=\"closing\" class=\"content-card closing-card\">
+        <div class=\"section-kicker\">Finale</div>
+        <h2>Encore</h2>
+        <p>{html_escape(closer)}</p>
+        <a href=\"../../index.html\" class=\"browse-btn\">Back to browse</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+"""
+
+
+def homepage_markup(authors: Sequence[AuthorRecord], project_title: str, tagline: str, closer: str) -> str:
+    card_html = "\n".join(home_card_markup(author) for author in authors)
+    author_data = [
+        {
+            "label": a.author_label,
+            "display_name": a.display_name,
+            "artist_name": a.persona.artist_name,
+            "album_title": a.persona.album_title,
+            "pub_count": a.metrics.pub_count,
+            "citation_count": a.metrics.citation_count,
+            "href": f"authors/{slugify(a.author_label)}/",
+        }
+        for a in authors
+    ]
+
+    return f"""<!doctype html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"utf-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+  <title>{html_escape(project_title)}</title>
+  <link rel=\"stylesheet\" href=\"assets/styles.css\">
+</head>
+<body class=\"site-body\">
+  <div class=\"app-shell\">
+    <aside class=\"sidebar\">
+      <div class=\"brand\">{html_escape(project_title)}</div>
+      <div class=\"sidebar-tag\">Research, remixed.</div>
+      <nav class=\"sidebar-nav\">
+        <a href=\"#browse\" class=\"nav-link active\">Browse authors</a>
+        <a href=\"#about\" class=\"nav-link\">About</a>
+        <a href=\"#closing\" class=\"nav-link\">Encore</a>
+      </nav>
+    </aside>
+
+    <main class=\"main-panel\">
+      <section class=\"hero\">
+        <div class=\"hero-copy\">
+          <div class=\"eyebrow\">Annual research remix</div>
+          <h1>{html_escape(project_title)}</h1>
+          <p class=\"lede\">{html_escape(tagline)}</p>
+          <p class=\"support\">A playful, Spotify-inspired look at our center's authors, their 2025-present publication highlights, fictional artist personas, imaginary albums, and recommended reads from across the lab ecosystem.</p>
+        </div>
+        <div class=\"hero-glow\"></div>
+      </section>
+
+      <section id=\"browse\" class=\"content-card\">
+        <div class=\"section-kicker\">Browse</div>
+        <h2>All authors</h2>
+        <div class=\"browse-toolbar\">
+          <input id=\"authorSearch\" class=\"search-input\" type=\"text\" placeholder=\"Search authors, artist names, or albums\" autocomplete=\"off\">
+          <div class=\"browse-count\"><span id=\"visibleCount\">{len(authors)}</span> authors in rotation</div>
+        </div>
+        <div id=\"authorGrid\" class=\"author-grid\">{card_html}</div>
+      </section>
+
+      <section id=\"about\" class=\"content-card\">
+        <div class=\"section-kicker\">About the project</div>
+        <h2>What is VALIANT Wrapped?</h2>
+        <p>Part publication showcase, part creative experiment, part affectionate roast of generative AI. Each profile pulls together real research outputs and then lets the hallucinations take the aux cord for the persona, album, and tracklist.</p>
+      </section>
+
+      <section id=\"closing\" class=\"content-card closing-card\">
+        <div class=\"section-kicker\">Finale</div>
+        <h2>Encore</h2>
+        <p>{html_escape(closer)}</p>
+      </section>
+    </main>
+  </div>
+
+  <script id=\"authorData\" type=\"application/json\">{json.dumps(author_data, ensure_ascii=False)}</script>
+  <script src=\"assets/app.js\"></script>
+</body>
+</html>
+"""
+
+
+def styles_css() -> str:
+    return """
+:root {
+  --bg: #0a0a0a;
+  --panel: #121212;
+  --panel-2: #181818;
+  --line: #2a2a2a;
+  --text: #f5f5f5;
+  --muted: #b3b3b3;
+  --green: #1db954;
+  --green-2: #1ed760;
+  --chip: #202020;
+  --shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body.site-body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(29,185,84,.16), transparent 24%),
+    linear-gradient(180deg, #070707 0%, #0f0f0f 100%);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.app-shell { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+.sidebar {
+  position: sticky; top: 0; height: 100vh; padding: 28px 22px;
+  border-right: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(18,18,18,.98), rgba(10,10,10,.98));
+}
+.brand { font-size: 1.8rem; font-weight: 800; letter-spacing: -.03em; }
+.sidebar-tag { margin-top: 8px; color: var(--muted); font-size: .95rem; }
+.sidebar-nav { margin-top: 36px; display: grid; gap: 8px; }
+.nav-link { padding: 12px 14px; border-radius: 14px; color: var(--muted); transition: .18s ease; }
+.nav-link:hover, .nav-link.active { background: rgba(255,255,255,.06); color: var(--text); }
+.main-panel { padding: 28px; }
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, rgba(29,185,84,.18), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08); border-radius: 28px;
+  padding: 38px; box-shadow: var(--shadow);
+}
+.author-hero { display: grid; grid-template-columns: 1.4fr minmax(260px, 360px); gap: 28px; align-items: center; }
+.hero-copy { max-width: 850px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--green-2); font-weight: 700; }
+.hero h1 { margin: 8px 0 14px; font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: .95; letter-spacing: -.04em; }
+.lede { font-size: 1.16rem; line-height: 1.55; max-width: 760px; color: #f0f0f0; }
+.support { color: var(--muted); max-width: 720px; line-height: 1.6; }
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.pill { padding: 9px 14px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.08); font-size: .92rem; }
+.hero-glow {
+  position: absolute; right: -80px; top: -80px; width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(29,185,84,.38), transparent 65%); filter: blur(12px);
+}
+.content-card {
+  margin-top: 24px; background: rgba(18,18,18,.92);
+  border: 1px solid rgba(255,255,255,.06); border-radius: 24px;
+  padding: 28px; box-shadow: var(--shadow);
+}
+.section-kicker { color: var(--green-2); text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; font-weight: 700; margin-bottom: 6px; }
+.content-card h2 { margin: 0 0 12px; font-size: 1.7rem; letter-spacing: -.03em; }
+.section-copy { color: var(--muted); margin-top: 0; }
+.browse-toolbar { display: flex; gap: 14px; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 18px; margin-bottom: 18px; }
+.search-input {
+  min-width: min(100%, 420px); width: 420px; background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,.08); color: var(--text); padding: 14px 16px; border-radius: 14px; outline: none;
+}
+.search-input:focus { border-color: rgba(29,185,84,.7); box-shadow: 0 0 0 4px rgba(29,185,84,.12); }
+.browse-count { color: var(--muted); font-size: .95rem; }
+.author-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.author-card {
+  background: var(--panel-2); border: 1px solid rgba(255,255,255,.06);
+  border-radius: 20px; overflow: hidden; transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.author-card:hover { transform: translateY(-3px); border-color: rgba(29,185,84,.55); background: #1c1c1c; }
+.author-card-body { padding: 14px 14px 18px; }
+.author-name { font-weight: 800; line-height: 1.25; }
+.author-subtitle, .author-album, .author-metrics-line, .rec-meta { color: var(--muted); }
+.author-subtitle { margin-top: 6px; font-size: .94rem; }
+.author-album { margin-top: 4px; font-size: .92rem; }
+.author-metrics-line { margin-top: 10px; font-size: .88rem; }
+.album-cover { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: linear-gradient(135deg, #161616, #0c0c0c); }
+.placeholder-cover {
+  position: relative; display: grid; place-items: center; align-content: center; gap: 10px; padding: 18px; text-align: center;
+  background: radial-gradient(circle at top right, rgba(29,185,84,.26), transparent 28%), linear-gradient(140deg, #171717, #090909);
+}
+.placeholder-vinyl {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: radial-gradient(circle at center, #0d0d0d 0 14px, #1db954 15px 19px, #0d0d0d 20px 100%);
+  box-shadow: inset 0 0 0 8px rgba(255,255,255,.03);
+}
+.placeholder-line { font-weight: 800; }
+.placeholder-subline { font-size: .9rem; color: var(--muted); max-width: 20ch; }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 18px; }
+.metric-chip { background: var(--chip); border: 1px solid rgba(255,255,255,.06); border-radius: 18px; padding: 16px; }
+.metric-label { color: var(--muted); font-size: .84rem; text-transform: uppercase; letter-spacing: .08em; }
+.metric-value, .persona-title, .top-paper-title { margin-top: 8px; font-size: 1.05rem; font-weight: 700; line-height: 1.35; }
+.top-paper-block, .summary-block { margin-top: 18px; padding: 18px; border-radius: 18px; background: var(--chip); border: 1px solid rgba(255,255,255,.06); }
+.persona-grid, .album-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.album-section .album-art-wrap { max-width: 420px; }
+.tracklist-wrap { background: var(--chip); border: 1px solid rgba(255,255,255,.06); border-radius: 18px; padding: 18px 20px; }
+.tracklist { margin: 0; padding-left: 22px; display: grid; gap: 10px; }
+.rec-card {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center;
+  padding: 16px 18px; border-radius: 18px; background: var(--chip);
+  border: 1px solid rgba(255,255,255,.06); margin-bottom: 12px;
+}
+.rec-rank {
+  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(29,185,84,.14); color: var(--green-2); font-weight: 800;
+}
+.rec-main h3 { margin: 0; line-height: 1.35; }
+.google-btn, .browse-btn {
+  display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px;
+  border-radius: 999px; background: var(--green); color: #08130b; font-weight: 800; white-space: nowrap;
+}
+.google-btn:hover, .browse-btn:hover { background: var(--green-2); }
+.empty-state {
+  background: rgba(255,255,255,.04); border: 1px dashed rgba(255,255,255,.12);
+  border-radius: 18px; padding: 18px; color: var(--muted);
+}
+.closing-card { background: linear-gradient(135deg, rgba(29,185,84,.18), rgba(255,255,255,.02)); }
+@media (max-width: 980px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .author-hero, .album-grid, .persona-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .main-panel { padding: 16px; }
+  .hero, .content-card { padding: 20px; border-radius: 20px; }
+  .rec-card { grid-template-columns: 1fr; align-items: start; }
+  .search-input { width: 100%; min-width: 100%; }
+}
+"""
+
+
+def app_js() -> str:
+    return """
+(function () {
+  const input = document.getElementById('authorSearch');
+  const grid = document.getElementById('authorGrid');
+  const countEl = document.getElementById('visibleCount');
+  if (!input || !grid || !countEl) return;
+  const cards = Array.from(grid.querySelectorAll('.author-card'));
+  function normalize(text) { return (text || '').toLowerCase().trim(); }
+  function filterCards() {
+    const q = normalize(input.value);
+    let visible = 0;
+    cards.forEach((card) => {
+      const haystack = normalize(card.textContent);
+      const show = !q || haystack.includes(q);
+      card.style.display = show ? '' : 'none';
+      if (show) visible += 1;
+    });
+    countEl.textContent = String(visible);
+  }
+  input.addEventListener('input', filterCards);
+})();
+"""
+
+
+def build_site(
+    output_dir: Path,
+    authors: Sequence[AuthorRecord],
+    cover_src_dir: Path,
+    project_title: str,
+    tagline: str,
+    closer: str,
+) -> None:
+    ensure_dir(output_dir)
+    assets_dir = output_dir / "assets"
+    author_pages_dir = output_dir / "authors"
+    album_out_dir = assets_dir / "album_covers"
+    data_dir = output_dir / "data"
+
+    ensure_dir(assets_dir)
+    ensure_dir(author_pages_dir)
+    ensure_dir(album_out_dir)
+    ensure_dir(data_dir)
+
+    if cover_src_dir.exists():
+        for cover_path in cover_src_dir.glob("*.png"):
+            shutil.copy2(cover_path, album_out_dir / cover_path.name)
+
+    (output_dir / ".nojekyll").write_text("", encoding="utf-8")
+    (assets_dir / "styles.css").write_text(styles_css(), encoding="utf-8")
+    (assets_dir / "app.js").write_text(app_js(), encoding="utf-8")
+    (data_dir / "authors.json").write_text(
+        json.dumps(
+            [
+                {
+                    "author_label": a.author_label,
+                    "display_name": a.display_name,
+                    "artist_name": a.persona.artist_name,
+                    "album_title": a.persona.album_title,
+                    "pub_count": a.metrics.pub_count,
+                    "citation_count": a.metrics.citation_count,
+                }
+                for a in authors
+            ],
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    (output_dir / "index.html").write_text(
+        homepage_markup(authors, project_title, tagline, closer),
+        encoding="utf-8",
+    )
+
+    for author in authors:
+        slug = slugify(author.author_label)
+        author_dir = author_pages_dir / slug
+        ensure_dir(author_dir)
+        (author_dir / "index.html").write_text(
+            author_page_markup(author, project_title, tagline, closer),
+            encoding="utf-8",
         )
 
-    return f'<div class="tracklist">\n{"".join(items)}\n</div>'
-
-
-# ----------------------------
-# PRE-NORMALIZE KEYS
-# ----------------------------
-
-summary_df["author_label"] = summary_df["author_file"].apply(
-    canonical_author_label)
-
-if "author_label" not in persona_df.columns:
-    raise ValueError("Persona CSV is missing required column: author_label")
-persona_df["author_label"] = persona_df["author_label"].apply(
-    canonical_author_label)
-
-summary_by_label = {row["author_label"]: row for _,
-                    row in summary_df.iterrows() if row.get("author_label")}
-persona_by_label = {row["author_label"]: row for _,
-                    row in persona_df.iterrows() if row.get("author_label")}
-
-# ----------------------------
-# HTML STYLE (Spotify Wrapped-ish)
-# ----------------------------
-
-PAGE_STYLE = """
-<style>
-:root{
-  --bg1:#f6f8ff;
-  --bg2:#eef3ff;
-
-  --card:#ffffff;
-  --card2:#f3f6ff;
-
-  --text:#1e293b;
-  --muted:#64748b;
-
-  --accent:#c5b358;      /* Vanderbilt gold */
-  --accent2:#6366f1;     /* spring purple */
-
-  --good:#22c55e;
-
-  --shadow:0 10px 25px rgba(0,0,0,.08);
-  --radius:18px;
-}
-  --shadow: 0 16px 40px rgba(0,0,0,.35);
-  --radius: 18px;
-}
-
-* { box-sizing: border-box; }
-
-body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  margin:0;
-  color:var(--text);
-
-  background:
-    radial-gradient(900px 600px at 10% 10%, rgba(99,102,241,.10), transparent 60%),
-    radial-gradient(900px 600px at 90% 20%, rgba(197,179,88,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-}
-
-.container{
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 44px 20px 60px;
-}
-
-.hero{
-  padding:28px;
-  border-radius:var(--radius);
-  background:linear-gradient(135deg, #ffffff, #f4f7ff);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:var(--shadow);
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  right:-140px;
-  top:-140px;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle at center, rgba(56,189,248,.30), transparent 60%);
-  transform: rotate(20deg);
-}
-
-.kicker{
-  color: var(--muted);
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-h1{
-  font-size: 44px;
-  margin: 8px 0 6px;
-  line-height: 1.05;
-}
-
-.subtitle{
-  color: var(--muted);
-  font-size: 15px;
-  margin: 0;
-  max-width: 70ch;
-}
-
-.section{
-  margin-top:22px;
-  padding:22px;
-  border-radius:var(--radius);
-  background:var(--card);
-  border:1px solid rgba(0,0,0,.05);
-  box-shadow:var(--shadow);
-}
-
-.section h2{
-  margin: 0 0 14px;
-  color: var(--accent);
-  font-size: 26px;
-  letter-spacing: .01em;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-/* Make Top Journal / Top Paper main text white */
-.card .small b { 
-  color: var(--text);
-}
-
-/* Keep the rest of the small text muted (optional) */
-.card .small { 
-  color: var(--muted);
-}
-
-.card{
-  background:var(--card2);
-  border:1px solid rgba(0,0,0,.05);
-  border-radius:16px;
-  padding:16px;
-}
-
-.card .label{
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.card .value{
-  font-size: 26px;
-  font-weight: 800;
-}
-
-.card .small b{
-  color:var(--text);
-  font-weight:700;
-}
-
-.pill{
-  display:inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(56,189,248,.14);
-  border: 1px solid rgba(56,189,248,.25);
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 12px;
-}
-
-.album-card{
-  border-radius: var(--radius);
-  padding: 18px;
-  background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(167,139,250,.12));
-  border: 1px solid rgba(255,255,255,.10);
-}
-
-.artist{
-  font-size: 22px;
-  font-weight: 900;
-  margin: 0 0 10px;
-}
-
-.bio{
-  color: var(--muted);
-  line-height: 1.55;
-  margin: 0 0 14px;
-}
-
-.album-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin: 0 0 12px;
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.album-title span{
-  color: var(--accent2);
-}
-
-.tracklist{
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.12);
-}
-
-.track-row{
-  display:flex;
-  gap: 14px;
-  padding: 12px 14px;
-  align-items:center;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-
-.track-row:last-child{ border-bottom: none; }
-
-.track-num{
-  width: 44px;
-  color: rgba(255,255,255,.65);
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-}
-
-.track-title{
-  font-weight: 650;
-}
-
-.footer-note{
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-@media (max-width: 760px){
-  .grid{ grid-template-columns: 1fr; }
-  h1{ font-size: 36px; }
-}
-</style>
-"""
-
-# ----------------------------
-# PAGE GENERATION
-# ----------------------------
-
-
-def generate_author_page(author_label: str):
-    author_label = canonical_author_label(author_label)
-    first, last = parse_author_name(author_label)
-
-    # -------- Summary --------
-    row = summary_by_label.get(author_label)
-    if row is None:
-        build_report.append(
-            (author_label, "missing_summary_row", f"searched label={author_label}"))
-        pub = ""
-        cit = ""
-        top_journal = ""
-        top_paper = ""
-        top_paper_cit = ""
-    else:
-        pub = row.get("pub_count_2025_present", "")
-        cit = row.get("citation_count_2025_present", "")
-        top_journal = row.get("top_journal_2025_present", "")
-        top_paper = row.get("top_paper_title_2025_present", "")
-        top_paper_cit = row.get("top_paper_citations_2025_present", "")
-
-    # Escape text fields
-    top_journal_safe = html_lib.escape(str(top_journal or ""))
-    top_paper_safe = html_lib.escape(str(top_paper or ""))
-
-    summary_html = f"""
-    <div class="grid">
-      <div class="card">
-        <div class="label">Publications (2025–Present)</div>
-        <div class="value">{pub}</div>
-      </div>
-
-      <div class="card">
-        <div class="label">Citations (2025–Present)</div>
-        <div class="value">{cit}</div>
-      </div>
-
-      <div class="card">
-        <div class="label">Top Journal</div>
-        <div class="small"><b>{top_journal_safe}</b></div>
-      </div>
-
-      <div class="card">
-        <div class="label">Top Paper</div>
-        <div class="small"><b>{top_paper_safe}</b><br>
-        <span class="pill">Citations: {top_paper_cit}</span>
-        </div>
-      </div>
-    </div>
-    """
-
-    # -------- Persona --------
-    p = persona_by_label.get(author_label)
-    if p is None:
-        build_report.append(
-            (author_label, "missing_persona_row", f"searched label={author_label}"))
-        persona_html = "<p class='footer-note'>No persona generated.</p>"
-    else:
-        status_val = str(p.get("status", "")).strip()
-        if status_val and status_val.lower() != "ok":
-            build_report.append((author_label, "persona_status", status_val))
-
-        artist_name = html_lib.escape(str(p.get("artist_name", "") or ""))
-        persona_bio = html_lib.escape(
-            str(p.get("persona_bio", "") or "")).replace("\n", "<br>")
-        album_title = html_lib.escape(str(p.get("album_title", "") or ""))
-        tracklist_html = format_tracklist(p.get("tracklist", ""))
-
-        persona_html = f"""
-        <div class="album-card">
-          <div class="artist">{artist_name}</div>
-          <p class="bio">{persona_bio}</p>
-
-          <div class="album-title">Album: <span>{album_title}</span></div>
-          {tracklist_html}
-        </div>
-        """
-
-    # -------- Build Page --------
-    page_html = f"""
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{first} {last} • VALIANT Wrapped</title>
-{PAGE_STYLE}
-</head>
-
-<body>
-<div class="container">
-
-  <div class="hero">
-    <div class="kicker">VALIANT Wrapped • 2025–2026</div>
-    <h1>{first} {last}</h1>
-    <p class="subtitle">
-      A year-in-review snapshot of publications, citations, and a fictional musical persona inspired by your work.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>2025–2026 Stats</h2>
-    {summary_html}
-  </div>
-
-  <div class="section">
-    <h2>Your Musical Persona</h2>
-    <p class="footer-note">
-      People like you are what make our discovery center so vibrant and unique.
-      To celebrate your work, we created a fictional musical persona inspired by your publishing history.
-    </p>
-    {persona_html}
-  </div>
-
-  <div class="section">
-    <h2>Thank You</h2>
-    <p class="footer-note">
-      Thank you for being part of our discovery center and for contributing to another incredible year of innovation and collaboration.
-    </p>
-  </div>
-
-</div>
-</body>
-</html>
-"""
-
-    output_path = AUTHOR_DIR / f"{author_label}.html"
-    output_path.write_text(page_html, encoding="utf-8")
-
-# ----------------------------
-# GENERATE PAGES
-# ----------------------------
-
-
-authors = summary_df["author_label"].dropna().astype(str).unique()
-for author_label in authors:
-    generate_author_page(author_label)
-
-# ----------------------------
-# INDEX PAGE
-# ----------------------------
-
-links = ""
-for a in authors:
-    a = canonical_author_label(a)
-    first, last = parse_author_name(a)
-    links += f'<li><a href="authors/{a}.html">{first} {last}</a></li>\n'
-
-index_html = f"""
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VALIANT Wrapped</title>
-{PAGE_STYLE}
-</head>
-
-<body>
-<div class="container">
-  <div class="hero">
-    <div class="kicker">VALIANT Wrapped • 2025–2026</div>
-    <h1>VALIANT Wrapped</h1>
-    <p class="subtitle">Internal index page (not intended for sharing). Use direct author links instead.</p>
-  </div>
-
-  <div class="section">
-    <h2>Authors</h2>
-    <ul>
-      {links}
-    </ul>
-  </div>
-</div>
-</body>
-</html>
-"""
-
-(SITE_DIR / "index.html").write_text(index_html, encoding="utf-8")
-
-# ----------------------------
-# BUILD REPORT
-# ----------------------------
-
-report_df = pd.DataFrame(build_report, columns=[
-                         "author_label", "issue", "details"])
-report_path = SITE_DIR / "build_report.csv"
-report_df.to_csv(report_path, index=False, encoding="utf-8")
-
-print("Site generation complete.")
-print(f"Check {report_path} for issues.")
+
+def extract_query_text_from_expertise(summary: str) -> str:
+    return clean_text(summary)
+
+
+def parse_author_ids(raw: str) -> List[str]:
+    raw = clean_text(raw)
+    if not raw:
+        return []
+    ids = re.findall(r"\d+", raw)
+    seen = set()
+    ordered = []
+    for item in ids:
+        if item not in seen:
+            seen.add(item)
+            ordered.append(item)
+    return ordered
+
+
+def google_search_url(title: str) -> str:
+    from urllib.parse import quote_plus
+    return f"https://www.google.com/search?q={quote_plus(title)}"
+
+
+def file_fingerprint(path: Path) -> str:
+    stat = path.stat()
+    payload = f"{path.resolve()}::{stat.st_size}::{int(stat.st_mtime)}"
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
+
+
+def cache_path_for(model_id: str, scopus_db: Path, cache_dir: Path) -> Path:
+    safe_model = re.sub(r"[^A-Za-z0-9._-]+", "_", model_id)
+    fp = file_fingerprint(scopus_db)
+    return cache_dir / f"paper_embeddings__{safe_model}__{fp}.pkl"
+
+
+def build_paper_records(scopus_df: pd.DataFrame) -> List[PaperRecord]:
+    title_col = pick_existing_col(scopus_df.columns, TITLE_COLS)
+    abstract_col = pick_existing_col(scopus_df.columns, ABSTRACT_COLS)
+    keyword_col = pick_existing_col(scopus_df.columns, KEYWORD_COLS)
+    journal_col = pick_existing_col(scopus_df.columns, JOURNAL_COLS)
+    author_id_col = pick_existing_col(scopus_df.columns, AUTHOR_ID_COLS)
+    doi_col = pick_existing_col(scopus_df.columns, DOI_COLS)
+    link_col = pick_existing_col(scopus_df.columns, LINK_COLS)
+
+    if not title_col:
+        raise ValueError(f"Could not find a title column in {scopus_df.columns.tolist()}")
+
+    records: List[PaperRecord] = []
+    for _, row in scopus_df.iterrows():
+        title = clean_text(row.get(title_col, ""))
+        if not title:
+            continue
+        abstract = clean_text(row.get(abstract_col, "")) if abstract_col else ""
+        keywords = clean_text(row.get(keyword_col, "")) if keyword_col else ""
+        journal = clean_text(row.get(journal_col, "")) if journal_col else ""
+        author_ids_raw = clean_text(row.get(author_id_col, "")) if author_id_col else ""
+        doi = clean_text(row.get(doi_col, "")) if doi_col else ""
+        scopus_link = clean_text(row.get(link_col, "")) if link_col else ""
+        parts = [f"Title: {title}"]
+        if journal:
+            parts.append(f"Venue: {journal}")
+        if keywords:
+            parts.append(f"Keywords: {keywords}")
+        if abstract:
+            parts.append(f"Abstract: {abstract}")
+        combined = "\n".join(parts)
+        records.append(
+            PaperRecord(
+                title=title,
+                abstract=abstract,
+                keywords=keywords,
+                journal=journal,
+                author_ids_raw=author_ids_raw,
+                doi=doi,
+                scopus_link=scopus_link,
+                combined_text=combined,
+            )
+        )
+    if not records:
+        raise ValueError("No usable paper rows were found in the Scopus export.")
+    return records
+
+
+def load_embedding_model(model_id: str):
+    from sentence_transformers import SentenceTransformer
+    import torch
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    return SentenceTransformer(model_id, device=device)
+
+
+def encode_texts(model, texts: Sequence[str], batch_size: int) -> np.ndarray:
+    embeddings = model.encode(
+        list(texts),
+        batch_size=batch_size,
+        show_progress_bar=True,
+        convert_to_numpy=True,
+        normalize_embeddings=True,
+    )
+    return np.asarray(embeddings, dtype=np.float32)
+
+
+def load_or_create_paper_embedding_cache(
+    model,
+    model_id: str,
+    scopus_db: Path,
+    records: Sequence[PaperRecord],
+    cache_dir: Path,
+    batch_size: int,
+    use_cache: bool,
+) -> np.ndarray:
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_file = cache_path_for(model_id, scopus_db, cache_dir)
+
+    if use_cache and cache_file.exists():
+        with open(cache_file, "rb") as f:
+            payload = pickle.load(f)
+        titles = payload.get("titles", [])
+        if titles == [r.title for r in records]:
+            return np.asarray(payload["embeddings"], dtype=np.float32)
+
+    embeddings = encode_texts(model, [r.combined_text for r in records], batch_size=batch_size)
+
+    if use_cache:
+        payload = {
+            "titles": [r.title for r in records],
+            "embeddings": embeddings,
+        }
+        with open(cache_file, "wb") as f:
+            pickle.dump(payload, f)
+
+    return embeddings
+
+
+def cosine_scores(query_embedding: np.ndarray, paper_embeddings: np.ndarray) -> np.ndarray:
+    query_embedding = np.asarray(query_embedding, dtype=np.float32)
+    if query_embedding.ndim == 2:
+        query_embedding = query_embedding[0]
+    return np.dot(paper_embeddings, query_embedding)
+
+
+def author_in_record(scopus_id: str, record: PaperRecord) -> bool:
+    if not scopus_id:
+        return False
+    record_ids = parse_author_ids(record.author_ids_raw)
+    if scopus_id in record_ids:
+        return True
+    raw = clean_text(record.author_ids_raw)
+    return re.search(rf"(?<!\d){re.escape(scopus_id)}(?!\d)", raw) is not None
+
+
+def recommend_for_author(
+    author: AuthorRecord,
+    model,
+    paper_records: Sequence[PaperRecord],
+    paper_embeddings: np.ndarray,
+    top_k: int,
+    min_similarity: float,
+) -> Tuple[List[Recommendation], str]:
+    query_text = extract_query_text_from_expertise(author.expertise_summary)
+    if not query_text:
+        return [], DEFAULT_RECOMMENDATION_FALLBACK
+
+    query_embedding = encode_texts(model, [query_text], batch_size=1)[0]
+    scores = cosine_scores(query_embedding, paper_embeddings)
+    ranked_idx = np.argsort(scores)[::-1]
+
+    recommendations: List[Recommendation] = []
+    seen_titles = set()
+
+    for idx in ranked_idx:
+        record = paper_records[int(idx)]
+        key = record.title.lower()
+        if key in seen_titles:
+            continue
+        if author_in_record(author.scopus_id, record):
+            continue
+
+        score = float(scores[int(idx)])
+        if score < min_similarity:
+            continue
+
+        seen_titles.add(key)
+        recommendations.append(
+            Recommendation(
+                rank=len(recommendations) + 1,
+                title=record.title,
+                google_url=google_search_url(record.title),
+                score=score,
+                journal=record.journal,
+                doi=record.doi,
+                scopus_link=record.scopus_link,
+            )
+        )
+        if len(recommendations) >= top_k:
+            break
+
+    if recommendations:
+        return recommendations, ""
+    return [], DEFAULT_RECOMMENDATION_FALLBACK
+
+
+def build_recommendations_from_scopus(
+    authors: Sequence[AuthorRecord],
+    scopus_db: Path,
+    model_id: str,
+    recommendation_count: int,
+    min_similarity: float,
+    batch_size: int,
+    cache_dir: Path,
+    no_cache: bool,
+) -> Dict[str, Tuple[List[Recommendation], str]]:
+    if not scopus_db.exists():
+        raise FileNotFoundError(f"Scopus database CSV not found: {scopus_db}")
+
+    scopus_df = read_csv_flexible(scopus_db)
+    paper_records = build_paper_records(scopus_df)
+    model = load_embedding_model(model_id)
+    paper_embeddings = load_or_create_paper_embedding_cache(
+        model=model,
+        model_id=model_id,
+        scopus_db=scopus_db,
+        records=paper_records,
+        cache_dir=cache_dir,
+        batch_size=batch_size,
+        use_cache=not no_cache,
+    )
+
+    out: Dict[str, Tuple[List[Recommendation], str]] = {}
+    for author in authors:
+        recs, fallback = recommend_for_author(
+            author=author,
+            model=model,
+            paper_records=paper_records,
+            paper_embeddings=paper_embeddings,
+            top_k=max(1, recommendation_count),
+            min_similarity=min_similarity,
+        )
+        out[author.author_label] = (recs, fallback)
+    return out
+
+
+def collect_authors(
+    metrics_csv: Path,
+    expertise_dir: Path,
+    persona_dir: Path,
+    cover_dir: Path,
+    recommendations_dir: Path,
+) -> List[AuthorRecord]:
+    metrics_map = parse_metrics_csv(metrics_csv) if metrics_csv.exists() else {}
+    expertise_map = {p.stem: parse_expertise_txt(p) for p in sorted(expertise_dir.glob("*.txt"))} if expertise_dir.exists() else {}
+    persona_map = {p.stem: parse_persona_txt(p) for p in sorted(persona_dir.glob("*.txt"))} if persona_dir.exists() else {}
+    rec_map: Dict[str, Tuple[List[Recommendation], str]] = {}
+    if recommendations_dir.exists():
+        for p in sorted(recommendations_dir.glob("*.txt")):
+            rec_map[p.stem] = parse_recommendations_txt(p)
+    cover_map = {p.stem: p for p in cover_dir.glob("*.png")} if cover_dir.exists() else {}
+
+    labels = sorted(set(metrics_map) | set(expertise_map) | set(persona_map) | set(rec_map) | set(cover_map))
+    authors: List[AuthorRecord] = []
+    for label in labels:
+        persona = persona_map.get(label, Persona())
+        recommendations, fallback = rec_map.get(label, ([], ""))
+        authors.append(
+            AuthorRecord(
+                author_label=label,
+                display_name=infer_display_name(label),
+                scopus_id=extract_scopus_id(label),
+                expertise_summary=expertise_map.get(label, ""),
+                metrics=metrics_map.get(label, Metrics()),
+                persona=persona,
+                cover_filename=cover_map.get(label).name if label in cover_map else "",
+                recommendations=recommendations,
+                recommendation_fallback=fallback,
+            )
+        )
+
+    authors.sort(key=lambda a: (a.display_name.split()[-1].lower(), a.display_name.lower()))
+    return authors
+
+
+def parse_args() -> argparse.Namespace:
+    ap = argparse.ArgumentParser(description="Build the VALIANT Wrapped static website.")
+    ap.add_argument("--scopus-db", default="", help="Master Scopus export used for optional on-the-fly paper recommendations.")
+    ap.add_argument("--metrics-csv", default="author_summary_2025_present.csv")
+    ap.add_argument("--expertise-dir", default="author_expertise_txt")
+    ap.add_argument("--persona-dir", default="outputs/author_music_personas_txt")
+    ap.add_argument("--cover-dir", default="outputs/album_covers")
+    ap.add_argument("--recommendations-dir", default="outputs/paper_recommendations/per_author_txt")
+    ap.add_argument("--output-dir", default="docs")
+    ap.add_argument("--project-title", default="VALIANT Wrapped")
+    ap.add_argument("--tagline", default=DEFAULT_TAGLINE)
+    ap.add_argument("--closer", default=DEFAULT_CLOSER)
+
+    ap.add_argument("--generate-recommendations", action="store_true",
+                    help="Generate recommendations during site build using --scopus-db and expertise summaries.")
+    ap.add_argument("--recommendation-model-id", default="sentence-transformers/all-mpnet-base-v2")
+    ap.add_argument("--recommendation-count", type=int, default=5)
+    ap.add_argument("--min-similarity", type=float, default=0.30)
+    ap.add_argument("--recommendation-batch-size", type=int, default=64)
+    ap.add_argument("--recommendation-cache-dir", default=".cache/paper_recommender")
+    ap.add_argument("--no-recommendation-cache", action="store_true")
+
+    return ap.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+
+    metrics_csv = Path(args.metrics_csv)
+    expertise_dir = Path(args.expertise_dir)
+    persona_dir = Path(args.persona_dir)
+    cover_dir = Path(args.cover_dir)
+    recommendations_dir = Path(args.recommendations_dir)
+    output_dir = Path(args.output_dir)
+    scopus_db = Path(args.scopus_db) if args.scopus_db else None
+
+    authors = collect_authors(
+        metrics_csv=metrics_csv,
+        expertise_dir=expertise_dir,
+        persona_dir=persona_dir,
+        cover_dir=cover_dir,
+        recommendations_dir=recommendations_dir,
+    )
+
+    if not authors:
+        raise RuntimeError(
+            "No authors could be assembled from the provided inputs. "
+            "Check that your metrics, expertise, persona, recommendation, and cover outputs exist."
+        )
+
+    if args.generate_recommendations:
+        if not scopus_db or not scopus_db.exists():
+            raise FileNotFoundError(
+                "--generate-recommendations was requested, but --scopus-db was missing or not found."
+            )
+        generated = build_recommendations_from_scopus(
+            authors=authors,
+            scopus_db=scopus_db,
+            model_id=args.recommendation_model_id,
+            recommendation_count=args.recommendation_count,
+            min_similarity=args.min_similarity,
+            batch_size=args.recommendation_batch_size,
+            cache_dir=Path(args.recommendation_cache_dir),
+            no_cache=args.no_recommendation_cache,
+        )
+        for author in authors:
+            recs, fallback = generated.get(author.author_label, ([], DEFAULT_RECOMMENDATION_FALLBACK))
+            author.recommendations = recs
+            author.recommendation_fallback = fallback
+
+    build_site(
+        output_dir=output_dir,
+        authors=authors,
+        cover_src_dir=cover_dir,
+        project_title=args.project_title,
+        tagline=args.tagline,
+        closer=args.closer,
+    )
+
+    print(f"Built VALIANT Wrapped site for {len(authors)} authors in: {output_dir}")
+    print(f"Homepage: {output_dir / 'index.html'}")
+
+
+if __name__ == "__main__":
+    main()
