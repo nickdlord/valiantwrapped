@@ -77,14 +77,27 @@ def normalize_scopus_id(value: object) -> str:
     text = clean_text(value)
     if not text:
         return ""
+
+    # Treat common placeholder / missing-value forms as empty.
+    text_lower = text.lower()
+    if text_lower in {"0", "0.0", "nan", "none", "null", "na", "n/a", "missing"}:
+        return ""
+
     if ORCID_PATTERN.search(text):
         # Prevent ORCIDs accidentally stored in the Scopus column from collapsing to 0000/0009.
         return ""
+
     ids = re.findall(r"\d{8,}", text)
     if ids:
-        return ids[0]
+        candidate = ids[0].lstrip("0")
+        return candidate if candidate else ""
+
     ids = re.findall(r"\d+", text)
-    return ids[0] if ids else ""
+    if not ids:
+        return ""
+
+    candidate = ids[0].lstrip("0")
+    return candidate if candidate else ""
 
 
 def normalize_orcid(value: object) -> str:
