@@ -142,10 +142,10 @@ class PaperRecord:
     keywords: str
     journal: str
     author_ids_raw: str
-    author_orcids_raw: str = ""
     doi: str
     scopus_link: str
     combined_text: str
+    author_orcids_raw: str = ""
 
 
 def clean_text(value: object) -> str:
@@ -1552,7 +1552,8 @@ def build_paper_records(scopus_df: pd.DataFrame) -> List[PaperRecord]:
         journal = clean_text(row.get(journal_col, "")) if journal_col else ""
         author_ids_raw = clean_text(
             row.get(author_id_col, "")) if author_id_col else ""
-        author_orcids_raw = clean_text(row.get(orcid_col, "")) if orcid_col else ""
+        author_orcids_raw = clean_text(
+            row.get(orcid_col, "")) if orcid_col else ""
         doi = clean_text(row.get(doi_col, "")) if doi_col else ""
         scopus_link = clean_text(row.get(link_col, "")) if link_col else ""
         parts = [f"Title: {title}"]
