@@ -629,12 +629,10 @@ def build_share_card(author: AuthorRecord, output_path: Path, cover_src_dir: Pat
         text_left, artist_name_y, text_width, line_gap=4, max_lines=2
     )
 
-    draw.text((text_left, artist_name_end + 10), 'Bio',
-              font=load_font(20, bold=True), fill=(30, 215, 96))
     bio_text = author.persona.bio or 'This artist bio is fashionably late, but the research still made the lineup.'
     bio_font = fit_font_for_multiline(
         draw, bio_text, text_width, 21, min_size=14, bold=False, max_lines=12)
-    bio_start_y = artist_name_end + 42
+    bio_start_y = artist_name_end + 18
     bio_lines = wrap_text_for_draw(draw, bio_text, bio_font, text_width)
 
     reserved_bottom = artist_box_bottom - 122
