@@ -900,7 +900,6 @@ def home_card_markup(author: AuthorRecord) -> str:
         '<div class="author-card-body">'
         f'<div class="author-name">{html_escape(artist_name)}</div>'
         f'<div class="author-subtitle">{html_escape(real_name)}</div>'
-        f'<div class="author-album">{html_escape(album)}</div>'
         f'<div class="author-metrics-line">{author.lifetime_pub_count or author.metrics.pub_count} total papers • {author.lifetime_citation_count or author.metrics.citation_count} total citations</div>'
         '</div>'
         '</a>'
