@@ -26,7 +26,7 @@ EXPERTISE_SCRIPT = BASE_DIR / "author_expertise_llama31_v4.py"
 PERSONA_SCRIPT = BASE_DIR / "author_persona_llama31_v4.py"
 ALBUM_SCRIPT = BASE_DIR / "generate_album_covers.py"
 HEADSHOT_SCRIPT = BASE_DIR / "generate_musician_headshot_v10.py"
-SITE_SCRIPT = BASE_DIR / "generate_valiantwrapped_site_solo_revised.py"
+SITE_SCRIPT = BASE_DIR / "generate_valiantwrapped_site_solo_v3.py"
 
 ALLOWED_CSV_EXTENSIONS = {".csv"}
 ALLOWED_HEADSHOT_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
@@ -387,7 +387,8 @@ def run_subprocess(run: RunState, cmd: list[str], cwd: Path) -> None:
         "bufsize": 1,
     }
     if os.name == "nt":
-        kwargs["creationflags"] = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
+        kwargs["creationflags"] = getattr(
+            subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
     else:
         kwargs["preexec_fn"] = os.setsid
 
@@ -423,7 +424,8 @@ def run_subprocess(run: RunState, cmd: list[str], cwd: Path) -> None:
 
 def write_lookup_csv(path: Path, first_name: str, last_name: str, scopus_id: str) -> None:
     with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["record_id", "first_name", "last_name", "scopus", "orcid"])
+        writer = csv.DictWriter(
+            f, fieldnames=["record_id", "first_name", "last_name", "scopus", "orcid"])
         writer.writeheader()
         writer.writerow(
             {
@@ -522,7 +524,8 @@ def execute_pipeline(run: RunState, first_name: str, last_name: str, scopus_id: 
             cwd=work_dir,
         )
         if not summary_txt.exists():
-            raise FileNotFoundError(f"Expected summary TXT was not created: {summary_txt}")
+            raise FileNotFoundError(
+                f"Expected summary TXT was not created: {summary_txt}")
 
         set_step(run, "Generating expertise summary", 32)
         run_subprocess(
@@ -540,7 +543,8 @@ def execute_pipeline(run: RunState, first_name: str, last_name: str, scopus_id: 
             cwd=work_dir,
         )
         if not expertise_txt.exists():
-            raise FileNotFoundError(f"Expected expertise TXT was not created: {expertise_txt}")
+            raise FileNotFoundError(
+                f"Expected expertise TXT was not created: {expertise_txt}")
 
         set_step(run, "Generating music persona", 48)
         run_subprocess(
@@ -556,7 +560,8 @@ def execute_pipeline(run: RunState, first_name: str, last_name: str, scopus_id: 
             cwd=work_dir,
         )
         if not persona_txt.exists():
-            raise FileNotFoundError(f"Expected persona TXT was not created: {persona_txt}")
+            raise FileNotFoundError(
+                f"Expected persona TXT was not created: {persona_txt}")
 
         set_step(run, "Generating album cover", 64)
         run_subprocess(
@@ -628,10 +633,12 @@ def execute_pipeline(run: RunState, first_name: str, last_name: str, scopus_id: 
 
         site_index = site_dir / "index.html"
         if not site_index.exists():
-            raise FileNotFoundError(f"Expected solo artist page was not created: {site_index}")
+            raise FileNotFoundError(
+                f"Expected solo artist page was not created: {site_index}")
 
         run.site_url = f"/runs/{run.run_id}/site/"
-        append_log(run, "Solo site generator completed: opening site root will go directly to the artist page.")
+        append_log(
+            run, "Solo site generator completed: opening site root will go directly to the artist page.")
         run.author_page_url = build_author_page_url(run)
         set_step(run, "Complete", 100)
         run.status = "success"
@@ -702,7 +709,8 @@ def api_run():
     csv_path = author_csv_dir / f"{author_label}.csv"
     csv_path.write_bytes(scopus_csv.read())
 
-    headshot_ext = Path(secure_filename(headshot.filename)).suffix.lower() or ".jpg"
+    headshot_ext = Path(secure_filename(headshot.filename)
+                        ).suffix.lower() or ".jpg"
     headshot_path = headshot_dir / f"1_photo{headshot_ext}"
     headshot_path.write_bytes(headshot.read())
 
