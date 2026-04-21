@@ -998,9 +998,6 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
     <main class="main-panel">
       <section class="hero author-hero hero-with-headshot">
         <div class="hero-relative">
-          <div class="hero-headshot-topright">
-            {professional_headshot_markup(author, depth_prefix='')}
-          </div>
           <div class="hero-copy hero-copy-wide">
             <div class="eyebrow">{html_escape(project_title)}</div>
             <div class="hero-name-row">
@@ -1012,7 +1009,12 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
             </div>
             <p class="section-copy hero-stats-copy hero-tagline">{html_escape(tagline)}</p>
             <div class="hero-stats-block">
-              <div class="hero-stats-title">Lifetime Scopus Stats</div>
+              <div class="hero-stats-header">
+                <div class="hero-stats-title">Lifetime Scopus Stats</div>
+                <div class="hero-headshot-inline">
+                  {professional_headshot_markup(author, depth_prefix='')}
+                </div>
+              </div>
               <div class="metrics-grid solo-metrics-grid">{"".join(stat_items)}</div>
             </div>
             {expertise_html}
@@ -1188,46 +1190,21 @@ a { color: inherit; text-decoration: none; }
 .hero-copy-only { max-width: 100%; }
 .hero-no-art .hero-copy { max-width: 980px; }
 .hero-copy { max-width: 850px; }
-.hero-copy-wide { max-width: calc(100% - 210px); }
+.hero-copy-wide { max-width: 100%; }
 .hero-stats-block { margin-top: 24px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); }
-.hero-stats-title { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px; color: #ffffff; }
+.hero-stats-title { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px; color: #ffffff; }\n.hero-stats-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }\n.hero-headshot-inline { flex-shrink: 0; }\n.hero-headshot-inline .pro-headshot { width: 112px; height: 112px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(29,185,84,.5); box-shadow: 0 10px 24px rgba(0,0,0,.38), 0 0 0 1px rgba(255,255,255,.05); display: block; background: linear-gradient(135deg, #161616, #0c0c0c); }
 .hero-stats-copy { max-width: 860px; }
 .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--green-2); font-weight: 700; }
 .hero h1 { margin: 8px 0 14px; font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: .95; letter-spacing: -.04em; }
 .hero-relative { position: relative; }
-.hero-headshot-topright {
-  position: absolute;
-  top: 8px;
-  right: 6px;
-  z-index: 2;
-}
-.hero-headshot-topright::before {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(30,215,96,.22) 0%, rgba(30,215,96,0) 68%);
-  filter: blur(8px);
-  z-index: -1;
-}
-.pro-headshot {
-  width: 158px;
-  height: 158px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid rgba(29,185,84,.5);
-  box-shadow: 0 10px 24px rgba(0,0,0,.38), 0 0 0 1px rgba(255,255,255,.05);
-  display: block;
-  background: linear-gradient(135deg, #161616, #0c0c0c);
-}
 .hero-name-row {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
 }
-.hero-name { font-size: clamp(3.2rem, 6vw, 5.6rem); margin-bottom: 10px; }
-.hero-tagline { font-size: 1.18rem; line-height: 1.68; }
+.hero-name { font-size: clamp(3.6rem, 7vw, 6.2rem); margin-bottom: 10px; }
+.hero-tagline { font-size: 1.28rem; line-height: 1.72; }
 .verified-badge {
   display: inline-flex;
   align-items: center;
@@ -1323,7 +1300,7 @@ a { color: inherit; text-decoration: none; }
 .persona-grid, .album-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .persona-grid-single { grid-template-columns: minmax(0, 1fr); max-width: 420px; }
 .persona-hero-grid { display: grid; grid-template-columns: minmax(260px, 360px) 1fr; gap: 22px; align-items: start; }
-.persona-portrait-wrap { max-width: 360px; }
+.persona-portrait-wrap { max-width: 360px; }\n.persona-title-large { font-size: clamp(2rem, 3.2vw, 2.6rem); line-height: 1.08; }\n.persona-hero-grid p { font-size: 1.14rem; line-height: 1.78; }
 .album-section .album-art-wrap { max-width: 420px; }
 .tracklist-wrap { display: flex; }
 .tracklist-card {
@@ -1439,9 +1416,8 @@ a { color: inherit; text-decoration: none; }
   .app-shell { grid-template-columns: 1fr; }
   .sidebar { position: static; height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.06); }
   .author-hero, .album-grid, .persona-grid, .persona-hero-grid { grid-template-columns: 1fr; }
-  .hero-headshot-topright {
-    position: static;
-    margin-bottom: 16px;
+  .hero-stats-header {
+    flex-wrap: wrap;
   }
   .hero-copy-wide { max-width: 100%; }
 }
