@@ -26,7 +26,7 @@ EXPERTISE_SCRIPT = BASE_DIR / "author_expertise_llama31_v4.py"
 PERSONA_SCRIPT = BASE_DIR / "author_persona_llama31_v4.py"
 ALBUM_SCRIPT = BASE_DIR / "generate_album_covers.py"
 HEADSHOT_SCRIPT = BASE_DIR / "generate_musician_headshot_v10.py"
-SITE_SCRIPT = BASE_DIR / "generate_valiantwrapped_site_solo_v4.py"
+SITE_SCRIPT = BASE_DIR / "generate_valiantwrapped_site_solo_v5.py"
 
 ALLOWED_CSV_EXTENSIONS = {".csv"}
 ALLOWED_HEADSHOT_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
