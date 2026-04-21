@@ -1867,14 +1867,15 @@ def collect_authors(
         if musician_headshots_dir.exists()
         else {}
     )
-    professional_headshot_map = (
-        list_normalized_file_map(
+    professional_headshot_files = (
+        sorted(
             p for p in professional_headshots_dir.glob("*.*")
             if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}
         )
         if professional_headshots_dir.exists()
-        else {}
+        else []
     )
+    solo_professional_headshot_filename = professional_headshot_files[0].name if professional_headshot_files else ""
 
     # Build the page list only from core record sources so normalized fallback keys
     # used for portrait/cover lookup do not create duplicate author pages.
@@ -1913,8 +1914,7 @@ def collect_authors(
         cover_path = cover_map.get(label) or cover_map.get(normalized_label)
         portrait_path = portrait_map.get(
             label) or portrait_map.get(normalized_label)
-        professional_headshot_path = professional_headshot_map.get(
-            label) or professional_headshot_map.get(normalized_label)
+        professional_headshot_filename = solo_professional_headshot_filename
         lifetime_metrics = lifetime_metrics_map.get(label) or lifetime_metrics_map.get(normalized_label) or Metrics()
         current_metrics = metrics_map.get(label) or metrics_map.get(normalized_label, Metrics())
         effective_metrics = current_metrics if has_current_year_stats(current_metrics) else lifetime_metrics
@@ -1932,7 +1932,7 @@ def collect_authors(
                 persona=persona,
                 cover_filename=cover_path.name if cover_path else "",
                 musician_portrait_filename=portrait_path.name if portrait_path else "",
-                professional_headshot_filename=professional_headshot_path.name if professional_headshot_path else "",
+                professional_headshot_filename=professional_headshot_filename,
                 recommendations=recommendations,
                 recommendation_fallback=fallback,
             )
@@ -1951,9 +1951,11 @@ def collect_authors(
         print(f"[collect] recommendation labels: {len(rec_map)}")
         print(f"[collect] cover labels: {len(cover_map)}")
         print(f"[collect] portrait labels: {len(portrait_map)}")
-        print(f"[collect] professional headshot labels: {len(professional_headshot_map)}")
+        print(f"[collect] professional headshot files: {len(professional_headshot_files)}")
         print(f"[collect] canonical page labels: {len(labels)}")
         print(f"[collect] total assembled authors: {len(authors)}")
+        if len(professional_headshot_files) > 1:
+            print(f"[collect] warning: multiple professional headshots found in solo mode; using the first file: {professional_headshot_files[0].name}")
 
         missing_expertise = [
             a.author_label for a in authors if not a.expertise_summary]
