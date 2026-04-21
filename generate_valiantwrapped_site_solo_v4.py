@@ -997,13 +997,19 @@ def author_page_markup(author: AuthorRecord, project_title: str, tagline: str, c
 
     <main class="main-panel">
       <section class="hero author-hero hero-with-headshot">
-        <div class="hero-grid">
-          <div class="hero-headshot-wrap">
+        <div class="hero-relative">
+          <div class="hero-headshot-topright">
             {professional_headshot_markup(author, depth_prefix='')}
           </div>
           <div class="hero-copy hero-copy-wide">
             <div class="eyebrow">{html_escape(project_title)}</div>
-            <h1 class="hero-name">{html_escape(author.display_name)}</h1>
+            <div class="hero-name-row">
+              <h1 class="hero-name">{html_escape(author.display_name)}</h1>
+              <span class="verified-badge" aria-label="Verified researcher" title="Verified researcher">
+                <span class="verified-badge-dot">✓</span>
+                <span class="verified-badge-text">Verified researcher</span>
+              </span>
+            </div>
             <p class="section-copy hero-stats-copy hero-tagline">{html_escape(tagline)}</p>
             <div class="hero-stats-block">
               <div class="hero-stats-title">Lifetime Scopus Stats</div>
@@ -1182,26 +1188,74 @@ a { color: inherit; text-decoration: none; }
 .hero-copy-only { max-width: 100%; }
 .hero-no-art .hero-copy { max-width: 980px; }
 .hero-copy { max-width: 850px; }
-.hero-copy-wide { max-width: 100%; }
+.hero-copy-wide { max-width: calc(100% - 210px); }
 .hero-stats-block { margin-top: 24px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); }
-.hero-stats-title { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px; color: var(--green-2); }
+.hero-stats-title { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px; color: #ffffff; }
 .hero-stats-copy { max-width: 860px; }
 .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--green-2); font-weight: 700; }
 .hero h1 { margin: 8px 0 14px; font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: .95; letter-spacing: -.04em; }
-.hero-grid { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: center; }
-.hero-headshot-wrap { display: flex; align-items: center; justify-content: center; }
+.hero-relative { position: relative; }
+.hero-headshot-topright {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  z-index: 2;
+}
+.hero-headshot-topright::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(30,215,96,.22) 0%, rgba(30,215,96,0) 68%);
+  filter: blur(8px);
+  z-index: -1;
+}
 .pro-headshot {
-  width: 170px;
-  height: 170px;
+  width: 158px;
+  height: 158px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid rgba(29,185,84,.6);
-  box-shadow: 0 10px 24px rgba(0,0,0,.38);
+  border: 3px solid rgba(29,185,84,.5);
+  box-shadow: 0 10px 24px rgba(0,0,0,.38), 0 0 0 1px rgba(255,255,255,.05);
   display: block;
   background: linear-gradient(135deg, #161616, #0c0c0c);
 }
-.hero-name { font-size: clamp(3.1rem, 6vw, 5.4rem); margin-bottom: 16px; }
-.hero-tagline { font-size: 1.16rem; line-height: 1.65; }
+.hero-name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-name { font-size: clamp(3.2rem, 6vw, 5.6rem); margin-bottom: 10px; }
+.hero-tagline { font-size: 1.18rem; line-height: 1.68; }
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  color: #f4f4f4;
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  box-shadow: 0 0 18px rgba(30,215,96,.10);
+}
+.verified-badge-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(30,215,96,1), rgba(29,185,84,1));
+  color: #08130b;
+  font-size: .86rem;
+  font-weight: 900;
+  box-shadow: 0 0 14px rgba(30,215,96,.28);
+}
+.verified-badge-text { white-space: nowrap; }
 .lede { font-size: 1.16rem; line-height: 1.55; max-width: 760px; color: #f0f0f0; }
 .support { color: var(--muted); max-width: 720px; line-height: 1.6; }
 .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
@@ -1385,8 +1439,11 @@ a { color: inherit; text-decoration: none; }
   .app-shell { grid-template-columns: 1fr; }
   .sidebar { position: static; height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.06); }
   .author-hero, .album-grid, .persona-grid, .persona-hero-grid { grid-template-columns: 1fr; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-headshot-wrap { justify-content: flex-start; }
+  .hero-headshot-topright {
+    position: static;
+    margin-bottom: 16px;
+  }
+  .hero-copy-wide { max-width: 100%; }
 }
 @media (max-width: 640px) {
   .main-panel { padding: 16px; }
