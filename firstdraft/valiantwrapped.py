@@ -1,5 +1,0 @@
-python author_expertise_llama31_2.py
-
-python author_persona_llama31.py
-
-python generate_valiantwrapped_site.py
